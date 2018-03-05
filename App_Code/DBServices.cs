@@ -142,7 +142,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', {3}, {4}, '{5}')", emp.CategoryId, emp.Title, emp.ImagePath, emp.Price, emp.Inventory, emp.Active);
+        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', {3}, {4}, '{5}')"/*, emp.CategoryId, emp.Title, emp.ImagePath, emp.Price, emp.Inventory, emp.Active*/);
         String prefix = "INSERT INTO productN " + "(category_id, title, img_url, price, inventory, active) ";
         command = prefix + sb.ToString();
 
@@ -223,7 +223,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE productN SET inventory = " + emp.Inventory + " Where product_id = " + emp.ProductId;
+        String prefix = "UPDATE productN SET inventory = " /*+ emp.Inventory + " Where product_id = " + emp.ProductId*/;
         command = prefix;
 
         return command;
