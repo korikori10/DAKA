@@ -367,4 +367,15 @@ public class Employee
             disable_reason = value;
         }
     }
+
+
+    public List<Employee> getEmployees()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.readEmployees();
+
+        return LE;
+        //
+    }
 }
