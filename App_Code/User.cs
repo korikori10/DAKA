@@ -100,4 +100,14 @@ public class User
         // TODO: Add constructor logic here
         //
     }
+
+    public User(int uid, string u_name, string u_pwd, string full_name, int u_type_code, int phone)
+    {
+        this.uid = uid;
+        this.u_name = u_name;
+        this.u_pwd = u_pwd;
+        this.full_name = full_name;
+        this.u_type_code = u_type_code;
+        this.phone = phone;
+    }
 }
