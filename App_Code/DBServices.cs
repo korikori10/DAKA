@@ -45,7 +45,30 @@ public class DBServices
             {   // Read till the end of the data into a row
                 Employee e = new Employee();
                 e.Employee_pass_id = dr["employee_pass_id"].ToString();
+                e.Lname = dr["lname"].ToString();
+                e.Fname = dr["fname"].ToString();
+                e.Birthday =Convert.ToDateTime( dr["birthday"]);
+                e.Gender = Convert.ToBoolean(dr["gender"]);
+                e.Picture = dr["Picture"].ToString();
+                e.Origin_country =Convert.ToInt16(dr["origin_country"]);
+                e.Il_citizen = Convert.ToBoolean(dr["il_citizen"]);
+                e.Add_city= Convert.ToInt16(dr["add_city"]);
+                e.Add = dr["add"].ToString();
+                e.Add_num= Convert.ToInt16(dr["add_num"]);
+                e.Phone= Convert.ToInt16(dr["phone"]);
+                e.Com_app = Convert.ToBoolean(dr["com_app"]);
+                e.Sys_id = Convert.ToInt16(dr["michpal_id"]);
+                e.Insurance = Convert.ToBoolean(dr["insurance"]); 
+                e.Com_insurance = Convert.ToBoolean(dr["com_insurance"]);
+                e.Fam_stat_code = Convert.ToInt16(dr["fam_stat_code"]); 
+                e.Salary_hour = Convert.ToInt16(dr["salary_hour"]); 
+                e.Salary_overtime = Convert.ToInt16(dr["salary_overtime"]);
+                e.Salary_trans= Convert.ToInt16(dr["salary_trans"]);
+                e.Day_off = Convert.ToInt16(dr["day_off_id"]);
+                e.Sabatical = Convert.ToInt16(dr["sabatical"]);
+                e.Occupation_code = Convert.ToInt16(dr["occupation_code"]);
                 e.Active = Convert.ToBoolean(dr["active"]);
+                e.Disable_reason = dr["disable_reason"].ToString();
 
                 Employees.Add(e);
             }
