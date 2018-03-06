@@ -127,4 +127,16 @@ public class Business
         // TODO: Add constructor logic here
         //
     }
+
+    public Business(int bus_id, string bus_name, int add_city, string add, int add_num, int phone, int bus_type_code, int contract_code)
+    {
+        this.bus_id = bus_id;
+        this.bus_name = bus_name;
+        this.add_city = add_city;
+        this.add = add;
+        this.add_num = add_num;
+        this.phone = phone;
+        this.bus_type_code = bus_type_code;
+        this.contract_code = contract_code;
+    }
 }
