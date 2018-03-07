@@ -1,12 +1,12 @@
 ﻿CategoryInfo = new Object();
 ProductInfo = new Object();
 
-$(document).on('pagebeforeshow', '#home', function () {
-    getCategory(renderCategory);
+$(document).on('pagebeforeshow', '#add-links', function () {
+    getEmployees(renderEmployees);
 });
 
 
-function renderCategory(results) {
+function renderEmployees(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
     $('#DynamicList').empty();

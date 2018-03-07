@@ -1,10 +1,11 @@
-﻿function getCategory(renderCategory) {
+﻿function getEmployees(renderEmployees) {
     $.ajax({
-        url: 'ajaxWebService.asmx/getCategory',
+        url: 'ajaxWebService.asmx/getEmployees',
         type: 'POST',
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
+            console.log(results);
             renderCategory(results);
         },
         error: function (request, error) {
