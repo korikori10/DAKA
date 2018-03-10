@@ -1,20 +1,19 @@
 ﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script>
-        $(function () {
+<script>
+    $(function () {
 
-            $("#add-links").load("header.html");
-            $("#add-footer").load("footer.html");
-        });
-    </script>
+        $("#add-links").load("header1.html");
+        $("#add-footer").load("footer.html");
+    });
+</script>
 
 
-    <div id="add-links"></div>
+<div id="add-links"></div>
     <!-- עובדים לא פעילים-->
-    <!-- <div class="content-body">-->
     <!-- Zero configuration table -->
     <section id="configuration">
-        <div class="row">
+        <div class="row clearfix">
             <div class="col-xs-12">
                 <div class="card">
                     <div class="card-header">
@@ -43,33 +42,33 @@
                                         <th>Salary</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                  
-
-                                </tbody>
+                                <tbody></tbody>
 
                             </table>
                             <script type="text/javascript">
                                 $(document).ready(function () {
-                                    
+
                                     var table = $("#EmployeesTable");
                                     table.DataTable({
 
                                         "bLengthChange": false,
-           
+
                                         "ajax": {
                                             'url': 'ajaxWebService.asmx/getEmployees',
-                                            'type': "POST"
+                                            'type': "POST",
+                                            'datatype': "JSON"
                                         },
                                         rowId: 'id',
                                         "columns": [
-                                            { "data": "row" },
+                                            { 'data': 'Employee_pass_id' },
+                                            { 'data': 'Fname' },
+                                            { 'data': 'Lname' },
                                         ]
 
                                     });
 
                                 });
-                                
+
                             </script>
                         </div>
                     </div>
@@ -79,5 +78,6 @@
     </section>
 
 
-    <div id="add-footer"></div>
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+<div id="add-footer"></div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
