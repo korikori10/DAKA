@@ -9,7 +9,7 @@
 </script>
 
 
-<div id="add-links">
+<div id="add-links"></div>
     <!-- עובדים לא פעילים-->
     <!-- Zero configuration table -->
     <section id="configuration">
@@ -55,11 +55,14 @@
 
                                         "ajax": {
                                             'url': 'ajaxWebService.asmx/getEmployees',
-                                            'type': "POST"
+                                            'type': "POST",
+                                            'datatype': "JSON"
                                         },
                                         rowId: 'id',
                                         "columns": [
-                                            { "data": "row" },
+                                            { 'data': 'Employee_pass_id' },
+                                            { 'data': 'Fname' },
+                                            { 'data': 'Lname' },
                                         ]
 
                                     });
@@ -73,7 +76,7 @@
             </div>
         </div>
     </section>
-</div>
+
 
 
 <div id="add-footer"></div>
