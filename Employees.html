@@ -8,75 +8,84 @@
     });
 </script>
 
+<div id="add-links">
 
-<div id="add-links"></div>
-    <!-- עובדים לא פעילים-->
-    <section id="ajax">
-        <div class="row clearfix">
-            <div class="col-xs-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">טבלת עובדים</h4>
-                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                            </ul>
+</div>
+
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+
+        <!-- עובדים לא פעילים-->
+        <section id="ajax">
+            <div class="row clearfix">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">טבלת עובדים</h4>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body collapse in">
-                        <div class="card-block card-dashboard">
-                            <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                            <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical no-footer" role="grid" style="margin-left: 0px; width: 1281px;" id="EmployeesTable">
-                                <thead>
-                                    <tr>
-                                        <th>שם</th>
-                                        <th>תפקיד</th>
-                                        <th>Office</th>
-                                        <!--<th>גיל</th>
-                                        <th>תאריך תחילת עבודה</th>
-                                        <th>Salary</th>-->
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
+                        <div class="card-body collapse in">
+                            <div class="card-block card-dashboard">
+                                <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
+                                <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical no-footer" role="grid" style="margin-left: 0px; width: 1281px;" id="EmployeesTable">
+                                    <thead>
+                                        <tr>
+                                            <th>שם</th>
+                                            <th>תפקיד</th>
+                                            <th>Office</th>
+                                            <!--<th>גיל</th>
+                                            <th>תאריך תחילת עבודה</th>
+                                            <th>Salary</th>-->
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
 
-                            </table>
-                            <script type="text/javascript">
-                                $(document).ready(function () {
+                                </table>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
 
-                                    var table = $("#EmployeesTable");
-                                    table.DataTable({
+                                        var table = $("#EmployeesTable");
+                                        table.DataTable({
 
-                                        "bLengthChange": false,
+                                            "bLengthChange": false,
 
-                                        "ajax": {
-                                            'url': 'ajaxWebService.asmx/getEmployees',
-                                            'type': "POST",
-                                            'datatype': "JSON"
-                                        },
-                                        rowId: 'id',
-                                        "columns": [
-                                            { 'data': 'Employee_pass_id' },
-                                            { 'data': 'Fname' },
-                                            { 'data': 'Lname' },
-                                        ]
+                                            "ajax": {
+                                                'url': 'ajaxWebService.asmx/getEmployees',
+                                                'type': "POST",
+                                                'datatype': "JSON"
+                                            },
+                                            rowId: 'id',
+                                            "columns": [
+                                                { 'data': 'Employee_pass_id' },
+                                                { 'data': 'Fname' },
+                                                { 'data': 'Lname' },
+                                            ]
+
+                                        });
 
                                     });
 
-                                });
-
-                            </script>
+                                </script>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+</div>
 
 
 
-<div id="add-footer"></div>
+<div id="add-footer">
+
+</div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
