@@ -86,23 +86,23 @@ public class DBServices
                 e.Birthday =Convert.ToDateTime( dr["birthday"]);
                 e.Gender = Convert.ToBoolean(dr["gender"]);
                 e.Picture = dr["Picture"].ToString();
-                e.Origin_country =Convert.ToInt16(dr["origin_country"]);
+                e.Origin_country =Convert.ToInt32(dr["origin_country"]);
                 e.Il_citizen = Convert.ToBoolean(dr["il_citizen"]);
-                e.Add_city= Convert.ToInt16(dr["add_city"]);
+                e.Add_city= Convert.ToInt32(dr["add_city"]);
                 e.Add = dr["add"].ToString();
-                e.Add_num= Convert.ToInt16(dr["add_num"]);
-                e.Phone= Convert.ToInt16(dr["phone"]);
+                e.Add_num= Convert.ToInt32(dr["add_num"]);
+                e.Phone= Convert.ToInt32(dr["phone"]);
                 e.Com_app = Convert.ToBoolean(dr["com_app"]);
-                e.Sys_id = Convert.ToInt16(dr["michpal_id"]);
+                e.Sys_id = Convert.ToInt32(dr["michpal_id"]);
                 e.Insurance = Convert.ToBoolean(dr["insurance"]); 
                 e.Com_insurance = Convert.ToBoolean(dr["com_insurance"]);
-                e.Fam_stat_code = Convert.ToInt16(dr["fam_stat_code"]); 
-                e.Salary_hour = Convert.ToInt16(dr["salary_hour"]); 
-                e.Salary_overtime = Convert.ToInt16(dr["salary_overtime"]);
-                e.Salary_trans= Convert.ToInt16(dr["salary_trans"]);
-                e.Day_off = Convert.ToInt16(dr["day_off_id"]);
-                e.Sabatical = Convert.ToInt16(dr["sabatical"]);
-                e.Occupation_code = Convert.ToInt16(dr["occupation_code"]);
+                e.Fam_stat_code = Convert.ToInt32(dr["fam_stat_code"]); 
+                e.Salary_hour = Convert.ToInt32(dr["salary_hour"]); 
+                e.Salary_overtime = Convert.ToInt32(dr["salary_overtime"]);
+                e.Salary_trans= Convert.ToInt32(dr["salary_trans"]);
+                e.Day_off = Convert.ToInt32(dr["day_off_id"]);
+                e.Sabatical = Convert.ToInt32(dr["sabatical"]);
+                e.Occupation_code = Convert.ToInt32(dr["occupation_code"]);
                 e.Active = Convert.ToBoolean(dr["active"]);
                 e.Disable_reason = dr["disable_reason"].ToString();
 
@@ -151,7 +151,7 @@ public class DBServices
             Employee Emp = new Employee();
             while (dr.Read())
             {
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt16(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt16(dr["add_city"]), dr["add"].ToString(), Convert.ToInt16(dr["add_num"]), Convert.ToInt16(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt16(dr["michpal_id"]), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt16(dr["fam_stat_code"]), Convert.ToInt16(dr["salary_hour"]), Convert.ToInt16(dr["salary_overtime"]), Convert.ToInt16(dr["salary_trans"]), Convert.ToInt16(dr["day_off_id"]), Convert.ToInt16(dr["sabatical"]), Convert.ToInt16(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(dr["michpal_id"]), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
             }
             return Emp;
         }
@@ -189,14 +189,14 @@ public class DBServices
             while (dr.Read())
             {   // Read till the end of the data into a row
                 Business b = new Business();           
-                b.Bus_id = Convert.ToInt16(dr["bus_id"]);
+                b.Bus_id = Convert.ToInt32(dr["bus_id"]);
                 b.Bus_name = dr["bus_name"].ToString();
-                b.Add_city = Convert.ToInt16(dr["add_city"]);
+                b.Add_city = Convert.ToInt32(dr["add_city"]);
                 b.Add = dr["add"].ToString();
-                b.Add_num = Convert.ToInt16(dr["add_num"]);
-                b.Phone = Convert.ToInt16(dr["phone"]);
-                b.Bus_type_code = Convert.ToInt16(dr["bus_type_code"]);
-                b.Contract_code = Convert.ToInt16(dr["contract_code"]);   
+                b.Add_num = Convert.ToInt32(dr["add_num"]);
+                b.Phone = Convert.ToInt32(dr["phone"]);
+                b.Bus_type_code = Convert.ToInt32(dr["bus_type_code"]);
+                b.Contract_code = Convert.ToInt32(dr["contract_code"]);   
                 businesses.Add(b);
             }
 
@@ -236,7 +236,7 @@ public class DBServices
             Business Busi = new Business();
             while (dr.Read())
             {
-                Busi = new Business(Convert.ToInt16(dr["bus_id"]),dr["bus_name"].ToString(),Convert.ToInt16(dr["add_city"]),dr["add"].ToString(),Convert.ToInt16(dr["add_num"]),Convert.ToInt16(dr["phone"]), Convert.ToInt16(dr["bus_type_code"]),Convert.ToInt16(dr["contract_code"]));
+                Busi = new Business(Convert.ToInt32(dr["bus_id"]),dr["bus_name"].ToString(),Convert.ToInt32(dr["add_city"]),dr["add"].ToString(),Convert.ToInt32(dr["add_num"]),Convert.ToInt32(dr["phone"]), Convert.ToInt32(dr["bus_type_code"]),Convert.ToInt32(dr["contract_code"]));
             }
            return Busi;
            
@@ -278,12 +278,12 @@ public class DBServices
             {   // Read till the end of the data into a row
                 User u = new User(); 
             
-                u.Uid =Convert.ToInt16(dr["uid"]);
+                u.Uid =Convert.ToInt32(dr["uid"]);
                 u.U_name = dr["u_name"].ToString();
                 u.U_pwd = dr["u_pwd"].ToString();
                 u.Full_name= dr["full_name"].ToString();
-                u.U_type_code = Convert.ToInt16(dr["U_type_code"]);
-                u.Phone = Convert.ToInt16(dr["phone"]);
+                u.U_type_code = Convert.ToInt32(dr["U_type_code"]);
+                u.Phone = Convert.ToInt32(dr["phone"]);
 
 
                Users.Add(u);
@@ -330,7 +330,7 @@ public class DBServices
             User user = new User();
             while (dr.Read())
             {
-                user = new User(Convert.ToInt16(dr["uid"]), dr["u_name"].ToString(), dr["u_pwd"].ToString(), dr["full_name"].ToString(), Convert.ToInt16(dr["U_type_code"]), Convert.ToInt16(dr["phone"]));
+                user = new User(Convert.ToInt32(dr["uid"]), dr["u_name"].ToString(), dr["u_pwd"].ToString(), dr["full_name"].ToString(), Convert.ToInt32(dr["U_type_code"]), Convert.ToInt32(dr["phone"]));
             }
             return user;
 
@@ -411,7 +411,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', {3}, {4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}')", emp.Employee_pass_id, emp.Lname, emp.Fname, emp.Birthday, emp.Gender, emp.Picture, emp.Origin_country, emp.Il_citizen, emp.Add_city, emp.Add, emp.Add_num, emp.Phone, emp.Com_app, emp.Sys_id, emp.Insurance, emp.Com_insurance, emp.Fam_stat_code, emp.Salary_hour, emp.Salary_overtime, emp.Salary_trans, emp.Day_off, emp.Sabatical, emp.Occupation_code, emp.Active, emp.Disable_reason);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', {3}, {4},'{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{32}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}')", emp.Employee_pass_id, emp.Lname, emp.Fname, emp.Birthday, emp.Gender, emp.Picture, emp.Origin_country, emp.Il_citizen, emp.Add_city, emp.Add, emp.Add_num, emp.Phone, emp.Com_app, emp.Sys_id, emp.Insurance, emp.Com_insurance, emp.Fam_stat_code, emp.Salary_hour, emp.Salary_overtime, emp.Salary_trans, emp.Day_off, emp.Sabatical, emp.Occupation_code, emp.Active, emp.Disable_reason);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
         String prefix = "INSERT INTO EMPLOYEE " + "(employee_pass_id,lname,fname,birthday,gender,Picture,origin_country,il_citizen,add_city,add,add_num,phone,com_app,michpal_id,insurance,com_insurance,fam_stat_code,salary_hour,salary_overtime,salary_trans,day_off_id,sabatical, occupation_code,active,disable_reason) ";
         command = prefix + sb.ToString();
 

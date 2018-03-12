@@ -7,7 +7,48 @@
         $("#add-footer").load("footer.html");
     });
 </script>
+<script type="text/javascript">
+                                $(document).ready(function () {
 
+                                    var table = $("#EmployeesTable");
+                                    table.dataTable({
+
+                                        "bLengthChange": false,
+
+                                        "ajax": {
+                                            'url': 'ajaxWebService.asmx/getEmployees',
+                                            'type': "POST",
+                                            'dataType': "JSON"
+                                        },
+                                        rowId: 'id',
+                                        "columns": [
+                                            { 'data': 'Employee_pass_id' },
+                                            { 'data': 'Fname' },
+                                            { 'data': 'Lname' },
+                                        ]
+
+                                    });
+
+                                });
+                                //$(document).ready(function () {
+                                //    $.ajax({
+                                //        url: 'ajaxWebService.asmx/getEmployees',
+                                //        metod: 'POST',
+                                //        dataType: 'JSON',
+                                //        success: function (data) {
+                                //            $('#EmployeesTable').dataTable({
+                                //                data: data,
+                                //                columns:[
+                                //            { 'data': 'Employee_pass_id' },
+                                //            { 'data': 'Fname' },
+                                //            { 'data': 'Lname' },
+                                //            ]});
+                                //        }
+
+                                //    });
+
+                                //});
+</script>
 
 <div id="add-links"></div>
     <!-- עובדים לא פעילים-->
@@ -27,6 +68,7 @@
                             </ul>
                         </div>
                     </div>
+                          
                     <div class="card-body collapse in">
                         <div class="card-block card-dashboard">
                             <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
@@ -44,31 +86,6 @@
                                 <tbody></tbody>
 
                             </table>
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-
-                                    var table = $("#EmployeesTable");
-                                    table.DataTable({
-
-                                        "bLengthChange": false,
-
-                                        "ajax": {
-                                            'url': 'ajaxWebService.asmx/getEmployees',
-                                            'type': "POST",
-                                            'datatype': "JSON"
-                                        },
-                                        rowId: 'id',
-                                        "columns": [
-                                            { 'data': 'Employee_pass_id' },
-                                            { 'data': 'Fname' },
-                                            { 'data': 'Lname' },
-                                        ]
-
-                                    });
-
-                                });
-
-                            </script>
                         </div>
                     </div>
                 </div>

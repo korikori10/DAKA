@@ -1,12 +1,12 @@
 ﻿function getEmployees(renderEmployees) {
     $.ajax({
-        url: 'ajaxWebService.asmx/getEmployees',
+        url: 'AJAXWebService.asmx/getEmployees',
         type: 'POST',
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
             console.log(results);
-            renderCategory(results);
+            renderEmployees(results);
         },
         error: function (request, error) {
             alert('Network error has occurred please try again!');
