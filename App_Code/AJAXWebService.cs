@@ -25,15 +25,17 @@ public class AJAXWebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string getEmployees()
+    public void getEmployees()
     {
         Employee e = new Employee();
         List<Employee> LE = e.getEmployees();
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
-        return jsonStringCategory;
-        
+        var jsonStringCategory =  js.Serialize(LE) ;
+       // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
+        // return jsonStringCategory;
+        Context.Response.Write(jsonStringCategory);
+
     }
 
 }
