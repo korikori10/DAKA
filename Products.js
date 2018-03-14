@@ -19,6 +19,7 @@ function renderEmployees(results) {
    
     )
 }
+
 $(document).on('vclick', '#DynamicList li a', function () {
     CategoryInfo.id = $(this).attr('data-id');
     getProductsByCat(CategoryInfo, renderProducts);
@@ -80,6 +81,15 @@ function renderFullProduct(results) {
 }
 
 
+$delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
+$edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
+function DataTableButton(button) {
 
+    var buttons;
+
+    buttons = button.join(" ");
+   
+    return buttons;
+}
 
 

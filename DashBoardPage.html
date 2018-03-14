@@ -9,6 +9,8 @@
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Dashboard</title>
+    <script src="Products.js"></script>
+    <script src="Dash.js"></script>
     <link rel="apple-touch-icon" sizes="60x60" href="app-assets/images/ico/apple-icon-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="app-assets/images/ico/apple-icon-76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="app-assets/images/ico/apple-icon-120.png">
@@ -43,21 +45,21 @@
     <!-- END Custom CSS-->
     <title></title>
 </head>
-<body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
+<body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar menu-collapsed">
     <!-- - var navbarCustom = "navbar-fixed-top navbar-semi-dark navbar-shadow"-->
     <!-- navbar-fixed-top-->
     <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-dark navbar-shadow">
         <div class="navbar-wrapper">
             <div class="navbar-header">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a></li>
+                    <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a id="tog" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a></li>
                     <li class="nav-item"><a href="index.html" class="navbar-brand nav-link"><img alt="branding logo" src="app-assets/images/logo/robust-logo-light.png" data-expand="app-assets/images/logo/robust-logo-light.png" data-collapse="app-assets/images/logo/robust-logo-small.png" class="brand-logo"></a></li>
                     <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="icon-ellipsis pe-2x icon-icon-rotate-right-right"></i></a></li>
                 </ul>
             </div>
             <div class="navbar-container content container-fluid">
                 <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
-                    <ul class="nav navbar-nav">
+                    <ul id="navvv" class="nav navbar-nav">
                         <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5"></i></a></li>
                     </ul>
                     <ul class="nav navbar-nav float-xs-right">
@@ -85,14 +87,14 @@
         <div class="main-menu-content">
             <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
                 <!--<li class=" nav-item">
-                    <a href="html/rtl/vertical-menu-template/index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
-                </li>-->
+        <a href="html/rtl/vertical-menu-template/index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
+    </li>-->
                 <li class=" nav-item">
                     <a href="DashBoardPage.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">מסך הבית</span></a>
 
                 </li>
                 <li class=" nav-item">
-                    <a href="#"><i class="icon-users3"></i><span class="menu-title">עובדים</span></a>
+                    <a href="Employees.html"><i class="icon-users3"></i><span class="menu-title">עובדים</span></a>
                 </li>
                 <li class=" nav-item">
                     <a href="#"><i class="icon-briefcase4"></i><span class="menu-title">עסקים</span></a>
@@ -146,8 +148,8 @@
                     </ol>
                 </div>
                 <div class="content-header-left col-md-6 col-xs-12">
-                    <h3 class="content-header-title mb-0">Dark Layout</h3>
-                    <p class="text-muted mb-0">Dark template layout</p>
+                    <!--<h3 class="content-header-title mb-0">Dark Layout</h3>
+                    <p class="text-muted mb-0">Dark template layout</p>-->
                 </div>
                 <div class="content-header-right col-md-6 col-xs-12">
                     <div role="group" aria-label="Button group with nested dropdown" class="btn-group float-md-right">
@@ -158,15 +160,15 @@
                     </div>
                 </div>
                 <div class="content-header-lead col-xs-12 mt-1">
-                    <p class="lead">The dark layout has dark version navbar, navigation &amp; footer.</p>
+                   <!-- <p class="lead">The dark layout has dark version navbar, navigation &amp; footer.</p>-->
                 </div>
             </div>
             <div class="content-body">
-                <section class="row">
+                <section class="row" >
                     <div class="col-sm-12">
                         <!-- statistics -->
                         <div class="row">
-                            <div class="col-xs-6 ">
+                            <div class="col-xs-8 ">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="card-block">
@@ -212,61 +214,183 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--</div>-->
-                            <!--/ statistics-->
-                            <!--/ update tables-->
-                            <!--<section id="configuration">
-                            <div class="row">-->
-                            <!--עובדים חדשים-->
-                            <div class="col-xs-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">עובדים חדשים</h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
+
+                                <!--/ statistics-->
+                                <!--/ searchbox-->
+                                <div class="col-xs-12">
+                                    <!--או 8 אם רוצים שיהיה שם כפתורים של דוחות הוספת עובד וזה-->
+
+                                    <fieldset class="form-group position-relative">
+                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש עובד ...">
+                                        <div class="form-control-position">
+                                            <i class="icon-search7 font-medium-4"></i>
                                         </div>
-                                    </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block card-dashboard">
-                                            <!--<p class="card-text">לככטוע</p>-->
-                                            <table class="table table-striped compact table-bordered zero-configuration">
-                                                <thead>
-                                                    <tr>
-                                                        <th>מספר מכפל</th>
-                                                        <th>שם העובד</th>
-                                                        <th>מקום עבודה</th>
-                                                        <th>פעולות</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-icon btn-primary "><i class="icon-user-plus2"></i></button>
-                                                            <button type="button" class="btn btn-icon btn-info "><i class="icon-file-text3"></i></button>
-                                                        </td>
-                                                    </tr>
+                                    </fieldset>
+                                    <fieldset class="form-group position-relative">
+                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ...">
+                                        <div class="form-control-position">
+                                            <i class="icon-search7 font-medium-4"></i>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <!--/ searchbox-->
 
 
-                                                </tbody>
+                                <!-- עובדים לא פעילים-->
+                                <div class="col-xs-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">עובדים לא פעילים</h4>
+                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse in">
+                                            <div class="card-block card-dashboard">
+                                                <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
+                                                <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical dataTable no-footer" role="grid" style="margin-left: 0px; width: 1281px;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>שם</th>
+                                                            <th>תפקיד</th>
+                                                            <th>Office</th>
+                                                            <th>גיל</th>
+                                                            <th>תאריך תחילת עבודה</th>
+                                                            <th>Salary</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>System Architect</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>61</td>
+                                                            <td>2011/04/25</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Garrett Winters</td>
+                                                            <td>Accountant</td>
+                                                            <td>Tokyo</td>
+                                                            <td>63</td>
+                                                            <td>2011/07/25</td>
+                                                            <td>$170,750</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ashton Cox</td>
+                                                            <td>Junior Technical Author</td>
+                                                            <td>San Francisco</td>
+                                                            <td>66</td>
+                                                            <td>2009/01/12</td>
+                                                            <td>$86,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cedric Kelly</td>
+                                                            <td>Senior Javascript Developer</td>
+                                                            <td>Edinburgh</td>
+                                                            <td>22</td>
+                                                            <td>2012/03/29</td>
+                                                            <td>$433,060</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Airi Satou</td>
+                                                            <td>Accountant</td>
+                                                            <td>Tokyo</td>
+                                                            <td>33</td>
+                                                            <td>2008/11/28</td>
+                                                            <td>$162,700</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Brielle Williamson</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>New York</td>
+                                                            <td>61</td>
+                                                            <td>2012/12/02</td>
+                                                            <td>$372,000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Herrod Chandler</td>
+                                                            <td>Sales Assistant</td>
+                                                            <td>San Francisco</td>
+                                                            <td>59</td>
+                                                            <td>2012/08/06</td>
+                                                            <td>$137,500</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Rhona Davidson</td>
+                                                            <td>Integration Specialist</td>
+                                                            <td>Tokyo</td>
+                                                            <td>55</td>
+                                                            <td>2010/10/14</td>
+                                                            <td>$327,900</td>
+                                                        </tr>
 
-                                            </table>
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- עובדים לא פעילים-->
+                                <!--/ update tables-->
                             </div>
-                            <!--עובדים חדשים-->
+                                <!--עובדים חדשים-->
+                                <div class="col-xs-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">עובדים חדשים</h4>
+                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse in">
+                                            <div class="card-block card-dashboard">
+                                                <!--<p class="card-text">לככטוע</p>-->
+                                                <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>מספר מכפל</th>
+                                                            <th>שם העובד</th>
+                                                            <th>מקום עבודה</th>
+                                                            <th>פעולות</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>System Architect</td>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-icon btn-primary "><i class="icon-user-plus2"></i></button>
+                                                                <button type="button" class="btn btn-icon btn-info "><i class="icon-file-text3"></i></button>
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--עובדים חדשים-->
+
                             <!--חידושי ויזה-->
-                            <div class="col-xs-6" style="float:left;">
+                            <div class="col-xs-4" style="float:left;">
                                 <div class="card">
                                     <div class="card-header">
                                         <h4 class="card-title">חידושי ויזה</h4>
@@ -311,81 +435,69 @@
                                 </div>
                             </div>
                             <!--חידושי ויזה-->
-
                         </div>
-                        <!--ממתינים לציוות-->
-                        <div class="col-xs-6" style="float:left;">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">ממתינים לציוות</h4>
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                        </ul>
+                                <!--ממתינים לציוות-->
+                                <div class="col-xs-4" style="float:left;">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">ממתינים לציוות</h4>
+                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse in">
+                                            <div class="card-block card-dashboard">
+                                                <!--<p class="card-text">לככטוע</p>-->
+                                                <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical dataTable no-footer" role="grid" style="margin-left: 0px; width: 1281px;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>מספר עובד</th>
+                                                            <th>שם העובד</th>
+                                                            <th>מקום עבודה אחרון</th>
+                                                            <th>טלפון</th>
+                                                            <th>ימים ללא ציוות</th>
+                                                            <th>פעולות</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>System Architect</td>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>System Architect</td>
+                                                            <td>Tiger Nixon</td>
+                                                            <td>System Architect</td>
+
+                                                        </tr>
+
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body collapse in">
-                                    <div class="card-block card-dashboard">
-                                        <!--<p class="card-text">לככטוע</p>-->
-                                        <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical dataTable no-footer" role="grid" style="margin-left: 0px; width: 1281px;">
-                                            <thead>
-                                                <tr>
-                                                    <th>מספר עובד</th>
-                                                    <th>שם העובד</th>
-                                                    <th>מקום עבודה אחרון</th>
-                                                    <th>טלפון</th>
-                                                    <th>ימים ללא ציוות</th>
-                                                    <th>פעולות</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-
-                                                </tr>
-
-
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--ממתינים לציוות-->
+                                <!--ממתינים לציוות-->
+                            
                     </div>
                 </section>
 
                 <!--/ update tables-->
-                <fieldset style="top:-1220px" class="form-group position-relative col-xs-6">
-                    <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="Explore Robust ...">
-                    <div class="form-control-position">
-                        <i class="icon-search7 font-medium-4"></i>
-                    </div>
-                </fieldset>
-                <fieldset class="form-group position-relative">
-                    <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="Explore Robust ...">
-                    <div class="form-control-position">
-                        <i class="icon-search7 font-medium-4"></i>
-                    </div>
-                </fieldset>
-                <!-- How to-->
-                <!-- עובדים לא פעילים-->
-                <!-- <div class="content-body">-->
-                <!-- Zero configuration table -->
+               
+             
+                
+               
                 <section id="configuration">
                     <div class="row">
-                        <div class="col-xs-6">
-                            <div class="card">
+                        <div class="col-xs-8" >
+                            <div class="card" ><!--style="top:-1280px;"-->
                                 <div class="card-header">
                                     <h4 class="card-title">עובדים לא פעילים</h4>
                                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -487,7 +599,7 @@
                         </div>
                     </div>
                 </section>
-                <!--/ How to-->
+         
             </div>
             <section class="row">
                 <div class="col-md-6 col-sm-12">
