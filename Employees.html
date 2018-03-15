@@ -70,7 +70,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <title>Dashboard</title>
-
+    <script src="Products.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -100,7 +100,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
     <!-- END Custom CSS-->
     <title></title>
-
+    <link href="app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css" rel="stylesheet" />
+    <link href="app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Employees</title>
 
@@ -247,13 +248,17 @@
                                                     return date.getDate() + "/" + month + "/" + date.getFullYear();
                                                 }
                                             },
-                                            { 'data': 'Phone' }
+                                            { 'data': 'Phone' },
 
-                                            //,{
-                                            //    'data': null,
-                                            //    'defaultContent': DataTableButton([$edit_btn, $delete_btn]),
-                                            //    'class': 'hideOverflow'
-                                            //}
+                                            {
+                                               // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
+                                               // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
+
+                                                'data': null,
+                                                'defaultContent': '<a id="dlt" class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a><a id="edit" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>',
+//DataTableButton([$edit_btn, $delete_btn]),
+                                                'class': 'hideOverflow'
+                                            }
 
                                             ]
                                     });

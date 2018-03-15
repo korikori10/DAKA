@@ -81,8 +81,17 @@ function renderFullProduct(results) {
 }
 
 
-$delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
-$edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
+//changePage to Specific Employee
+$("#edit").on("click", function () {
+    //EmployeeInfo.pass = $("#PassTB").val();
+    //getEmployeeById(EmployeeInfo, renderEmployeeByID);
+    //$.mobile.changePage("Employee.html", {
+    //       transition: "slide", changeHash: false
+
+    //    });     
+   window.location = "Employee.html";
+});
+
 function DataTableButton(button) {
 
     var buttons;
