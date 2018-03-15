@@ -30,21 +30,6 @@ $(document).on('vclick', '#DynamicList li a', function () {
 
 });
 
-function renderProducts(results) {
-    //this is the callBackFunc 
-    results = $.parseJSON(results.d);
-    $('#DynamicListproducts').empty();
-    $.each(results, function (i, row) {
-      // console.log(JSON.stringify(row));
-       if (row.ImagePath == null) { imageFullPath = "/images/no-img.jpg" }
-            else { imageFullPath = row.ImagePath }
-       dynamicList = '<li> <a href="" data-id="' + row.Id + '"> <img src="' + imageFullPath + '"/>  <h3>' + row.Title + '</h3><p>Price: ' + row.Price + '</br>Inventory: ' + row.Inventory + '</p></a></li>'
-       $('#DynamicListproducts').append(dynamicList);
-        $('#DynamicListproducts').listview('refresh');
-    })
-}
-
-
 $(document).on('vclick', '#DynamicListproducts li a', function () {
     ProductInfo.id = $(this).attr('data-id');
     getProduct(ProductInfo, renderFullProduct);
@@ -80,17 +65,13 @@ function renderFullProduct(results) {
 
 }
 
-
+function GoToEmployee() { window.location = "Employee.html";}
 //changePage to Specific Employee
-$("#edit").on("click", function () {
-    //EmployeeInfo.pass = $("#PassTB").val();
-    //getEmployeeById(EmployeeInfo, renderEmployeeByID);
-    //$.mobile.changePage("Employee.html", {
-    //       transition: "slide", changeHash: false
-
-    //    });     
-   window.location = "Employee.html";
-});
+//$("#edit").on("click", function () {
+//    //EmployeeInfo.pass = $("#PassTB").val();
+//    //getEmployeeById(EmployeeInfo, renderEmployeeByID);     
+//   window.location = "Employee.html";
+//});
 
 function DataTableButton(button) {
 
