@@ -1,6 +1,6 @@
-﻿<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="DataTables/jQuery-2.2.0/jquery-2.2.0.js"></script>-->
+<script src="DataTables/jQuery-2.2.0/jquery-2.2.0.js"></script>
 <!--<script src="DataTables/DataTables-1.10.11/js/jquery.dataTables.js"></script>-->
 <!--<link href="app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css" rel="stylesheet" />
 <link href="app-assets/vendors/css/tables/datatable/jquery.dataTables.min.css" rel="stylesheet" />-->
@@ -233,7 +233,7 @@
                             $.ajax({
                                 type: "POST",
                                 dataType: "json",
-                                url: "ajaxWebService.asmx/getEmployees",
+                                url: "AJAXWebService.asmx/getEmployees",
                                 success: function (data) {
                                     var datatableVariable = $('#EmployeesTable').DataTable({
                                         data: data,
@@ -256,8 +256,7 @@
 
                                                 'data': null,
                                                 'defaultContent': '<button id="dlt" class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button id="edit" onclick="GoToEmployee()" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>',
-//DataTableButton([$edit_btn, $delete_btn]),
-                                                'class': 'hideOverflow'
+                                             
                                             }
 
                                             ]
