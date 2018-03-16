@@ -407,4 +407,13 @@ public class Employee
         return LE;
         //
     }
+    public List<Employee> getNewEmployees()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.ReadEmployeesNoSysID();
+
+        return LE;
+        //
+    }
 }
