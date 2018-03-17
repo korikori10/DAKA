@@ -77,6 +77,7 @@ public class DBServices
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             List<Employee> Employees = new List<Employee>();
+
             while (dr.Read())
             {   // Read till the end of the data into a row
                 Employee e = new Employee();
@@ -93,7 +94,7 @@ public class DBServices
                 e.Add_num= Convert.ToInt32(dr["add_num"]);
                 e.Phone= Convert.ToInt32(dr["phone"]);
                 e.Com_app = Convert.ToBoolean(dr["com_app"]);
-                e.Sys_id = Convert.ToInt32(dr["michpal_id"]);
+                e.Sys_id = Convert.ToInt32(getString(dr["michpal_id"]));
                 e.Insurance = Convert.ToBoolean(dr["insurance"]); 
                 e.Com_insurance = Convert.ToBoolean(dr["com_insurance"]);
                 e.Fam_stat_code = Convert.ToInt32(dr["fam_stat_code"]); 
@@ -132,12 +133,25 @@ public class DBServices
 
     }
 
+ 
+
+    private static object getString(object o)
+
+    {
+
+        if (o == DBNull.Value)
+        {
+            return o = "0";
+        }
+        return o;
+
+    }
 
     /// <summary>
     /// reads employee from sql
     /// </summary>
     /// <returns>employee</returns>
-    public Employee ReadEmployee(int emp_pss_id) 
+    public Employee ReadEmployee(string emp_pss_id) 
     {
         SqlConnection con = null;
 

@@ -416,4 +416,13 @@ public class Employee
         return LE;
         //
     }
+public Employee getEmployeeById(string pass)
+{
+    DBServices dbs = new DBServices();
+
+    Employee e = dbs.ReadEmployee(pass);
+
+    return e;
+
+}
 }
