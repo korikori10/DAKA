@@ -1,5 +1,5 @@
 ﻿//CategoryInfo = new Object();
-EmployeeInfo = new Object();
+var EmployeeInfo = new Object();
 
 //$(document).on('pagebeforeshow', '#add-links', function () {
 //    getEmployees(renderEmployees);
@@ -74,26 +74,16 @@ EmployeeInfo = new Object();
 //});
 
 $('#EmployeesTable').on('click', 'tr td button', function () {
-    var table = $('#EmployeesTable').DataTable();
-     EmployeeInfo.pass = $(this).closest('tr').find('td:first').text();
-    getEmployeeById(EmployeeInfo, renderEmployeeByID)
-   window.location = "Employee.html";
+    //var table = $('#EmployeesTable').DataTable();
+    sessionStorage.removeItem("empInfo")
+    EmployeeInfo.pass = $(this).closest('tr').find('td:first').text();
+    sessionStorage.setItem("empInfo", EmployeeInfo.pass);
+    window.location = "Employee.html";
+    
+   
 })
 
-$('#EmployeePage').ready(function () {
-    alert("Kor don't give up!")
-});
-function renderEmployeeByID(results) {
-    results = $.parseJSON(results.d);
-    $('#wizardpage').empty();
-    if (results.Employee_pass_id == null) { results = null; }
-    else {
-        //dynamicList = '<li> <a href="" data-id="' + row.Id + '"> <img src="' + imageFullPath + '"/>  <h3>' + row.Title + '</h3><p>Price: ' + row.Price + '</br>Inventory: ' + row.Inventory + '</p></a></li>'
-        //$('#DynamicListproducts').append(dynamicList);
-        //$('#DynamicListproducts').listview('refresh');
 
-    }
-}
 
 //}
 //changePage to Specific Employee
