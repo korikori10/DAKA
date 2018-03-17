@@ -20,8 +20,8 @@
 
   // Main menu
   $.app.menu = {
-      expanded: false,
-    collapsed: true,
+      expanded: null,
+    collapsed: null,
     hidden : null,
     container: null,
     horizontalMenu: false,

@@ -93,13 +93,13 @@ $('#EmployeesTable').on('click', 'tr td button', function () {
 //   window.location = "Employee.html";
 //});
 
-function DataTableButton(button) {
+//function DataTableButton(button) {
 
-    var buttons;
+//    var buttons;
 
-    buttons = button.join(" ");
+//    buttons = button.join(" ");
    
-    return buttons;
-}
+//    return buttons;
+//}
 
 

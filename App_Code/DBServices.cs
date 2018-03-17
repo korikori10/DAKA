@@ -189,7 +189,7 @@ public class DBServices
     /// reads employee no systemid from sql
     /// </summary>
     /// <returns>list of employees no system id</returns>
-    public List<Employee> ReadEmployeesNoSysID()
+    public List<Employee> ReadEmployeesNoInsu()
     {
         SqlConnection con = null;
 
@@ -197,14 +197,14 @@ public class DBServices
         {
            
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM EMPLOYEE where michpal_id = ''";
+            string selectSTR = "SELECT*FROM v_newEmp";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             List<Employee> Employees = new List<Employee>();
             while (dr.Read())
             {
                 Employee Emp = new Employee();
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(dr["michpal_id"]), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(),  Convert.ToInt32(getString(dr["michpal_id"])), dr["bus_name"].ToString() , Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToBoolean(dr["active"]));
                 Employees.Add(Emp);
             }
             return Employees;

@@ -33,7 +33,7 @@ public class Employee
     private int occupation_code;
     private bool active;
     private string disable_reason;
-
+    private string bus_name;
 
 
     public Employee()
@@ -42,7 +42,19 @@ public class Employee
         // TODO: Add constructor logic here
         //
     }
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, string bus_name, bool insurance, bool il_citizen, bool active)
+    {
+        this.employee_pass_id = employee_pass_id;
+        this.lname = lname;
+        this.fname = fname;
+        this.il_citizen = il_citizen;
+        this.sys_id = sys_id;
+        this.insurance = insurance;
+        this.active = active;
+        this.bus_name = bus_name;
 
+
+    }
     public Employee(string employee_pass_id, string lname, string fname, DateTime birthday, bool gender, string picture, int origin_country, bool il_citizen, int add_city, string add, int add_num, int phone, bool com_app, int sys_id, bool insurance, bool com_insurance, int fam_stat_code, double salary_hour, double salary_overtime, double salary_trans, int day_off, int sabatical, int occupation_code, bool active, string disable_reason)
     {
         this.employee_pass_id = employee_pass_id;
@@ -397,6 +409,18 @@ public class Employee
         }
     }
 
+    public string Bus_name
+    {
+        get
+        {
+            return bus_name;
+        }
+
+        set
+        {
+            bus_name = value;
+        }
+    }
 
     public List<Employee> getEmployees()
     {
@@ -411,7 +435,7 @@ public class Employee
     {
         DBServices dbs = new DBServices();
 
-        List<Employee> LE = dbs.ReadEmployeesNoSysID();
+        List<Employee> LE = dbs.ReadEmployeesNoInsu();
 
         return LE;
         //

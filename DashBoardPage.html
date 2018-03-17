@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,7 +12,9 @@
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Dashboard</title>
-    <script src="Products.js"></script>
+
+    
+    <script src="Employee.js"></script>
     <script src="Dash.js"></script>
     <link rel="apple-touch-icon" sizes="60x60" href="app-assets/images/ico/apple-icon-60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="app-assets/images/ico/apple-icon-76.png">
@@ -264,70 +269,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>Tiger Nixon</td>
-                                                            <td>System Architect</td>
-                                                            <td>Edinburgh</td>
-                                                            <td>61</td>
-                                                            <td>2011/04/25</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Garrett Winters</td>
-                                                            <td>Accountant</td>
-                                                            <td>Tokyo</td>
-                                                            <td>63</td>
-                                                            <td>2011/07/25</td>
-                                                            <td>$170,750</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Ashton Cox</td>
-                                                            <td>Junior Technical Author</td>
-                                                            <td>San Francisco</td>
-                                                            <td>66</td>
-                                                            <td>2009/01/12</td>
-                                                            <td>$86,000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Cedric Kelly</td>
-                                                            <td>Senior Javascript Developer</td>
-                                                            <td>Edinburgh</td>
-                                                            <td>22</td>
-                                                            <td>2012/03/29</td>
-                                                            <td>$433,060</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Airi Satou</td>
-                                                            <td>Accountant</td>
-                                                            <td>Tokyo</td>
-                                                            <td>33</td>
-                                                            <td>2008/11/28</td>
-                                                            <td>$162,700</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Brielle Williamson</td>
-                                                            <td>Integration Specialist</td>
-                                                            <td>New York</td>
-                                                            <td>61</td>
-                                                            <td>2012/12/02</td>
-                                                            <td>$372,000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Herrod Chandler</td>
-                                                            <td>Sales Assistant</td>
-                                                            <td>San Francisco</td>
-                                                            <td>59</td>
-                                                            <td>2012/08/06</td>
-                                                            <td>$137,500</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Rhona Davidson</td>
-                                                            <td>Integration Specialist</td>
-                                                            <td>Tokyo</td>
-                                                            <td>55</td>
-                                                            <td>2010/10/14</td>
-                                                            <td>$327,900</td>
-                                                        </tr>
+                                                       
 
                                                     </tbody>
 
@@ -360,6 +302,7 @@
                                             <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
                                                 <thead>
                                                     <tr>
+                                                        <th>מס דרכון</th>
                                                         <th>מספר מכפל</th>
                                                         <th>שם העובד</th>
                                                         <th>מקום עבודה</th>
@@ -367,20 +310,47 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-icon btn-primary "><i class="icon-user-plus2"></i></button>
-                                                            <button type="button" class="btn btn-icon btn-info "><i class="icon-file-text3"></i></button>
-                                                        </td>
-                                                    </tr>
-
 
                                                 </tbody>
 
                                             </table>
+                                            <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "ajaxWebService.asmx/getNewEmployees",
+                success: function (data) {
+                    var datatableVariable = $('#newemp').DataTable({
+                        data: data,
+                        columns: [
+                            { 'data': 'Employee_pass_id' },
+                            { 'data': 'Sys_id'},
+                            { 'data': 'Fname' },
+                            { 'data': 'Lname' },
+                            { 'data': 'Bus_name'}, 
+                            
+                            
+
+                            {
+                                // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
+                                // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
+
+                              
+                                'defaultContent': '<button  class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button id="edit" onclick="GoToEmployee()" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>',
+                                //DataTableButton([$edit_btn, $delete_btn]),
+
+                            }
+
+                        ]
+                    });
+
+                }
+            });
+
+        });                                                                                                                                                   //});
+
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -664,51 +634,11 @@
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
     </footer>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "ajaxWebService.asmx/getNewEmployees",
-                success: function (data) {
-                    var datatableVariable = $('#newemp').DataTable({
-                        data: data,
-                        columns: [
-                            { 'data': 'Employee_pass_id' },
-                            { 'data': 'Fname' },
-                            { 'data': 'Lname' },
-                            {
-                                'data': 'Birthday', 'render': function (date) {
-                                    var date = new Date(parseInt(date.substr(6)));
-                                    var month = date.getMonth() + 1;
-                                    return date.getDate() + "/" + month + "/" + date.getFullYear();
-                                }
-                            },
-                            { 'data': 'Phone' },
-
-                            {
-                                // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
-                                // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
-
-                                'data': null,
-                                'defaultContent': '<button id="dlt" class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button id="edit" onclick="GoToEmployee()" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>',
-                                //DataTableButton([$edit_btn, $delete_btn]),
-                                'class': 'hideOverflow'
-                            }
-
-                        ]
-                    });
-           
-                }
-            });
-
-        });                                                                                                                                                   //});
-
-    </script>
+    
     <!-- BEGIN VENDOR JS-->
     <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-
+    <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
     <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
     <script src="app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
@@ -725,7 +655,7 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN VENDOR JS-->
-    <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    
     <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
     <script src="app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
