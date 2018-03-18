@@ -1,52 +1,47 @@
 ﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="he" data-textdirection="rtl" class="loading">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app" />
     <title>Dashboard</title>
 
-    
-    <script src="Employee.js"></script>
-    <script src="Dash.js"></script>
-    <link rel="apple-touch-icon" sizes="60x60" href="app-assets/images/ico/apple-icon-60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="app-assets/images/ico/apple-icon-76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="app-assets/images/ico/apple-icon-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="app-assets/images/ico/apple-icon-152.png">
-    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
-    <link rel="shortcut icon" type="image/png" href="app-assets/images/ico/favicon-32.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+    <link rel="apple-touch-icon" sizes="60x60" href="app-assets/images/ico/apple-icon-60.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="app-assets/images/ico/apple-icon-76.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="app-assets/images/ico/apple-icon-120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="app-assets/images/ico/apple-icon-152.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="app-assets/images/ico/favicon-32.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!-- BEGIN VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css" />
     <!-- BEGIN VENDOR CSS-->
     <!-- BEGIN Font icons-->
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/icomoon.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/fonts/icomoon.css" />
+    <link rel="stylesheet" type="text/css" href="app-assets/fonts/flag-icon-css/css/flag-icon.min.css" />
     <!-- END Font icons-->
-    <!-- BEGIN Vendor CSS-->
-    <!-- END Vendor CSS-->
     <!-- BEGIN ROBUST CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/app.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/colors.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/custom-rtl.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap-extended.css" />
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/app.css" />
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/colors.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/custom-rtl.css" />
     <!-- END ROBUST CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-menu.css" />
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css" />
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
     <!-- END Custom CSS-->
     <title></title>
 </head>
@@ -58,7 +53,7 @@
             <div class="navbar-header">
                 <ul class="nav navbar-nav">
                     <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a id="tog" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a></li>
-                    <li class="nav-item"><a href="index.html" class="navbar-brand nav-link"><img alt="branding logo" src="app-assets/images/logo/robust-logo-light.png" data-expand="app-assets/images/logo/robust-logo-light.png" data-collapse="app-assets/images/logo/robust-logo-small.png" class="brand-logo"></a></li>
+                    <li class="nav-item"><a href="index.html" class="navbar-brand nav-link"><img alt="branding logo" src="app-assets/images/logo/robust-logo-light.png" data-expand="app-assets/images/logo/robust-logo-light.png" data-collapse="app-assets/images/logo/robust-logo-small.png" class="brand-logo" /></a></li>
                     <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="icon-ellipsis pe-2x icon-icon-rotate-right-right"></i></a></li>
                 </ul>
             </div>
@@ -69,7 +64,7 @@
                     </ul>
                     <ul class="nav navbar-nav float-xs-right">
                         <li class="dropdown dropdown-user nav-item">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name">John Doe</span></a>
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="app-assets/images/portrait/small/avatar-s-1.png" alt="avatar" /><i></i></span><span class="user-name">John Doe</span></a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="#" class="dropdown-item"><i class="icon-head"></i> Edit Profile</a><a href="#" class="dropdown-item"><i class="icon-mail6"></i> My Inbox</a><a href="#" class="dropdown-item"><i class="icon-clipboard2"></i> Task</a><a href="#" class="dropdown-item"><i class="icon-calendar5"></i> Calender</a>
                                 <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="icon-power3"></i> Logout</a>
@@ -226,13 +221,13 @@
                                     <!--או 8 אם רוצים שיהיה שם כפתורים של דוחות הוספת עובד וזה-->
 
                                     <fieldset class="form-group position-relative">
-                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש עובד ...">
+                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש עובד ..." />
                                         <div class="form-control-position">
                                             <i class="icon-search7 font-medium-4"></i>
                                         </div>
                                     </fieldset>
                                     <fieldset class="form-group position-relative">
-                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ...">
+                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ..." />
                                         <div class="form-control-position">
                                             <i class="icon-search7 font-medium-4"></i>
                                         </div>
@@ -240,44 +235,45 @@
                                 </div>
                                 <!--/ searchbox-->
                                 <!-- עובדים לא פעילים-->
-                                <div class="col-xs-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">עובדים לא פעילים</h4>
-                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                            <div class="heading-elements">
-                                                <ul class="list-inline mb-0">
-                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="card-body collapse in">
-                                            <div class="card-block card-dashboard">
-                                                <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                                                <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical dataTable no-footer" role="grid" style="margin-left: 0px; width: 1281px;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>שם</th>
-                                                            <th>תפקיד</th>
-                                                            <th>Office</th>
-                                                            <th>גיל</th>
-                                                            <th>תאריך תחילת עבודה</th>
-                                                            <th>Salary</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                       
+                                <section id="scroll-dynamic">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">עובדים לא פעילים</h4>
+                                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                                    <div class="heading-elements">
+                                                        <ul class="list-inline mb-0">
+                                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body collapse in">
+                                                    <div class="card-block card-dashboard">
+                                                        <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
+                                                        <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical dataTable no-footer" role="grid" style="margin-left: 0px; width: 1281px;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>שם</th>
+                                                                    <th>תפקיד</th>
+                                                                    <th>Office</th>
+                                                                    <th>גיל</th>
+                                                                    <th>תאריך תחילת עבודה</th>
+                                                                    <th>Salary</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody>
 
-                                                    </tbody>
-
-                                                </table>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </section>
                                 <!-- עובדים לא פעילים-->
                                 <!--/ update tables-->
                             </div>
@@ -304,51 +300,50 @@
                                                     <tr>
                                                         <th>מס דרכון</th>
                                                         <th>מספר מכפל</th>
-                                                        <th>שם העובד</th>
+                                                        <th>שם פרטי</th>
+                                                        <th>שם משפחה</th>
                                                         <th>מקום עבודה</th>
                                                         <th>פעולות</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-
-                                                </tbody>
+                                                <tbody></tbody>
 
                                             </table>
                                             <script type="text/javascript">
-        $(document).ready(function () {
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "ajaxWebService.asmx/getNewEmployees",
-                success: function (data) {
-                    var datatableVariable = $('#newemp').DataTable({
-                        data: data,
-                        columns: [
-                            { 'data': 'Employee_pass_id' },
-                            { 'data': 'Sys_id'},
-                            { 'data': 'Fname' },
-                            { 'data': 'Lname' },
-                            { 'data': 'Bus_name'}, 
-                            
-                            
+                                                $(document).ready(function () {
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        dataType: "json",
+                                                        url: "ajaxWebService.asmx/getNewEmployees",
+                                                        success: function (data) {
+                                                            var datatableVariable = $('#newemp').DataTable({
+                                                                data: data,
+                                                                columns: [
+                                                                    { 'data': 'Employee_pass_id' },
+                                                                    { 'data': 'Sys_id' },
+                                                                    { 'data': 'Fname' },
+                                                                    { 'data': 'Lname' },
+                                                                    { 'data': 'Bus_name' },
 
-                            {
-                                // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
-                                // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
 
-                              
-                                'defaultContent': '<button  class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button id="edit" onclick="GoToEmployee()" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>',
-                                //DataTableButton([$edit_btn, $delete_btn]),
 
-                            }
+                                                                    {
+                                                                        // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
+                                                                        // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
 
-                        ]
-                    });
 
-                }
-            });
+                                                                        'defaultContent': '<button  class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button id="edit" onclick="GoToEmployee()" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>',
+                                                                        //DataTableButton([$edit_btn, $delete_btn]),
 
-        });                                                                                                                                                   //});
+                                                                    }
+
+                                                                ]
+                                                            });
+
+                                                        }
+                                                    });
+
+                                                });                                                                                                                                                   //});
 
                                             </script>
                                         </div>
@@ -461,171 +456,8 @@
 
 
 
-                <section id="configuration">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <div class="card">
-                                <!--style="top:-1280px;"-->
-                                <div class="card-header">
-                                    <h4 class="card-title">עובדים לא פעילים</h4>
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body collapse in">
-                                    <div class="card-block card-dashboard">
-                                        <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                                        <table class="table display nowrap table-striped table-bordered compact scroll-horizontal-vertical dataTable no-footer" role="grid" style="margin-left: 0px; width: 1281px;">
-                                            <thead>
-                                                <tr>
-                                                    <th>שם</th>
-                                                    <th>תפקיד</th>
-                                                    <th>Office</th>
-                                                    <th>גיל</th>
-                                                    <th>תאריך תחילת עבודה</th>
-                                                    <th>Salary</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Garrett Winters</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>63</td>
-                                                    <td>2011/07/25</td>
-                                                    <td>$170,750</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ashton Cox</td>
-                                                    <td>Junior Technical Author</td>
-                                                    <td>San Francisco</td>
-                                                    <td>66</td>
-                                                    <td>2009/01/12</td>
-                                                    <td>$86,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td>Senior Javascript Developer</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>22</td>
-                                                    <td>2012/03/29</td>
-                                                    <td>$433,060</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Airi Satou</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>33</td>
-                                                    <td>2008/11/28</td>
-                                                    <td>$162,700</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Brielle Williamson</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>New York</td>
-                                                    <td>61</td>
-                                                    <td>2012/12/02</td>
-                                                    <td>$372,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Herrod Chandler</td>
-                                                    <td>Sales Assistant</td>
-                                                    <td>San Francisco</td>
-                                                    <td>59</td>
-                                                    <td>2012/08/06</td>
-                                                    <td>$137,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Rhona Davidson</td>
-                                                    <td>Integration Specialist</td>
-                                                    <td>Tokyo</td>
-                                                    <td>55</td>
-                                                    <td>2010/10/14</td>
-                                                    <td>$327,900</td>
-                                                </tr>
-
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
             </div>
-            <section class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div id="with-header" class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">With Header</h4>
-                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body collapse in">
-                            <div class="card-block border-top-blue-grey border-top-lighten-5 ">
-                                <h4 class="card-title">Content title</h4>
-                                <p class="card-text">Add a heading to card with <code>.card-header </code> class &amp; content title uses <code>.card-title</code> class. For border add <code>.border-top-COLOR</code> class</p>
-                                <p class="card-text">You may also include any &lt;h1&gt;-&lt;h6&gt; with a <code>.card-header </code> &amp; <code>.card-title</code> class to add heading.</p>
-                                <p class="card-text">Jelly beans sugar plum cheesecake cookie oat cake soufflé. Tart lollipop carrot cake sugar plum. Marshmallow wafer tiramisu jelly beans.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div id="with-header-no-border" class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">With Header &amp; No Border</h4>
-                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body collapse in">
-                            <div class="card-block">
-                                <h4 class="card-title">Content title</h4>
-                                <p class="card-text">Add a heading to card with <code>.card-header </code> class &amp; content title uses <code>.card-title</code> class.</p>
-                                <p class="card-text">You may also include any &lt;h1&gt;-&lt;h6&gt; with a <code>.card-header </code> &amp; <code>.card-title</code> class to add heading.</p>
-                                <p class="card-text">Gingerbread brownie sweet roll cheesecake chocolate cake jelly beans marzipan gummies dessert. Jelly beans sugar plum cheesecake cookie oat cake soufflé.</p>
-                                =======
-                                <div class="card-body collapse in">
-                                    <div class="card-block">
-                                        <h4 class="card-title">Content title</h4>
-                                        <p class="card-text">Add a heading to card with <code>.card-header </code> class &amp; content title uses <code>.card-title</code> class.</p>
-                                        <p class="card-text">You may also include any &lt;h1&gt;-&lt;h6&gt; with a <code>.card-header </code> &amp; <code>.card-title</code> class to add heading.</p>
-                                        <p class="card-text">Gingerbread brownie sweet roll cheesecake chocolate cake jelly beans marzipan gummies dessert. Jelly beans sugar plum cheesecake cookie oat cake soufflé.</p>
-                                        <input class="btn btn-primary btn" type="submit" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </section>
         </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -634,9 +466,9 @@
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
     </footer>
 
-    
+
     <!-- BEGIN VENDOR JS-->
-    <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <!--<script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
     <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
     <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
@@ -649,14 +481,13 @@
     <!-- BEGIN PAGE VENDOR JS-->
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN ROBUST JS-->
-    <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
-    <script src="app-assets/js/core/app.js" type="text/javascript"></script>
+    <!--<script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="app-assets/js/core/app.js" type="text/javascript"></script>-->
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN VENDOR JS-->
-    
-    <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
+    <!--<script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
     <script src="app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
@@ -665,21 +496,62 @@
     <script src="app-assets/vendors/js/ui/jquery-sliding-menu.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/sliders/slick/slick.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
-    <script src="app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>-->
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
-    <script type="text/javascript" src="app-assets/vendors/js/ui/jquery.sticky.js"></script>
+    <!--<script type="text/javascript" src="app-assets/vendors/js/ui/jquery.sticky.js"></script>
     <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>-->
     <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <!--<script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="app-assets/js/core/app.js" type="text/javascript"></script>
+    <script src="app-assets/js/scripts/ui/fullscreenSearch.js" type="text/javascript"></script>-->
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- <script src="app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>-->-->
+    <!-- END PAGE LEVEL JS-->
+
+
+
+
+    <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
+    <script src="app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/jquery-sliding-menu.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/sliders/slick/slick.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
     <!-- BEGIN ROBUST JS-->
     <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
     <script src="app-assets/js/core/app.js" type="text/javascript"></script>
-    <script src="app-assets/js/scripts/ui/fullscreenSearch.js" type="text/javascript"></script>
     <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script type="text/javascript" src="app-assets/vendors/js/ui/jquery.sticky.js"></script>
+    <!-- END PAGE VENDOR JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-
-    <script src="app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>
+    <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
+  <!--  <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>-->
+    <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>-->
+    <script src="Employee.js"></script>
+    <script src="AjaxCalls.js"></script>
     <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="app-assets/vendors/js/ui/headroom.min.js" type="text/javascript"></script>
+ <!--<script src="app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>-->
+    <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="app-assets/vendors/js/buttons/ladda.jquery.min.js"></script>
+    <script src="app-assets/vendors/js/buttons/spin.min.js"></script>
+    <!--<script src="app-assets/js/scripts/buttons/button-ladda.min.js"></script>-->
+    <!--<script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.min.js"></script>-->
+    <!-- END PAGE VENDOR JS-->
+
+
 </body>
 </html>
