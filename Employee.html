@@ -139,7 +139,7 @@
                                             <img src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image">
                                         </div>
                                         <div id="namePassC" class="card-block">
-                                            <h4 class="card-title">שם פרטי ומשפחה</h4>
+                                            <h4 id="name" class="card-title">שם פרטי ומשפחה</h4>
                                             <h6 class="card-subtitle text-muted">מספר דרכון</h6>
                                         </div>
                                         <div class="text-xs-center">
@@ -171,19 +171,23 @@
                                 </div>
                                 <div class="card-body collapse in">
                                     <div class="card-block">
-                                          <form class="form" >
+                                          <form class="form" id="EmployeeUpdate" >
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput1" class="sr-only">company number</label>
-                                                            <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="company number">
+                                                            <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="Sys_id">
+                                                        </div>
+                                                        <div class="form-group" style="visibility:hidden" >
+                                                            <label for="passID" class="sr-only"></label>
+                                                            <input type="text" id="empPassTB" class="form-control" placeholder="מספר מערכת" name="Employee_pass_id" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput2" class="sr-only">Date of birth</label>
-                                                            <input type="text" id="dobTB" class="form-control" placeholder="תאריך לידה" name="Date of birth">
+                                                          <!--  <input type="text" id="dobTB" class="form-control" placeholder="תאריך לידה" name="Birthday">-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -197,7 +201,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput4" class="sr-only">Adress</label>
-                                                            <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Adress">
+                                                            <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Add">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -40,7 +40,7 @@ function getEmployeeById(EmployeeInfo, renderEmployeeByID) {
 
 
 
-function UpdateEmployee(EmployeeInfo, RefreshEmployee ) {
+function UpdateEmployee(EmployeeInfo) {
 
     // serialize the object to JSON string
     var dataString = JSON.stringify(EmployeeInfo);
@@ -52,7 +52,8 @@ function UpdateEmployee(EmployeeInfo, RefreshEmployee ) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
-            RefreshEmployee(results);
+            // RefreshEmployee(results);
+            alert(results)
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");

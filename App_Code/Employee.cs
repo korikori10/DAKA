@@ -449,11 +449,11 @@ public Employee getEmployeeById(string pass)
     return e;
 
 }
-    public Employee GetUpdateEmployee(string Employee_pass_id)
+    public Employee GetUpdateEmployee(Employee emp)
     {
         DBServices dbs = new DBServices();
 
-        Employee e = dbs.update(Employee_pass_id);
+        Employee e = dbs.update(emp);
 
         return e;
 

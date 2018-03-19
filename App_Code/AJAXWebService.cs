@@ -69,16 +69,18 @@ public string GetEmployeeById(string pass)
 }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string GetUpdateEmployee(string Employee_pass_id)
+    public string GetUpdateEmployee(string EmployeeInfo)
     {
-        Employee e = new Employee();
-        e = e.GetUpdateEmployee(Employee_pass_id);
-
-
         JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+        e = e.GetUpdateEmployee(e);
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
+
+
+      
 
     }
 

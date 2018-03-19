@@ -604,7 +604,7 @@ public class DBServices
     //--------------------------------------------------------------------
     // Update Employee
     //--------------------------------------------------------------------
-    public Employee update(string Employee_pass_id)
+    public Employee update(Employee emp)
     {
 
         SqlConnection con;
@@ -619,7 +619,7 @@ public class DBServices
             // write to log
             throw (ex);
         }
-        Employee emp = ReadEmployee(Employee_pass_id);
+        
         String cStr = BuildUpdateCommand(emp);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
@@ -657,7 +657,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET [michpal_id] = " + emp.Sys_id + ",[birthday] = " + emp.Birthday+ ",[add] = " + emp.Add+ "WHERE employee_pass_id = "+emp.Employee_pass_id;
+        String prefix = "UPDATE EMPLOYEE SET [michpal_id] = " + emp.Sys_id + "WHERE employee_pass_id = '" + emp.Employee_pass_id +"'"; //+ ",[birthday] = " + emp.Birthday+ ",[add] = " + emp.Add;
         command =prefix;
 
         return command;
