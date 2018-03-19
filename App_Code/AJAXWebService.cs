@@ -67,4 +67,20 @@ public string GetEmployeeById(string pass)
     return jsonStringCategory;
 
 }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string GetUpdateEmployee(string Employee_pass_id)
+    {
+        Employee e = new Employee();
+        e = e.GetUpdateEmployee(Employee_pass_id);
+
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+
+    }
+
+    
 }

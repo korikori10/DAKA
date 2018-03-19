@@ -165,7 +165,7 @@ public class DBServices
             Employee Emp = new Employee();
             while (dr.Read())
             {
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(dr["michpal_id"]), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(getString(dr["michpal_id"])), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
             }
             return Emp;
         }
@@ -604,7 +604,7 @@ public class DBServices
     //--------------------------------------------------------------------
     // Update Employee
     //--------------------------------------------------------------------
-    public int update(Employee emp)
+    public Employee update(string Employee_pass_id)
     {
 
         SqlConnection con;
@@ -619,7 +619,7 @@ public class DBServices
             // write to log
             throw (ex);
         }
-
+        Employee emp = ReadEmployee(Employee_pass_id);
         String cStr = BuildUpdateCommand(emp);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
@@ -627,11 +627,11 @@ public class DBServices
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            return numEffected;
+            return emp;
         }
         catch (Exception ex)
         {
-            return 0;
+            return null;
             // write to log
             throw (ex);
         }
@@ -657,8 +657,8 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        //String prefix = "UPDATE productN SET inventory = " /*+ emp.Inventory + " Where product_id = " + emp.ProductId*/;
-        command = "";// prefix;
+        String prefix = "UPDATE EMPLOYEE SET [michpal_id] = " + emp.Sys_id + ",[birthday] = " + emp.Birthday+ ",[add] = " + emp.Add+ "WHERE employee_pass_id = "+emp.Employee_pass_id;
+        command =prefix;
 
         return command;
     }

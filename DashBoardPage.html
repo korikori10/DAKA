@@ -43,7 +43,6 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
     <!-- END Custom CSS-->
-    <title></title>
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar menu-collapsed">
     <!-- - var navbarCustom = "navbar-fixed-top navbar-semi-dark navbar-shadow"-->
@@ -166,8 +165,8 @@
             <div class="content-body">
                 <section class="row">
                     <div class="col-sm-12">
-                        <!-- statistics -->
                         <div class="row">
+                           <!-- statistics -->
                             <div class="col-xs-8 ">
                                 <div class="card">
                                     <div class="card-body">
@@ -277,6 +276,8 @@
                                 <!-- עובדים לא פעילים-->
                                 <!--/ update tables-->
                             </div>
+                           <!-- statistics -->
+
                             <!--עובדים חדשים-->
                             <div class="col-xs-4">
                                 <div class="card">
@@ -306,9 +307,10 @@
                                                         <th>פעולות</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
 
-                                            </table>
+                                                </tbody>
+                                             </table>
                                             <script type="text/javascript">
                                                 $(document).ready(function () {
                                                     $.ajax({
@@ -324,33 +326,21 @@
                                                                     { 'data': 'Fname' },
                                                                     { 'data': 'Lname' },
                                                                     { 'data': 'Bus_name' },
-
-
-
                                                                     {
-                                                                        // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
-                                                                        // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
-
-
-                                                                        'defaultContent': '<button  class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button id="edit" onclick="GoToEmployee()" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>',
-                                                                        //DataTableButton([$edit_btn, $delete_btn]),
-
-                                                                    }
-
-                                                                ]
+                                                                        'data': "",
+                                                                        'defaultContent': '<button name="dlt" class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</button><button name="edit" type="button" class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</button>'
+                                                                    }  ]
                                                             });
-
                                                         }
                                                     });
-
-                                                });                                                                                                                                                   //});
-
+                                                });                                                                                                                         
                                             </script>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!--עובדים חדשים-->
+                          
                             <!--חידושי ויזה-->
                             <div class="col-xs-4" style="float:left;">
                                 <div class="card">
@@ -398,6 +388,7 @@
                             </div>
                             <!--חידושי ויזה-->
                         </div>
+                      
                         <!--ממתינים לציוות-->
                         <div class="col-xs-4" style="float:left;">
                             <div class="card">
@@ -450,16 +441,10 @@
 
                     </div>
                 </section>
-
-                <!--/ update tables-->
-
-
-
-
-
             </div>
         </div>
     </div>
+
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     <footer class="footer footer-static footer-dark navbar-border">
@@ -536,7 +521,7 @@
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
-  <!--  <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>-->
+  <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>-->
     <script src="Employee.js"></script>
     <script src="AjaxCalls.js"></script>

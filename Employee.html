@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <title>Dashboard</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico" />
@@ -30,19 +30,15 @@
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/custom-rtl.css" />
     <!-- END ROBUST CSS-->
     <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css" />
 
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-menu.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css" />
     <!-- END Page Level CSS-->
-    <!-- BEGIN Custom CSS-->
 
-    <!-- END Custom CSS-->
-    <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Employees</title>
-
-    <title></title>
+    <script src="EmployeePage.js"></script>
 </head>
 <body id="EmployeePage" data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
     <!-- - var navbarCustom = "navbar-fixed-top navbar-semi-dark navbar-shadow"-->
@@ -157,7 +153,7 @@
                         </section>
 
                         <!--info-->
-                        <div class="col-xl-9 col-md-8 col-xs-12" >
+                        <div class="col-xl-9 col-md-8 col-xs-12"  >
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
@@ -175,7 +171,7 @@
                                 </div>
                                 <div class="card-body collapse in">
                                     <div class="card-block">
-                                          <form class="form">
+                                          <form class="form" >
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -207,11 +203,11 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-actions right">
+                                            <div class="form-actions right" id="info">
                                                 <button type="button" class="btn btn-outline-warning mr-1">
                                                     <i class="icon-cross2"></i> מחק
                                                 </button>
-                                                <button type="button" class="btn btn-outline-primary">
+                                                <button id="save"type="button" class="btn btn-outline-primary">
                                                     <i class="icon-check2"></i> שמור
                                                 </button>
                                             </div>
