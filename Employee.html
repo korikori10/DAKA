@@ -34,11 +34,13 @@
 
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-menu.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css" />
+    <link href="app-assets/css/plugins/forms/selectize/selectize.css" rel="stylesheet" />
+    <link href="app-assets/vendors/css/forms/selects/selectize.default.css" rel="stylesheet" />
+    <link href="app-assets/vendors/css/extensions/sweetalert.css" rel="stylesheet" />
     <!-- END Page Level CSS-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Employees</title>
-    <script src="EmployeePage.js"></script>
 </head>
 <body id="EmployeePage" data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
     <!-- - var navbarCustom = "navbar-fixed-top navbar-semi-dark navbar-shadow"-->
@@ -82,8 +84,8 @@
         <div class="main-menu-content">
             <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
                 <!--<li class=" nav-item">
-        <a href="html/rtl/vertical-menu-template/index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
-    </li>-->
+                    <a href="html/rtl/vertical-menu-template/index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
+                </li>-->
                 <li class="nav-item active">
                     <a href="DashBoardPage.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">מסך הבית</span></a>
                 </li>
@@ -130,13 +132,13 @@
                 <div class="col-md-12">
 
                     <div class="row">
-                 <!--Employee card-->
+                        <!--Employee card-->
                         <section id="user-cards-with-square-thumbnail">
                             <div class="col-xl-3 col-md-4 col-xs-12">
                                 <div class="card">
                                     <div class="text-xs-center">
                                         <div class="card-block">
-                                            <img src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image">
+                                            <img src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image" />
                                         </div>
                                         <div id="namePassC" class="card-block">
                                             <h4 id="name" class="card-title">שם פרטי ומשפחה</h4>
@@ -153,7 +155,7 @@
                         </section>
 
                         <!--info-->
-                        <div class="col-xl-9 col-md-8 col-xs-12"  >
+                        <div class="col-xl-9 col-md-8 col-xs-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
@@ -171,23 +173,25 @@
                                 </div>
                                 <div class="card-body collapse in">
                                     <div class="card-block">
-                                          <form class="form" id="EmployeeUpdate" >
+                                        <form class="form" id="EmployeeUpdate">
                                             <div class="form-body">
+                                                <div class="row">
+                                                    <div class="form-group" style="visibility:hidden">
+                                                        <label for="passID" class="sr-only"></label>
+                                                        <input type="text" id="empPassTB" class="form-control" placeholder="מספר מערכת" name="Employee_pass_id" />
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="userinput1" class="sr-only">company number</label>
-                                                            <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="Sys_id">
-                                                        </div>
-                                                        <div class="form-group" style="visibility:hidden" >
-                                                            <label for="passID" class="sr-only"></label>
-                                                            <input type="text" id="empPassTB" class="form-control" placeholder="מספר מערכת" name="Employee_pass_id" />
+                                                            <label for="userinput1" class="sr-only">system number</label>
+                                                            <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="Sys_id" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput2" class="sr-only">Date of birth</label>
-                                                          <!--  <input type="text" id="dobTB" class="form-control" placeholder="תאריך לידה" name="Birthday">-->
+                                                            <input type="text" id="dobTB" class="form-control" placeholder="תאריך לידה" name="Birthday" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,23 +199,97 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput3" class="sr-only">place of work</label>
-                                                            <input type="text" id="businessTB" class="form-control" placeholder="מקום עבודה" name="place of work">
+                                                            <input type="text" id="businessTB" class="form-control" placeholder="מקום עבודה" name="bus_name" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput4" class="sr-only">Adress</label>
-                                                            <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Add">
+                                                            <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Add" />
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="userinput3" class="sr-only">מין</label>
+                                                            <select class=" custom-select form-control" id="genderTB" name="Gender">
+                                                                <option value=""> בחר Select</option>
+                                                                <option value="False">זכר</option>
+                                                                <option value="True">נקבה</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="userinput4" class="sr-only">מצב משפחתי</label>
+                                                            <select class="custom-select form-control" id="location3" name="Fam_stat_code">
+                                                                <option value="0"> בחר Select</option>
+                                                                <option value="1">רווק/ה</option>
+                                                                <option value="2">נשוי/אה</option>
+                                                                <option value="3">גרוש/ה</option>
+                                                                <option value="4">אלמן/ה</option>
+                                                                <option value="5">פרוד/ה</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="tbcountry4">ארץ מוצא</label><br />
+                                                            <select name="Origin_country" class="selectize-select" id="DynamiCountryList">
+                                                                <option value="0">לא נבחרה מדינה</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="location3">אזרח ישראל:</label>
+                                                            <select class="custom-select form-control" id="il_citizen" name="Il_citizen">
+                                                                <option value=""> בחר Select</option>
+                                                                <option value="True">כן</option>
+                                                                <option value="False">לא</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="phoneNumber4"> טלפון נייד Phone Number :</label>
+                                                            <input type="tel" class="form-control" id="phone" name="Phone" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="tbadd4">כתובת פרטית</label>
+                                                            <input type="text" class="form-control" id="textadd4" name="Add" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="tbcity4">עיר/ישוב</label>
+                                                            <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="tbnum4">מספר בית</label>
+                                                            <input type="number" class="form-control" id="textaddnum4" name="Add_num" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                             <div class="form-actions right" id="info">
                                                 <button type="button" class="btn btn-outline-warning mr-1">
                                                     <i class="icon-cross2"></i> מחק
                                                 </button>
-                                                <button id="save"type="button" class="btn btn-outline-primary">
+                                                <button id="save" type="button" class="btn btn-outline-primary">
                                                     <i class="icon-check2"></i> שמור
                                                 </button>
                                             </div>
@@ -226,10 +304,10 @@
 
                     </div>
                 </div>
-                </div>
             </div>
+        </div>
     </div>
-    <footer  class="footer footer-fixed footer-dark navbar-border">
+    <footer class="footer footer-fixed footer-dark navbar-border">
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">DAKA </a>, Tom And Kori Rule </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
     </footer>
     <!-- BEGIN VENDOR JS-->
@@ -256,14 +334,18 @@
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
-    <script src="EmployeePage.js"></script>
-    <script src="AjaxCalls.js"></script>
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="app-assets/vendors/js/ui/headroom.min.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>
     <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+   <!-- <script src="app-assets/js/scripts/extensions/sweet-alerts.min.js"></script>-->
+    <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>
+    <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
+    <script src="EmployeePage.js"></script>
+    <script src="AjaxCalls.js"></script>
+
     <!-- END PAGE VENDOR JS-->
 
 

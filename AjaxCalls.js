@@ -39,7 +39,7 @@ function getEmployeeById(EmployeeInfo, renderEmployeeByID) {
 }
 
 
-
+//update spesific employee
 function UpdateEmployee(EmployeeInfo) {
 
     // serialize the object to JSON string

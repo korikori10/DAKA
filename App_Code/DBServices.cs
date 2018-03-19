@@ -133,8 +133,10 @@ public class DBServices
 
     }
 
- 
 
+    /// <summary>
+    /// Handles DBnull Exception------>להכניס לEX
+    /// </summary>
     private static object getString(object o)
 
     {
@@ -654,10 +656,14 @@ public class DBServices
     private String BuildUpdateCommand(Employee emp)
     {
         String command;
-
+        bool businessChange = false;
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
         String prefix = "UPDATE EMPLOYEE SET [michpal_id] = " + emp.Sys_id + "WHERE employee_pass_id = '" + emp.Employee_pass_id +"'"; //+ ",[birthday] = " + emp.Birthday+ ",[add] = " + emp.Add;
+        if (true)
+        {
+
+        }
         command =prefix;
 
         return command;

@@ -1,8 +1,21 @@
 ﻿var EmployeeInfo = new Object();
+var Business = new Object();
 
     $(document).ready(function () {
         EmployeeInfo.pass = sessionStorage.getItem("empInfo")
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
+        $(".selectize-select").selectize();
+        $("#info").on('click', function () {
+
+            swal({
+                title: "האם אתה בטוח?",
+                text: "אתה עומד לעדכן את פרטי העובד.",
+                type: "info",
+                confirmButtonText: "כן",
+                showCancelButton: "true",
+                cancelButtonText:"בטל"
+            });
+        });
         
     });
 
@@ -12,10 +25,7 @@
 
         if (results.Employee_pass_id == null) { results = null; }
         else {
-            //document.getElementById('name').innerHTML = results.fname;
-            //document.getElementById('sysIdTB').innerHTML = results.U_name;
-            //document.getElementById('dobTB').innerText = results.Birthday;
-            //document.getElementById('businessTB').innerHTML = results.U_type_code;
+            
             $('#name').val(results.Fname + " " + results.Lname);
             $('#sysIdTB').val(results.Sys_id);
           //$('#dobTB').val(function  () {
@@ -23,8 +33,8 @@
           //      var month = date.getMonth() + 1;
           //      return date.getDate() + "/" + month + "/" + date.getFullYear();
           //  });
-        
-          
+
+            Business = results.
             $('#empPassTB').val(results.Employee_pass_id);
             $('#addressTB').val(results.Add);
         }
@@ -40,8 +50,15 @@
 
 
 
-  $("#info").on('click',function () {
-      //  UpdateEmployee(results.Employee_pass_id, EmployeeInfo.sysid, EmployeeInfo.dobTB, EmployeeInfo.businessTB, EmployeeInfo.addressTB, RefreshEmployee);
+    $("#info").on('click', function () {
+
+        swal({
+            title: "Error!",
+            text: "Here's my error message!",
+            type: "error",
+            confirmButtonText: "Cool"
+        });
+
       $.fn.serializeObject = function () {
           var o = {};
           var a = this.serializeArray();
