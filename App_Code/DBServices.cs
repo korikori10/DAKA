@@ -228,6 +228,91 @@ public class DBServices
     }
 
     /// <summary>
+    /// reads employee no updated visa from today
+    /// </summary>
+    /// <returns>list of employeesno updated visa from today</returns>
+    public List<Employee> ReadEmployeesNeedNewVisa()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_ex_visa_date";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Employee> Employees = new List<Employee>();
+            List<Doc> docs = new List<Doc>();
+
+            while (dr.Read())
+            {
+                Employee Emp = new Employee();
+               // Doc c = new Doc();
+                //c = new Doc( dr["doc_id"].ToString(),Convert.ToInt32(dr["doctype_id"]), dr["img_url"].ToString(),Convert.ToDateTime( dr["last_update"]), Convert.ToDateTime(dr["ex_date"]), Convert.ToBoolean(dr["active"]));
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(getString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]));
+                Employees.Add(Emp);
+                //docs.Add(c);
+            }
+            return Employees;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
+    /// <summary>
+    /// reads employee not active
+    /// </summary>
+    /// <returns>list of employees not active</returns>
+    public List<Employee> ReadEmployeesNotActive()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_emp_not_active";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Employee> Employees = new List<Employee>();
+            while (dr.Read())
+            {
+                Employee Emp;
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(getString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]),dr["d_name"],ToString(),dr["bus_name"].ToString());
+                Employees.Add(Emp);
+            }
+            return Employees;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
+    /// <summary>
     /// reads businesses from sql
     /// </summary>
     /// <returns>list of businesses</returns>

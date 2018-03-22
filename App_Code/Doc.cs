@@ -99,4 +99,14 @@ public class Doc
         // TODO: Add constructor logic here
         //
     }
+
+    public Doc(string doc_id, int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active)
+    {
+        this.doc_id = doc_id;
+        this.doctype_id = doctype_id;
+        this.img_url = img_url;
+        this.last_update = last_update;
+        this.ex_date = ex_date;
+        this.active = active;
+    }
 }

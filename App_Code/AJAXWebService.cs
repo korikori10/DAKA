@@ -53,7 +53,37 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-[WebMethod]
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void ReadEmployeesNeedNewVisa()
+    {
+        Employee e = new Employee();
+        List<Employee> LE = e.ReadEmployeesNeedNewVisa();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
+        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
+        // return jsonStringCategory;
+        Context.Response.Write(jsonStringCategory);
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void ReadEmployeesNotActive()
+    {
+        Employee e = new Employee();
+        List<Employee> LE = e.ReadEmployeesNotActive();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
+        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
+        // return jsonStringCategory;
+        Context.Response.Write(jsonStringCategory);
+
+    }
+    [WebMethod]
 [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 public string GetEmployeeById(string pass)
 {

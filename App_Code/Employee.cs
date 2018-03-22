@@ -34,13 +34,33 @@ public class Employee
     private bool active;
     private string disable_reason;
     private string bus_name;
-
+    DateTime ex_date;
 
     public Employee()
     {
         //
         // TODO: Add constructor logic here
         //
+    }
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, string disable_reason,string bus_name)
+    {
+        this.employee_pass_id = employee_pass_id;
+        this.lname = lname;
+        this.fname = fname;
+        this.sys_id = sys_id;
+        this.ex_date = ex_date;
+        this.phone = phone;
+        this.disable_reason = disable_reason;
+        this.bus_name = bus_name;
+    }
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date,int phone)
+    {
+        this.employee_pass_id = employee_pass_id;
+        this.lname = lname;
+        this.fname = fname;
+        this.sys_id = sys_id;
+        this.Ex_date = ex_date;
+        this.phone = phone;
     }
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, string bus_name, bool insurance, bool il_citizen, bool active)
     {
@@ -82,6 +102,10 @@ public class Employee
         this.occupation_code = occupation_code;
         this.active = active;
         this.disable_reason = disable_reason;
+    }
+
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, object v1, string v2, string v3) : this(employee_pass_id, lname, fname, sys_id, ex_date, phone)
+    {
     }
 
     public string Employee_pass_id
@@ -422,6 +446,19 @@ public class Employee
         }
     }
 
+    public DateTime Ex_date
+    {
+        get
+        {
+            return ex_date;
+        }
+
+        set
+        {
+            ex_date = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -440,7 +477,27 @@ public class Employee
         return LE;
         //
     }
-public Employee getEmployeeById(string pass)
+
+    public List<Employee> ReadEmployeesNeedNewVisa()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.ReadEmployeesNeedNewVisa();
+
+        return LE;
+        //
+    }
+    public List<Employee> ReadEmployeesNotActive()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.ReadEmployeesNotActive();
+
+        return LE;
+        //
+    }
+    
+    public Employee getEmployeeById(string pass)
 {
     DBServices dbs = new DBServices();
 
