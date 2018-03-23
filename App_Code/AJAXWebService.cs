@@ -106,6 +106,8 @@ public string GetEmployeeById(string pass)
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
+ 
+
         e = e.GetUpdateEmployee(e);
         // serialize to string
         string jsonStringCategory = js.Serialize(e);

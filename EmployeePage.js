@@ -37,6 +37,8 @@ var Business = new Object();
            // Business = results.
             $('#empPassTB').val(results.Employee_pass_id);
             $('#addressTB').val(results.Add);
+            $('#gender').val(results.Gender);
+
         }
 
     }
@@ -77,10 +79,11 @@ var Business = new Object();
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    var formData = $('#EmployeeUpdate').serializeObject();
+                    EmployeeInfo.Employee_pass_id = $("#empPassTB").val()
+                    EmployeeInfo.Sys_id = $("#sysIdTB").val() //$('#EmployeeUpdate').serializeObject();
                     // var result = JSON.stringify(formData);
                     //  var array = ($("#insertEmpForm").serialize());
-                    UpdateEmp(formData);
+                    UpdateEmp(EmployeeInfo);
                     swal("Deleted!", "Your imaginary file has been deleted.", "success");
                 } else {
                     swal("Cancelled", "Your imaginary file is safe :)", "error");
@@ -99,7 +102,7 @@ var Business = new Object();
       //EmployeeInfo = array;
 
 
-      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) });
+      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) })
   }
 
 //function RefreshEmployee(result)
