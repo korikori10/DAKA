@@ -83,6 +83,7 @@ public class AJAXWebService : System.Web.Services.WebService
         Context.Response.Write(jsonStringCategory);
 
     }
+
     [WebMethod]
 [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 public string GetEmployeeById(string pass)
@@ -97,6 +98,7 @@ public string GetEmployeeById(string pass)
     return jsonStringCategory;
 
 }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string GetUpdateEmployee(string EmployeeInfo)
@@ -109,10 +111,19 @@ public string GetEmployeeById(string pass)
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
 
-
-      
-
     }
 
-    
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void getEmployeesnobusiness()
+    {
+        Employee e = new Employee();
+        List<Employee> LE = e.getEmployeesnobisiness();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
+        Context.Response.Write(jsonStringCategory);
+        //return jsonStringCategory;
+
+    }
 }

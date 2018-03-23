@@ -5,17 +5,17 @@ var Business = new Object();
         EmployeeInfo.pass = sessionStorage.getItem("empInfo")
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
         $(".selectize-select").selectize();
-        $("#info").on('click', function () {
+        //$("#info").on('click', function () {
 
-            swal({
-                title: "האם אתה בטוח?",
-                text: "אתה עומד לעדכן את פרטי העובד.",
-                type: "info",
-                confirmButtonText: "כן",
-                showCancelButton: "true",
-                cancelButtonText:"בטל"
-            });
-        });
+        //    swal({
+        //        title: "האם אתה בטוח?",
+        //        text: "אתה עומד לעדכן את פרטי העובד.",
+        //        type: "info",
+        //        confirmButtonText: "כן",
+        //        showCancelButton: "true",
+        //        cancelButtonText:"בטל"
+        //    });
+        //});
         
     });
 
@@ -34,7 +34,7 @@ var Business = new Object();
           //      return date.getDate() + "/" + month + "/" + date.getFullYear();
           //  });
 
-            Business = results.
+           // Business = results.
             $('#empPassTB').val(results.Employee_pass_id);
             $('#addressTB').val(results.Add);
         }
@@ -47,38 +47,49 @@ var Business = new Object();
   //EmployeeInfo.businessTB=  $('#businessTB').val();
   //EmployeeInfo.addressTB=  $('#addressTB').val();
 
-
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
 
 
     $("#info").on('click', function () {
 
         swal({
-            title: "Error!",
-            text: "Here's my error message!",
-            type: "error",
-            confirmButtonText: "Cool"
-        });
+            title: "האם אתה בטוח?",
+            text: "אתה עומד לעדכן את פרטי העובד.",
+            type: "info",
+            confirmButtonText: "כן",
+            showCancelButton: "true",
+            cancelButtonText: "בטל",
 
-      $.fn.serializeObject = function () {
-          var o = {};
-          var a = this.serializeArray();
-          $.each(a, function () {
-              if (o[this.name] !== undefined) {
-                  if (!o[this.name].push) {
-                      o[this.name] = [o[this.name]];
-                  }
-                  o[this.name].push(this.value || '');
-              } else {
-                  o[this.name] = this.value || '';
-              }
-          });
-          return o;
-      };
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    var formData = $('#EmployeeUpdate').serializeObject();
+                    // var result = JSON.stringify(formData);
+                    //  var array = ($("#insertEmpForm").serialize());
+                    UpdateEmp(formData);
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+        
+ 
 
-      var formData = $('#EmployeeUpdate').serializeObject();
-      // var result = JSON.stringify(formData);
-      //  var array = ($("#insertEmpForm").serialize());
-      UpdateEmp(formData);
+ 
 });
   
 

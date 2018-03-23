@@ -83,15 +83,7 @@ $('#EmployeesTable').on('click', 'tr td button', function () {
    
 })
 
-$('#newemp').on('click', 'tr td button', function () {
-    //var table = $('#EmployeesTable').DataTable();
-    sessionStorage.removeItem("empInfo")
-    EmployeeInfo.pass = $(this).closest('tr').find('td:first').text();
-    sessionStorage.setItem("empInfo", EmployeeInfo.pass);
-    window.location = "Employee.html";
 
-
-})
 
 //}
 //changePage to Specific Employee

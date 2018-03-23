@@ -35,6 +35,7 @@ public class Employee
     private string disable_reason;
     private string bus_name;
     DateTime ex_date;
+    int dayspass;
 
     public Employee()
     {
@@ -42,6 +43,7 @@ public class Employee
         // TODO: Add constructor logic here
         //
     }
+    //for employee not active
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, string disable_reason,string bus_name)
     {
         this.employee_pass_id = employee_pass_id;
@@ -53,13 +55,25 @@ public class Employee
         this.disable_reason = disable_reason;
         this.bus_name = bus_name;
     }
+
+    //for employees no busi
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, int phone, int dayspass,string bus_name)
+    {
+        this.employee_pass_id = employee_pass_id;
+        this.lname = lname;
+        this.fname = fname;
+        this.Sys_id = sys_id;
+        this.phone = phone;
+        this.bus_name = bus_name;
+        this.dayspass = dayspass;
+    }
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date,int phone)
     {
         this.employee_pass_id = employee_pass_id;
         this.lname = lname;
         this.fname = fname;
         this.sys_id = sys_id;
-        this.Ex_date = ex_date;
+        this.ex_date = ex_date;
         this.phone = phone;
     }
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, string bus_name, bool insurance, bool il_citizen, bool active)
@@ -459,6 +473,19 @@ public class Employee
         }
     }
 
+    public int Dayspass
+    {
+        get
+        {
+            return dayspass;
+        }
+
+        set
+        {
+            dayspass = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -515,4 +542,14 @@ public class Employee
         return e;
 
     }
+    public List<Employee> getEmployeesnobisiness()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.readEmployeesNoBusiness();
+
+        return LE;
+
+    }
+
 }
