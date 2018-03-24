@@ -301,7 +301,7 @@
 
                                                                                 {
                                                                                     'data': "",
-                                                                                    'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                                                                                    'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                                                                                 }]
                                                                         });
                                                                     }
@@ -320,66 +320,66 @@
                             </div>
                             <!-- statistics -->
                             <!--עובדים חדשים-->
-                            <div class="col-xs-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">עובדים חדשים</h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
+                                <div class="col-xs-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">עובדים חדשים</h4>
+                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block card-dashboard">
-                                            <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="display:none">מס דרכון</th>
-                                                        <th>מספר מכפל</th>
-                                                        <th>שם פרטי</th>
-                                                        <th>שם משפחה</th>
-                                                        <th>מקום עבודה</th>
-                                                        <th>פעולות</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                            <script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    $.ajax({
-                                                        type: "POST",
-                                                        dataType: "json",
-                                                        url: "ajaxWebService.asmx/getNewEmployees",
-                                                        success: function (data) {
-                                                            var datatableVariable = $('#newemp').DataTable({
-                                                                data: data,
-                                                                columns: [
-                                                                    {
-                                                                        'data': 'Employee_pass_id',
-                                                                        'visible': false
-                                                                    },
-                                                                    { 'data': 'Sys_id' },
-                                                                    { 'data': 'Fname' },
-                                                                    { 'data': 'Lname' },
-                                                                    { 'data': 'Bus_name' },
-                                                                    {
-                                                                        'data': "",
-                                                                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
-                                                                    }]
-                                                            });
-                                                        }
+                                        <div class="card-body collapse in">
+                                            <div class="card-block card-dashboard">
+                                                <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="display:none">מס דרכון</th>
+                                                            <th>מספר מכפל</th>
+                                                            <th>שם פרטי</th>
+                                                            <th>שם משפחה</th>
+                                                            <th>מקום עבודה</th>
+                                                            <th>פעולות</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                                <script type="text/javascript">
+                                                    $(document).ready(function () {
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            dataType: "json",
+                                                            url: "ajaxWebService.asmx/getNewEmployees",
+                                                            success: function (data) {
+                                                                var datatableVariable = $('#newemp').DataTable({
+                                                                    data: data,
+                                                                    columns: [
+                                                                        {
+                                                                            'data': 'Employee_pass_id',
+                                                                            'visible': false
+                                                                        },
+                                                                        { 'data': 'Sys_id' },
+                                                                        { 'data': 'Fname' },
+                                                                        { 'data': 'Lname' },
+                                                                        { 'data': 'Bus_name' },
+                                                                        {
+                                                                            'data': "",
+                                                                            'defaultContent': '<button  name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                                                                        }]
+                                                                });
+                                                            }
+                                                        });
                                                     });
-                                                });
-                                            </script>
+                                                </script>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             <!--עובדים חדשים-->
                             <!--חידושי ויזה-->
                             <div class="col-xs-4" style="float:left;">
@@ -440,7 +440,7 @@
                                                                     { 'data': 'Phone' },
                                                                     {
                                                                         'data': "",
-                                                                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                                                                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                                                                     }]
                                                             });
                                                         }
@@ -509,7 +509,7 @@
                                                                 { 'data': 'Dayspass' },
                                                                 {
                                                                     'data': "",
-                                                                    'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                                                                    'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                                                                 }]
                                                         });
                                                     }
