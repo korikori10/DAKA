@@ -1,6 +1,35 @@
 ﻿//CategoryInfo = new Object();
 var EmployeeInfo = new Object();
 
+$(document).ready(function () {
+    getEmployeessearch(renderEmployees);
+
+    //  getEmployeesnobusiness(renderEmployeesnobusiness);
+});
+
+
+
+function renderEmployees(results) {
+    //this is the callBackFunc 
+    EmployeeInfo = results.d
+
+    $(".selectize-select").selectize({
+        create: true,
+        valueField: 'Emp_Pass_id',
+        lableField: 'Fname',
+        sortField: 'text',
+        searchField: ['Emp_Pass_id', 'Fname', 'Lname'],
+        options: EmployeeInfo
+    });
+
+    //eresults = results;
+    //$('#DynamicEmployeesList').empty();
+    //$.each(results, function (i, row) {
+    //    dynamicLi = '<option value="' + row.Employee_pass_id + '">'+ row.Fname + " " + row.Lname + '</option>'
+    //    $('#DynamicEmployeesList').append(dynamicLi);
+    //$('#DynamicEmployeesList').listview('refresh');
+    // });
+}
 //$(document).on('pagebeforeshow', '#add-links', function () {
 //    getEmployees(renderEmployees);
 //});
