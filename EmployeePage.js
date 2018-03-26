@@ -17,17 +17,41 @@ var Business = new Object();
         //    });
         //});
         
-    });
+});
+function fixDate(date) {
+	var date = new Date(parseInt(date.substr(6)));
+	var month = date.getMonth() + 1;
+	return date.getFullYear() + "-" + month + "-" + date.getDate();
+}
+function populate(frm, data) {
+	$.each(data, function (key, value) {
+		var ctrl = $('[name=' + key + ']', frm);
+		switch (ctrl.prop("type")) {
+			case "radio": case "checkbox":
+				ctrl.each(function () {
+					if ($(this).attr('value') == value) $(this).attr("checked", value);
+				});
+				break;
+			default:
+				ctrl.val(value);
+		}
+	});
+}
 
     function renderEmployeeByID(results) {
 
         results = $.parseJSON(results.d);
 
         if (results.Employee_pass_id == null) { results = null; }
-        else {
+		else {
+
+			var frm = $("#EmployeeUpdate");
+			var data = results;
+			data.Birthday = fixDate(data.Birthday)
+			populate(frm, data)
             
             $('#name').val(results.Fname + " " + results.Lname);
-            $('#sysIdTB').val(results.Sys_id);
+            //$('#sysIdTB').val(results.Sys_id);
           //$('#dobTB').val(function  () {
           //    var date = new Date(parseInt(results.Birthday.substr(6)));
           //      var month = date.getMonth() + 1;
@@ -35,9 +59,9 @@ var Business = new Object();
           //  });
 
            // Business = results.
-            $('#empPassTB').val(results.Employee_pass_id);
-            $('#addressTB').val(results.Add);
-            $('#gender').val(results.Gender);
+            //$('#empPassTB').val(results.Employee_pass_id);
+            //$('#addressTB').val(results.Add);
+            //$('#gender').val(results.Gender);
 
         }
 
