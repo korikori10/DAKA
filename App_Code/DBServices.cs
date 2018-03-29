@@ -737,6 +737,68 @@ public class DBServices
 
         return command;
     }
+
+    //--------------------------------------------------------------------
+    // insert an Business
+    //--------------------------------------------------------------------
+    public int insertEmpBus(Employee emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildInsertCommandEmpBus(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the Insert command String for employee
+    //--------------------------------------------------------------------
+    private String BuildInsertCommandEmpBus(Employee emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, DateTime.Now.ToString("yyyy-MM-dd"));//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        String prefix = "INSERT INTO [employee in business] " + "(employee_pass_id, bus_id, start_date)";
+        command = prefix + sb.ToString();
+
+        return command;
+    }
     #endregion
 
 
@@ -796,15 +858,11 @@ public class DBServices
     private String BuildUpdateCommand(Employee emp)
     {
         String command;
-        bool businessChange = false;
+
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET [michpal_id] = " + emp.Sys_id + "WHERE employee_pass_id = '" + emp.Employee_pass_id +"'"; //+ ",[birthday] = " + emp.Birthday+ ",[add] = " + emp.Add;
-        if (true)
-        {
-
-        }
-        command =prefix;
+        String prefix = "UPDATE EMPLOYEE SET lname = '" + emp.Lname + "', fname = '" + emp.Fname + "', birthday = '" + emp.Birthday + "', gender = '" + emp.Gender + "', Picture = '" + emp.Picture + "', origin_country = '" + emp.Origin_country + "', il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = '" + emp.Add + "', add_num = '" + emp.Add_num + "', phone = '" + emp.Phone + "', com_app = '" + emp.Com_app + "', michpal_id = '" + emp.Sys_id + "', insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code + "', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', active = '" + emp.Active + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'";
+        command = prefix;// prefix;
 
         return command;
     }
@@ -930,6 +988,68 @@ public class DBServices
         // use a string builder to create the dynamic string
         //String prefix = "UPDATE productN SET inventory = " /*+ emp.Inventory + " Where product_id = " + emp.ProductId*/;
         command = "";// prefix;
+
+        return command;
+    }
+
+    //--------------------------------------------------------------------
+    // Update emp in bus end date
+    //--------------------------------------------------------------------
+    public int updateFinDate(Employee emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildEndDateUpdateCommand(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+
+    //--------------------------------------------------------------------
+    // Build the business a employy command String
+    //--------------------------------------------------------------------
+    private String BuildEndDateUpdateCommand(Employee emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        String prefix = "UPDATE [employee in business] SET end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date = null";
+        command = prefix;// prefix;
 
         return command;
     }

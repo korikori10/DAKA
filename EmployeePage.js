@@ -1,5 +1,6 @@
 ﻿var EmployeeInfo = new Object();
 var Business = new Object();
+resultsSave = new Object();
 
     $(document).ready(function () {
         EmployeeInfo.pass = sessionStorage.getItem("empInfo")
@@ -46,7 +47,8 @@ function populate(frm, data) {
 		else {
 
 			var frm = $("#EmployeeUpdate");
-			var data = results;
+            var data = results;
+            resultsSave = results;
 			data.Birthday = fixDate(data.Birthday)
 			populate(frm, data)
             
@@ -103,14 +105,15 @@ function populate(frm, data) {
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    EmployeeInfo.Employee_pass_id = $("#empPassTB").val()
-                    EmployeeInfo.Sys_id = $("#sysIdTB").val() //$('#EmployeeUpdate').serializeObject();
+                    //EmployeeInfo.Employee_pass_id = $("#empPassTB").val()
+                    //EmployeeInfo.Sys_id = $("#sysIdTB").val()
+                    EmployeeInfo = $('#EmployeeUpdate').serializeObject();
                     // var result = JSON.stringify(formData);
                     //  var array = ($("#insertEmpForm").serialize());
                     UpdateEmp(EmployeeInfo);
-                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                    
                 } else {
-                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                   // swal("Cancelled", "Your imaginary file is safe :)", "error");
                 }
             });
         

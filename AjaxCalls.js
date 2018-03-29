@@ -51,7 +51,7 @@ function UpdateEmployee(EmployeeInfo) {
             contentType: 'application/json; charset = utf-8',
             data: emp,
             success: function () {
-                alert(EmployeeInfo)
+                swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
             },
             error: function (xhr, status, error) {
                 var err = eval("(" + xhr.responseText + ")");

@@ -36,6 +36,8 @@ public class Employee
     private string bus_name;
     DateTime ex_date;
     int dayspass;
+    private bool updateBus;
+    private int business;
 
     public Employee()
     {
@@ -486,6 +488,32 @@ public class Employee
         }
     }
 
+    public bool UpdateBus
+    {
+        get
+        {
+            return updateBus;
+        }
+
+        set
+        {
+            updateBus = value;
+        }
+    }
+
+    public int Business
+    {
+        get
+        {
+            return business;
+        }
+
+        set
+        {
+            business = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -538,6 +566,11 @@ public class Employee
         DBServices dbs = new DBServices();
 
         Employee e = dbs.update(emp);
+        if (e.UpdateBus)
+        {
+            dbs.updateFinDate(e);
+            dbs.insertEmpBus(e);
+        }
 
         return e;
 
