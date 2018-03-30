@@ -139,4 +139,14 @@ public class Business
         this.bus_type_code = bus_type_code;
         this.contract_code = contract_code;
     }
+
+    public List<Business> getBusinesses()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Business> BC = dbs.readBusinesses();
+
+        return BC;
+
+    }
 }

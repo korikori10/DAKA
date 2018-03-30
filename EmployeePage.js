@@ -2,10 +2,13 @@
 var Business = new Object();
 resultsSave = new Object();
 
-    $(document).ready(function () {
+$(document).ready(function () {
+    getCities(renderCities);
+    getCountries(renderCountries);
+    getBusinesses(renderBusinesses);
         EmployeeInfo.pass = sessionStorage.getItem("empInfo")
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
-        $(".selectize-select").selectize();
+      
         //$("#info").on('click', function () {
 
         //    swal({
@@ -39,6 +42,42 @@ function populate(frm, data) {
 	});
 }
 
+
+function renderBusinesses(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#businessSE').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
+        $('#businessSE').append(dynamicLi);
+        //  $('#DynamicCitiesList').listview('refresh');
+
+    });
+}
+
+function renderCountries(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#DynamiCountryList').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
+        $('#DynamiCountryList').append(dynamicLi);
+        //  $('#DynamiCountryList').listview('refresh');
+        EmployeeInfo.pass = sessionStorage.getItem("empInfo");
+        getEmployeeById(EmployeeInfo, renderEmployeeByID);
+        $('.selectize-select').selectize;
+    });
+}
+function renderCities(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#DynamicCitiesList').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
+        $('#DynamicCitiesList').append(dynamicLi);
+        //  $('#DynamicCitiesList').listview('refresh');
+    });
+}
     function renderEmployeeByID(results) {
 
         results = $.parseJSON(results.d);
@@ -64,7 +103,7 @@ function populate(frm, data) {
             //$('#empPassTB').val(results.Employee_pass_id);
             //$('#addressTB').val(results.Add);
             //$('#gender').val(results.Gender);
-
+            $(".selectize-select").selectize();
         }
 
     }
