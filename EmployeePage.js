@@ -6,12 +6,10 @@ $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinesses(renderBusinesses);
-        EmployeeInfo.pass = sessionStorage.getItem("empInfo")
+    EmployeeInfo.pass = sessionStorage.getItem("empInfo");
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
-<<<<<<< HEAD
         $(".selectize-select").selectize();
         
-=======
       
         //$("#info").on('click', function () {
 
@@ -24,7 +22,6 @@ $(document).ready(function () {
         //        cancelButtonText:"בטל"
         //    });
         //});
->>>>>>> dca1f1d0b6ed4524e07dd0983a43a91c201c5767
         
 });
 function fixDate(date) {
@@ -38,7 +35,7 @@ function populate(frm, data) {
 		switch (ctrl.prop("type")) {
 			case "radio": case "checkbox":
 				ctrl.each(function () {
-					if ($(this).attr('value') == value) $(this).attr("checked", value);
+					if ($(this).attr('value') === value) $(this).attr("checked", value);
 				});
 				break;
             case "file":
@@ -94,14 +91,14 @@ function renderCities(results) {
 
         results = $.parseJSON(results.d);
 
-        if (results.Employee_pass_id == null) { results = null; }
+        if (results.Employee_pass_id === null) { results = null; }
 		else {
 
 			var frm = $("#EmployeeUpdate");
             var data = results;
             resultsSave = results;
-			data.Birthday = fixDate(data.Birthday)
-			populate(frm, data)
+            data.Birthday = fixDate(data.Birthday);
+            populate(frm, data);
             
             $('#name').val(results.Fname + " " + results.Lname);
             //$('#sysIdTB').val(results.Sys_id);
@@ -150,7 +147,7 @@ function renderCities(results) {
             type: "info",
             confirmButtonText: "כן",
             showCancelButton: "true",
-            cancelButtonText: "בטל",
+            cancelButtonText: "בטל"
 
         },
             function (isConfirm) {
@@ -175,5 +172,5 @@ function renderCities(results) {
 
   function UpdateEmp(array) {
 
-      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) })
+      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) });
   }

@@ -221,8 +221,8 @@ public class DBServices
             // write to log
             throw (ex);
 
-<<<<<<< HEAD
-=======
+        }
+    }
     public List<Country> readCountries()
     {
         SqlConnection con = null;
@@ -254,7 +254,6 @@ public class DBServices
             // write to log
             throw (ex);
 
->>>>>>> dca1f1d0b6ed4524e07dd0983a43a91c201c5767
         }
         finally
         {
@@ -265,8 +264,7 @@ public class DBServices
 
         }
     }
-<<<<<<< HEAD
-=======
+
 
     /// <summary>
     /// reads cities from sql
@@ -361,7 +359,6 @@ public class DBServices
         }
     }
 
->>>>>>> dca1f1d0b6ed4524e07dd0983a43a91c201c5767
     /// <summary>
     /// reads employees without business from sql
     /// </summary>
@@ -545,48 +542,48 @@ public class DBServices
     /// reads businesses from sql
     /// </summary>
     /// <returns>list of businesses</returns>
-    public List<Business> readBusinesses()
-    {
-        SqlConnection con = null;
-        try
-        {
+    //public List<Business> readBusinesses()
+    //{
+    //    SqlConnection con = null;
+    //    try
+    //    {
 
-            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM BUSINESSES";
-            SqlCommand cmd = new SqlCommand(selectSTR, con);
-            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
-            List<Business> businesses = new List<Business>();
-            while (dr.Read())
-            {   // Read till the end of the data into a row
-                Business b = new Business();           
-                b.Bus_id = Convert.ToInt32(dr["bus_id"]);
-                b.Bus_name = dr["bus_name"].ToString();
-                b.Add_city = Convert.ToInt32(dr["add_city"]);
-                b.Add = dr["add"].ToString();
-                b.Add_num = Convert.ToInt32(dr["add_num"]);
-                b.Phone = Convert.ToInt32(dr["phone"]);
-                b.Bus_type_code = Convert.ToInt32(dr["bus_type_code"]);
-                b.Contract_code = Convert.ToInt32(dr["contract_code"]);   
-                businesses.Add(b);
-            }
+    //        con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+    //        string selectSTR = "SELECT*FROM BUSINESSES";
+    //        SqlCommand cmd = new SqlCommand(selectSTR, con);
+    //        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+    //        List<Business> businesses = new List<Business>();
+    //        while (dr.Read())
+    //        {   // Read till the end of the data into a row
+    //            Business b = new Business();           
+    //            b.Bus_id = Convert.ToInt32(dr["bus_id"]);
+    //            b.Bus_name = dr["bus_name"].ToString();
+    //            b.Add_city = Convert.ToInt32(dr["add_city"]);
+    //            b.Add = dr["add"].ToString();
+    //            b.Add_num = Convert.ToInt32(dr["add_num"]);
+    //            b.Phone = Convert.ToInt32(dr["phone"]);
+    //            b.Bus_type_code = Convert.ToInt32(dr["bus_type_code"]);
+    //            b.Contract_code = Convert.ToInt32(dr["contract_code"]);   
+    //            businesses.Add(b);
+    //        }
 
-            return businesses;
-        }
+    //        return businesses;
+    //    }
 
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
+    //    catch (Exception ex)
+    //    {
+    //        // write to log
+    //        throw (ex);
 
-        }
-        finally
-        {
-            if (con != null)
-            {
-                con.Close();
-            }
-        }
-    }
+    //    }
+    //    finally
+    //    {
+    //        if (con != null)
+    //        {
+    //            con.Close();
+    //        }
+    //    }
+    //}
 
     /// <summary>
     /// reads business from sql

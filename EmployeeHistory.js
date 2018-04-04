@@ -46,30 +46,30 @@ function getHistory(EmployeeInfo, renderEmployeeByIDs) {
         }
     });
 }
-function renderEmployeeByIDs(data) {
-    data = $.parseJSON(data.d);
-    var datatableVariable = $('#HistoryTable').DataTable({
-        data: data,
-        columns: [
-            { 'data': 'Employee_pass_id' },
-            { 'data': 'Fname' },
-            { 'data': 'Lname' },
-            { 'data': 'Bus_name' },
-            {
-                'data': 'Start_date', 'render': function (date) {
-                    var date = new Date(parseInt(date.substr(6)));
-                    var month = date.getMonth() + 1;
-                    return date.getDate() + "/" + month + "/" + date.getFullYear();
-                }
-            },
-            {
-                'data': 'End_date', 'render': function (date) {
-                    var date = new Date(parseInt(date.substr(6)));
-                    var month = date.getMonth() + 1;
-                    return date.getDate() + "/" + month + "/" + date.getFullYear();
-                }
-            },]
-    });
+//function renderEmployeeByIDs(data) {
+//    data = $.parseJSON(data.d);
+//    var datatableVariable = $('#HistoryTable').DataTable({
+//        data: data,
+//        columns: [
+//            { 'data': 'Employee_pass_id' },
+//            { 'data': 'Fname' },
+//            { 'data': 'Lname' },
+//            { 'data': 'Bus_name' },
+//            {
+//                'data': 'Start_date', 'render': function (date) {
+//                    var date = new Date(parseInt(date.substr(6)));
+//                    var month = date.getMonth() + 1;
+//                    return date.getDate() + "/" + month + "/" + date.getFullYear();
+//                }
+//            },
+//            {
+//                'data': 'End_date', 'render': function (date) {
+//                    var date = new Date(parseInt(date.substr(6)));
+//                    var month = date.getMonth() + 1;
+//                    return date.getDate() + "/" + month + "/" + date.getFullYear();
+//                }
+//            },]
+//    });
 
 
-}
+//}
