@@ -64,7 +64,19 @@ public class AJAXWebService : System.Web.Services.WebService
         Context.Response.Write(jsonStringCategory);
 
     }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void GetHistory(string pass)
+    {
+        Employee e = new Employee();
+        List<Employee> LE = e.getHistory(pass);
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
 
+        Context.Response.Write(jsonStringCategory);
+
+    }
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

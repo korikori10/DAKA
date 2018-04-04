@@ -95,7 +95,7 @@ public class DBServices
                 e.Add_num= Convert.ToInt32(dr["add_num"]);
                 e.Phone= Convert.ToInt32(dr["phone"]);
                 e.Com_app = Convert.ToBoolean(dr["com_app"]);
-                e.Sys_id = Convert.ToInt32(getString(dr["michpal_id"]));
+                e.Sys_id = Convert.ToInt32(GetString(dr["michpal_id"]));
                 e.Insurance = Convert.ToBoolean(dr["insurance"]); 
                 e.Com_insurance = Convert.ToBoolean(dr["com_insurance"]);
                 e.Fam_stat_code = Convert.ToInt32(dr["fam_stat_code"]); 
@@ -138,7 +138,7 @@ public class DBServices
     /// <summary>
     /// Handles DBnull Exception------>להכניס לEX
     /// </summary>
-    private static object getString(object o)
+    private static object GetString(object o)
 
     {
 
@@ -168,7 +168,7 @@ public class DBServices
             Employee Emp = new Employee();
             while (dr.Read())
             {
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(getString(dr["michpal_id"])), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
             }
             return Emp;
         }
@@ -187,7 +187,50 @@ public class DBServices
 
         }
     }
+    /// <summary>
+    /// reads history of employee from sql
+    /// </summary>
+    /// <returns>employee</returns>
+    public List<Employee> ReadHistory(string pass)
+    {
+        SqlConnection con = null;
 
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM history where employee_pass_id = '" + pass + "'";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Employee> Employees = new List<Employee>();
+            while (dr.Read())
+            {
+                Employee e = new Employee();
+                e.Employee_pass_id = dr["employee_pass_id"].ToString();
+                e.Lname = dr["lname"].ToString();
+                e.Fname = dr["fname"].ToString();
+                e.Bus_name = dr["bus_name"].ToString();
+                e.Start_date = Convert.ToDateTime(dr["start_date"]);
+                e.End_date = Convert.ToDateTime(dr["end_date"]);
+                Employees.Add(e);
+            }
+            return Employees;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
     /// <summary>
     /// reads employees without business from sql
     /// </summary>
@@ -212,7 +255,7 @@ public class DBServices
                 e.Lname = dr["lname"].ToString();
                 e.Fname = dr["fname"].ToString();
                 e.Phone = Convert.ToInt32(dr["phone"]);
-                e.Sys_id = Convert.ToInt32(getString(dr["michpal_id"]));
+                e.Sys_id = Convert.ToInt32(GetString(dr["michpal_id"]));
                 e.Bus_name = dr["bus_name"].ToString();
                 e.Dayspass= Convert.ToInt32(dr["daysPass"]);
                 Employees.Add(e);
@@ -261,7 +304,7 @@ public class DBServices
             while (dr.Read())
             {
                 Employee Emp = new Employee();
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(),  Convert.ToInt32(getString(dr["michpal_id"])), dr["bus_name"].ToString() , Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToBoolean(dr["active"]));
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(),  Convert.ToInt32(GetString(dr["michpal_id"])), dr["bus_name"].ToString() , Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToBoolean(dr["active"]));
                 Employees.Add(Emp);
             }
             return Employees;
@@ -305,7 +348,7 @@ public class DBServices
                 Employee Emp = new Employee();
                // Doc c = new Doc();
                 //c = new Doc( dr["doc_id"].ToString(),Convert.ToInt32(dr["doctype_id"]), dr["img_url"].ToString(),Convert.ToDateTime( dr["last_update"]), Convert.ToDateTime(dr["ex_date"]), Convert.ToBoolean(dr["active"]));
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(getString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]));
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]));
                 Employees.Add(Emp);
                 //docs.Add(c);
             }
@@ -346,7 +389,7 @@ public class DBServices
             while (dr.Read())
             {
                 Employee Emp;
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(getString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]),dr["d_name"].ToString(),dr["bus_name"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]),dr["d_name"].ToString(),dr["bus_name"].ToString());
                 Employees.Add(Emp);
             }
             return Employees;

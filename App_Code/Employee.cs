@@ -35,6 +35,8 @@ public class Employee
     private string disable_reason;
     private string bus_name;
     DateTime ex_date;
+    DateTime start_date;
+    DateTime end_date;
     int dayspass;
     private bool updateBus;
     private int business;
@@ -44,6 +46,16 @@ public class Employee
         //
         // TODO: Add constructor logic here
         //
+    }
+    //for history
+    public Employee(string employee_pass_id, string lname, string fname, string bus_name, DateTime start_date, DateTime end_date)
+    {
+        this.employee_pass_id = employee_pass_id;
+        this.lname = lname;
+        this.fname = fname;
+        this.bus_name = bus_name;
+        this.start_date = start_date;
+        this.end_date = end_date;
     }
     //for employee not active
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, string disable_reason,string bus_name)
@@ -514,6 +526,32 @@ public class Employee
         }
     }
 
+    public DateTime Start_date
+    {
+        get
+        {
+            return start_date;
+        }
+
+        set
+        {
+            start_date = value;
+        }
+    }
+
+    public DateTime End_date
+    {
+        get
+        {
+            return end_date;
+        }
+
+        set
+        {
+            end_date = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -580,6 +618,15 @@ public class Employee
         DBServices dbs = new DBServices();
 
         List<Employee> LE = dbs.readEmployeesNoBusiness();
+
+        return LE;
+
+    }
+    public List<Employee> getHistory(string pass)
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.ReadHistory(pass);
 
         return LE;
 

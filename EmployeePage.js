@@ -6,17 +6,7 @@ resultsSave = new Object();
         EmployeeInfo.pass = sessionStorage.getItem("empInfo")
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
         $(".selectize-select").selectize();
-        //$("#info").on('click', function () {
-
-        //    swal({
-        //        title: "האם אתה בטוח?",
-        //        text: "אתה עומד לעדכן את פרטי העובד.",
-        //        type: "info",
-        //        confirmButtonText: "כן",
-        //        showCancelButton: "true",
-        //        cancelButtonText:"בטל"
-        //    });
-        //});
+        
         
 });
 function fixDate(date) {
@@ -33,8 +23,15 @@ function populate(frm, data) {
 					if ($(this).attr('value') == value) $(this).attr("checked", value);
 				});
 				break;
-			default:
-				ctrl.val(value);
+            case "file":
+                break;
+            case "select-one":
+
+                ctrl.val(value).prop('selected', true);
+                //var o = ctrl.selectmenu("refresh");
+                break;
+            default:
+                ctrl.val(value);
 		}
 	});
 }
@@ -91,7 +88,6 @@ function populate(frm, data) {
         return o;
     };
 
-
     $("#info").on('click', function () {
 
         swal({
@@ -125,14 +121,5 @@ function populate(frm, data) {
 
   function UpdateEmp(array) {
 
-
-      //EmployeeInfo = array;
-
-
       UpdateEmployee({ EmployeeInfo: JSON.stringify(array) })
   }
-
-//function RefreshEmployee(result)
-//{
-//    window.location.reload();
-//}

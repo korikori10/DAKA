@@ -7,7 +7,7 @@
     Author: PIXINVENT
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-(function(window, document,Ladda $) {
+(function(window, document,Ladda ) {
 	'use strict';
 	Ladda.bind( 'div:not(.progress-demo) button', { timeout: 2000 } );
 

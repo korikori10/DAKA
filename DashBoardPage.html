@@ -1,6 +1,7 @@
 ﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="he" data-textdirection="rtl" class="loading">
 <head>
@@ -88,7 +89,7 @@
                 <!--<li class=" nav-item">
                     <a href="html/rtl/vertical-menu-template/index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
                 </li>-->
-                <li class=" nav-item">
+                <li class="nav-item active">
                     <a href="DashBoardPage.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">מסך הבית</span></a>
 
                 </li>
@@ -220,7 +221,7 @@
                                     <!--או 8 אם רוצים שיהיה שם כפתורים של דוחות הוספת עובד וזה-->
 
                                     <fieldset class="form-group position-relative">
-                                        <input id="DynamicEmployeesList" type="text" class="form-control form-control-lg input-lg"  placeholder="חפש עובד ..." />
+                                        <input id="DynamicEmployeesList" type="text" class="form-control form-control-lg input-lg" placeholder="חפש עובד ..." />
                                         <div class="form-control-position">
                                             <i class="icon-search7 font-medium-4"></i>
                                         </div>
@@ -237,7 +238,7 @@
                                 <section id="scroll-dynamic">
                                     <div class="row ">
                                         <div class="col-xs-12">
-                                            <div class="card" >
+                                            <div class="card">
                                                 <div class="card-header">
                                                     <h4 class="card-title">עובדים לא פעילים</h4>
                                                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -320,66 +321,66 @@
                             </div>
                             <!-- statistics -->
                             <!--עובדים חדשים-->
-                                <div class="col-xs-4">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="card-title">עובדים חדשים</h4>
-                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                            <div class="heading-elements">
-                                                <ul class="list-inline mb-0">
-                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                </ul>
-                                            </div>
+                            <div class="col-xs-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">עובדים חדשים</h4>
+                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                        <div class="heading-elements">
+                                            <ul class="list-inline mb-0">
+                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                            </ul>
                                         </div>
-                                        <div class="card-body collapse in">
-                                            <div class="card-block card-dashboard">
-                                                <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="display:none">מס דרכון</th>
-                                                            <th>מספר מכפל</th>
-                                                            <th>שם פרטי</th>
-                                                            <th>שם משפחה</th>
-                                                            <th>מקום עבודה</th>
-                                                            <th>פעולות</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody></tbody>
-                                                </table>
-                                                <script type="text/javascript">
-                                                    $(document).ready(function () {
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            dataType: "json",
-                                                            url: "ajaxWebService.asmx/getNewEmployees",
-                                                            success: function (data) {
-                                                                var datatableVariable = $('#newemp').DataTable({
-                                                                    data: data,
-                                                                    columns: [
-                                                                        {
-                                                                            'data': 'Employee_pass_id',
-                                                                            'visible': false
-                                                                        },
-                                                                        { 'data': 'Sys_id' },
-                                                                        { 'data': 'Fname' },
-                                                                        { 'data': 'Lname' },
-                                                                        { 'data': 'Bus_name' },
-                                                                        {
-                                                                            'data': "",
-                                                                            'defaultContent': '<button  name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
-                                                                        }]
-                                                                });
-                                                            }
-                                                        });
+                                    </div>
+                                    <div class="card-body collapse in">
+                                        <div class="card-block card-dashboard">
+                                            <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="display:none">מס דרכון</th>
+                                                        <th>מספר מכפל</th>
+                                                        <th>שם פרטי</th>
+                                                        <th>שם משפחה</th>
+                                                        <th>מקום עבודה</th>
+                                                        <th>פעולות</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <script type="text/javascript">
+                                                $(document).ready(function () {
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        dataType: "json",
+                                                        url: "ajaxWebService.asmx/getNewEmployees",
+                                                        success: function (data) {
+                                                            var datatableVariable = $('#newemp').DataTable({
+                                                                data: data,
+                                                                columns: [
+                                                                    {
+                                                                        'data': 'Employee_pass_id',
+                                                                        'visible': false
+                                                                    },
+                                                                    { 'data': 'Sys_id' },
+                                                                    { 'data': 'Fname' },
+                                                                    { 'data': 'Lname' },
+                                                                    { 'data': 'Bus_name' },
+                                                                    {
+                                                                        'data': "",
+                                                                        'defaultContent': '<button  name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                                                                    }]
+                                                            });
+                                                        }
                                                     });
-                                                </script>
-                                            </div>
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             <!--עובדים חדשים-->
                             <!--חידושי ויזה-->
                             <div class="col-xs-4" style="float:left;">
@@ -621,6 +622,7 @@
     <!--<script src="app-assets/js/scripts/buttons/button-ladda.min.js"></script>-->
     <!--<script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.min.js"></script>-->
     <!-- END PAGE VENDOR JS-->
+    <!--<script src="https://smtpjs.com/v2/smtp.js"></script>-->
 
 
 </body>
