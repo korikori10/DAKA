@@ -12,10 +12,10 @@ function getHistory(EmployeeInfo, renderEmployeeByIDs) {
         url: 'ajaxWebService.asmx/GetHistory',
         data: dataString,
         type: 'POST',
-      //  dataType: "json",
+        dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (data) {// renderEmployeeByIDs(results);
-            data = $.parseJSON(data.d);
+          //  data = $.parseJSON(data.d);
             var datatableVariable = $('#HistoryTable').DataTable({
                 data: data,
                 columns: [
@@ -42,11 +42,11 @@ function getHistory(EmployeeInfo, renderEmployeeByIDs) {
 
         
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-            console.log(err.Message)
-        }
+        //error: function (xhr, status, error) {
+        //    var err = eval("(" + xhr.responseText + ")");
+        //    alert(err.Message);
+        //    console.log(err.Message)
+        //}
     });
     
 }

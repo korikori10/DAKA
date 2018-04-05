@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
@@ -189,4 +192,87 @@ public string GetEmployeeById(string pass)
         //return jsonStringCategory;
 
     }
-}
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string PostDataToURL() {
+        Employee e = new Employee();
+        List<Employee> LE = e.ReadEmployeesNeedNewVisa();
+            string phone = "";
+        foreach (Employee emp in LE)
+
+        {
+            phone +="0"+ emp.Phone+";";
+
+        }
+        //set password, user name, message text, semder name and number
+        string userName = "smsgal";
+        string password = "gal969";
+        string messageText = System.Security.SecurityElement.Escape(" תזכורת מספר 1: יש לחדש ויזה בשלושה ימים הקרובים. בסיום יש ליצור קשר. ");
+        string sender = "daka";
+        //set phone numbers
+        string phonesList =phone;//0503333334;0503333335;0503333336;0503333337";
+        //set additional parameters
+        string timeToSend = "05/04/2018 15:47";
+        // create XML
+        StringBuilder sbXml = new StringBuilder();
+        sbXml.Append("<Inforu>");
+        sbXml.Append("<User>");
+        sbXml.Append("<Username>" + userName + "</Username>");
+        sbXml.Append("<Password>" + password + "</Password>");
+        sbXml.Append("</User>");
+        sbXml.Append("<Content Type=\"sms\">");
+        sbXml.Append("<Message>" + messageText + "</Message>");
+        sbXml.Append("</Content>");
+        sbXml.Append("<Recipients>");
+        sbXml.Append("<PhoneNumber>" + phonesList + "</PhoneNumber>");
+        sbXml.Append("</Recipients>");
+        sbXml.Append("<Settings>");
+        sbXml.Append("<Sender>" + sender + "</Sender>");
+       // sbXml.Append("<MessageInterval>" + messageInterval + "</MessageInterval>");
+        sbXml.Append("<TimeToSend>" + timeToSend + "</TimeToSend>");
+        sbXml.Append("</Settings>");
+        sbXml.Append("</Inforu >");
+        string strXML = HttpUtility.UrlEncode(sbXml.ToString(), System.Text.Encoding.UTF8);
+        //string result = PostDataToURL("https://api.inforu.co.il/SendMessageXml.ashx", "InforuXML=" + strXML);
+      
+            //Setup the web request
+            string szResult = string.Empty;
+            WebRequest Request = WebRequest.Create("https://api.inforu.co.il/SendMessageXml.ashx");
+            Request.Timeout = 30000;
+            Request.Method = "POST";
+            Request.ContentType = "application/x-www-form-urlencoded";
+            //Set the POST data in a buffer
+            byte[] PostBuffer;
+            try
+            {
+            // replacing " " with "+" according to Http post RPC
+                string szData = "InforuXML=" + strXML;
+                szData = szData.Replace(" ", "+");
+                //Specify the length of the buffer
+                PostBuffer = Encoding.UTF8.GetBytes(szData);
+                Request.ContentLength = PostBuffer.Length;
+                //Open up a request stream
+                Stream RequestStream = Request.GetRequestStream();
+                //Write the POST data
+                RequestStream.Write(PostBuffer, 0, PostBuffer.Length);
+                //Close the stream
+                RequestStream.Close();
+                //Create the Response object
+                WebResponse Response;
+                Response = Request.GetResponse();
+                //Create the reader for the response
+                StreamReader sr = new StreamReader(Response.GetResponseStream(), Encoding.UTF8);
+                //Read the response
+                szResult = sr.ReadToEnd();
+                //Close the reader, and response
+                sr.Close();
+                Response.Close();
+                return szResult;
+            }
+            catch (Exception ex)
+            {
+                return szResult;
+            }
+        }
+    }
+

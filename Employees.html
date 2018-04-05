@@ -139,6 +139,7 @@
                                         </p>-->
                                         <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4">
                                             <div class="row">
+                                                <!--<div class="dt-buttons btn-group">      <a class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" href="#"><span>Copy</span></a> <a class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" href="#"><span>Excel</span></a><a class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" href="#"><span>PDF</span></a> </div>-->
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -169,12 +170,13 @@
 
                 <script type="text/javascript">
                     $(document).ready(function () {
+                        var datatableVariable = $('#EmployeesTable');
                         $.ajax({
                             type: "POST",
                             dataType: "json",
                             url: "AJAXWebService.asmx/getEmployees",
                             success: function (data) {
-                                var datatableVariable = $('#EmployeesTable').DataTable({
+                                datatableVariable.DataTable({
                                     data: data,
                                     columns: [
                                         { 'data': 'Employee_pass_id' },
@@ -198,6 +200,7 @@
 
                                         }]
                                 });
+
                                 //{
                                 //    'data': 'feesPaid', 'render': function (feesPaid) {
                                 //        return '$ ' + feesPaid;
@@ -230,8 +233,8 @@
                                 //});
                             }
                         });
+                
                     });
-
                 </script>
 
                 <button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון" ="><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>

@@ -12,38 +12,23 @@
         window.location = "Employee.html";
     }
     else {
-        var nodemailer = require('nodemailer');
+                $.ajax({
+                    url: 'AJAXWebService.asmx/PostDataToURL',
+                    type: 'POST',
+                    dataType: "xml",
+                    // contentType: 'application/json; charset = utf-8',
+                    success: function (results) {
+                        alert("sms sent");
+                    },
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
 
-        var transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'kori.hash@gmail.com',
-                pass: 'liroy1010'
+                });
+
             }
-        });
-
-        var mailOptions = {
-            from: 'kori.hash@gmail.com',
-            to: 'kori.hash@gmail.com',
-            subject: 'Sending Email using Node.js',
-            text: 'That was not easy!'
-        };
-
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-            }
-        });
-        //Email.send("korihhash@gmail.com",
-        //    "korihhash@gmail.com",
-        //    "This is a subject",
-        //    "this is the body",
-        //    {
-        //        token: "daccc0e5-1446-4578-9e5b-d36df0aeda67" });
-    }
-
+    
 
 });
 
