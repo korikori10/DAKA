@@ -179,10 +179,10 @@
                                                             <i class="icon-box font-large-1 blue-grey"></i>
                                                         </div>
                                                         <div class="media-body text-xs-right">
-                                                            <span class="font-large-2 text-bold-300 info">5,879</span>
+                                                            <span id="numnewemp" class="font-large-2 text-bold-300 info"></span>
                                                         </div>
-                                                        <p class="text-muted">Total Products <span class="info float-xs-right"><i class="icon-arrow-up4 info"></i> 16.89%</span></p>
-                                                        <progress class="progress progress-sm progress-info" value="80" max="100"></progress>
+                                                        <p class="text-muted">עובדים חדשים <span  class="info float-xs-right"><i class="icon-arrow-up4 info"></i> </span></p>
+                                                        <progress id="activeEmp" class="progress progress-sm progress-info" ></progress>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-8 col-sm-12 border-right-blue-grey border-right-lighten-5">
@@ -191,10 +191,10 @@
                                                             <i class="icon-tag3 font-large-1 blue-grey"></i>
                                                         </div>
                                                         <div class="media-body text-xs-right">
-                                                            <span class="font-large-2 text-bold-300 deep-orange">423</span>
+                                                            <span class="font-large-2 text-bold-300 deep-orange">5</span>
                                                         </div>
-                                                        <p class="text-muted">New Orders<span class="deep-orange float-xs-right"><i class="icon-arrow-up4 deep-orange"></i> 5.14%</span></p>
-                                                        <progress class="progress progress-sm progress-deep-orange" value="45" max="100"></progress>
+                                                        <p class="text-muted">עזיבות<span class="deep-orange float-xs-right"><i class="icon-arrow-down4 deep-orange"></i> </span></p>
+                                                        <progress class="progress progress-sm progress-deep-orange" value="5" max="100"></progress>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-8 col-sm-12 border-right-blue-grey border-right-lighten-5">
@@ -203,10 +203,10 @@
                                                             <i class="icon-shuffle3 font-large-1 blue-grey"></i>
                                                         </div>
                                                         <div class="media-body text-xs-right">
-                                                            <span class="font-large-2 text-bold-300 danger">61%</span>
+                                                            <span class="font-large-2 text-bold-300 danger"></span>
                                                         </div>
-                                                        <p class="text-muted">Conversion Rate<span class="danger float-xs-right"><i class="icon-arrow-down4 danger"></i> 2.24%</span></p>
-                                                        <progress class="progress progress-sm progress-danger" value="75" max="100"></progress>
+                                                        <p class="text-muted">עובדים פעילים<span class="danger float-xs-right"><i class="icon-arrow-up4 danger"></i> </span></p>
+                                                        <progress class="progress progress-sm progress-danger"  ></progress>
                                                     </div>
                                                 </div>
 
@@ -537,7 +537,32 @@
                                                         });
                                                     }
                                                 });
+
+                                                $.ajax({
+                                                            url: 'AJAXWebService.asmx/ReadTotalnewemp',
+                                                            type: 'POST',
+                                                            dataType: "json",
+                                                            contentType: 'application/json; charset = utf-8',
+                                                            success: function (results) {
+                                                                RenderTotalnewemp(results);
+                                                            },
+                                                            error: function (xhr, status, error) {
+                                                                var err = eval("(" + xhr.responseText + ")");
+                                                                alert(err.Message);
+                                                            }
+
+                                                        });
+
+                                                    
                                             });
+
+                                                function RenderTotalnewemp(results) {
+                                                    statistics = results.d;
+                                                    document.getElementById("activeEmp").value = statistics[1];
+                                                    document.getElementById("activeEmp").max = statistics[3];
+                                                    document.getElementById("numnewemp").innerHTML = statistics[1];
+
+                                                }
                                         </script>
                                     </div>
                                 </div>
@@ -551,6 +576,7 @@
         </div>
     </div>
 
+                                          
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     <footer class="footer footer-static footer-dark navbar-border">

@@ -717,6 +717,45 @@ public class DBServices
 
         }
     }
+
+    //statistics
+    public int[] ReadTotalnewemp() {
+        SqlConnection con = null;
+
+        try
+        {
+          // int total , grandtotal ;
+            int[] arr = new int[2] ; 
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_s_totalNew";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            User user = new User();
+            while (dr.Read())
+            {
+                arr[0] = Convert.ToInt32(dr["total_new_emp"]);
+                arr[1] = Convert.ToInt32(dr["Total_Employees"]);
+            }
+
+            return arr;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
     #endregion
 
 

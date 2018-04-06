@@ -1,4 +1,6 @@
-﻿$('.table').on('click', 'tr td button', function () {
+﻿var statistics = new Object();
+
+$('.table').on('click', 'tr td button', function () {
  
     sessionStorage.removeItem("empInfo")
     tr = $(this).closest('tr');//.find('td:first').text();
@@ -41,3 +43,5 @@
 //    sessionStorage.setItem("empInfo", EmployeeInfo.pass);
 //    window.location = "Employee.html";
 //});
+
+

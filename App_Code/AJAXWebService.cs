@@ -194,6 +194,22 @@ public string GetEmployeeById(string pass)
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadTotalnewemp()
+    {
+        DBServices db = new DBServices();
+        int[] arr = db.ReadTotalnewemp();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        // serialize to string
+        string jsonStringCategory = js.Serialize(arr);
+        return jsonStringCategory;
+        //return jsonStringCategory;
+
+    }
+
+    
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string PostDataToURL() {
         Employee e = new Employee();
         List<Employee> LE = e.ReadEmployeesNeedNewVisa();
