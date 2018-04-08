@@ -31,7 +31,7 @@
     <!-- END ROBUST CSS-->
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css" />
-
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />-->
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-menu.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css" />
     <link href="app-assets/css/plugins/forms/selectize/selectize.css" rel="stylesheet" />
@@ -133,49 +133,50 @@
                 <div class="col-md-12">
 
                     <div class="row">
-                        <!--Employee card-->
-                        <section id="user-cards-with-square-thumbnail">
-                            <div class="col-xl-3 col-md-4 col-xs-12">
-                                <div class="card">
-                                    <div class="text-xs-center">
-                                        <div class="card-block">
-                                            <img src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image" />
-                                        </div>
-                                        <div id="namePassC" class="card-block">
-                                            <!--<h4 id="Fname" name="Fname" class="card-title"></h4>
-                                            <h4 id="Lname" name="Lname" class="card-title"></h4>
-                                            <h6 id="Employee_pass_id" name="Employee_pass_id" class="card-subtitle text-muted"></h6>-->
-                                        </div>
-                                        <div class="text-xs-center">
-                                            <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="icon-facebook3"></span></a>
-                                            <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="icon-twitter3"></span></a>
-                                            <a href="#" class="btn btn-social-icon mb-1 btn-outline-linkedin"><span class="icon-linkedin3 font-medium-4"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        <!--Employee card-->       
+                        <form class="form" id="EmployeeUpdate">
 
-                        <!--info-->
-                        <div class="col-xl-9 col-md-8 col-xs-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">
-                                        <i class="icon-eye6"></i> מידע אישי
-                                    </h4>
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                        </ul>
+
+                            <section id="user-cards-with-square-thumbnail">
+                                <div class="col-xl-3 col-md-4 col-xs-12">
+                                    <div class="card">
+                                        <div class="text-xs-center">
+                                            <div class="card-block">
+                                                <img id="empImg" name="Picture" src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image" />
+                                            </div>
+                                            <div id="namePassC" class="card-block">
+                                  
+                                                    <input type="text" readonly=readonly id="Fname" name="Fname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" style="text-align:left"/>
+                                                    <input type="text" readonly=readonly id="Lname" name="Lname" class="card-title form-control-static font-weight-bold font-size-large col-md-6"  />
+                                  
+                                                    <input id="Employee_pass_id" class="card-subtitle text-muted form-control-static font-weight-bold font-size-large" style="text-align:center"/>
+                                                </div>
+
+                                            </div>
                                     </div>
                                 </div>
-                                <div class="card-body collapse in">
-                                    <div class="card-block">
-                                        <form class="form" id="EmployeeUpdate">
+                            </section>
+
+                            <!--info-->
+                            <div class="col-xl-9 col-md-8 col-xs-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">
+                                            <i class="icon-eye6"></i> מידע אישי
+                                        </h4>
+                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                        <div class="heading-elements">
+                                            <ul class="list-inline mb-0">
+                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body collapse in">
+                                        <div class="card-block">
+                                            <!--<form class="form" id="EmployeeUpdate">-->
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="form-group" style="visibility:hidden">
@@ -217,8 +218,8 @@
                                                             <label for="userinput3" class="sr-only">מין</label>
                                                             <select class=" custom-select form-control" id="genderTB" name="Gender">
                                                                 <option value=""> בחר Select</option>
-                                                                <option value="False">זכר</option>
-                                                                <option value="True">נקבה</option>
+                                                                <option value="F">זכר</option>
+                                                                <option value="T">נקבה</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -250,8 +251,8 @@
                                                             <label for="location3">אזרח ישראל:</label>
                                                             <select class="custom-select form-control" id="il_citizen" name="Il_citizen">
                                                                 <option value=""> בחר Select</option>
-                                                                <option value="True">כן</option>
-                                                                <option value="False">לא</option>
+                                                                <option value="T">כן</option>
+                                                                <option value="F">לא</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -280,8 +281,8 @@
                                                             <label for="tbcity4">האם פעיל?</label>
                                                             <select class="custom-select form-control" id="Active" name="Active">
                                                                 <option value=""> בחר Select</option>
-                                                                <option value="True">כן</option>
-                                                                <option value="False">לא</option>
+                                                                <option value="T">כן</option>
+                                                                <option value="F">לא</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -293,8 +294,8 @@
                                                             <label for="location3">מגורי חברה:</label>
                                                             <select class="custom-select form-control" id="location3" name="Com_app">
                                                                 <option value=""> בחר Select</option>
-                                                                <option value="True">כן</option>
-                                                                <option value="False">לא</option>
+                                                                <option value="T">כן</option>
+                                                                <option value="F">לא</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -311,8 +312,8 @@
                                                             <label for="location3">מבוטח:</label>
                                                             <select class="custom-select form-control" id="insuranceSE" name="Insurance">
                                                                 <option value=""> בחר Select</option>
-                                                                <option value="true">כן</option>
-                                                                <option value="false">לא</option>
+                                                                <option value="T">כן</option>
+                                                                <option value="F">לא</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -321,36 +322,35 @@
                                                             <label for="location3">ביטוח חברה:</label>
                                                             <select class="custom-select form-control" id="comInsuranceSE" name="Com_insurance">
                                                                 <option value=""> בחר Select</option>
-                                                                <option value="true">כן</option>
-                                                                <option value="false">לא</option>
+                                                                <option value="T">כן</option>
+                                                                <option value="F">לא</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                    <div class="form-actions right" id="info">
-                                                        <button type="button" class="btn btn-outline-warning mr-1">
-                                                            <i class="icon-cross2"></i> מחק
-                                                        </button>
-                                                        <button id="save" type="button" class="btn btn-outline-primary">
-                                                            <i class="icon-check2"></i> שמור
-                                                        </button>
-                                                    </div>
+                                                <div class="form-actions right" id="info">
+                                                    <button type="button" class="btn btn-outline-warning mr-1">
+                                                        <i class="icon-cross2"></i> מחק
+                                                    </button>
+                                                    <button id="save" type="button" class="btn btn-outline-primary">
+                                                        <i class="icon-check2"></i> שמור
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </form>
-
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--</div>-->
+                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <footer class="footer footer-fixed footer-dark navbar-border">
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">DAKA </a>, Tom And Kori Rule </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
     </footer>

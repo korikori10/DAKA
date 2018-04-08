@@ -32,7 +32,8 @@ function fixDate(date) {
 }
 function populate(frm, data) {
 	$.each(data, function (key, value) {
-		var ctrl = $('[name=' + key + ']', frm);
+        var ctrl = $('[name=' + key + ']', frm);
+        console.log(ctrl.prop("type"))
 		switch (ctrl.prop("type")) {
 			case "radio": case "checkbox":
 				ctrl.each(function () {
@@ -42,10 +43,18 @@ function populate(frm, data) {
             case "file":
                 break;
             case "select-one":
-
-                ctrl.val(value).prop('selected', true);
+                if (value === true ) {
+                    value = 'T';
+                }
+                else if (value === false) {
+                    value = 'F';
+                }
+                ctrl.val(value);
                 //var o = ctrl.selectmenu("refresh");
                 break;
+            //case "label":
+            //    ctrl.text(value);
+            //    break;
             default:
                 ctrl.val(value);
 		}
@@ -73,8 +82,10 @@ function renderCountries(results) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamiCountryList').append(dynamicLi);
         //  $('#DynamiCountryList').listview('refresh');
-        EmployeeInfo.pass = sessionStorage.getItem("empInfo");
     });
+    EmployeeInfo.pass = sessionStorage.getItem("empInfo");
+    $("#Employee_pass_id").val(EmployeeInfo.pass);
+    
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
         $('.selectize-select').selectize;
 }
@@ -100,6 +111,9 @@ function renderCities(results) {
             resultsSave = results;
             data.Birthday = fixDate(data.Birthday);
             populate(frm, data);
+            if (data.Picture != null) {
+                $("#empImg").attr("src", data.Picture)
+            }
             //if (updated) {
             //    swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
             //}
@@ -130,6 +144,12 @@ function renderCities(results) {
         var o = {};
         var a = this.serializeArray();
         $.each(a, function () {
+            if (this.value == 'T') {
+                this.value = 'true'
+            }
+            else if (this.value == 'F') {
+                this.value = 'false'
+            }
             if (o[this.name] !== undefined) {
                 if (!o[this.name].push) {
                     o[this.name] = [o[this.name]];
