@@ -103,7 +103,7 @@ function renderCities(results) {
             //if (updated) {
             //    swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
             //}
-            $('#name').val(results.Fname + " " + results.Lname);
+           // $('#name').val(results.Fname + " " + results.Lname);
             //$('#sysIdTB').val(results.Sys_id);
           //$('#dobTB').val(function  () {
           //    var date = new Date(parseInt(results.Birthday.substr(6)));
