@@ -114,6 +114,9 @@ function renderCities(results) {
             if (data.Picture != null) {
                 $("#empImg").attr("src", data.Picture)
             }
+            else {
+                $("#empImg").attr("src", "imges/no-img.jpg")
+            }
             //if (updated) {
             //    swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
             //}
