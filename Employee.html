@@ -200,7 +200,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="userinput3" class="sr-only">place of work</label>
-                                                            <input type="text" id="businessTB" class="form-control" placeholder="מקום עבודה" name="bus_name" />
+                                                            <select id="businessSE" class="form-control" name="Business"> </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -281,21 +281,60 @@
                                                                 <option value=""> בחר Select</option>
                                                                 <option value="True">כן</option>
                                                                 <option value="False">לא</option>
-                                                            </select>                                           
+                                                            </select>
                                                         </div>
                                                     </div>
 
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="location3">מגורי חברה:</label>
+                                                            <select class="custom-select form-control" id="location3" name="Com_app">
+                                                                <option value=""> בחר Select</option>
+                                                                <option value="True">כן</option>
+                                                                <option value="False">לא</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="eventName4">שכירות חודשית:</label>
+                                                            <input type="number" class="form-control" id="eventName4" name="Rent" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="location3">מבוטח:</label>
+                                                            <select class="custom-select form-control" id="insuranceSE" name="Insurance">
+                                                                <option value=""> בחר Select</option>
+                                                                <option value="true">כן</option>
+                                                                <option value="false">לא</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="location3">ביטוח חברה:</label>
+                                                            <select class="custom-select form-control" id="comInsuranceSE" name="Com_insurance">
+                                                                <option value=""> בחר Select</option>
+                                                                <option value="true">כן</option>
+                                                                <option value="false">לא</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                            </div>
-
-                                            <div class="form-actions right" id="info">
-                                                <button type="button" class="btn btn-outline-warning mr-1">
-                                                    <i class="icon-cross2"></i> מחק
-                                                </button>
-                                                <button id="save" type="button" class="btn btn-outline-primary">
-                                                    <i class="icon-check2"></i> שמור
-                                                </button>
+                                                    <div class="form-actions right" id="info">
+                                                        <button type="button" class="btn btn-outline-warning mr-1">
+                                                            <i class="icon-cross2"></i> מחק
+                                                        </button>
+                                                        <button id="save" type="button" class="btn btn-outline-primary">
+                                                            <i class="icon-check2"></i> שמור
+                                                        </button>
+                                                    </div>
                                             </div>
                                         </form>
 

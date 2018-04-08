@@ -162,13 +162,13 @@ public class DBServices
         {
 
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM EMPLOYEE where employee_pass_id = '" + emp_pss_id + "'";
+            string selectSTR = "SELECT*FROM fullEmp where employee_pass_id = '" + emp_pss_id + "'";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             Employee Emp = new Employee();
             while (dr.Read())
             {
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToDateTime(dr["birthday"]), Convert.ToBoolean(dr["gender"]), dr["Picture"].ToString(), Convert.ToInt32(dr["origin_country"]), Convert.ToBoolean(dr["il_citizen"]), Convert.ToInt32(dr["add_city"]), dr["add"].ToString(), Convert.ToInt32(dr["add_num"]), Convert.ToInt32(dr["phone"]), Convert.ToBoolean(dr["com_app"]), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToBoolean(dr["insurance"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToInt32(dr["fam_stat_code"]), Convert.ToInt32(dr["salary_hour"]), Convert.ToInt32(dr["salary_overtime"]), Convert.ToInt32(dr["salary_trans"]), Convert.ToInt32(dr["day_off_id"]), Convert.ToInt32(dr["sabatical"]), Convert.ToInt32(dr["occupation_code"]), Convert.ToBoolean(dr["active"]), dr["disable_reason"].ToString(), Convert.ToInt32(dr["monthly_rent"]), Convert.ToInt32(dr["bus_id"]));
             }
             return Emp;
         }
@@ -1071,7 +1071,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET lname = '" + emp.Lname + "', fname = '" + emp.Fname + "', birthday = '" + emp.Birthday + "', gender = '" + emp.Gender + "', Picture = '" + emp.Picture + "', origin_country = '" + emp.Origin_country + "', il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = '" + emp.Add + "', add_num = '" + emp.Add_num + "', phone = '" + emp.Phone + "', com_app = '" + emp.Com_app + "', michpal_id = '" + emp.Sys_id + "', insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code + "', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', active = '" + emp.Active + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'";
+        String prefix = "UPDATE EMPLOYEE SET lname = '" + emp.Lname + "', fname = '" + emp.Fname + "', birthday = '" + emp.Birthday + "', gender = '" + emp.Gender + "', Picture = '" + emp.Picture + "', origin_country = '" + emp.Origin_country + "', il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = '" + emp.Add + "', add_num = '" + emp.Add_num + "', phone = '" + emp.Phone + "', com_app = '" + emp.Com_app + "', monthly_rent = '"+ emp.Rent + "', michpal_id = '" + emp.Sys_id + "', insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code +  "', active = '" + emp.Active + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code +
         command = prefix;// prefix;
 
         return command;
@@ -1258,7 +1258,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE [employee in business] SET end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date = null";
+        String prefix = "UPDATE [employee in business] SET end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date is null";
         command = prefix;// prefix;
 
         return command;

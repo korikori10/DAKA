@@ -1,14 +1,15 @@
 ﻿var EmployeeInfo = new Object();
 var Business = new Object();
 resultsSave = new Object();
+var updated = new Object();
 
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinesses(renderBusinesses);
-    EmployeeInfo.pass = sessionStorage.getItem("empInfo");
-        getEmployeeById(EmployeeInfo, renderEmployeeByID);
-        $(".selectize-select").selectize();
+    //EmployeeInfo.pass = sessionStorage.getItem("empInfo");
+    //    getEmployeeById(EmployeeInfo, renderEmployeeByID);
+    //    $(".selectize-select").selectize();
         
       
         //$("#info").on('click', function () {
@@ -73,9 +74,9 @@ function renderCountries(results) {
         $('#DynamiCountryList').append(dynamicLi);
         //  $('#DynamiCountryList').listview('refresh');
         EmployeeInfo.pass = sessionStorage.getItem("empInfo");
+    });
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
         $('.selectize-select').selectize;
-    });
 }
 function renderCities(results) {
     //this is the callBackFunc 
@@ -99,7 +100,9 @@ function renderCities(results) {
             resultsSave = results;
             data.Birthday = fixDate(data.Birthday);
             populate(frm, data);
-            
+            //if (updated) {
+            //    swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
+            //}
             $('#name').val(results.Fname + " " + results.Lname);
             //$('#sysIdTB').val(results.Sys_id);
           //$('#dobTB').val(function  () {
@@ -172,5 +175,13 @@ function renderCities(results) {
 
   function UpdateEmp(array) {
 
-      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) });
+      updated = true;
+      if (array.Business == resultsSave.Business) {
+          array.updateBus = false;
+      }
+      else {
+          array.updateBus = true;
+      }
+
+      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) }, renderEmployeeByID);
   }

@@ -40,7 +40,7 @@ function getEmployeeById(EmployeeInfo, renderEmployeeByID) {
 
 
 //update spesific employee
-function UpdateEmployee(EmployeeInfo) {
+function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -51,7 +51,9 @@ function UpdateEmployee(EmployeeInfo) {
             contentType: 'application/json; charset = utf-8',
             data: emp,
             success: function () {
-                swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
+                renderEmployeeByID(results);
+                
+                
             },
             error: function (xhr, status, error) {
                 var err = eval("(" + xhr.responseText + ")");
