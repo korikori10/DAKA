@@ -2,12 +2,14 @@
 var Business = new Object();
 resultsSave = new Object();
 var updated = new Object();
-
+var h = false;
 
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-    getBusinesses(renderBusinesses);        
+    getBusinesses(renderBusinesses);  
+  
+
 });
 
 function fixDate(date) {
@@ -15,16 +17,16 @@ function fixDate(date) {
     var month = date.getMonth() + 1;
     var day = date.getDate();
     if (month.toString().length < 2) { month = '0' + month; }
-    console.log(month.toString().length)
+
     if (day.toString().length < 2) { day = '0' + day; }
-    console.log(day.toString().length)
+
     return date.getFullYear() + "-" + month + "-" + day;
    
 }
 function populate(frm, data) {
 	$.each(data, function (key, value) {
         var ctrl = $('[name=' + key + ']', frm);
-        console.log(ctrl.prop("type"))
+   
 		switch (ctrl.prop("type")) {
 			case "radio": case "checkbox":
 				ctrl.each(function () {
@@ -83,32 +85,34 @@ function renderCities(results) {
         $('#DynamicCitiesList').append(dynamicLi);
     });
 }
-    function renderEmployeeByID(results) {
+function renderEmployeeByID(results) {
 
-        results = $.parseJSON(results.d);
+    results = $.parseJSON(results.d);
 
-        if (results.Employee_pass_id === null) { results = null; }
-		else {
+    if (results.Employee_pass_id === null) { results = null; }
+    else {
 
-			var frm = $("#EmployeeUpdate");
-            var data = results;
-            resultsSave = results;
-            data.Birthday = fixDate(data.Birthday);
-            data.Start_date = fixDate(data.Start_date);
-            populate(frm, data);
-            if (data.Picture != null) {
-                $("#empImg").attr("src", data.Picture)
-            }
-            else {
-                $("#empImg").attr("src", "imges/no-img.jpg")
-            }
-            
-            $(".selectize-select").selectize();
+        var frm = $("#EmployeeUpdate");
+        var data = results;
+        resultsSave = results;
+        data.Birthday = fixDate(data.Birthday);
+        data.Start_date = fixDate(data.Start_date);
+        populate(frm, data);
+        if (data.Picture != null) {
+            $("#empImg").attr("src", data.Picture)
+        }
+        else {
+            $("#empImg").attr("src", "imges/no-img.jpg")
         }
 
-    }
+        $(".selectize-select").selectize();
+      //  if (h) {
 
-  
+      //  }
+
+    }
+}
+
     $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();
@@ -139,38 +143,50 @@ function renderCities(results) {
             type: "info",
             confirmButtonText: "כן",
             showCancelButton: "true",
-            cancelButtonText: "בטל"
+            cancelButtonText: "בטל",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        }, 
+        
 
-        },
+        //swal({
+        //    title: "!",
+        //    text: "כל הנתונים נשמרו בהצלחה!",
+        //    type: "success",
+        //    confirmButtonText: "Cool"
+        //});
+       
             function (isConfirm) {
                 if (isConfirm) {
-                    
+
+                    h = true;
                     EmployeeInfo = $('#EmployeeUpdate').serializeObject();
-                             UpdateEmp(EmployeeInfo);
-                    
-                } else {
-                   // swal("Cancelled", "Your imaginary file is safe :)", "error");
+                    UpdateEmp(EmployeeInfo);
+
+
+                }
+                else {
+                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
                 }
             });
-        
- 
 
- 
-});
-  
 
-  function UpdateEmp(array) {
 
-      updated = true;
-      if (array.Business == resultsSave.Business) {
-          array.updateBus = false;
-      }
-      else {
-          array.updateBus = true;
-      }
 
-      UpdateEmployee({ EmployeeInfo: JSON.stringify(array) }, renderEmployeeByID);
-      //if (array.Sys_id != resultsSave.Sys_id) {
-      //    sendEmail({ EmployeeInfo: JSON.stringify(array) })
-      //}
-  }
+
+    });
+
+
+    function UpdateEmp(array) {
+
+        updated = true;
+        if (array.Business == resultsSave.Business) {
+            array.updateBus = false;
+        }
+        else {
+            array.updateBus = true;
+        }
+
+        UpdateEmployee({ EmployeeInfo: JSON.stringify(array) }, renderEmployeeByID);
+
+    }

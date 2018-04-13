@@ -584,7 +584,16 @@ public class Employee
         List<Employee> LE = dbs.ReadEmployeesNoInsu();
 
         return LE;
-        //
+        
+    }
+    public List<Employee> getArchive()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.getArchive();
+
+        return LE;
+
     }
 
     public List<Employee> ReadEmployeesNeedNewVisa()
@@ -629,6 +638,8 @@ public class Employee
         return e;
 
     }
+
+
     public List<Employee> getEmployeesnobisiness()
     {
         DBServices dbs = new DBServices();
@@ -639,6 +650,24 @@ public class Employee
 
     }
     public List<Employee> getHistory(string pass)
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.ReadHistory(pass);
+
+        return LE;
+
+    }
+    public Employee UpdateToActive(Employee emp)
+    {
+        DBServices dbs = new DBServices();
+
+        Employee LE = dbs.UpdateToActive(emp);
+
+        return LE;
+
+    }
+    public List<Employee> UpdateToUnActive(string pass)
     {
         DBServices dbs = new DBServices();
 
