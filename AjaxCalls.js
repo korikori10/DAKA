@@ -48,10 +48,12 @@ function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
             type: 'POST',
             contentType: 'application/json; charset = utf-8',
             data: emp,
-            success: function () {
-                renderEmployeeByID(results);
-                
-                
+            success: function (results) {
+           
+                    setTimeout(function () {
+                        swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                    }, 2000);
+                renderEmployeeByID(results);    
             },
             error: function (xhr, status, error) {
                 var err = eval("(" + xhr.responseText + ")");

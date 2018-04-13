@@ -80,6 +80,18 @@ public class AJAXWebService : System.Web.Services.WebService
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void getArchive()
+    {
+        Employee e = new Employee();
+        List<Employee> LE = e.getArchive();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
+        Context.Response.Write(jsonStringCategory);
+
+    }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getEmployeesearch()
     {
         Employee e = new Employee();
@@ -116,6 +128,29 @@ public class AJAXWebService : System.Web.Services.WebService
         var jsonStringCategory = js.Serialize(LE);
 
         Context.Response.Write(jsonStringCategory);
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string UpdateToActive(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+
+
+        e = e.UpdateToActive(e);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+        //Employee e = new Employee();
+        //List<Employee> LE = e.UpdateToActive(pass);
+        //JavaScriptSerializer js = new JavaScriptSerializer();
+        //// serialize to string
+        //string jsonStringCategory = js.Serialize(LE);
+        //return jsonStringCategory;
+      //  Context.Response.Write(js.Serialize(LE));
 
     }
 
@@ -222,8 +257,8 @@ public string GetEmployeeById(string pass)
 
         }
         //set password, user name, message text, semder name and number
-        string userName = "smsgal";
-        string password = "gal969";
+        string userName = "";// "smsgal";
+        string password = "";// "gal969";
         string messageText = System.Security.SecurityElement.Escape(" תזכורת מספר 1: יש לחדש ויזה בשלושה ימים הקרובים. בסיום יש ליצור קשר. ");
         string sender = "daka";
         //set phone numbers
