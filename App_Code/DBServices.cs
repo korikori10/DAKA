@@ -382,10 +382,10 @@ public class DBServices
                 e.Employee_pass_id = dr["employee_pass_id"].ToString();
                 e.Lname = dr["lname"].ToString();
                 e.Fname = dr["fname"].ToString();
-                e.Phone = Convert.ToInt32(dr["phone"]);
+                e.Phone = Convert.ToInt32(GetString( dr["phone"]));
                 e.Sys_id = Convert.ToInt32(GetString(dr["michpal_id"]));
                 e.Bus_name = dr["bus_name"].ToString();
-                e.Dayspass= Convert.ToInt32(dr["daysPass"]);
+                e.Dayspass= Convert.ToInt32(GetString( dr["daysPass"]));
                 Employees.Add(e);
             }
 

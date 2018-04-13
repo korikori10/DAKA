@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
@@ -290,5 +291,23 @@ public string GetEmployeeById(string pass)
                 return szResult;
             }
         }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void SendEmail(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+        SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+        {
+            Credentials = new NetworkCredential("tolas22@gmail.com", "Tk11061989"),
+            EnableSsl = true
+        };
+        client.Send("tolas22@gmail.com", "kori.hash@gmail.com", e.Fname + " "+ e.Lname, "Please add insurance to employee number: " + e.Sys_id);
+        //Console.WriteLine("Sent");
+        //Console.ReadLine();
+        //Response.Write("SEND MAIL");
     }
+}
 

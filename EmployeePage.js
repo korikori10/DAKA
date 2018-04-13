@@ -3,6 +3,7 @@ var Business = new Object();
 resultsSave = new Object();
 var updated = new Object();
 
+
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
@@ -27,8 +28,14 @@ $(document).ready(function () {
 });
 function fixDate(date) {
 	var date = new Date(parseInt(date.substr(6)));
-	var month = date.getMonth() + 1;
-	return date.getFullYear() + "-" + month + "-" + date.getDate();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if (month.toString().length < 2) { month = '0' + month; }
+    console.log(month.toString().length)
+    if (day.toString().length < 2) { day = '0' + day; }
+    console.log(day.toString().length)
+    return date.getFullYear() + "-" + month + "-" + day;
+   
 }
 function populate(frm, data) {
 	$.each(data, function (key, value) {
@@ -110,6 +117,7 @@ function renderCities(results) {
             var data = results;
             resultsSave = results;
             data.Birthday = fixDate(data.Birthday);
+            data.Start_date = fixDate(data.Start_date);
             populate(frm, data);
             if (data.Picture != null) {
                 $("#empImg").attr("src", data.Picture)
@@ -207,4 +215,7 @@ function renderCities(results) {
       }
 
       UpdateEmployee({ EmployeeInfo: JSON.stringify(array) }, renderEmployeeByID);
+      //if (array.Sys_id != resultsSave.Sys_id) {
+      //    sendEmail({ EmployeeInfo: JSON.stringify(array) })
+      //}
   }

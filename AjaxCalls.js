@@ -110,3 +110,21 @@ function getBusinesses(renderBusinesses) {
     });
 }
 
+function sendEmail(EmployeeInfo) {
+    var dataString = JSON.stringify(EmployeeInfo);
+    $.ajax({
+        url: 'ajaxWebService.asmx/SendEmail',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function () {
+           
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
