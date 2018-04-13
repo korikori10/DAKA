@@ -7,25 +7,9 @@ var updated = new Object();
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-    getBusinesses(renderBusinesses);
-    //EmployeeInfo.pass = sessionStorage.getItem("empInfo");
-    //    getEmployeeById(EmployeeInfo, renderEmployeeByID);
-    //    $(".selectize-select").selectize();
-        
-      
-        //$("#info").on('click', function () {
-
-        //    swal({
-        //        title: "האם אתה בטוח?",
-        //        text: "אתה עומד לעדכן את פרטי העובד.",
-        //        type: "info",
-        //        confirmButtonText: "כן",
-        //        showCancelButton: "true",
-        //        cancelButtonText:"בטל"
-        //    });
-        //});
-        
+    getBusinesses(renderBusinesses);        
 });
+
 function fixDate(date) {
 	var date = new Date(parseInt(date.substr(6)));
     var month = date.getMonth() + 1;
@@ -57,11 +41,7 @@ function populate(frm, data) {
                     value = 'F';
                 }
                 ctrl.val(value);
-                //var o = ctrl.selectmenu("refresh");
                 break;
-            //case "label":
-            //    ctrl.text(value);
-            //    break;
             default:
                 ctrl.val(value);
 		}
@@ -76,7 +56,6 @@ function renderBusinesses(results) {
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
         $('#businessSE').append(dynamicLi);
-        //  $('#DynamicCitiesList').listview('refresh');
 
     });
 }
@@ -88,7 +67,6 @@ function renderCountries(results) {
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamiCountryList').append(dynamicLi);
-        //  $('#DynamiCountryList').listview('refresh');
     });
     EmployeeInfo.pass = sessionStorage.getItem("empInfo");
     $("#Employee_pass_id").val(EmployeeInfo.pass);
@@ -103,7 +81,6 @@ function renderCities(results) {
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamicCitiesList').append(dynamicLi);
-        //  $('#DynamicCitiesList').listview('refresh');
     });
 }
     function renderEmployeeByID(results) {
@@ -125,32 +102,13 @@ function renderCities(results) {
             else {
                 $("#empImg").attr("src", "imges/no-img.jpg")
             }
-            //if (updated) {
-            //    swal("בוצע!", "עדכון פרטי העובד בוצע בהצלחה", "success");
-            //}
-           // $('#name').val(results.Fname + " " + results.Lname);
-            //$('#sysIdTB').val(results.Sys_id);
-          //$('#dobTB').val(function  () {
-          //    var date = new Date(parseInt(results.Birthday.substr(6)));
-          //      var month = date.getMonth() + 1;
-          //      return date.getDate() + "/" + month + "/" + date.getFullYear();
-          //  });
-
-           // Business = results.
-            //$('#empPassTB').val(results.Employee_pass_id);
-            //$('#addressTB').val(results.Add);
-            //$('#gender').val(results.Gender);
+            
             $(".selectize-select").selectize();
         }
 
     }
 
-  //EmployeeInfo.name=  $('#name').val();
-  //EmployeeInfo.sysid=   $('#sysIdTB').val();
-  //EmployeeInfo.dobTB  = $('#dobTB').val();
-  //EmployeeInfo.businessTB=  $('#businessTB').val();
-  //EmployeeInfo.addressTB=  $('#addressTB').val();
-
+  
     $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();
@@ -186,12 +144,9 @@ function renderCities(results) {
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    //EmployeeInfo.Employee_pass_id = $("#empPassTB").val()
-                    //EmployeeInfo.Sys_id = $("#sysIdTB").val()
+                    
                     EmployeeInfo = $('#EmployeeUpdate').serializeObject();
-                    // var result = JSON.stringify(formData);
-                    //  var array = ($("#insertEmpForm").serialize());
-                    UpdateEmp(EmployeeInfo);
+                             UpdateEmp(EmployeeInfo);
                     
                 } else {
                    // swal("Cancelled", "Your imaginary file is safe :)", "error");

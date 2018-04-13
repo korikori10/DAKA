@@ -1,7 +1,7 @@
 ﻿var EmployeeInfo = new Object();
 
 $(document).ready(function () {
-    getEmployeessearch(renderEmployees);//מה זה?
+    getEmployeessearch(renderEmployees);
 
 });
 

@@ -2,20 +2,17 @@
 
 $(document).ready(function () {
     EmployeeInfo.pass = sessionStorage.getItem("empInfo");
-    getHistory(EmployeeInfo)//, renderEmployeeByIDs
+    getHistory(EmployeeInfo)
 });
-//
-function getHistory(EmployeeInfo) {//, renderEmployeeByIDs
-  //  var dataString = JSON.stringify(EmployeeInfo);
+
+function getHistory(EmployeeInfo) {
 
     $.ajax({
         url: 'ajaxWebService.asmx/GetHistory',
         data: EmployeeInfo,
         type: 'POST',
         dataType: "json",
-   //     contentType: 'application/json; charset = utf-8',
-        success: function (data) {// renderEmployeeByIDs(results);
-            //data = $.parseJSON(data.d);
+        success: function (data) {
             var datatableVariable = $('#HistoryTable').DataTable({
                 data: data,
                 columns: [
