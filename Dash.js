@@ -1,8 +1,20 @@
 ﻿var statistics = new Object();
 EmployeeInfo = new Object();
 
+//$(document).ready(function () {
+window.onload = function () {
+    ReadEmployeesNeedNewVisa();
+    getEmployeesnobusiness();
+    getNewEmployees();
+    ReadEmployeesNotActive();
+    Statistics(RenderTotalnewemp);
+}
+//});
+
+
+// Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
- 
+ //Take the Employee ID from the table row
     sessionStorage.removeItem("empInfo")
     tr = $(this).closest('tr');//.find('td:first').text();
     tableId = $(this).closest('.table').attr('id');
@@ -10,74 +22,34 @@ $('.table').on('click', 'tr td button', function () {
         var data = $("#" + tableId).DataTable().row(tr).data();
         EmployeeInfo.pass = data['Employee_pass_id'];
     if (whichid == "edit") {
-
+        //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);
         window.location = "Employee.html";
     }
-    else if (whichid =="activate") {
-
-        var dataString = JSON.stringify(EmployeeInfo);
-
-        $.ajax({
-            url: 'ajaxWebService.asmx/UpdateToActive',
-            data: dataString,
-            type: 'POST',
-            dataType: "json",
-            contentType: 'application/json; charset = utf-8',
-            success: function () {
-                alert("yes");
-            },
-            error: function (xhr, status, error) {
-                var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
-            }
-        });        
+    else if (whichid == "activate") {
+        //Make Employee Active Again
+        MakeEmpActive();
+        
     }
     else {
-                $.ajax({
-                    url: 'AJAXWebService.asmx/PostDataToURL',
-                    type: 'POST',
-                    dataType: "xml",
-                    // contentType: 'application/json; charset = utf-8',
-                    success: function (results) {
-                        alert("sms sent");
-                    },
-                    error: function (xhr, status, error) {
-                        var err = eval("(" + xhr.responseText + ")");
-                        alert(err.Message);
-                    }
-
-                });
-
+        //Send SMS To Employees
+       // SendSMS();
+        window.location = "error404.html";
             }
     
 
 });
+//SearchBox
 
-$(document).ready(function () {
+//$(document).ready(function () {
 
-    $('#DynamicEmployeesList').typeahead({
-    getEmployeesearch(renderEmployees)
-    });
+//    $('#DynamicEmployeesList').typeahead({
+//    getEmployeesearch(renderEmployees)
+//    });
 
-});
+//});
 
-
-function getEmployeesearch(renderEmployees) {
-    $.ajax({
-        url: 'AJAXWebService.asmx/getEmployeesearch',
-        type: 'POST',
-        dataType: "json",
-        contentType: 'application/json; charset = utf-8',
-        success: function (results) {
-            renderEmployees(results);
-        },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-        }
-    });
-}
+//SearchBox
 function renderEmployees(results) {
     //this is the callBackFunc
     totalEmp = 0;
@@ -92,7 +64,14 @@ function renderEmployees(results) {
     });
 }
 
+//Statistics callcack func
+function RenderTotalnewemp(results) {
+    statistics = results.d;
+    document.getElementById("activeEmp").value = statistics[1];
+    document.getElementById("activeEmp").max = statistics[3];
+    document.getElementById("numnewemp").innerHTML = statistics[1];
 
+}
 
 
 
