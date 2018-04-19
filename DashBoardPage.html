@@ -1,5 +1,7 @@
 ﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -181,8 +183,8 @@
                                                         <div class="media-body text-xs-right">
                                                             <span id="numnewemp" class="font-large-2 text-bold-300 info"></span>
                                                         </div>
-                                                        <p class="text-muted">עובדים חדשים <span  class="info float-xs-right"><i class="icon-arrow-up4 info"></i> </span></p>
-                                                        <progress id="activeEmp" class="progress progress-sm progress-info" ></progress>
+                                                        <p class="text-muted">עובדים חדשים <span class="info float-xs-right"><i class="icon-arrow-up4 info"></i> </span></p>
+                                                        <progress id="activeEmp" class="progress progress-sm progress-info"></progress>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-8 col-sm-12 border-right-blue-grey border-right-lighten-5">
@@ -206,7 +208,7 @@
                                                             <span class="font-large-2 text-bold-300 danger"></span>
                                                         </div>
                                                         <p class="text-muted">עובדים פעילים<span class="danger float-xs-right"><i class="icon-arrow-up4 danger"></i> </span></p>
-                                                        <progress class="progress progress-sm progress-danger"  ></progress>
+                                                        <progress class="progress progress-sm progress-danger"></progress>
                                                     </div>
                                                 </div>
 
@@ -217,106 +219,114 @@
 
                                 <!--/ statistics-->
                                 <!--/ searchbox-->
-                                    <!--או 8 אם רוצים שיהיה שם כפתורים של דוחות הוספת עובד וזה-->
+                                <!--או 8 אם רוצים שיהיה שם כפתורים של דוחות הוספת עובד וזה-->
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <br />
+                                        <h1>Search Dynamic Autocomplete using Bootstrap Typeahead JS</h1>
+                                        <input id="DynamicEmployeesList" class="typeahead form-control" style="margin:0px auto;width:300px;" type="text" />
+                                    </div>
+                                </div>
+                                <!--<fieldset class="form-group position-relative">
 
-                                    <fieldset class="form-group position-relative">
-                                        <input id="DynamicEmployeesList" type="text" class="form-control form-control-lg input-lg" placeholder="חפש עובד ..." />
-                                        <div class="form-control-position">
-                                            <i class="icon-search7 font-medium-4"></i>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset class="form-group position-relative">
-                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ..." />
-                                        <div class="form-control-position">
-                                            <i class="icon-search7 font-medium-4"></i>
-                                        </div>
-                                    </fieldset>
+                                    <input id="DynamicEmployeesList" type="text" class="form-control typeahead form-control-lg input-lg" placeholder="חפש עובד ..." />
+                                    <div class="form-control-position">
+                                        <i class="icon-search7 font-medium-4"></i>
+                                    </div>
+                                </fieldset>-->
+                     
+                                <fieldset class="form-group position-relative">
+                                    <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ..." />
+                                    <div class="form-control-position">
+                                        <i class="icon-search7 font-medium-4"></i>
+                                    </div>
+                                </fieldset>
                                 <!--/ searchbox-->
                                 <!-- עובדים לא פעילים-->
-                                <section >
+                                <section>
                                     <div class="row ">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h4 class="card-title">עובדים לא פעילים</h4>
-                                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                                    <div class="heading-elements">
-                                                        <ul class="list-inline mb-0">
-                                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body collapse in">
-                                                    <div class="card-block card-dashboard">
-                                                        <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                                                        <div class="dataTables_scroll">
-                                                            <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
-                                                            
-                                                        <table id="empnotactive" class="table display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer" id="DataTables_Table_8" role="grid" aria-describedby="DataTables_Table_8_info" style="width: 1277px;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>מספר דרכון</th>
-                                                                    <th>מספר מכפל</th>
-                                                                    <th>שם פרטי</th>
-                                                                    <th>שם משפחה</th>
-                                                                    <th>מקום עבודה אחרון</th>
-                                                                    <th>סיבת עזיבה</th>
-                                                                    <th>טלפון</th>
-                                                                    <th>תוקף ויזה</th>
-                                                                    <th>פעולות</th>
-
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody></tbody>
-
-                                                        </table>
-                                                            </div>
-                                                        </div>
-
-                                                        <script type="text/javascript">
-                                                            $(document).ready(function () {
-                                                                $.ajax({
-                                                                    type: "POST",
-                                                                    dataType: "json",
-                                                                    url: "ajaxWebService.asmx/ReadEmployeesNotActive",
-                                                                    success: function (data) {
-                                                                        var datatableVariable = $('#empnotactive').DataTable({
-                                                                            data: data,
-                                                                            columns: [
-                                                                                {
-                                                                                    'data': 'Employee_pass_id',
-                                                                                    'visible': false
-                                                                                },
-                                                                                { 'data': 'Sys_id' },
-                                                                                { 'data': 'Fname' },
-                                                                                { 'data': 'Lname' },
-                                                                                { 'data': 'Bus_name' },
-                                                                                { 'data': 'Disable_reason' },
-                                                                                { 'data': 'Phone' },
-                                                                                {
-                                                                                    'data': 'Ex_date', 'render': function (date) {
-                                                                                        var date = new Date(parseInt(date.substr(6)));
-                                                                                        var month = date.getMonth() + 1;
-                                                                                        return date.getDate() + "/" + month + "/" + date.getFullYear();
-                                                                                    }
-                                                                                },
-
-                                                                                {
-                                                                                    'data': "",
-                                                                                    'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
-                                                                                }]
-                                                                        });
-                                                                    }
-                                                                });
-                                                            });
-
-                                                        </script>
-
-                                                    </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title">עובדים לא פעילים</h4>
+                                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                                <div class="heading-elements">
+                                                    <ul class="list-inline mb-0">
+                                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
+                                            <div class="card-body collapse in">
+                                                <div class="card-block card-dashboard">
+                                                    <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
+                                                    <div class="dataTables_scroll">
+                                                        <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
+
+                                                            <table id="empnotactive" class="table display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer" id="DataTables_Table_8" role="grid" aria-describedby="DataTables_Table_8_info" style="width: 1277px;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>מספר דרכון</th>
+                                                                        <th>מספר מכפל</th>
+                                                                        <th>שם פרטי</th>
+                                                                        <th>שם משפחה</th>
+                                                                        <th>מקום עבודה אחרון</th>
+                                                                        <th>סיבת עזיבה</th>
+                                                                        <th>טלפון</th>
+                                                                        <th>תוקף ויזה</th>
+                                                                        <th>פעולות</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody></tbody>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <script type="text/javascript">
+                                                        $(document).ready(function () {
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                dataType: "json",
+                                                                url: "ajaxWebService.asmx/ReadEmployeesNotActive",
+                                                                success: function (data) {
+                                                                    var datatableVariable = $('#empnotactive').DataTable({
+                                                                        data: data,
+                                                                        columns: [
+                                                                            {
+                                                                                'data': 'Employee_pass_id',
+                                                                                'visible': false
+                                                                            },
+                                                                            { 'data': 'Sys_id' },
+                                                                            { 'data': 'Fname' },
+                                                                            { 'data': 'Lname' },
+                                                                            { 'data': 'Bus_name' },
+                                                                            { 'data': 'Disable_reason' },
+                                                                            { 'data': 'Phone' },
+                                                                            {
+                                                                                'data': 'Ex_date', 'render': function (date) {
+                                                                                    var date = new Date(parseInt(date.substr(6)));
+                                                                                    var month = date.getMonth() + 1;
+                                                                                    return date.getDate() + "/" + month + "/" + date.getFullYear();
+                                                                                }
+                                                                            },
+
+                                                                            {
+                                                                                'data': "",
+                                                                                'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                                                                            }]
+                                                                    });
+                                                                }
+                                                            });
+                                                        });
+
+                                                    </script>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </section>
                                 <!-- עובדים לא פעילים-->
@@ -343,20 +353,20 @@
                                             <div class="dataTables_scroll">
                                                 <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
 
-                                            <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="display:none">מס דרכון</th>
-                                                        <th>מספר מכפל</th>
-                                                        <th>שם פרטי</th>
-                                                        <th>שם משפחה</th>
-                                                        <th>מקום עבודה</th>
-                                                        <th>פעולות</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                     
+                                                    <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newemp" style="margin-left: 0px; ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="display:none">מס דרכון</th>
+                                                                <th>מספר מכפל</th>
+                                                                <th>שם פרטי</th>
+                                                                <th>שם משפחה</th>
+                                                                <th>מקום עבודה</th>
+                                                                <th>פעולות</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                    </table>
+
                                                 </div>
                                             </div>
 
@@ -413,20 +423,20 @@
                                             <div class="dataTables_scroll">
                                                 <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
 
-                                            <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newvisaalert" style="margin-left: 0px; ">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="display:none;">מס דרכון</th>
-                                                        <th>מספר מכפל</th>
-                                                        <th>שם העובד</th>
-                                                        <th>שם משפחה</th>
-                                                        <th>תאריך לחידוש</th>
-                                                        <th>טלפון</th>
-                                                        <th>פעולות</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
+                                                    <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newvisaalert" style="margin-left: 0px; ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="display:none;">מס דרכון</th>
+                                                                <th>מספר מכפל</th>
+                                                                <th>שם העובד</th>
+                                                                <th>שם משפחה</th>
+                                                                <th>תאריך לחידוש</th>
+                                                                <th>טלפון</th>
+                                                                <th>פעולות</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                    </table>
                                                 </div>
                                             </div>
 
@@ -492,21 +502,21 @@
                                         <div class="dataTables_scroll">
                                             <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
 
-                                        <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="empNoBusi" style="margin-left: 0px; ">
-                                            <thead>
-                                                <tr>
-                                                    <th style="display:none;">מס דרכון</th>
-                                                    <th>מספר מכפל</th>
-                                                    <th>שם העובד</th>
-                                                    <th>שם משפחה</th>
-                                                    <th>מקום עבודה אחרון</th>
-                                                    <th>טלפון</th>
-                                                    <th>מספר ימים ללא ציוות</th>
-                                                    <th>פעולות</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
+                                                <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="empNoBusi" style="margin-left: 0px; ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="display:none;">מס דרכון</th>
+                                                            <th>מספר מכפל</th>
+                                                            <th>שם העובד</th>
+                                                            <th>שם משפחה</th>
+                                                            <th>מקום עבודה אחרון</th>
+                                                            <th>טלפון</th>
+                                                            <th>מספר ימים ללא ציוות</th>
+                                                            <th>פעולות</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
                                             </div>
                                         </div>
 
@@ -539,30 +549,30 @@
                                                 });
 
                                                 $.ajax({
-                                                            url: 'AJAXWebService.asmx/ReadTotalnewemp',
-                                                            type: 'POST',
-                                                            dataType: "json",
-                                                            contentType: 'application/json; charset = utf-8',
-                                                            success: function (results) {
-                                                                RenderTotalnewemp(results);
-                                                            },
-                                                            error: function (xhr, status, error) {
-                                                                var err = eval("(" + xhr.responseText + ")");
-                                                                alert(err.Message);
-                                                            }
+                                                    url: 'AJAXWebService.asmx/ReadTotalnewemp',
+                                                    type: 'POST',
+                                                    dataType: "json",
+                                                    contentType: 'application/json; charset = utf-8',
+                                                    success: function (results) {
+                                                        RenderTotalnewemp(results);
+                                                    },
+                                                    error: function (xhr, status, error) {
+                                                        var err = eval("(" + xhr.responseText + ")");
+                                                        alert(err.Message);
+                                                    }
 
-                                                        });
+                                                });
 
-                                                    
+
                                             });
 
-                                                function RenderTotalnewemp(results) {
-                                                    statistics = results.d;
-                                                    document.getElementById("activeEmp").value = statistics[1];
-                                                    document.getElementById("activeEmp").max = statistics[3];
-                                                    document.getElementById("numnewemp").innerHTML = statistics[1];
+                                            function RenderTotalnewemp(results) {
+                                                statistics = results.d;
+                                                document.getElementById("activeEmp").value = statistics[1];
+                                                document.getElementById("activeEmp").max = statistics[3];
+                                                document.getElementById("numnewemp").innerHTML = statistics[1];
 
-                                                }
+                                            }
                                         </script>
                                     </div>
                                 </div>
@@ -576,7 +586,7 @@
         </div>
     </div>
 
-                                          
+
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     <footer class="footer footer-static footer-dark navbar-border">
@@ -656,8 +666,8 @@
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>
     <script src="Employee.js"></script>
-    <script src="AjaxCalls.js"></script>
     <script src="Dash.js"></script>
+    <script src="AjaxCalls.js"></script>
     <script src="EmployeePage.js"></script>
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->

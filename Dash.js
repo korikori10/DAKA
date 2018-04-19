@@ -1,4 +1,5 @@
 ﻿var statistics = new Object();
+EmployeeInfo = new Object();
 
 $('.table').on('click', 'tr td button', function () {
  
@@ -52,6 +53,45 @@ $('.table').on('click', 'tr td button', function () {
     
 
 });
+
+$(document).ready(function () {
+
+    $('#DynamicEmployeesList').typeahead({
+    getEmployeesearch(renderEmployees)
+    });
+
+});
+
+
+function getEmployeesearch(renderEmployees) {
+    $.ajax({
+        url: 'AJAXWebService.asmx/getEmployeesearch',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderEmployees(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+function renderEmployees(results) {
+    //this is the callBackFunc
+    totalEmp = 0;
+    results = $.parseJSON(results.d);
+    for (var i = 1; i <= results.length; i++) {
+        totalEmp = i;
+    }
+    var dl = $('#DynamicEmployeesList');
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Employee_pass_id + '">' + row.Fname + " " + row.Lname + '</option>';
+        dl.append(dynamicLi);
+    });
+}
+
 
 
 
