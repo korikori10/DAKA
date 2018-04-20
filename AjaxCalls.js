@@ -71,7 +71,7 @@ function getEmployeess() {
 }
 
 //Make Employee active again from Archive
-function MakeEmpActive() {
+function MakeEmpActive(EmployeeInfo) {
     var dataString = JSON.stringify(EmployeeInfo);
 
     $.ajax({
