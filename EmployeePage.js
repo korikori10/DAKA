@@ -4,13 +4,16 @@ resultsSave = new Object();
 var updated = new Object();
 var h = false;
 
+
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinesses(renderBusinesses);  
-  
-
+    //$('#DynamicEmployeesList').typeahead({
+    //    getEmployeesearch(renderEmployees);
+    //});
 });
+
 
 function fixDate(date) {
 	var date = new Date(parseInt(date.substr(6)));
@@ -23,6 +26,8 @@ function fixDate(date) {
     return date.getFullYear() + "-" + month + "-" + day;
    
 }
+
+//Func for the wizard form
 function populate(frm, data) {
 	$.each(data, function (key, value) {
         var ctrl = $('[name=' + key + ']', frm);
@@ -76,6 +81,7 @@ function renderCountries(results) {
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
         $('.selectize-select').selectize;
 }
+
 function renderCities(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
@@ -85,6 +91,8 @@ function renderCities(results) {
         $('#DynamicCitiesList').append(dynamicLi);
     });
 }
+
+//Put all data in place
 function renderEmployeeByID(results) {
 
     results = $.parseJSON(results.d);
@@ -113,6 +121,7 @@ function renderEmployeeByID(results) {
     }
 }
 
+//??
     $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();
@@ -135,6 +144,7 @@ function renderEmployeeByID(results) {
         return o;
     };
 
+//Check save or delete
     $("#info").on('click', function () {
 
         swal({
@@ -147,15 +157,7 @@ function renderEmployeeByID(results) {
             closeOnConfirm: false,
             showLoaderOnConfirm: true,
         }, 
-        
-
-        //swal({
-        //    title: "!",
-        //    text: "כל הנתונים נשמרו בהצלחה!",
-        //    type: "success",
-        //    confirmButtonText: "Cool"
-        //});
-       
+              
             function (isConfirm) {
                 if (isConfirm) {
 
@@ -176,7 +178,7 @@ function renderEmployeeByID(results) {
 
     });
 
-
+//
     function UpdateEmp(array) {
 
         updated = true;

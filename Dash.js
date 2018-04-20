@@ -3,11 +3,16 @@ EmployeeInfo = new Object();
 
 //$(document).ready(function () {
 window.onload = function () {
+    getEmployees(renderEmployees);
     ReadEmployeesNeedNewVisa();
     getEmployeesnobusiness();
     getNewEmployees();
     ReadEmployeesNotActive();
     Statistics(RenderTotalnewemp);
+    //for employees page
+        getEmployeess();
+
+
 }
 //});
 
@@ -28,30 +33,28 @@ $('.table').on('click', 'tr td button', function () {
     }
     else if (whichid == "activate") {
         //Make Employee Active Again
-        MakeEmpActive();
-        
+        MakeEmpActive();  
+    }
+    else if (whichid="sms") {
+
+        //Send SMS To Employees
+        SendSMS();
+    }
+    else if (whichid ="email") {
+        sendEmail(EmployeeInfo);
     }
     else {
-        //Send SMS To Employees
-       // SendSMS();
         window.location = "error404.html";
             }
     
 
 });
-//SearchBox
 
-//$(document).ready(function () {
-
-//    $('#DynamicEmployeesList').typeahead({
-//    getEmployeesearch(renderEmployees)
-//    });
-
-//});
 
 //SearchBox
+
 function renderEmployees(results) {
-    //this is the callBackFunc
+    //this is the callBackFunc 
     totalEmp = 0;
     results = $.parseJSON(results.d);
     for (var i = 1; i <= results.length; i++) {
@@ -62,8 +65,34 @@ function renderEmployees(results) {
         dynamicLi = '<option value="' + row.Employee_pass_id + '">' + row.Fname + " " + row.Lname + '</option>';
         dl.append(dynamicLi);
     });
+    ////////////////////////////////////////////
+    var select = $(".selectize-select").selectize({
+        maxItems: 1, //Max items selectable in the textbox
+        maxOptions: 30, //Max options to render at once in the dropdown
+        onChange: function (value) {
+            sessionStorage.removeItem("empInfo")
+            EmployeeInfo.pass = value;
+            sessionStorage.setItem("empInfo", EmployeeInfo.pass);
+            window.location = "Employee.html"
+        }
+    });
+
 }
 
+//function renderEmployees(results) {
+//    //this is the callBackFunc 
+//    EmployeeInfo = results.d
+
+//    $(".selectize-select").selectize({
+//        create: true,
+//        valueField: 'Emp_Pass_id',
+//        lableField: 'Fname',
+//        sortField: 'text',
+//        searchField: ['Emp_Pass_id', 'Fname', 'Lname'],
+//        options: EmployeeInfo
+//    });
+
+//}
 //Statistics callcack func
 function RenderTotalnewemp(results) {
     statistics = results.d;

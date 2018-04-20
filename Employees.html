@@ -168,103 +168,10 @@
                         </div>
                     </div>
                 </section>
-                <!-- עובדים לא פעילים-->
-
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        var datatableVariable = $('#EmployeesTable');
-                        $.ajax({
-                            type: "POST",
-                            dataType: "json",
-                            url: "AJAXWebService.asmx/getEmployees",
-                            success: function (data) {
-                                datatableVariable.DataTable({
-                                    dom: 'Bfrtip',
-                                    buttons: [
-                                        {
-                                            extend: 'print',
-                                            messageTop: 'Printing'
-                                        },
-                                        'copyHtml5',
-                                        'excelHtml5',
-                                        'pdfHtml5',
-                                        {
-                                            text: 'Archive',
-                                            action: function (e, dt, node, config) {
-                                                window.location = "Archive.html";
-                                            }
-                                        }
-                                    ],
-                                    data: data,
-                                    columns: [
-                                        { 'data': 'Employee_pass_id' },
-                                        { 'data': 'Fname' },
-                                        { 'data': 'Lname' },
-                                        {
-                                            'data': 'Birthday', 'render': function (date) {
-                                                var date = new Date(parseInt(date.substr(6)));
-                                                var month = date.getMonth() + 1;
-                                                return date.getDate() + "/" + month + "/" + date.getFullYear();
-                                            }
-                                        },
-                                        { 'data': 'Phone' },
-
-                                        {
-                                            // $delete_btn = '<a class="btn btn-default delete"><i class="fa fa-trash"></i> Delete</a>';
-                                            // $edit_btn = '<a class="btn btn-default edit"><i class="fa fa-pencil-square-o"></i> Edit</a>';
-
-                                            'data': "",
-                                            'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
-
-                                        }]
-                                });
-
-                                //{
-                                //    'data': 'feesPaid', 'render': function (feesPaid) {
-                                //        return '$ ' + feesPaid;
-                                //    }
-                                //},
-                                //{ 'data': 'gender' },
-                                //{ 'data': 'emailId' },
-                                //{ 'data': 'telephoneNumber' },
-                                //{
-                                //    'data': 'dateOfBirth', 'render': function (date) {
-                                //        var date = new Date(parseInt(date.substr(6)));
-                                //        var month = date.getMonth() + 1;
-                                //        return date.getDate() + "/" + month + "/" + date.getFullYear();
-                                //    }
-                                //}]
-
-                                //$('#studentTable tfoot th').each(function () {
-                                //    var placeHolderTitle = $('#studentTable thead th').eq($(this).index()).text();
-                                //    $(this).html('<input type="text" class="form-control input input-sm" placeholder = "Search ' + placeHolderTitle + '" />');
-                                //});
-                                //datatableVariable.columns().every(function () {
-                                //    var column = this;
-                                //    $(this.footer()).find('input').on('keyup change', function () {
-                                //        column.search(this.value).draw();
-                                //    });
-                                //});
-                                //$('.showHide').on('click', function () {
-                                //    var tableColumn = datatableVariable.column($(this).attr('data-columnindex'));
-                                //    tableColumn.visible(!tableColumn.visible());
-                                //});
-                            }
-                        });
-
-
-
-                    });
-                </script>
-
-                <!--<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון" ="><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>-->
-
             </div>
         </div>
     </div>
-    <!--<div id="add-footer">
 
-    </div>-->
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     <footer style="position:absolute; bottom:0;right:0;left:0;" class="footer footer-static footer-dark navbar-border">
@@ -295,10 +202,9 @@
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>-->
-    <script src="Employee.js"></script>
+    <script src="Dash.js"></script>
     <script src="AjaxCalls.js"></script>
     <script src="EmployeePage.js"></script>
-    <script src="Dash.js"></script>
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="app-assets/vendors/js/ui/headroom.min.js" type="text/javascript"></script>

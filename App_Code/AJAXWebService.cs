@@ -260,14 +260,14 @@ public string GetEmployeeById(string pass)
 
         }
         //set password, user name, message text, semder name and number
-        string userName = "";// "smsgal";
-        string password = "";// "gal969";
+        string userName ="smsgal";
+        string password ="gal969";
         string messageText = System.Security.SecurityElement.Escape(" תזכורת מספר 1: יש לחדש ויזה בשלושה ימים הקרובים. בסיום יש ליצור קשר. ");
         string sender = "daka";
         //set phone numbers
         string phonesList =phone;//0503333334;0503333335;0503333336;0503333337";
         //set additional parameters
-        string timeToSend = "05/04/2018 15:47";
+        string timeToSend = "20/04/2018 21:21";
         // create XML
         StringBuilder sbXml = new StringBuilder();
         sbXml.Append("<Inforu>");

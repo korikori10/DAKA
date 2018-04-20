@@ -15,6 +15,61 @@ function getEmployees(renderEmployees) {
     });    
 }
 
+//Get All Employees for employees table
+function getEmployeess() {
+    var datatableVariable = $('#EmployeesTable');
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "AJAXWebService.asmx/getEmployees",
+        success: function (data) {
+            datatableVariable.DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        messageTop: 'Printing'
+                    },
+                    'copyHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                    {
+                        text: 'Archive',
+                        action: function (e, dt, node, config) {
+                            window.location = "Archive.html";
+                        }
+                    }
+                ],
+                data: data,
+                columns: [
+                    { 'data': 'Employee_pass_id' },
+                    { 'data': 'Fname' },
+                    { 'data': 'Lname' },
+                    {
+                        'data': 'Birthday', 'render': function (date) {
+                            var date = new Date(parseInt(date.substr(6)));
+                            var month = date.getMonth() + 1;
+                            return date.getDate() + "/" + month + "/" + date.getFullYear();
+                        }
+                    },
+                    { 'data': 'Phone' },
+
+                    {
+                        'data': "",
+                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+
+                    }]
+            });
+
+            //$('#studentTable tfoot th').each(function () {
+            //    var placeHolderTitle = $('#studentTable thead th').eq($(this).index()).text();
+            //    $(this).html('<input type="text" class="form-control input input-sm" placeholder = "Search ' + placeHolderTitle + '" />');
+            //});
+
+        }
+    });
+}
+
 //Make Employee active again from Archive
 function MakeEmpActive() {
     var dataString = JSON.stringify(EmployeeInfo);
@@ -52,39 +107,40 @@ function SendSMS() {
 
     });
 
-    function ReadEmployeesNeedNewVisa() {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: "ajaxWebService.asmx/ReadEmployeesNeedNewVisa",
-            success: function (data) {
-                var datatableVariable = $('#newvisaalert').DataTable({
-                    data: data,
-                    columns: [
-                        {
-                            'data': 'Employee_pass_id',
-                            'visible': false
-                        },
-                        { 'data': 'Sys_id' },
-                        { 'data': 'Fname' },
-                        { 'data': 'Lname' },
-                        {
-                            'data': 'Ex_date', 'render': function (date) {
-                                var date = new Date(parseInt(date.substr(6)));
-                                var month = date.getMonth() + 1;
-                                return date.getDate() + "/" + month + "/" + date.getFullYear();
-                            }
-                        },
-                        { 'data': 'Phone' },
-                        {
-                            'data': "",
-                            'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
-                        }]
-                });
-            }
-        });
+}
+    //function ReadEmployeesNeedNewVisa() {
+    //    $.ajax({
+    //        type: "POST",
+    //        dataType: "json",
+    //        url: "ajaxWebService.asmx/ReadEmployeesNeedNewVisa",
+    //        success: function (data) {
+    //            var datatableVariable = $('#newvisaalert').DataTable({
+    //                data: data,
+    //                columns: [
+    //                    {
+    //                        'data': 'Employee_pass_id',
+    //                        'visible': false
+    //                    },
+    //                    { 'data': 'Sys_id' },
+    //                    { 'data': 'Fname' },
+    //                    { 'data': 'Lname' },
+    //                    {
+    //                        'data': 'Ex_date', 'render': function (date) {
+    //                            var date = new Date(parseInt(date.substr(6)));
+    //                            var month = date.getMonth() + 1;
+    //                            return date.getDate() + "/" + month + "/" + date.getFullYear();
+    //                        }
+    //                    },
+    //                    { 'data': 'Phone' },
+    //                    {
+    //                        'data': "",
+    //                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+    //                    }]
+    //            });
+    //        }
+    //    });
 
-    }
+    //}
 //SearchBox
  function getEmployeesearch(renderEmployees) {
         $.ajax({
@@ -101,8 +157,8 @@ function SendSMS() {
             }
         });
     }
-}
 
+//Make the search to go to emp page
 function getEmployeeById(EmployeeInfo, renderEmployeeByID) {
 
     // serialize the object to JSON string
@@ -122,6 +178,46 @@ function getEmployeeById(EmployeeInfo, renderEmployeeByID) {
             alert(err.Message);
         }
     });
+}
+
+//History page for employee
+function getHistory(EmployeeInfo) {
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/GetHistory',
+        data: EmployeeInfo,
+        type: 'POST',
+        dataType: "json",
+        success: function (data) {
+            var datatableVariable = $('#HistoryTable').DataTable({
+                data: data,
+                columns: [
+                    { 'data': 'Employee_pass_id' },
+                    { 'data': 'Fname' },
+                    { 'data': 'Lname' },
+                    { 'data': 'Bus_name' },
+                    {
+                        'data': 'Start_date', 'render': function (date) {
+                            var date = new Date(parseInt(date.substr(6)));
+                            var month = date.getMonth() + 1;
+                            return date.getDate() + "/" + month + "/" + date.getFullYear();
+                        }
+                    },
+                    {
+                        'data': 'End_date', 'render': function (date) {
+                            var date = new Date(parseInt(date.substr(6)));
+                            var month = date.getMonth() + 1;
+                            return date.getDate() + "/" + month + "/" + date.getFullYear();
+                        }
+                    }
+                ]
+            });
+
+
+
+        }
+    });
+
 }
 
 //Statistics
@@ -170,7 +266,7 @@ $.ajax({
                 { 'data': 'Phone' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                    'defaultContent': '<button name="visa" id="visa" class="btn btn-icon btn-success " data-toggle="tooltip" data-original-title="ויזה חודשה""><i class="icon-check"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="sms" id="sms" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
                 }]
         });
     }
@@ -228,7 +324,7 @@ $.ajax({
                 { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button  name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                    'defaultContent': '<button  name="email" id="email" class="btn btn-icon btn-success" data-toggle="tooltip" data-original-title="שלח מייל לחברת הביטוח""><i class="icon-envelope"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                 }]
         });
     }
