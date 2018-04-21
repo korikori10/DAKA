@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-menu.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css" />
     <link href="app-assets/vendors/js/buttons/ladda.css" rel="stylesheet" />
+    <link href="app-assets/vendors/css/extensions/sweetalert.css" rel="stylesheet" />
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
@@ -167,6 +168,49 @@
                     </div>
                 </section>
 
+<<<<<<< HEAD
+=======
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var datatableVariable = $('#EmployeesTable');
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            url: "AJAXWebService.asmx/getArchive",
+                            success: function (data) {
+                                datatableVariable.DataTable({
+                                    data: data,
+                                    columns: [
+                                        { 'data': 'Employee_pass_id' },
+                                        { 'data': 'Fname' },
+                                        { 'data': 'Lname' },
+                                        {
+                                            'data': 'Birthday', 'render': function (date) {
+                                                var date = new Date(parseInt(date.substr(6)));
+                                                var month = date.getMonth() + 1;
+                                                return date.getDate() + "/" + month + "/" + date.getFullYear();
+                                            }
+                                        },
+                                        { 'data': 'Phone' },
+
+                                        {
+
+                                            'data': "",
+                                            'defaultContent': '<button name="activate" id="activate" class="btn btn-icon btn-success view" data-toggle="tooltip" data-original-title="החזר לפעילות""><i class="icon-arrow61"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+
+                                        }]
+                                });
+
+                            }
+                        });
+
+
+
+                    });
+                </script>
+
+
+>>>>>>> 35350ebd1db9abc69c35405b4b9c92a6859a016d
             </div>
         </div>
     </div>
@@ -202,12 +246,19 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
+<<<<<<< HEAD
     <!--<script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>-->-->
 
     <script src="jsDAKA/Archive.js"></script>
     <script src="jsDAKA/AjaxCalls.js"></script>
     <!--<script src="jsDAKA/Dash.js"></script>-->
     <!--<script src="jsDAKA/EmployeePage.js"></script>-->
+=======
+    <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>-->
+    <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>
+    <script src="AjaxCalls.js"></script>
+    <script src="Archive.js"></script>
+>>>>>>> 35350ebd1db9abc69c35405b4b9c92a6859a016d
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="app-assets/vendors/js/ui/headroom.min.js" type="text/javascript"></script>

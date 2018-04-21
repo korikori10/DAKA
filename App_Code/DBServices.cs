@@ -1154,7 +1154,7 @@ public class DBServices
     /// <param name="emp"></param>
     /// <returns> employee active</returns>
   
-    public Employee UpdateToActive(Employee emp)
+    public int UpdateToActive(string emp)
     {
 
         SqlConnection con;
@@ -1177,11 +1177,11 @@ public class DBServices
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            return emp;
+            return numEffected;
         }
         catch (Exception ex)
         {
-            return null;
+            return 0;
             // write to log
             throw (ex);
         }
@@ -1200,13 +1200,13 @@ public class DBServices
     //--------------------------------------------------------------------
     // Build the active emp  command String
     //--------------------------------------------------------------------
-    private String BuildUpdateactiveCommand(Employee emp)
+    private String BuildUpdateactiveCommand(string emp)
     {
         String command;
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET  active = '" + emp.Active + "'='1' Where employee_pass_id = '" + emp.Employee_pass_id + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET  active ='1' Where employee_pass_id = '" + emp + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;

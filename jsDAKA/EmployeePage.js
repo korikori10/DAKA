@@ -186,5 +186,7 @@ function renderEmployeeByID(results) {
         }
 
         UpdateEmployee({ EmployeeInfo: JSON.stringify(array) }, renderEmployeeByID);
-
+        if (array.Sys_id != resultsSave.Sys_id) {
+            sendEmail({ EmployeeInfo: JSON.stringify(array) })
+        }
     }
