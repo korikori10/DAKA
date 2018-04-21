@@ -57,7 +57,7 @@ function getEmployeess() {
 
                     {
                         'data': "",
-                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
 
                     }]
             });
@@ -279,7 +279,7 @@ $.ajax({
                 { 'data': 'Phone' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="visa" id="visa" class="btn btn-icon btn-success " data-toggle="tooltip" data-original-title="ויזה חודשה""><i class="icon-check"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="sms" id="sms" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
+                    'defaultContent': '<button name="visa" class="btn btn-icon btn-success " data-toggle="tooltip" data-original-title="ויזה חודשה""><i class="icon-check"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="sms" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
                 }]
         });
     }
@@ -308,7 +308,7 @@ function getEmployeesnobusiness() {
                     { 'data': 'Dayspass' },
                     {
                         'data': "",
-                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                     }]
             });
         }
@@ -337,7 +337,7 @@ $.ajax({
                 { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button  name="email" id="email" class="btn btn-icon btn-success" data-toggle="tooltip" data-original-title="שלח מייל לחברת הביטוח""><i class="icon-envelope"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                    'defaultContent': '<button  name="email"  class="btn btn-icon btn-success" data-toggle="tooltip" data-original-title="שלח מייל לחברת הביטוח""><i class="icon-envelope"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                 }]
         });
     }
@@ -375,7 +375,7 @@ function ReadEmployeesNotActive() {
 
                     {
                         'data': "",
-                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
                     }]
             });
         }
@@ -398,7 +398,7 @@ function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
            
                     setTimeout(function () {
                         swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-                    }, 2000);
+                    }, 1000);
                 renderEmployeeByID(results);    
             },
             error: function (xhr, status, error) {

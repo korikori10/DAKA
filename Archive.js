@@ -7,7 +7,7 @@ $('.table').on('click', 'tr td button', function () {
     sessionStorage.removeItem("empInfo")
     tr = $(this).closest('tr');//.find('td:first').text();
     tableId = $(this).closest('.table').attr('id');
-    whichid = $(this).closest('button').attr('id');
+    whichid = $(this).closest('button').attr('name');
     var data = $("#" + tableId).DataTable().row(tr).data();
     EmployeeInfo.pass = data['Employee_pass_id'];
     if (whichid == "edit") {

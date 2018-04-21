@@ -10,7 +10,7 @@ window.onload = function () {
     ReadEmployeesNotActive();
     Statistics(RenderTotalnewemp);
     //for employees page
-        getEmployeess();
+    getEmployeess();
 
 
 }
@@ -23,7 +23,7 @@ $('.table').on('click', 'tr td button', function () {
     sessionStorage.removeItem("empInfo")
     tr = $(this).closest('tr');//.find('td:first').text();
     tableId = $(this).closest('.table').attr('id');
-    whichid = $(this).closest('button').attr('id');
+    whichid = $(this).closest('button').attr('name');
         var data = $("#" + tableId).DataTable().row(tr).data();
         EmployeeInfo.pass = data['Employee_pass_id'];
     if (whichid == "edit") {
@@ -35,12 +35,12 @@ $('.table').on('click', 'tr td button', function () {
         //Make Employee Active Again
         MakeEmpActive();  
     }
-    else if (whichid="sms") {
+    else if (whichid=="sms") {
 
         //Send SMS To Employees
         SendSMS();
     }
-    else if (whichid ="email") {
+    else if (whichid == "email") {
         sendEmail(EmployeeInfo);
     }
     else {
@@ -70,7 +70,7 @@ function renderEmployees(results) {
         maxItems: 1, //Max items selectable in the textbox
         maxOptions: 30, //Max options to render at once in the dropdown
        
-        onChange: function (value) {
+        onItemAdd: function (value) {
             sessionStorage.removeItem("empInfo")
             EmployeeInfo.pass = value;
             sessionStorage.setItem("empInfo", EmployeeInfo.pass);
@@ -79,6 +79,7 @@ function renderEmployees(results) {
     });
 
 }
+
 
 //function renderEmployees(results) {
 //    //this is the callBackFunc 
