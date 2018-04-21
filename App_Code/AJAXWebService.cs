@@ -64,9 +64,10 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+    //employees table
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public void getEmployees()
+    public void getEmployeess()
     {
         Employee e = new Employee();
         List<Employee> LE = e.getEmployees();
@@ -74,8 +75,23 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         var jsonStringCategory =  js.Serialize(LE) ;
        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
-        // return jsonStringCategory;
+        //return jsonStringCategory;
         Context.Response.Write(jsonStringCategory);
+
+    }
+    //for employees search
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getEmployees()
+    {
+        Employee e = new Employee();
+        List<Employee> LE = e.getEmployees();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
+        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
+        return jsonStringCategory;
+        // Context.Response.Write(jsonStringCategory);
 
     }
     [WebMethod]

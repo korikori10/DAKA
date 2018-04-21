@@ -42,6 +42,8 @@
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
+    <link href="app-assets/css-rtl/plugins/forms/selectize/selectize.css" rel="stylesheet" />
+    <link href="app-assets/vendors/css/forms/selects/selectize.default.css" rel="stylesheet" />
     <!-- END Custom CSS-->
 </head>
 <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar menu-collapsed">
@@ -139,7 +141,7 @@
                 </div>
                 <div class="content-header-right col-md-6 col-xs-12">
                     <div role="group" aria-label="Button group with nested dropdown" class="btn-group float-md-right">
-                            </div>
+                    </div>
                 </div>
                 <div class="content-header-lead col-xs-12 mt-1">
                 </div>
@@ -199,84 +201,71 @@
                                 <!--/ statistics-->
                                 <!--/ searchbox-->
                                 <!--או 8 אם רוצים שיהיה שם כפתורים של דוחות הוספת עובד וזה-->
-                                <form action="#" class="vertical-tab-steps wizard-circle" id="EmpForm">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="tbcity4">חפש עובד</label>
-                                                <select name="Add_city" class="selectize-select" id="DynamicEmployeesList"></select>
+
+                                <div class="row match-height">
+                                    <div class="col-md-12 col-sm-12">
+                                        <select id="DynamicEmployeesList" class="selectize-select">
+                                            <option value="0">חפש עובד....</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <fieldset class="form-group position-relative">
+                                    <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ..." />
+                                    <div class="form-control-position">
+                                        <i class="icon-search7 font-medium-4"></i>
+                                    </div>
+                                </fieldset>
+                                <!--/ searchbox-->
+                                <!-- עובדים לא פעילים-->
+                                <section>
+                                    <div class="row ">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title">עובדים לא פעילים</h4>
+                                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                                <div class="heading-elements">
+                                                    <ul class="list-inline mb-0">
+                                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-body collapse in">
+                                                <div class="card-block card-dashboard">
+                                                    <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
+                                                    <div class="dataTables_scroll">
+                                                        <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
+
+                                                            <table id="empnotactive" class="table display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer" id="DataTables_Table_8" role="grid" aria-describedby="DataTables_Table_8_info" style="width: 1277px;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>מספר דרכון</th>
+                                                                        <th>מספר מכפל</th>
+                                                                        <th>שם פרטי</th>
+                                                                        <th>שם משפחה</th>
+                                                                        <th>מקום עבודה אחרון</th>
+                                                                        <th>סיבת עזיבה</th>
+                                                                        <th>טלפון</th>
+                                                                        <th>תוקף ויזה</th>
+                                                                        <th>פעולות</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody></tbody>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                                    <script type="text/javascript">
-
-                                    </script>
-                                    <!--<fieldset class="form-group position-relative">
-
-            <input id="DynamicEmployeesList" type="text" class="form-control typeahead form-control-lg input-lg" placeholder="חפש עובד ..." />
-            <div class="form-control-position">
-                <i class="icon-search7 font-medium-4"></i>
-            </div>
-        </fieldset>-->
-
-                                    <fieldset class="form-group position-relative">
-                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ..." />
-                                        <div class="form-control-position">
-                                            <i class="icon-search7 font-medium-4"></i>
-                                        </div>
-                                    </fieldset>
-                                    <!--/ searchbox-->
-                                    <!-- עובדים לא פעילים-->
-                                    <section>
-                                        <div class="row ">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h4 class="card-title">עובדים לא פעילים</h4>
-                                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                                    <div class="heading-elements">
-                                                        <ul class="list-inline mb-0">
-                                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body collapse in">
-                                                    <div class="card-block card-dashboard">
-                                                        <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                                                        <div class="dataTables_scroll">
-                                                            <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
-
-                                                                <table id="empnotactive" class="table display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer" id="DataTables_Table_8" role="grid" aria-describedby="DataTables_Table_8_info" style="width: 1277px;">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>מספר דרכון</th>
-                                                                            <th>מספר מכפל</th>
-                                                                            <th>שם פרטי</th>
-                                                                            <th>שם משפחה</th>
-                                                                            <th>מקום עבודה אחרון</th>
-                                                                            <th>סיבת עזיבה</th>
-                                                                            <th>טלפון</th>
-                                                                            <th>תוקף ויזה</th>
-                                                                            <th>פעולות</th>
-
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody></tbody>
-
-                                                                </table>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <!-- עובדים לא פעילים-->
+                                </section>
+                                <!-- עובדים לא פעילים-->
                                 </form>
                             </div>
                             <!--עובדים חדשים-->
@@ -447,6 +436,7 @@
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>
+    <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
     <script src="Employee.js"></script>
     <script src="Dash.js"></script>
     <script src="AjaxCalls.js"></script>
@@ -459,6 +449,5 @@
     <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/buttons/ladda.jquery.min.js"></script>
     <script src="app-assets/vendors/js/buttons/spin.min.js"></script>
-
 </body>
 </html>
