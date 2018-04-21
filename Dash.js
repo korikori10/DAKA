@@ -69,6 +69,7 @@ function renderEmployees(results) {
     var select = $(".selectize-select").selectize({
         maxItems: 1, //Max items selectable in the textbox
         maxOptions: 30, //Max options to render at once in the dropdown
+       
         onChange: function (value) {
             sessionStorage.removeItem("empInfo")
             EmployeeInfo.pass = value;

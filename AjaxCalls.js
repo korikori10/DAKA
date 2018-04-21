@@ -1,27 +1,28 @@
 ﻿//Get All Employees
 function getEmployees(renderEmployees) {
     $.ajax({
-        url: 'AJAXWebService.asmx/getEmployees',
+        url: 'ajaxWebService.asmx/getEmployees',
         type: 'POST',
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
+
             renderEmployees(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-        }    
-    });    
-}
+        error: function (request, error) {
+            alert('Network error has occurred please try again!');
+        }
 
+    });
+
+}
 //Get All Employees for employees table
 function getEmployeess() {
     var datatableVariable = $('#EmployeesTable');
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "AJAXWebService.asmx/getEmployees",
+        url: "AJAXWebService.asmx/getEmployeess",
         success: function (data) {
             datatableVariable.DataTable({
                 dom: 'Bfrtip',
