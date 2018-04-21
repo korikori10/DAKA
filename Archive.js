@@ -1,5 +1,5 @@
 ﻿
-
+var EmployeeInfo = new Object();
 
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
@@ -17,9 +17,27 @@ $('.table').on('click', 'tr td button', function () {
     }
     else if (whichid == "activate") {
         //Make Employee Active Again
-            sessionStorage.setItem("empInfo", EmployeeInfo.pass);
-        window.location = "Employee.html";
-        MakeEmpActive(EmployeeInfo.pass);
+        swal({
+            title: "האם אתה בטוח?",
+            text: "אתה עומד להפוך עובד לפעיל.",
+            type: "info",
+            confirmButtonText: "כן",
+            showCancelButton: "true",
+            cancelButtonText: "בטל",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+
+            function (isConfirm) {
+                if (isConfirm) {
+
+                    MakeEmpActive(EmployeeInfo, refreshTable);
+                }
+                else {
+                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+       
 
 
     }
@@ -28,3 +46,8 @@ $('.table').on('click', 'tr td button', function () {
         // SendSMS();
         window.location = "error404.html";
     }
+});
+function refreshTable() {
+    var table = $('EmployeesTable').DataTable()
+    table.ajax.reload()
+};

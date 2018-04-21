@@ -658,11 +658,11 @@ public class Employee
         return LE;
 
     }
-    public Employee UpdateToActive(Employee emp)
+    public int UpdateToActive(string emp)
     {
         DBServices dbs = new DBServices();
 
-        Employee LE = dbs.UpdateToActive(emp);
+        int LE = dbs.UpdateToActive(emp);
 
         return LE;
 

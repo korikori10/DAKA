@@ -136,20 +136,18 @@ public class AJAXWebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string UpdateToActive(string EmployeeInfo)
+    public string UpdateToActive(string pass)
     {
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+        Employee e = new Employee();
 
-
-
-        e = e.UpdateToActive(e);
+        int updated = e.UpdateToActive(pass);
         // serialize to string
-        string jsonStringCategory = js.Serialize(e);
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        string jsonStringCategory = js.Serialize(updated);
         return jsonStringCategory;
         //Employee e = new Employee();
         //List<Employee> LE = e.UpdateToActive(pass);
-        //JavaScriptSerializer js = new JavaScriptSerializer();
+       
         //// serialize to string
         //string jsonStringCategory = js.Serialize(LE);
         //return jsonStringCategory;

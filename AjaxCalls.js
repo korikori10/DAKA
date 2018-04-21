@@ -71,7 +71,7 @@ function getEmployeess() {
 }
 
 //Make Employee active again from Archive
-function MakeEmpActive(EmployeeInfo) {
+function MakeEmpActive(EmployeeInfo, refreshTable) {
     var dataString = JSON.stringify(EmployeeInfo);
 
     $.ajax({
@@ -81,7 +81,19 @@ function MakeEmpActive(EmployeeInfo) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function () {
-            alert("yes");
+
+            setTimeout(function () {
+                swal({
+                    title: "בוצע!",
+                    text: "כל הנתונים נשמרו בהצלחה",
+                    type: "success",
+                },
+                    function (isConfirm) {
+                        refreshTable();
+
+                    }, 1000);
+
+            });
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
