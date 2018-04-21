@@ -1,11 +1,11 @@
 ﻿
-<<<<<<< HEAD:jsDAKA/Archive.js
+
 $(document).ready(function () {
     getArchive();
 });
-=======
+
 var EmployeeInfo = new Object();
->>>>>>> 35350ebd1db9abc69c35405b4b9c92a6859a016d:Archive.js
+
 
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
@@ -23,11 +23,11 @@ $('.table').on('click', 'tr td button', function () {
     }
     else if (whichid == "activate") {
         //Make Employee Active Again
-<<<<<<< HEAD:jsDAKA/Archive.js
+
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);
         window.location = "Employee.html";
         MakeEmpActive(EmployeeInfo.pass);
-=======
+
         swal({
             title: "האם אתה בטוח?",
             text: "אתה עומד להפוך עובד לפעיל.",
@@ -49,7 +49,7 @@ $('.table').on('click', 'tr td button', function () {
                 }
             });
        
->>>>>>> 35350ebd1db9abc69c35405b4b9c92a6859a016d:Archive.js
+
 
 
     }
@@ -59,11 +59,9 @@ $('.table').on('click', 'tr td button', function () {
         window.location = "error404.html";
     }
 });
-<<<<<<< HEAD:jsDAKA/Archive.js
-    
-=======
+
 function refreshTable() {
     var table = $('EmployeesTable').DataTable()
     table.ajax.reload()
 };
->>>>>>> 35350ebd1db9abc69c35405b4b9c92a6859a016d:Archive.js
+
