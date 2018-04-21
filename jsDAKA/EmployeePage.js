@@ -9,9 +9,7 @@ $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinesses(renderBusinesses);  
-    //$('#DynamicEmployeesList').typeahead({
-    //    getEmployeesearch(renderEmployees);
-    //});
+
 });
 
 
@@ -114,14 +112,12 @@ function renderEmployeeByID(results) {
         }
 
         $(".selectize-select").selectize();
-      //  if (h) {
-
-      //  }
+   
 
     }
 }
 
-//??
+//create array for json from the form
     $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();

@@ -91,6 +91,75 @@ function MakeEmpActive(EmployeeInfo) {
     });        
 }
 
+//Archive
+function getArchive() {
+    var datatableVariable = $('#ArchiveTable');
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "AJAXWebService.asmx/getArchive",
+        success: function (data) {
+            datatableVariable.DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'print',
+                        messageTop: 'Printing'
+                    },
+                    'copyHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                   
+                ],
+                data: data,
+                columns: [
+                    { 'data': 'Employee_pass_id' },
+                    { 'data': 'Fname' },
+                    { 'data': 'Lname' },
+                    {
+                        'data': 'Birthday', 'render': function (date) {
+                            var date = new Date(parseInt(date.substr(6)));
+                            var month = date.getMonth() + 1;
+                            return date.getDate() + "/" + month + "/" + date.getFullYear();
+                        }
+                    },
+                    { 'data': 'Phone' },
+
+                    {
+
+                        'data': "",
+                        'defaultContent': '<button name="activate" id="activate" class="btn btn-icon btn-success view" data-toggle="tooltip" data-original-title="החזר לפעילות""><i class="icon-arrow61"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+
+                    }]
+            });
+
+        }
+    });
+
+
+}
+
+//Get all businesses to Businusses table
+function getBusinessesTable() {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "ajaxWebService.asmx/getBusinessesTable",
+        success: function (data) {
+            var datatableVariable = $('#BusinessTable').DataTable({
+                data: data,
+                columns: [
+                    {'data': 'Bus_id' },
+                    { 'data': 'Bus_name' },
+                    { 'data': 'Phone'}
+                    
+                ]
+            });
+        }
+    });
+
+}
+
 //Send SMS For Employees that needs to renew their visa
 function SendSMS() {
     $.ajax({
