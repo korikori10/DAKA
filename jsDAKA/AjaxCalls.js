@@ -348,7 +348,7 @@ $.ajax({
                 { 'data': 'Phone' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="visa" class="btn btn-icon btn-success " data-toggle="tooltip" data-original-title="ויזה חודשה""><i class="icon-check"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="sms" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
+                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="sms" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
                 }]
         });
     }
