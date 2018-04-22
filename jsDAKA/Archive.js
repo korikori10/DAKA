@@ -61,5 +61,6 @@ $('.table').on('click', 'tr td button', function () {
 function refreshTable() {
     var table = $('EmployeesTable').DataTable()
     table.ajax.reload()
+    
 };
 
