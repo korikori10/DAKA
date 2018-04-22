@@ -117,7 +117,7 @@ function renderEmployeeByID(results) {
     }
 }
 
-//create array for json from the form
+//create 1 array for json from the form
     $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();
