@@ -24,9 +24,7 @@ $('.table').on('click', 'tr td button', function () {
     else if (whichid == "activate") {
         //Make Employee Active Again
 
-        sessionStorage.setItem("empInfo", EmployeeInfo.pass);
-        window.location = "Employee.html";
-        MakeEmpActive(EmployeeInfo.pass);
+ 
 
         swal({
             title: "האם אתה בטוח?",
