@@ -11,11 +11,24 @@ window.onload = function () {
     Statistics(RenderTotalnewemp);
     //for employees page
     getEmployeess();
-
-
+    $('input').iCheck({
+        radioClass: 'iradio_flat-green',
+    });
 }
 //});
 
+
+function changeInsurance() {
+    if ($("input[name=insured]:checked").val()) {
+        EmployeeInfo.Com_insurance = true;
+        updateInsurance(JSON.stringify(EmployeeInfo);
+    }
+    else if ($("input[name=insured]:checked").val() == semiTrue) {
+        EmployeeInfo.Com_insurance = false;
+        updateInsurance(JSON.stringify(EmployeeInfo));
+    }
+
+};
 
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {

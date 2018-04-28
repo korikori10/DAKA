@@ -11,8 +11,8 @@
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app" />
     <title>Dashboard</title>
 
-
-
+    
+    <link href="app-assets/vendors/css/forms/icheck/icheck.css" rel="stylesheet" />
     <link rel="apple-touch-icon" sizes="60x60" href="app-assets/images/ico/apple-icon-60.png" />
     <link rel="apple-touch-icon" sizes="76x76" href="app-assets/images/ico/apple-icon-76.png" />
     <link rel="apple-touch-icon" sizes="120x120" href="app-assets/images/ico/apple-icon-120.png" />
@@ -313,12 +313,28 @@
                                                                 <form>
                                                                     <div class="modal-body">
                                                                         <fieldset class="form-group floating-label-form-group">
-                                                                           <!-- <label for="text"></label>-->
-                                                                            <input style="text-align:right" type="text" class="form-control" id="PassTB" dir="rtl" placeholder="הזן מספר דרכון..." />
+                                                                                <input type="radio" id="notIn" name="insured" value="false" checked />
+                      
+                                                                            <label for="input-15" class="">לא מבוטח</label>
                                                                         </fieldset>
+                                                                        <fieldset class="form-group floating-label-form-group">
+                                                                 
+                                                                                <input type="radio" id="insured" name="insured" value="true"/>
+                                                               
+                                                                            <label for="icheck" class="">מבוטח</label>
+                                                                        </fieldset>
+
+
+                                                                        <fieldset class="form-group floating-label-form-group">
+                                                                      
+                                                                                <input type="radio" id="otherIn" name="insured" value="semiTrue" />
+                                                                        
+                                                                            <label for="input-16" class="">מבוטח אחר</label>
+                                                                        </fieldset>
+
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <input name="search" type="button" class="btn btn-outline-primary btn-lg" value="חפש" id="SearchEmployee" />
+                                                                        <input name="confirm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
                                                                         <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
                                                                     </div>
                                                                 </form>
@@ -461,6 +477,8 @@
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>
     <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
+    <script src="app-assets/vendors/js/forms/icheck/icheck.min.js"></script>
+
 
     <script src="jsDAKA/Dash.js"></script>
     <script src="jsDAKA/AjaxCalls.js"></script>
