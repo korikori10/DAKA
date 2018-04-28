@@ -407,7 +407,7 @@ $.ajax({
                 { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button  name="email" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data-original-title="חברת הביטוח""><i class="icon-envelope"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button  name="email" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data-original-title="חברת הביטוח""><i class="icon-paper"></i></button>',
 
                 }]
         });
@@ -479,6 +479,31 @@ function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
         });
 }
 
+//update employee insurance
+function updateInsurance(EmployeeInfo) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/UpdateInsurance',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+          //  renderEmployeeByID(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 function getCities(renderCities) {
     $.ajax({
         url: 'ajaxWebService.asmx/getCities',
@@ -529,21 +554,21 @@ function getBusinesses(renderBusinesses) {
     });
 }
 
-function sendEmail(EmployeeInfo) {
-    var dataString = JSON.stringify(EmployeeInfo);
-    $.ajax({
-        url: 'ajaxWebService.asmx/SendEmail',
-        data: dataString,
-        type: 'POST',
-        dataType: "json",
-        contentType: 'application/json; charset = utf-8',
-        success: function () {
+//function sendEmail(EmployeeInfo) {
+//    var dataString = JSON.stringify(EmployeeInfo);
+//    $.ajax({
+//        url: 'ajaxWebService.asmx/SendEmail',
+//        data: dataString,
+//        type: 'POST',
+//        dataType: "json",
+//        contentType: 'application/json; charset = utf-8',
+//        success: function () {
            
-        },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-        }
-    });
-}
+//        },
+//        error: function (xhr, status, error) {
+//            var err = eval("(" + xhr.responseText + ")");
+//            alert(err.Message);
+//        }
+//    });
+//}
 
