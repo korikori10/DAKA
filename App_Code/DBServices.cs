@@ -1211,6 +1211,71 @@ public class DBServices
 
         return command;
     }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="emp"></param>
+    /// <returns> employee insurance</returns>
+
+    public int EmpInsurance(Employee emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildUpdateInsuranceCommand(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the insurance update command String
+    //--------------------------------------------------------------------
+    private String BuildUpdateInsuranceCommand(Employee emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        String prefix = "UPDATE EMPLOYEE SET  [insurance] ='1' and com_insurance = '" +emp.Com_insurance + "' Where employee_pass_id = '" + emp + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        command = prefix;// prefix;
+
+        return command;
+    }
     //--------------------------------------------------------------------
     // Update business
     //--------------------------------------------------------------------

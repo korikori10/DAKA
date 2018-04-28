@@ -90,8 +90,13 @@ function MakeEmpActive(EmployeeInfo, refreshTable) {
                     type: "success",
                 },
                     function (isConfirm) {
-                        refreshTable();
+                    //    var table = $('#ArchiveTable').DataTable();
 
+                       // table.DataTable().ajax.reload();
+                       
+                      //  refreshTable()
+
+                        getArchive();
                     }, 1000);
 
             });

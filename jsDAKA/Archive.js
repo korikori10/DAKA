@@ -59,8 +59,8 @@ $('.table').on('click', 'tr td button', function () {
 });
 
 function refreshTable() {
-    var table = $('EmployeesTable').DataTable();
-    table.ajax.reload();
+    var table = $('#ArchiveTable').DataTable();
+    table.ajax.reload();//refreshTable();
     
 };
 

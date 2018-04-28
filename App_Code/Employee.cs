@@ -595,7 +595,6 @@ public class Employee
         return LE;
 
     }
-
     public List<Employee> ReadEmployeesNeedNewVisa()
     {
         DBServices dbs = new DBServices();
@@ -614,7 +613,6 @@ public class Employee
         return LE;
         //
     }
-    
     public Employee getEmployeeById(string pass)
 {
     DBServices dbs = new DBServices();
@@ -638,8 +636,6 @@ public class Employee
         return e;
 
     }
-
-
     public List<Employee> getEmployeesnobisiness()
     {
         DBServices dbs = new DBServices();
@@ -674,6 +670,16 @@ public class Employee
         List<Employee> LE = dbs.ReadHistory(pass);
 
         return LE;
+
+    }
+    public int UpdateInsuracne(Employee emp)
+    {
+        DBServices dbs = new DBServices();
+
+        int e = dbs.EmpInsurance(emp);
+    
+
+        return e;
 
     }
 
