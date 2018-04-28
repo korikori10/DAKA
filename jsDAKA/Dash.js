@@ -53,14 +53,22 @@ $('.table').on('click', 'tr td button', function () {
     else if (whichid=="sms") {
 
         //Send SMS To Employees
-        SendSMS();
+     //   SendSMS();
     }
     else if (whichid == "email") {
     //    sendEmail(EmployeeInfo);
     }
-    else {
-        window.location = "error404.html";
-            }
+    //else if (whichid == "insurance") {
+    //    //    sendEmail(EmployeeInfo);
+    //}
+    //else if (whichid == "Update_Expiration") {
+    //    //    sendEmail(EmployeeInfo);
+    //} else if (whichid == "Disable") {
+    //    //    sendEmail(EmployeeInfo);
+    //}
+    //else {
+    //    window.location = "error404.html";
+    //        }
     
 
 });

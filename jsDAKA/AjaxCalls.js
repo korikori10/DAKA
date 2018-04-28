@@ -356,7 +356,7 @@ $.ajax({
                 { 'data': 'Phone' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="Disable" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
+                    'defaultContent': '<button name="Disable" data-toggle="modal" data-target="#Disable" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" data-toggle="modal" data-target="#Update_Expiration" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
                 }]
         });
     }
