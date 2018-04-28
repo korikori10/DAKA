@@ -1,5 +1,4 @@
-﻿$datatableVariable;
-
+﻿var datatableVariable = new Object();
 //Get All Employees
 function getEmployees(renderEmployees) {
     $.ajax({
@@ -94,11 +93,11 @@ function MakeEmpActive(EmployeeInfo, refreshTable) {
                     function (isConfirm) {
                     //    var table = $('#ArchiveTable').DataTable();
 
-                       // table.DataTable().ajax.reload();
+                        datatableVariable.ajax.reload();
                        
-                      //  refreshTable()
+                      // refreshTable()
 
-                        getArchive();
+                      //  getArchive();
                     }, 1000);
 
             });
@@ -112,7 +111,7 @@ function MakeEmpActive(EmployeeInfo, refreshTable) {
 
 //Archive
 function getArchive() {
-    var datatableVariable = $('#ArchiveTable');
+     datatableVariable = $('#ArchiveTable');
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -166,7 +165,7 @@ function getBusinessesTable() {
         dataType: "json",
         url: "ajaxWebService.asmx/getBusinessesTable",
         success: function (data) {
-            var datatableVariable = $('#BusinessTable').DataTable({
+            $datatableVariable = $('#BusinessTable').DataTable({
                 data: data,
                 columns: [
                     {'data': 'Bus_id' },
@@ -279,7 +278,7 @@ function getHistory(EmployeeInfo) {
         type: 'POST',
         dataType: "json",
         success: function (data) {
-            var datatableVariable = $('#HistoryTable').DataTable({
+            $datatableVariable = $('#HistoryTable').DataTable({
                 data: data,
                 columns: [
                     { 'data': 'Employee_pass_id' },
@@ -336,7 +335,7 @@ $.ajax({
     dataType: "json",
     url: "ajaxWebService.asmx/ReadEmployeesNeedNewVisa",
     success: function (data) {
-        var datatableVariable = $('#newvisaalert').DataTable({
+        datatableVariable = $('#newvisaalert').DataTable({
             data: data,
             columns: [
                 {
@@ -370,7 +369,7 @@ function getEmployeesnobusiness() {
         dataType: "json",
         url: "ajaxWebService.asmx/getEmployeesnobusiness",
         success: function (data) {
-            var datatableVariable = $('#empNoBusi').DataTable({
+             datatableVariable = $('#empNoBusi').DataTable({
                 data: data,
                 columns: [
                     {
@@ -401,7 +400,7 @@ $.ajax({
     dataType: "json",
     url: "ajaxWebService.asmx/getNewEmployees",
     success: function (data) {
-        var datatableVariable = $('#newemp').DataTable({
+         datatableVariable = $('#newemp').DataTable({
             data: data,
             columns: [
                 {
