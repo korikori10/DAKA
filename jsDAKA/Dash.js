@@ -21,11 +21,11 @@ window.onload = function () {
 function changeInsurance() {
     if ($("input[name=insured]:checked").val()) {
         EmployeeInfo.Com_insurance = true;
-        updateInsurance(JSON.stringify(EmployeeInfo)
+        updateInsurance(JSON.stringify(EmployeeInfo);
     }
     else if ($("input[name=insured]:checked").val() == semiTrue) {
         EmployeeInfo.Com_insurance = false;
-        updateInsurance(JSON.stringify(EmployeeInfo)
+        updateInsurance(JSON.stringify(EmployeeInfo));
     }
 
 };
