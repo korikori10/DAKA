@@ -407,7 +407,8 @@ $.ajax({
                 { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button  name="email"  class="btn btn-icon btn-success" data-toggle="tooltip" data-original-title="שלח מייל לחברת הביטוח""><i class="icon-envelope"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                    'defaultContent': '<button  name="email" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data-original-title="חברת הביטוח""><i class="icon-envelope"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+
                 }]
         });
     }
