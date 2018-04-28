@@ -1,4 +1,6 @@
-﻿//Get All Employees
+﻿$datatableVariable;
+
+//Get All Employees
 function getEmployees(renderEmployees) {
     $.ajax({
         url: 'ajaxWebService.asmx/getEmployees',
@@ -18,7 +20,7 @@ function getEmployees(renderEmployees) {
 }
 //Get All Employees for employees table
 function getEmployeess() {
-    var datatableVariable = $('#EmployeesTable');
+     datatableVariable = $('#EmployeesTable');
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -354,7 +356,7 @@ $.ajax({
                 { 'data': 'Phone' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="sms" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
+                    'defaultContent': '<button name="Disable" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
                 }]
         });
     }
