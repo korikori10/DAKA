@@ -186,7 +186,7 @@ public class AJAXWebService : System.Web.Services.WebService
     //employee update insurance
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string UpdateInsuracne(string EmployeeInfo )
+    public string UpdateInsurance(string EmployeeInfo )
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
