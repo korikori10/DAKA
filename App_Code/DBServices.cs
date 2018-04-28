@@ -1271,7 +1271,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET  [insurance] ='1' and com_insurance = '" +emp.Com_insurance + "' Where employee_pass_id = '" + emp + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET  [insurance] ='1' , com_insurance = '" +emp.Com_insurance + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;

@@ -412,7 +412,7 @@ $.ajax({
                 { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button  name="email" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data-original-title="חברת הביטוח""><i class="icon-paper"></i></button>',
+                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data-original-title="חברת הביטוח""><i class="icon-paper"></i></button>',
 
                 }]
         });
@@ -559,21 +559,21 @@ function getBusinesses(renderBusinesses) {
     });
 }
 
-//function sendEmail(EmployeeInfo) {
-//    var dataString = JSON.stringify(EmployeeInfo);
-//    $.ajax({
-//        url: 'ajaxWebService.asmx/SendEmail',
-//        data: dataString,
-//        type: 'POST',
-//        dataType: "json",
-//        contentType: 'application/json; charset = utf-8',
-//        success: function () {
+function sendEmail(EmployeeInfo) {
+    var dataString = JSON.stringify(EmployeeInfo);
+    $.ajax({
+        url: 'ajaxWebService.asmx/SendEmail',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function () {
            
-//        },
-//        error: function (xhr, status, error) {
-//            var err = eval("(" + xhr.responseText + ")");
-//            alert(err.Message);
-//        }
-//    });
-//}
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
 

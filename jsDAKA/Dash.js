@@ -19,12 +19,13 @@ window.onload = function () {
 
 
 function changeInsurance() {
+        EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=insured]:checked").val()) {
-        EmployeeInfo.Com_insurance = true;
+        EmployeeInfo.Com_insurance = 'True';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
     else if ($("input[name=insured]:checked").val() == semiTrue) {
-        EmployeeInfo.Com_insurance = false;
+        EmployeeInfo.Com_insurance = 'False';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
     
@@ -55,7 +56,7 @@ $('.table').on('click', 'tr td button', function () {
         SendSMS();
     }
     else if (whichid == "email") {
-        sendEmail(EmployeeInfo);
+    //    sendEmail(EmployeeInfo);
     }
     else {
         window.location = "error404.html";
