@@ -10,11 +10,11 @@ window.onload = function () {
     ReadEmployeesNotActive();
     Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
-    //for employees page
-    getEmployeess();
     $('input').iCheck({
         radioClass: 'iradio_flat-green',
     });
+    //for employees page
+    getEmployeess();
 }
 //});
 

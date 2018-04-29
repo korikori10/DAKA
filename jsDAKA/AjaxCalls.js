@@ -19,7 +19,7 @@ function getEmployees(renderEmployees) {
 }
 //Get All Employees for employees table
 function getEmployeess() {
-     datatableVariable = $('#EmployeesTable');
+    var datatableVariable = $('#EmployeesTable');
     $.ajax({
         type: "POST",
         dataType: "json",
