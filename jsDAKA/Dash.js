@@ -13,8 +13,7 @@ window.onload = function () {
     $('input').iCheck({
         radioClass: 'iradio_flat-green',
     });
-    //for employees page
-    getEmployeess();
+    
 }
 //});
 
