@@ -327,6 +327,24 @@ function Statistics(RenderTotalnewemp) {
     });
 
 }
+//statistics all active emp
+function StatisticsAllEmp(RenderTotalAllemp) {
+    $.ajax({
+        url: 'AJAXWebService.asmx/ReadTotalAllemp',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            RenderTotalnewemp(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
 
 //חידושי ויזות
 function ReadEmployeesNeedNewVisa() { 

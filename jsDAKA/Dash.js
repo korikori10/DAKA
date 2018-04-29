@@ -9,6 +9,7 @@ window.onload = function () {
     getNewEmployees();
     ReadEmployeesNotActive();
     Statistics(RenderTotalnewemp);
+    StatisticsAllEmp(RenderTotalAllemp);
     //for employees page
     getEmployeess();
     $('input').iCheck({
@@ -125,6 +126,14 @@ function RenderTotalnewemp(results) {
     document.getElementById("activeEmp").max = statistics[3];
     document.getElementById("numnewemp").innerHTML = statistics[1];
 
+}
+
+function RenderTotalAllemp(results)
+{
+    statisticsAll = results.d;
+    document.getElementById("allemp").value = statisticsAll[1];
+    document.getElementById("allemp").max = statisticsAll[3];
+    document.getElementById("allactiveemp").innerHTML = statisticsAll[1];
 }
 
 

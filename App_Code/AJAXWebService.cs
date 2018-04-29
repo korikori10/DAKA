@@ -277,6 +277,7 @@ public string GetEmployeeById(string pass)
         //return jsonStringCategory;
 
     }
+    //statistics
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadTotalnewemp()
@@ -292,7 +293,21 @@ public string GetEmployeeById(string pass)
 
     }
 
-    
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadTotalAllemp()
+    {
+        DBServices db = new DBServices();
+        int[] arr = db.ReadTotalAllemp();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        // serialize to string
+        string jsonStringCategory = js.Serialize(arr);
+        return jsonStringCategory;
+        //return jsonStringCategory;
+
+    }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string PostDataToURL() {
