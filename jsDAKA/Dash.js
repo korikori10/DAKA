@@ -8,7 +8,7 @@ window.onload = function () {
     getEmployeesnobusiness();
     getNewEmployees();
     ReadEmployeesNotActive();
-    Statistics(RenderTotalnewemp);
+  //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
     $('input').iCheck({
         radioClass: 'iradio_flat-green',
@@ -119,20 +119,26 @@ function renderEmployees(results) {
 
 //}
 //Statistics callcack func
-function RenderTotalnewemp(results) {
-    statistics = results.d;
-    document.getElementById("activeEmp").value = statistics[1];
-    document.getElementById("activeEmp").max = statistics[3];
-    document.getElementById("numnewemp").innerHTML = statistics[1];
+//function RenderTotalnewemp(results) {
+//    statistics = results.d;
+    
 
-}
+//}
 
 function RenderTotalAllemp(results)
 {
-    statisticsAll = results.d;
-    document.getElementById("allemp").value = statisticsAll[1];
-    document.getElementById("allemp").max = statisticsAll[3];
-    document.getElementById("allactiveemp").innerHTML = statisticsAll[1];
+    statistics = results.d;
+    document.getElementById("activeEmp").value = statistics[3];
+    document.getElementById("activeEmp").max = statistics[1];
+    document.getElementById("numnewemp").innerHTML = statistics[3];
+
+    document.getElementById("allemp").value = statistics[5];
+    document.getElementById("allemp").max = statistics[1];
+    document.getElementById("allactiveemp").innerHTML = statistics[5];
+
+    document.getElementById("allemp").value = statistics[7];
+    document.getElementById("allemp").max = statistics[1];
+    document.getElementById("numofleave").innerHTML = statistics[7];
 }
 
 

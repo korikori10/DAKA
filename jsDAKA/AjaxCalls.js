@@ -335,7 +335,7 @@ function StatisticsAllEmp(RenderTotalAllemp) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
-            RenderTotalnewemp(results);
+            RenderTotalAllemp(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
