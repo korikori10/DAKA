@@ -13,7 +13,24 @@ window.onload = function () {
     $('input').iCheck({
         radioClass: 'iradio_flat-green',
     });
-    
+    //Picture or file upload
+    $("#Pic").on("change", function () {
+        pbLBL = $("#pbLBL")
+        pbDiv = $("#progressBar")
+        pbLBL.text('Uploading...');
+        pbDiv.fadeIn(500)
+        var files = $(this).get(0).files;
+        if (files.length > 0) {
+
+
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append(files[i].name, files[i])
+            }
+            uploadFiles(formData, setEmpFile);
+
+        }
+    })
 }
 //});
 
