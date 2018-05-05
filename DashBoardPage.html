@@ -399,13 +399,16 @@
                                                                     <div class="modal-body">
                                                                         <fieldset class="form-group floating-label-form-group">
                                                                             <label for="date4">תאריך חדש:</label>
-                                                                            <input type="date" class="form-control" id="date4" name="Ex_date" />
+                                                                            <input type="date" class="form-control" id="date4" name="Ex_date" required/>
 
                                                                         </fieldset>
                                                                         <fieldset class="form-group floating-label-form-group">
 
-                                                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera" />
-
+                                                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera" required />
+                                                                            <div id="progressBar" style="position:relative; display:none">
+                                                                                <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
+                                                                                <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                                                            </div>
                                                                         </fieldset>
 
 

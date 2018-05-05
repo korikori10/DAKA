@@ -595,4 +595,28 @@ function sendEmail(EmployeeInfo) {
         }
     });
 }
+//Upload Files
+function uploadFiles(formData, setEmpFile) {
+    pbLBL = $("#pbLBL")
+    pbDiv = $("#progressBar")
+    $.ajax({
+        url: 'UploadHandler.ashx',
+        method: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (results) {
+            setEmpFile(results);
+            pbLBL.text('Complete');
+            pbDiv.fadeOut(2000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
 
