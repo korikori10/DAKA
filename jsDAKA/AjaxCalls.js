@@ -58,7 +58,7 @@ function getEmployeess() {
 
                     {
                         'data': "",
-                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
 
                     }]
             });
@@ -146,7 +146,7 @@ function getArchive() {
                     {
 
                         'data': "",
-                        'defaultContent': '<button name="activate" id="activate" class="btn btn-icon btn-success view" data-toggle="tooltip" data-original-title="החזר לפעילות""><i class="icon-arrow61"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="activate" id="activate" class="btn btn-icon btn-success view" data-toggle="tooltip" data- original - title="החזר לפעילות""><i class="icon-arrow61"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
 
                     }]
             });
@@ -373,7 +373,7 @@ $.ajax({
                 { 'data': 'Phone' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="Disable" data-toggle="modal" data-target="#Disable" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" data-toggle="modal" data-target="#Update_Expiration" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
+                    'defaultContent': '<button name="Disable" data-toggle="modal" data-target="#Disable" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" data-toggle="modal" data-target="#Update_Expiration" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button>',
                 }]
         });
     }
@@ -402,7 +402,7 @@ function getEmployeesnobusiness() {
                     { 'data': 'Dayspass' },
                     {
                         'data': "",
-                        'defaultContent': '<button name="Disable1" data-toggle="modal" data-target="#Disable" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="empwithbusi" data-toggle="modal" data-target="#empwithbusi" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="שלח סמס""><i class="icon-check"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="Disable1" data-toggle="modal" data-target="#Disable" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="הפסקת עבודה""><i class="icon-ios-trash"></i></button><button name="empwithbusi" data-toggle="modal" data-target="#empwithbusi" class="btn btn-icon btn-primary" data-toggle="tooltip" data- original - title="ציוות מחדש""><i class="icon-check"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
                     }]
             });
         }
@@ -419,7 +419,8 @@ $.ajax({
     url: "ajaxWebService.asmx/getNewEmployees",
     success: function (data) {
          datatableVariable = $('#newemp').DataTable({
-            data: data,
+             data: data,
+             responsive: true,
             columns: [
                 {
                     'data': 'Employee_pass_id',
@@ -431,7 +432,7 @@ $.ajax({
                 { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data-original-title="חברת הביטוח""><i class="icon-paper"></i></button>',
+                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
 
                 }]
         });
@@ -470,9 +471,9 @@ function ReadEmployeesNotActive() {
 
                     {
                         'data': "",
-                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button  name="gmah" data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success" data- original - title="רישום לצורך גמר חשבון""><i class="icon-file-subtract"></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
                     }]
-            });
+            }); 
         }
     });
 
