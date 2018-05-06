@@ -279,7 +279,7 @@
                                             <form>
                                                 <div class="modal-body">
                                                     <fieldset class="form-group floating-label-form-group">
-                                                        <input type="radio" id="notIn" name="insured" value="false" checked=checked />
+                                                        <input type="radio" id="notIn" name="insured" value="false" checked=checked checked=checked />
 
                                                         <label for="input-15" class="">לא מבוטח</label>
                                                     </fieldset>
@@ -318,7 +318,7 @@
                                             </div>
                                             <form>
                                                 <div class="modal-body">
-                                      
+
 
                                                 </div>
                                                 <div class="modal-footer">
@@ -396,7 +396,7 @@
                                                                 <form>
                                                                     <div class="modal-body">
                                                                         <fieldset class="form-group floating-label-form-group">
-                                                                            <input type="radio" id="notIn" name="insured" value="false" checked=checked />
+                                                                            <input type="radio" id="notIn" name="insured" value="false" checked=checked checked=checked />
 
                                                                             <label for="input-15" class="">לא מבוטח</label>
                                                                         </fieldset>
@@ -417,7 +417,7 @@
 
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <input name="confirm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
+                                                                        <input name="confirmIn" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
                                                                         <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
                                                                     </div>
                                                                 </form>
@@ -477,11 +477,11 @@
                                                                     </button>
                                                                     <h3 class="modal-title" id="myModalLabel35">תאריך תוקף ויזה חדש</h3>
                                                                 </div>
-                                                                <form>
+                                                                <form id="visaRenew">
                                                                     <div class="modal-body">
-                                                                        <fieldset class="form-group floating-label-form-group">
+                                                                        <fieldset class="form-group floating-label-form-group has-danger"> 
                                                                             <label for="date4">תאריך חדש:</label>
-                                                                            <input type="date" class="form-control" id="date4" name="Ex_date" required/>
+                                                                            <input type="date" class="form-control" id="visaDate" name="Ex_date" required />
 
                                                                         </fieldset>
                                                                         <fieldset class="form-group floating-label-form-group">
@@ -498,7 +498,7 @@
 
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <input name="confirm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
+                                                                        <input name="confirmVisa" id="updateVisa" type="button" class="btn btn-outline-primary btn-lg" value="אישור"  />
                                                                         <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
                                                                     </div>
                                                                 </form>
@@ -630,7 +630,7 @@
                                                             </div>
                                                             <form>
                                                                 <div class="modal-body">
-                                                        
+
                                                                     <fieldset class="form-group floating-label-form-group">
 
                                                                         <label for="placeofworkTitle4">מקום עבודה חדש:</label>
@@ -696,6 +696,8 @@
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>
+    <script src="app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"></script>
+    <script src="app-assets/vendors/js/forms/validation/jquery.validate.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
     <script src="app-assets/vendors/js/forms/icheck/icheck.min.js"></script>
     <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>

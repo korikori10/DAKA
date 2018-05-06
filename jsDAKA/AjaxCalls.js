@@ -621,3 +621,27 @@ function uploadFiles(formData, setEmpFile) {
 
 }
 
+//Update visa ex date
+function updateVisa (EmployeeInfo) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/updateVisa',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+            //  renderEmployeeByID(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}

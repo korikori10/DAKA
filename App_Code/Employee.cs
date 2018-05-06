@@ -41,6 +41,9 @@ public class Employee
     private bool updateBus;
     private int business;
     private int rent;
+    int doctype_id;
+    string img_url;
+    DateTime last_update;
 
     public Employee()
     {
@@ -137,6 +140,15 @@ public class Employee
 
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, object v1, string v2, string v3) : this(employee_pass_id, lname, fname, sys_id, ex_date, phone)
     {
+    }
+
+    public Employee(int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active)
+    {
+        this.doctype_id = doctype_id;
+        this.img_url = img_url;
+        this.last_update = last_update;
+        this.ex_date = ex_date;
+        this.active = active;
     }
 
     public string Employee_pass_id
@@ -568,6 +580,45 @@ public class Employee
         }
     }
 
+    public int Doctype_id
+    {
+        get
+        {
+            return doctype_id;
+        }
+
+        set
+        {
+            doctype_id = value;
+        }
+    }
+
+    public string Img_url
+    {
+        get
+        {
+            return img_url;
+        }
+
+        set
+        {
+            img_url = value;
+        }
+    }
+
+    public DateTime Last_update
+    {
+        get
+        {
+            return last_update;
+        }
+
+        set
+        {
+            last_update = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -678,6 +729,16 @@ public class Employee
 
         int e = dbs.EmpInsurance(emp);
     
+
+        return e;
+
+    }
+    public int updateVisa(Employee emp)
+    {
+        DBServices dbs = new DBServices();
+
+        int e = dbs.inserNewtVIsa(emp);
+
 
         return e;
 

@@ -1,5 +1,6 @@
 ﻿var statistics = new Object();
 EmployeeInfo = new Object();
+empPic = new Object();
 
 //$(document).ready(function () {
 window.onload = function () {
@@ -33,7 +34,9 @@ window.onload = function () {
     })
 }
 //});
-
+function setEmpFile(results) {
+    empPic = results;
+}
 
 function changeInsurance() {
         EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
@@ -89,6 +92,16 @@ $('.table').on('click', 'tr td button', function () {
     
 
 });
+$('#updateVisa').click(function () {
+    $('#visaRenew').validate();
+    
+    if ($('#visaRenew').valid()) {
+    EmployeeInfo.Ex_date = $('#visaDate').val();
+    EmployeeInfo.Picture = empPic;
+        updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+    }
+})
+
 
 
 //SearchBox

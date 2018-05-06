@@ -198,12 +198,47 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
+    }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string UpdateToActive(string pass)
+    {
+        Employee e = new Employee();
 
-      
+        int updated = e.UpdateToActive(pass);
+        // serialize to string
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        string jsonStringCategory = js.Serialize(updated);
+        return jsonStringCategory;
+        //Employee e = new Employee();
+        //List<Employee> LE = e.UpdateToActive(pass);
+
+        //// serialize to string
+        //string jsonStringCategory = js.Serialize(LE);
+        //return jsonStringCategory;
+        //  Context.Response.Write(js.Serialize(LE));
 
     }
 
+    //employee update insurance
     [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string updateVisa(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+
+
+        int updated = e.updateVisa(e);
+
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+    }
+    
+
+   [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void ReadEmployeesNeedNewVisa()
     {
