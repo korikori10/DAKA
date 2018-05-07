@@ -199,26 +199,26 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
     }
-    [WebMethod]
-    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string UpdateToActive(string pass)
-    {
-        Employee e = new Employee();
+    //[WebMethod]
+    //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    //public string UpdateToActive(string pass)
+    //{
+    //    Employee e = new Employee();
 
-        int updated = e.UpdateToActive(pass);
-        // serialize to string
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        string jsonStringCategory = js.Serialize(updated);
-        return jsonStringCategory;
-        //Employee e = new Employee();
-        //List<Employee> LE = e.UpdateToActive(pass);
+    //    int updated = e.UpdateToActive(pass);
+    //    // serialize to string
+    //    JavaScriptSerializer js = new JavaScriptSerializer();
+    //    string jsonStringCategory = js.Serialize(updated);
+    //    return jsonStringCategory;
+    //    //Employee e = new Employee();
+    //    //List<Employee> LE = e.UpdateToActive(pass);
 
-        //// serialize to string
-        //string jsonStringCategory = js.Serialize(LE);
-        //return jsonStringCategory;
-        //  Context.Response.Write(js.Serialize(LE));
+    //    //// serialize to string
+    //    //string jsonStringCategory = js.Serialize(LE);
+    //    //return jsonStringCategory;
+    //    //  Context.Response.Write(js.Serialize(LE));
 
-    }
+    //}
 
     //employee update insurance
     [WebMethod]
