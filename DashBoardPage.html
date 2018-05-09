@@ -478,15 +478,19 @@
                                                                     <h3 class="modal-title" id="myModalLabel35">תאריך תוקף ויזה חדש</h3>
                                                                 </div>
                                                                 <form id="visaRenew">
-                                                                    <div class="modal-body">
-                                                                        <fieldset class="form-group floating-label-form-group has-danger"> 
-                                                                            <label for="date4">תאריך חדש:</label>
-                                                                            <input type="date" class="form-control" id="visaDate" name="Ex_date" required />
 
+                                                                    <div class="modal-body">
+                                                                        <fieldset class="form-group floating-label-form-group has-danger">
+                                                                            <label for="date4">מספר ויזה</label>
+                                                                            <input type="text" class="form-control" id="visaID" name="visaID" required=required />
+                                                                        </fieldset>
+
+                                                                        <fieldset class="form-group floating-label-form-group has-danger">
+                                                                            <label for="date4">תאריך חדש:</label>
+                                                                            <input type="date" class="form-control" id="visaDate" name="Ex_date" required=required />
                                                                         </fieldset>
                                                                         <fieldset class="form-group floating-label-form-group">
-
-                                                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera" required />
+                                                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera" required=required />
                                                                             <div id="progressBar" style="position:relative; display:none">
                                                                                 <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
                                                                                 <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>

@@ -1179,8 +1179,8 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values({0},'{1}' ,{2}, {3}, {4},{5})",emp.Doctype_id,emp.Img_url,emp.Last_update,emp.Ex_date,emp.Active,emp.Employee_pass_id);
-        String prefix = "UPDATE DOCS SET active = 'false' where emp_id = '" + emp.Employee_pass_id + "'; INSERT INTO DOCS " + "(doctype_id,img_url,last_update,ex_date,active,emp_id)";
+        sb.AppendFormat("Values('{0}','{1}' ,'{2}', '{3}', '{4}','{5}','{6}')",emp.Doctype_id,emp.Picture, DateTime.Now.ToString("yyyy-MM-dd"), emp.Ex_date,"True",emp.Employee_pass_id,emp.Doc_id);
+        String prefix = "UPDATE DOCS SET active = 'false'  where emp_id = '" + emp.Employee_pass_id + "' and doctype_id='" + emp.Doctype_id + "'; INSERT INTO DOCS " + "(doctype_id,img_url,last_update,ex_date,active,emp_id,doc_id)";
         command = prefix + sb.ToString();
 
         return command;
@@ -1311,7 +1311,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET  active ='1' Where employee_pass_id = '" + emp + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET  active ='1' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;

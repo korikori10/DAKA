@@ -44,6 +44,7 @@ public class Employee
     int doctype_id;
     string img_url;
     DateTime last_update;
+    string doc_id;
 
     public Employee()
     {
@@ -141,8 +142,8 @@ public class Employee
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, object v1, string v2, string v3) : this(employee_pass_id, lname, fname, sys_id, ex_date, phone)
     {
     }
-
-    public Employee(int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active, string employee_pass_id)
+    //newvisaupdate
+    public Employee(int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active, string employee_pass_id,string doc_id)
     {
         this.doctype_id = doctype_id;
         this.img_url = img_url;
@@ -150,6 +151,7 @@ public class Employee
         this.ex_date = ex_date;
         this.active = active;
         this.employee_pass_id = employee_pass_id;
+        this.doc_id = doc_id;
     }
 
     public string Employee_pass_id
@@ -617,6 +619,19 @@ public class Employee
         set
         {
             last_update = value;
+        }
+    }
+
+    public string Doc_id
+    {
+        get
+        {
+            return doc_id;
+        }
+
+        set
+        {
+            doc_id = value;
         }
     }
 
