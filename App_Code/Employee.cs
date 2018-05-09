@@ -142,13 +142,14 @@ public class Employee
     {
     }
 
-    public Employee(int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active)
+    public Employee(int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active, string employee_pass_id)
     {
         this.doctype_id = doctype_id;
         this.img_url = img_url;
         this.last_update = last_update;
         this.ex_date = ex_date;
         this.active = active;
+        this.employee_pass_id = employee_pass_id;
     }
 
     public string Employee_pass_id

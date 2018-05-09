@@ -97,7 +97,8 @@ $('#updateVisa').click(function () {
     
     if ($('#visaRenew').valid()) {
     EmployeeInfo.Ex_date = $('#visaDate').val();
-    EmployeeInfo.Picture = empPic;
+        EmployeeInfo.Picture = empPic;
+        EmployeeInfo.Employee_pass_id = EmployeeInfo.pass
         updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
 })
