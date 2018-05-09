@@ -9,6 +9,7 @@ window.onload = function () {
     getEmployeesnobusiness();
     getNewEmployees();
     ReadEmployeesNotActive();
+    getBusinesses(renderBusinesses);  
   //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
     $('input').iCheck({
@@ -51,6 +52,16 @@ function changeInsurance() {
     
 
 };
+function renderBusinesses(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#businessSE').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
+        $('#businessSE').append(dynamicLi);
+
+    });
+}
 
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
@@ -107,6 +118,16 @@ $('#updateVisa').click(function () {
 })
 
 
+$('#updateBusBTN').click(function () {
+  //  $('#visaRenew').validate();
+
+    //if ($('#visaRenew').valid()) {
+    EmployeeInfo.Business = $('businessSE')        
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+        $('#Update_Expiration').modal('toggle');
+        updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+   // }
+})
 
 //SearchBox
 

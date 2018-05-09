@@ -703,6 +703,18 @@ public class Employee
         return e;
 
     }
+    public int updateEmpBus(Employee e)
+    {
+        DBServices dbs = new DBServices();
+     int i = 0;
+          i +=  dbs.updateFinDate(e);
+           i += dbs.insertEmpBus(e);
+     
+
+        return i;
+
+    }
+    
     public List<Employee> getEmployeesnobisiness()
     {
         DBServices dbs = new DBServices();

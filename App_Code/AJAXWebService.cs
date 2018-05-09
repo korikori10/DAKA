@@ -238,7 +238,22 @@ public class AJAXWebService : System.Web.Services.WebService
     }
     
 
-   [WebMethod]
+            [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string updateEmpBusiness(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+
+
+        int updated = e.updateEmpBus(e);
+
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+    }
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void ReadEmployeesNeedNewVisa()
     {
