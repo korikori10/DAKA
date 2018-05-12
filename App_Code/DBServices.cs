@@ -790,6 +790,48 @@ public class DBServices
         }
     }
 
+
+    /// <summary>
+    /// reads disable reason from sql
+    /// </summary>
+    /// <returns>list of disable reason</returns>
+    public List<Disable_Reason> getDisable()
+    {
+        SqlConnection con = null;
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM DISABLE_REASON";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Disable_Reason> Reasons = new List<Disable_Reason>();
+            while (dr.Read())
+            {   // Read till the end of the data into a row
+                Disable_Reason d = new Disable_Reason();
+                d.Did = Convert.ToInt32(dr["did"]);
+                d.D_name = dr["d_name"].ToString();
+
+                Reasons.Add(d);
+            }
+
+            return Reasons;
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+        }
+    }
     //statistics
     public int[] ReadTotalnewemp() {
         SqlConnection con = null;
@@ -1186,6 +1228,67 @@ public class DBServices
         return command;
     }
 
+    //--------------------------------------------------------------------
+    // insert and update Disable reason
+    //--------------------------------------------------------------------
+    public int updateDisablEmp(Disable_Reason dis)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildupdateDisablEmp(dis);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the Insert & update command String for employee
+    //--------------------------------------------------------------------
+    private String BuildupdateDisablEmp(Disable_Reason dis)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        //  sb.AppendFormat("Values('{0}','{1}' ,'{2}', '{3}', '{4}','{5}','{6}')", emp.Doctype_id, emp.Picture, DateTime.Now.ToString("yyyy-MM-dd"), emp.Ex_date, "True", emp.Employee_pass_id, emp.Doc_id);
+        String prefix = "UPDATE DOCS SET active = 'false' ";// where emp_id = '" + emp.Employee_pass_id + "' and doctype_id='" + emp.Doctype_id + "'; INSERT INTO DOCS " + "(doctype_id,img_url,last_update,ex_date,active,emp_id,doc_id)";
+        command = prefix + sb.ToString();
+
+        return command;
+    }
     #endregion
 
 
