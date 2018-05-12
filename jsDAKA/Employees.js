@@ -1,4 +1,7 @@
-﻿window.onload = function () {
+﻿EmployeeInfo = new Object();
+
+
+window.onload = function () {
     getEmployeess();
 }
 

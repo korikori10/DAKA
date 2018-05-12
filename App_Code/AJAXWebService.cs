@@ -39,6 +39,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getCountries()
@@ -51,6 +52,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void getBusinessesTable()
@@ -76,6 +78,21 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
+//selectize disable list
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getDisable()
+    {
+        Disable_Reason d = new Disable_Reason();
+        List<Disable_Reason> DC = d.getDisable();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(DC);
+        return jsonStringCategory;
+
+    }
+
     //employees table
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -91,6 +108,7 @@ public class AJAXWebService : System.Web.Services.WebService
         Context.Response.Write(jsonStringCategory);
 
     }
+
     //for employees search
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -106,6 +124,7 @@ public class AJAXWebService : System.Web.Services.WebService
         // Context.Response.Write(jsonStringCategory);
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getEmployeesearch()
@@ -120,6 +139,7 @@ public class AJAXWebService : System.Web.Services.WebService
        // Context.Response.Write(jsonStringCategory);
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void getArchive()
@@ -148,6 +168,7 @@ public class AJAXWebService : System.Web.Services.WebService
         Context.Response.Write(jsonStringCategory);
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void GetHistory(string pass)
@@ -221,6 +242,7 @@ public class AJAXWebService : System.Web.Services.WebService
     //}
 
     //employee update insurance
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateVisa(string EmployeeInfo)
@@ -236,9 +258,25 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
     }
-    
 
-            [WebMethod]
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string updateDisablEmp(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+
+
+        int updated = e.updateDisablEmp(e);
+
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+    }
+
+//selectize busi
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateEmpBusiness(string EmployeeInfo)
     {
@@ -253,6 +291,24 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
     }
+   
+    //selectize disable reason
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string Updatedisablereason(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Disable_Reason d = js.Deserialize<Disable_Reason>(EmployeeInfo);
+
+
+
+        int updated = d.updateDisablEmp(d);
+
+        // serialize to string
+        string jsonStringCategory = js.Serialize(d);
+        return jsonStringCategory;
+    }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void ReadEmployeesNeedNewVisa()
@@ -284,8 +340,8 @@ public class AJAXWebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-public string GetEmployeeById(string pass)
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string GetEmployeeById(string pass)
 {
     Employee e = new Employee();
     e =  e.getEmployeeById(pass);
@@ -327,6 +383,7 @@ public string GetEmployeeById(string pass)
         //return jsonStringCategory;
 
     }
+   
     //statistics
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
