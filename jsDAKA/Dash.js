@@ -10,6 +10,7 @@ window.onload = function () {
     getNewEmployees();
     ReadEmployeesNotActive();
     getBusinesses(renderBusinesses);  
+    getDreason(renderDreasons);  
   //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
     $('input').iCheck({
@@ -59,9 +60,28 @@ function renderBusinesses(results) {
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
         $('#businessSE').append(dynamicLi);
-
     });
+        var select = $("#businessSE").selectize({
+            maxItems: 1, //Max items selectable in the textbox
+            maxOptions: 30 //Max options to render at once in the dropdown
+            }
+        );
 }
+function renderDreasons(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $("[name='Disable_reason']").empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Did + '">' + row.D_name + '</option>';
+        $('#businessSE').append(dynamicLi);
+    });
+    var select = $("[name='Disable_reason']").selectize({
+        maxItems: 1, //Max items selectable in the textbox
+        maxOptions: 30 //Max options to render at once in the dropdown
+    }
+    );
+}
+Disable_reason
 
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
@@ -122,11 +142,23 @@ $('#updateBusBTN').click(function () {
   //  $('#visaRenew').validate();
 
     //if ($('#visaRenew').valid()) {
-    EmployeeInfo.Business = $('businessSE')        
+    EmployeeInfo.Business = $('#businessSE').val();        
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
-        $('#Update_Expiration').modal('toggle');
+    $('#empwithbusi').modal('toggle');
         updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
    // }
+})
+
+$("[name='confirmDE']").click(function () {
+    //  $('#visaRenew').validate();
+
+    //if ($('#visaRenew').valid()) {
+    EmployeeInfo.Did = $('#DynamicDisableList').val();
+    EmployeeInfo.Emp_id = EmployeeInfo.pass;
+    EmployeeInfo.Description = $('#disableTXT').val();
+    $("name='disableM']").modal('toggle');
+    updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+    // }
 })
 
 //SearchBox
@@ -144,7 +176,7 @@ function renderEmployees(results) {
         dl.append(dynamicLi);
     });
     ////////////////////////////////////////////
-    var select = $(".selectize-select").selectize({
+    var select = $("#DynamicEmployeesList").selectize({
         maxItems: 1, //Max items selectable in the textbox
         maxOptions: 30, //Max options to render at once in the dropdown
        

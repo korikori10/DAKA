@@ -578,6 +578,22 @@ function getBusinesses(renderBusinesses) {
         }
     });
 }
+function getDreason(renderDreasons) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getDisable',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderBusinesses(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+
+}
 
 function sendEmail(EmployeeInfo) {
     var dataString = JSON.stringify(EmployeeInfo);
@@ -653,6 +669,30 @@ function updateEmpBusiness(EmployeeInfo) {
 
     $.ajax({
         url: 'ajaxWebService.asmx/updateEmpBusiness',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+            //  renderEmployeeByID(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function updateDisableReason(EmployeeInfo) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/updateDisablEmp',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         data: emp,
