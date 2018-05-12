@@ -259,21 +259,21 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
     }
 
-    [WebMethod]
-    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string updateDisablEmp(string EmployeeInfo)
-    {
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+    //[WebMethod]
+    //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    //public string updateDisablEmp(string EmployeeInfo)
+    //{
+    //    JavaScriptSerializer js = new JavaScriptSerializer();
+    //    Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
 
 
-        int updated = e.updateDisablEmp(e);
+    //    int updated = e.updateDisablEmp(e);
 
-        // serialize to string
-        string jsonStringCategory = js.Serialize(e);
-        return jsonStringCategory;
-    }
+    //    // serialize to string
+    //    string jsonStringCategory = js.Serialize(e);
+    //    return jsonStringCategory;
+    //}
 
 //selectize busi
     [WebMethod]

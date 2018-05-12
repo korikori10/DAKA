@@ -585,7 +585,7 @@ function getDreason(renderDreasons) {
         contentType: 'application/json; charset = utf-8',
         dataType: 'json',
         success: function (results) {
-            renderBusinesses(results);
+            renderDreasons(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -692,7 +692,7 @@ function updateDisableReason(EmployeeInfo) {
     var emp = JSON.stringify(EmployeeInfo);
 
     $.ajax({
-        url: 'ajaxWebService.asmx/updateDisablEmp',
+        url: 'ajaxWebService.asmx/Updatedisablereason',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         data: emp,

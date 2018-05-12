@@ -11,7 +11,7 @@ public class Disable_Reason
     int did;
     string d_name;
     string description;
-    int emp_id;
+    string emp_id;
     public Disable_Reason()
     {
         //
@@ -19,7 +19,7 @@ public class Disable_Reason
         //
     }
 
-    public Disable_Reason(int did, string d_name, string description, int emp_id)
+    public Disable_Reason(int did, string d_name, string description, string emp_id)
     {
         this.did = did;
         this.d_name = d_name;
@@ -66,7 +66,7 @@ public class Disable_Reason
         }
     }
 
-    public int Emp_id
+    public string Emp_id
     {
         get
         {
