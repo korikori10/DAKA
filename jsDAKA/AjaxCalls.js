@@ -418,23 +418,29 @@ $.ajax({
     dataType: "json",
     url: "ajaxWebService.asmx/getNewEmployees",
     success: function (data) {
-         datatableVariable = $('#newemp').DataTable({
+        datatableVariable = $('#newemp').DataTable({
              data: data,
              responsive: true,
-            columns: [
-                {
+
+                columns: [
+                 {
                     'data': 'Employee_pass_id',
                     'visible': false
                 },
                 { 'data': 'Sys_id' },
-                { 'data': 'Fname' },
-                { 'data': 'Lname' },
-                { 'data': 'Bus_name' },
+                {
+                    "data": null,
+                    render: function (data, type, row) {
+                        var details = row.Fname + " " + row.Lname;
+                        return details;
+                    }
+                },
                 {
                     'data': "",
-                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד ועדכון מספר מכפל"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
+                    'defaultContent': '<button  name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד ועדכון מספר מכפל"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
 
-                }]
+                },
+                { 'data': 'Bus_name' }]
         });
     }
 });
