@@ -83,21 +83,27 @@ function renderDreasons(results) {
 }
 
 
+
+
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
  //Take the Employee ID from the table row
     sessionStorage.removeItem("empInfo")
-    tr = $(this).closest('tr');//.find('td:first').text();
+        //tr = $(this).closest('tr');//.find('td:first').text()
+    var current_row = $(this).parents('tr');//Get the current row;
+    if (current_row.hasClass('child')) {//Check if the current row is a child row
+        current_row = current_row.prev();//If it is, then point to the row before it (its 'parent')
+    }
     tableId = $(this).closest('.table').attr('id');
     whichid = $(this).closest('button').attr('name');
-    var data = $("#" + tableId).DataTable().row(tr).data();
-    if (!jQuery.isEmptyObject(data)) {
-        alert('You clicked on ' + data.Employee_pass_id + '\'s row');
-    } else {
-        alert('failed first check');
-        var tr = $(this).closest('tr');
-        var data = DataTable().row(tr).data();
-    }
+    var data = $("#" + tableId).DataTable().row(current_row).data();
+    //if (!jQuery.isEmptyObject(data)) {
+    //    alert('You clicked on ' + data.Employee_pass_id + '\'s row');
+    //} else {
+    //    alert('failed first check');
+    //    var tr = $(this).closest('tr');
+    //    var data = DataTable().row(tr).data();
+    //}
         EmployeeInfo.pass = data['Employee_pass_id'];
     if (whichid == "edit") {
         //Go To Employee Page
