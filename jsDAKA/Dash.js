@@ -232,8 +232,8 @@ function RenderTotalAllemp(results)
     document.getElementById("activeEmp").max = statistics[1];
     document.getElementById("numnewemp").innerHTML = statistics[3];
 
-    document.getElementById("allemp").value = statistics[5];
-    document.getElementById("allemp").max = statistics[1];
+    document.getElementById("allemp1").value = statistics[5];
+    document.getElementById("allemp1").max = statistics[1];
     document.getElementById("allactiveemp").innerHTML = statistics[5];
 
     document.getElementById("allemp").value = statistics[7];

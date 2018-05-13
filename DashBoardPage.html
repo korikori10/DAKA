@@ -189,7 +189,7 @@
                                                             <i class="icon-tag3 font-large-1 blue-grey"></i>
                                                         </div>
                                                         <div class="media-body text-xs-right">
-                                                            <span id="numofleave" class="font-large-2 text-bold-300 deep-orange">5</span>
+                                                            <span id="numofleave" class="font-large-2 text-bold-300 deep-orange"></span>
                                                         </div>
                                                         <p class="text-muted">עזיבות<span class="deep-orange float-xs-right"><i class="icon-arrow-down4 deep-orange"></i> </span></p>
                                                         <progress id="allemp" class="progress progress-sm progress-deep-orange"></progress>
@@ -204,7 +204,7 @@
                                                             <span id="allactiveemp" class="font-large-2 text-bold-300 danger"></span>
                                                         </div>
                                                         <p class="text-muted">עובדים פעילים<span class="danger float-xs-right"><i class="icon-arrow-up4 danger"></i> </span></p>
-                                                        <progress id="allemp" class="progress progress-sm progress-danger"></progress>
+                                                        <progress id="allemp1" class="progress progress-sm progress-danger"></progress>
                                                     </div>
                                                 </div>
 
@@ -250,27 +250,30 @@
                                             <div class="card-body collapse in">
                                                 <div class="card-block card-dashboard">
                                                     <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                                                    <div class="dataTables_scroll">
-                                                        <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
-
-                                                            <table id="empnotactive" class="table responsive display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer" role="grid" aria-describedby="DataTables_Table_8_info" style="width: 1277px;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                        <!--<div style="position: relative; overflow: auto; width: 100%;">-->
+                                                            <table class="table table-striped table-bordered responsive dataex-res-rowcontrol dataTable dtr-column collapsed" id="empnotactive" role="grid" aria-describedby="DataTables_Table_9_info">
+                                                            
+                                    
+                                                            <!--<table class="table table-striped table-bordered responsive dataex-res-visibility dataTable no-footer dtr-inline collapsed" role="grid" id="empnotactive" style="margin-left: 0px;width: 100%; ">-->
                                                                 <thead>
                                                                     <tr>
                                                                         <th>מספר דרכון</th>
                                                                         <th>מספר מכפל</th>
-                                                                        <th>שם פרטי</th>
-                                                                        <th>שם משפחה</th>
+                                                                        <th>שם העובד</th>
                                                                         <th>מקום עבודה אחרון</th>
+                                                                        <th>פעולות</th>
                                                                         <th>סיבת עזיבה</th>
                                                                         <th>טלפון</th>
                                                                         <th>תוקף ויזה</th>
-                                                                        <th>פעולות</th>
 
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody></tbody>
 
                                                             </table>
+                                                       </div>
                                                         </div>
                                                     </div>
 
@@ -278,7 +281,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </section>
                                 <!--modals-->
                                 <div class="modal fade text-xs-left" id="Cancelinsurance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
@@ -389,7 +391,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th style="display:none">מס דרכון</th>
-                                                                <th style="width: 400px" >מספר מכפל</th>
+                                                                <th >מספר מכפל</th>
                                                                 <th>שם העובד</th>
                                                                 <th>פעולות</th>
                                                                 <th>מקום עבודה</th>
@@ -409,7 +411,7 @@
                                                                 <form>
                                                                     <div class="modal-body">
                                                                         <fieldset class="form-group floating-label-form-group">
-                                                                            <input type="radio" id="notIn" name="insured" value="false" checked=checked checked=checked checked=checked checked=checked checked=checked checked=checked checked=checked checked=checked />
+                                                                            <input type="radio" id="notIn" name="insured" value="false" checked />
 
                                                                             <label for="input-15" class="">לא מבוטח</label>
                                                                         </fieldset>
@@ -465,18 +467,17 @@
                                         <div class="card-block card-dashboard">
                                             <!--    <p class="card-text"></p>-->
                                             <div class="dataTables_scroll">
-                                                <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
+                                                <div style="position: relative; overflow: auto; width: 100%;">
 
-                                                    <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="newvisaalert" style="margin-left: 0px; ">
+                                                    <table class="table table-striped table-bordered responsive dataex-res-visibility dataTable no-footer dtr-inline collapsed" role="grid" id="newvisaalert" style="margin-left: 0px;width: 100%; ">
                                                         <thead>
                                                             <tr>
                                                                 <th style="display:none;">מס דרכון</th>
                                                                 <th>מספר מכפל</th>
                                                                 <th>שם העובד</th>
-                                                                <th>שם משפחה</th>
+                                                                <th>פעולות</th>
                                                                 <th>תאריך לחידוש</th>
                                                                 <th>טלפון</th>
-                                                                <th>פעולות</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody></tbody>
@@ -585,57 +586,56 @@
                                 <div class="card-body collapse in">
                                     <div class="card-block card-dashboard">
                                         <div class="dataTables_scroll">
-                                            <div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
+                                            <div style="position: relative; overflow: auto; width: 100%;">
 
-                                                <table class="table display nowrap table-striped compact table-bordered scroll-horizontal-vertical dataTable no-footer" role="grid" id="empNoBusi" style="margin-left: 0px; ">
+                                                <table class="table table-striped table-bordered responsive dataex-res-visibility dataTable no-footer dtr-inline collapsed" role="grid" id="empNoBusi" style="margin-left: 0px;width: 100%; ">
                                                     <thead>
                                                         <tr>
                                                             <th style="display:none;">מס דרכון</th>
                                                             <th>מספר מכפל</th>
                                                             <th>שם העובד</th>
-                                                            <th>שם משפחה</th>
+                                                            <th>פעולות</th>
                                                             <th>מקום עבודה אחרון</th>
                                                             <th>טלפון</th>
                                                             <th>מספר ימים ללא ציוות</th>
-                                                            <th>פעולות</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody></tbody>
                                                 </table>
                                                 <!--<div class="modal fade text-xs-left" id="Disable1" name="disableM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h3 class="modal-title" id="myModalLabel35">סיבת הפסקת עבודה</h3>
-                                                            </div>
-                                                            <form>
-                                                                <div class="modal-body">
-                                                                    <fieldset class="form-group floating-label-form-group">
-                                                                        <label for="DynamicDisableList">סיבה:</label>
-                                                                        <select name="Disable_reason" class="selectize-select" id="DynamicDisableList" required=required>
-                                                                            <option value="0">לא נבחרה סיבה</option>
-                                                                        </select>
-                                                                    </fieldset>
-                                                                    <fieldset class="form-group floating-label-form-group">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3 class="modal-title" id="myModalLabel35">סיבת הפסקת עבודה</h3>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <fieldset class="form-group floating-label-form-group">
+                                <label for="DynamicDisableList">סיבה:</label>
+                                <select name="Disable_reason" class="selectize-select" id="DynamicDisableList" required=required>
+                                    <option value="0">לא נבחרה סיבה</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="form-group floating-label-form-group">
 
-                                                                        <textarea class="form-control" id="placeTextarea" rows="6" placeholder="פירוט"></textarea>
-                                                                    </fieldset>
-
-
+                                <textarea class="form-control" id="placeTextarea" rows="6" placeholder="פירוט"></textarea>
+                            </fieldset>
 
 
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <input name="confirmDE" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
-                                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <input name="confirmDE" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
+                            <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
                                                 <div class="modal fade text-xs-left" id="empwithbusi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
