@@ -90,7 +90,14 @@ $('.table').on('click', 'tr td button', function () {
     tr = $(this).closest('tr');//.find('td:first').text();
     tableId = $(this).closest('.table').attr('id');
     whichid = $(this).closest('button').attr('name');
-        var data = $("#" + tableId).DataTable().row(tr).data();
+    var data = $("#" + tableId).DataTable().row(tr).data();
+    if (!jQuery.isEmptyObject(data)) {
+        alert('You clicked on ' + data.Employee_pass_id + '\'s row');
+    } else {
+        alert('failed first check');
+        var tr = $(this).closest('tr');
+        var data = DataTable().row(tr).data();
+    }
         EmployeeInfo.pass = data['Employee_pass_id'];
     if (whichid == "edit") {
         //Go To Employee Page
