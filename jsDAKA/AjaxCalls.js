@@ -543,7 +543,7 @@ function updateInsurance(EmployeeInfo) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
-
+   // var table = $('#newemp');
     $.ajax({
         url: 'ajaxWebService.asmx/UpdateInsurance',
         type: 'POST',
@@ -554,6 +554,7 @@ function updateInsurance(EmployeeInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
+            
           //  renderEmployeeByID(results);
         },
         error: function (xhr, status, error) {
