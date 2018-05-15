@@ -610,6 +610,48 @@ public class DBServices
         }
     }
 
+    public List<Contact> readRoles()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM [ROLES OF CONTACTS] ";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Contact> Roles = new List<Contact>();
+            while (dr.Read())
+            {
+
+                Contact role = new Contact();
+                role.Role_id = Convert.ToInt32(dr["role_id"]);
+                role.Role_name = dr["role_name"].ToString();
+                role.Role_desc = dr["role_desc"].ToString();
+
+
+
+                Roles.Add(role);
+            }
+            return Roles;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
     /// <summary>
     /// reads businesses from sql
     /// </summary>

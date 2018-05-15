@@ -52,6 +52,18 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getRoles()
+    {
+        Contact c = new Contact();
+        List<Contact> LC = c.getRoles();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(LC);
+        return jsonStringCategory;
+
+    }
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

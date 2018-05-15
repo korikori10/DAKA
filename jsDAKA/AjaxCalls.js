@@ -598,6 +598,23 @@ function getCountries(renderCountries) {
 
 }
 
+function getRoles(renderRoles) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getRoles',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderRoles(results);
+        },
+        error: function (request, error) {
+            alert('Network error has occurred please try again!');
+        }
+
+    });
+
+}
+
 function getBusinesses(renderBusinesses) {
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',

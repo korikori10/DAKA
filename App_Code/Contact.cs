@@ -14,6 +14,9 @@ public class Contact
     int phone;
     string email;
     int role_id;
+    int bus_id;
+    string role_name;
+    string role_desc;
 
     public int Contact_id
     {
@@ -80,10 +83,59 @@ public class Contact
         }
     }
 
+    public int Bus_id
+    {
+        get
+        {
+            return bus_id;
+        }
+
+        set
+        {
+            bus_id = value;
+        }
+    }
+
+    public string Role_name
+    {
+        get
+        {
+            return role_name;
+        }
+
+        set
+        {
+            role_name = value;
+        }
+    }
+
+    public string Role_desc
+    {
+        get
+        {
+            return role_desc;
+        }
+
+        set
+        {
+            role_desc = value;
+        }
+    }
+
     public Contact()
     {
         //
         // TODO: Add constructor logic here
         //
+    }
+
+    public List<Contact> getRoles()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Contact> LC = dbs.readRoles();
+
+        return LC;
+
     }
 }
