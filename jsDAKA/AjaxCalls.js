@@ -434,8 +434,8 @@ $.ajax({
     type: "POST",
     dataType: "json",
     url: "ajaxWebService.asmx/getNewEmployees",
-    success: function (data) {
-        datatableVariable = $('#newemp').DataTable({
+    success: function (data) {        
+          t1 = $('#newemp').DataTable({
              data: data,
              responsive: true,
              autoWidth: false,
@@ -539,7 +539,7 @@ function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
 }
 
 //update employee insurance
-function updateInsurance(EmployeeInfo) {
+function updateInsurance(EmployeeInfo, current_row) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -549,19 +549,22 @@ function updateInsurance(EmployeeInfo) {
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         data: emp,
+        async: false,
         success: function (results) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                t1.row(current_row).remove().draw();
             }, 1000);
             
-          //  renderEmployeeByID(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
             alert(err.Message);
         }
     });
+
+
 }
 
 function getCities(renderCities) {

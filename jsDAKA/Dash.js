@@ -44,11 +44,11 @@ function changeInsurance() {
         EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=insured]:checked").val()) {
         EmployeeInfo.Com_insurance = 'True';
-        updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+        updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
     else if ($("input[name=insured]:checked").val() == semiTrue) {
         EmployeeInfo.Com_insurance = 'False';
-        updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+        updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
     
 
@@ -90,7 +90,7 @@ $('.table').on('click', 'tr td button', function () {
  //Take the Employee ID from the table row
     sessionStorage.removeItem("empInfo")
         //tr = $(this).closest('tr');//.find('td:first').text()
-    var current_row = $(this).parents('tr');//Get the current row;
+    current_row = $(this).parents('tr');//Get the current row;
     if (current_row.hasClass('child')) {//Check if the current row is a child row
         current_row = current_row.prev();//If it is, then point to the row before it (its 'parent')
     }
