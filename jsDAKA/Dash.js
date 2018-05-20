@@ -156,6 +156,8 @@ $('#updateBusBTN').click(function () {
 
     //if ($('#visaRenew').valid()) {
     EmployeeInfo.Business = $('#businessSE').val();        
+    EmployeeInfo.Start_date = $('#SchedulingDate').val();        
+  //  EmployeeInfo.End_date = $('#SchedulingDate').val();        
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     $('#empwithbusi').modal('toggle');
         updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) });

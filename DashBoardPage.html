@@ -502,10 +502,10 @@
                                                                 <form id="visaRenew">
 
                                                                     <div class="modal-body">
-                                                                        <fieldset class="form-group floating-label-form-group has-danger">
+                                                                        <!--<fieldset class="form-group floating-label-form-group has-danger">
                                                                             <label for="date4">מספר ויזה</label>
                                                                             <input type="text" class="form-control" id="visaID" name="visaID" required=required />
-                                                                        </fieldset>
+                                                                        </fieldset>-->
 
                                                                         <fieldset class="form-group floating-label-form-group has-danger">
                                                                             <label for="date4">תאריך חדש:</label>
@@ -610,40 +610,7 @@
                                                     </thead>
                                                     <tbody></tbody>
                                                 </table>
-                                                <!--<div class="modal fade text-xs-left" id="Disable1" name="disableM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h3 class="modal-title" id="myModalLabel35">סיבת הפסקת עבודה</h3>
-                    </div>
-                    <form>
-                        <div class="modal-body">
-                            <fieldset class="form-group floating-label-form-group">
-                                <label for="DynamicDisableList">סיבה:</label>
-                                <select name="Disable_reason" class="selectize-select" id="DynamicDisableList" required=required>
-                                    <option value="0">לא נבחרה סיבה</option>
-                                </select>
-                            </fieldset>
-                            <fieldset class="form-group floating-label-form-group">
 
-                                <textarea class="form-control" id="placeTextarea" rows="6" placeholder="פירוט"></textarea>
-                            </fieldset>
-
-
-
-
-                        </div>
-                        <div class="modal-footer">
-                            <input name="confirmDE" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeInsurance()" />
-                            <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>-->
                                                 <div class="modal fade text-xs-left" id="empwithbusi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -655,7 +622,10 @@
                                                             </div>
                                                             <form>
                                                                 <div class="modal-body">
-
+                                                                    <fieldset class="form-group floating-label-form-group has-danger">
+                                                                        <label for="date4">תאריך שיבוץ מחדש:</label>
+                                                                        <input type="date" class="form-control" id="SchedulingDate" name="Start_date" required=required />
+                                                                    </fieldset>
                                                                     <fieldset class="form-group floating-label-form-group">
 
                                                                         <label for="placeofworkTitle4">מקום עבודה חדש:</label>

@@ -1201,7 +1201,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, DateTime.Now.ToString("yyyy-MM-dd"));//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, emp.Start_date);
         String prefix = "INSERT INTO [employee in business] " + "(employee_pass_id, bus_id, start_date)";
         command = prefix + sb.ToString();
 
