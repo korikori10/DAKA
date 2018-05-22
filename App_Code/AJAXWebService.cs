@@ -216,13 +216,7 @@ public class AJAXWebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         string jsonStringCategory = js.Serialize(updated);
         return jsonStringCategory;
-        //Employee e = new Employee();
-        //List<Employee> LE = e.UpdateToActive(pass);
-       
-        //// serialize to string
-        //string jsonStringCategory = js.Serialize(LE);
-        //return jsonStringCategory;
-      //  Context.Response.Write(js.Serialize(LE));
+
 
     }
 
@@ -290,6 +284,24 @@ public class AJAXWebService : System.Web.Services.WebService
         }
         return jsonStringCategory;
     }
+    //employee update gmah
+    public string updateGmah(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+
+
+        int updated = e.updateGmah(e);
+
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+
+    }
+
+
+
     //[WebMethod]
     //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     //public string UpdateToActive(string pass)

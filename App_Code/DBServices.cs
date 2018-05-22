@@ -1527,10 +1527,72 @@ public class DBServices
         return command;
     }
 
-
-
-
     
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="emp"></param>
+    /// <returns> employee gmah</returns>
+
+    public int updateGmah(Employee emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildUpdateGmahCommand(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the insurance update command String
+    //--------------------------------------------------------------------
+    private String BuildUpdateGmahCommand(Employee emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        String prefix = "UPDATE EMPLOYEE SET  [final_bill] ='"+emp.Final_bill+"'  Where employee_pass_id = '" + emp.Employee_pass_id + "'"; 
+        command = prefix;// prefix;
+
+        return command;
+    }
+
+
     //--------------------------------------------------------------------
     // Update business
     //--------------------------------------------------------------------

@@ -40,8 +40,21 @@ function setEmpFile(results) {
     empPic = results;
 }
 
-function changeInsurance() {
+function changeGmah() {
         EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+        if ($("input[name=gmahh]:checked").val()) {
+            EmployeeInfo.Final_bill = 'True';
+        updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+    }
+        else if ($("input[name=gmahh]:checked").val() == semiTrue) {
+            EmployeeInfo.Final_bill = 'False';
+        updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+    }
+    
+}
+
+function changeInsurance() {
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=insured]:checked").val()) {
         EmployeeInfo.Com_insurance = 'True';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
@@ -50,9 +63,10 @@ function changeInsurance() {
         EmployeeInfo.Com_insurance = 'False';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
-    
 
-};
+}
+
+
 function renderBusinesses(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);

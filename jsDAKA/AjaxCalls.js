@@ -475,7 +475,7 @@ function ReadEmployeesNotActive() {
         dataType: "json",
         url: "ajaxWebService.asmx/ReadEmployeesNotActive",
         success: function (data) {
-            var datatableVariable = $('#empnotactive').DataTable({
+             NotActiveEmpDatatableVariable = $('#empnotactive').DataTable({
                 data: data,
                 responsive: true,
                 columns: [
@@ -557,6 +557,36 @@ function updateInsurance(EmployeeInfo, current_row) {
                 t1.row(current_row).remove().draw();
             }, 1000);
             
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+
+
+}
+
+
+//update employee gmah
+
+function updateGmah(EmployeeInfo, current_row) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+    $.ajax({
+        url: 'ajaxWebService.asmx/updateGmah',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        async: false,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+              //  NotActiveEmpDatatableVariable.row(current_row).remove().draw();
+            }, 1000);
+
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");

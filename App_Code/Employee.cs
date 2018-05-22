@@ -45,7 +45,7 @@ public class Employee
     string img_url;
     DateTime last_update;
     string doc_id;
-
+    bool final_bill;
     public Employee()
     {
         //
@@ -639,6 +639,19 @@ public class Employee
         }
     }
 
+    public bool Final_bill
+    {
+        get
+        {
+            return final_bill;
+        }
+
+        set
+        {
+            final_bill = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -761,6 +774,17 @@ public class Employee
 
         int e = dbs.EmpInsurance(emp);
     
+
+        return e;
+
+    }
+
+    public int updateGmah(Employee emp)
+    {
+        DBServices dbs = new DBServices();
+
+        int e = dbs.updateGmah(emp);
+
 
         return e;
 
