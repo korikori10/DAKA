@@ -52,6 +52,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getRoles()
@@ -119,8 +120,7 @@ public class AJAXWebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         var jsonStringCategory =  js.Serialize(LE) ;
-       // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
-        //return jsonStringCategory;
+     
         Context.Response.Write(jsonStringCategory);
 
     }
@@ -135,10 +135,7 @@ public class AJAXWebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         var jsonStringCategory = js.Serialize(LE);
-        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
         return jsonStringCategory;
-        // Context.Response.Write(jsonStringCategory);
-
     }
 
     [WebMethod]
@@ -150,10 +147,7 @@ public class AJAXWebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         var jsonStringCategory = js.Serialize(LE);
-        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
         return jsonStringCategory;
-       // Context.Response.Write(jsonStringCategory);
-
     }
 
     [WebMethod]
@@ -284,13 +278,12 @@ public class AJAXWebService : System.Web.Services.WebService
         }
         return jsonStringCategory;
     }
+
     //employee update gmah
     public string updateGmah(string EmployeeInfo)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
-
-
 
         int updated = e.updateGmah(e);
 
@@ -400,8 +393,7 @@ public class AJAXWebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         var jsonStringCategory = js.Serialize(LE);
-        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
-        // return jsonStringCategory;
+
         Context.Response.Write(jsonStringCategory);
 
     }
@@ -415,8 +407,7 @@ public class AJAXWebService : System.Web.Services.WebService
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         var jsonStringCategory = js.Serialize(LE);
-        // string jsonStringCategory = "{\"data\":" + js.Serialize(LE) + "}";
-        // return jsonStringCategory;
+
         Context.Response.Write(jsonStringCategory);
 
     }
@@ -462,7 +453,6 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         var jsonStringCategory = js.Serialize(LE);
         Context.Response.Write(jsonStringCategory);
-        //return jsonStringCategory;
 
     }
    
@@ -475,10 +465,8 @@ public class AJAXWebService : System.Web.Services.WebService
         int[] arr = db.ReadTotalnewemp();
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        // serialize to string
         string jsonStringCategory = js.Serialize(arr);
         return jsonStringCategory;
-        //return jsonStringCategory;
 
     }
 
@@ -490,23 +478,31 @@ public class AJAXWebService : System.Web.Services.WebService
         int[] arr = db.ReadTotalAllemp();
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        // serialize to string
         string jsonStringCategory = js.Serialize(arr);
         return jsonStringCategory;
-        //return jsonStringCategory;
 
     }
 
+    //send SMS
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string PostDataToURL() {
         Employee e = new Employee();
         List<Employee> LE = e.ReadEmployeesNeedNewVisa();
             string phone = "";
+        //int micpal ;
+        //string country, pass, name;
+        //DateTime startdate;
         foreach (Employee emp in LE)
 
         {
             phone +="0"+ emp.Phone+";";
+            //micpal = emp.Sys_id;
+            //country = emp.Origin_country;
+            //pass = emp.Employee_pass_id;
+            //name = emp.Fname + " " + emp.Lname;
+            //startdate = emp.Start_date;
+
 
         }
         //set password, user name, message text, semder name and number
@@ -592,7 +588,8 @@ public class AJAXWebService : System.Web.Services.WebService
             Credentials = new NetworkCredential("tolas22@gmail.com", "Tk11061989"),
             EnableSsl = true
         };
-        client.Send("tolas22@gmail.com", "kori.hash@gmail.com", e.Fname + " "+ e.Lname, "Please add insurance to employee number: " + e.Sys_id);
+        client.Send("tolas22@gmail.com", "kori.hash@gmail.com", e.Fname + " "+ e.Lname, "היי,מבקשת לבצע ביטוח לעובד מספר מכפל"+
+            e.Sys_id+"\n:נתין "+e.Origin_country+ "\n:מספר דרכון " + e.Employee_pass_id+ "\n שם מלא:" + e.Fname +" "+e.Lname+ "\n מתאריך- " + e.Start_date );
         //Console.WriteLine("Sent");
         //Console.ReadLine();
         //Response.Write("SEND MAIL");
