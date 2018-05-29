@@ -72,7 +72,7 @@ function renderBusinesses(results) {
     results = $.parseJSON(results.d);
     $('#businessSE').empty();
     $.each(results, function (i, row) {
-        dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
+        dynamicLi = '<option value="' + row.Bus_id + '"> < a href= "#" > <h3>' + row.Bus_name + '</h3> <span class="ui-li-count"> ' + row.Bus_id+ '</span></a > </option>';
         $('#businessSE').append(dynamicLi);
     });
         var select = $("#businessSE").selectize({
@@ -86,7 +86,7 @@ function renderDreasons(results) {
     results = $.parseJSON(results.d);
     $("#DynamicDisableList").empty();
     $.each(results, function (i, row) {
-        dynamicLi = '<option value="' + row.Did + '">' + row.D_name + '</option>';
+        dynamicLi = '<option value="' + row.Did + '">' + row.D_name +  '</option>';
         $('#DynamicDisableList').append(dynamicLi);
     });
     var select = $("#DynamicDisableList").selectize({
@@ -201,7 +201,7 @@ function renderEmployees(results) {
     }
     var dl = $('#DynamicEmployeesList');
     $.each(results, function (i, row) {
-        dynamicLi = '<option value="' + row.Employee_pass_id + '">' + row.Fname + " " + row.Lname + '</option>';
+        dynamicLi = '<option value="' + row.Employee_pass_id + '"> <h3>' + row.Fname + " " + row.Lname + '</h3> <p style="visibility:hidden"> ' + row.Employee_pass_id + row.Sys_id+'</p>  </option>';
         dl.append(dynamicLi);
     });
     ////////////////////////////////////////////

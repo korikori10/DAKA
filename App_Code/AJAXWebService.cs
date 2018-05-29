@@ -582,15 +582,44 @@ public class AJAXWebService : System.Web.Services.WebService
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
-
-        SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+        try
         {
-            Credentials = new NetworkCredential("tolas22@gmail.com", "Tk11061989"),
-            EnableSsl = true
-        };
-        client.Send("tolas22@gmail.com", "kori.hash@gmail.com", e.Fname + " "+ e.Lname, "היי,מבקשת לבצע ביטוח לעובד מספר מכפל"+
-            e.Sys_id+"\n:נתין "+e.Origin_country+ "\n:מספר דרכון " + e.Employee_pass_id+ "\n שם מלא:" + e.Fname +" "+e.Lname+ "\n מתאריך- " + e.Start_date );
-        //Console.WriteLine("Sent");
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("tolas22@gmail.com", "Tk11061989"),
+                EnableSsl = true
+            };
+            MailMessage mail = new MailMessage();
+            System.Net.Mail.Attachment attachment;
+            string DOC = "/images/IMG_1659.JPG";
+            attachment = new System.Net.Mail.Attachment(DOC);
+            mail.Attachments.Add(attachment);
+            // Get date-only portion of date, without its time.
+            DateTime dateOnly = e.Start_date.Date;
+            // Display date using short date string.
+            string g = (dateOnly.ToString("d"));
+
+            Country c = new Country();
+            List<Country> LC = c.getCountries();
+            string country = "";
+
+            foreach (var item in LC)
+            {
+                if (item.Id == e.Origin_country)
+                {
+                    country = item.Name;
+                }
+            }
+            client.Send("tolas22@gmail.com", "kori.hash@gmail.com", "ביטוח לעובד מספר  " +
+                e.Sys_id, "היי,\nמבקשת לבצע ביטוח לעובד מספר מכפל " +
+                e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך- " + g );
+            client.Send(mail);
+            Console.WriteLine("Sent");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
         //Console.ReadLine();
         //Response.Write("SEND MAIL");
     }

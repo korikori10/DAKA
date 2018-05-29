@@ -23,6 +23,11 @@
     <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!-- BEGIN VENDOR CSS-->
+    <style>
+        select option p {
+            visibility: hidden;
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css" />
     <!-- BEGIN VENDOR CSS-->
     <!-- BEGIN Font icons-->
@@ -331,7 +336,7 @@
                                             <form>
                                                 <div class="modal-body">
                                                     <fieldset class="form-group floating-label-form-group">
-                                                        <input type="radio" id="noGmah" name="gmahh" value="false" checked />
+                                                        <input type="radio" id="noGmah" name="gmahh" value="false" checked=checked />
 
                                                         <label for="input-17" class="">לא</label>
                                                     </fieldset>
@@ -345,7 +350,7 @@
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <input name="confirm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeGmah()" />
+                                                    <input name="confirmGm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeGmah()" />
                                                     <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
                                                 </div>
                                             </form>
@@ -398,7 +403,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th style="display:none">מס דרכון</th>
-                                                                <th >מספר מכפל</th>
+                                                                <th>מספר מכפל</th>
                                                                 <th>שם העובד</th>
                                                                 <th>פעולות</th>
                                                                 <th>מקום עבודה</th>
@@ -418,7 +423,7 @@
                                                                 <form>
                                                                     <div class="modal-body">
                                                                         <fieldset class="form-group floating-label-form-group">
-                                                                            <input type="radio" id="notIn" name="insured" value="false" checked />
+                                                                            <input type="radio" id="notIn" name="insured" value="false" checked=checked />
 
                                                                             <label for="input-15" class="">לא מבוטח</label>
                                                                         </fieldset>
@@ -707,6 +712,7 @@
     <!--<script src="jsDAKA/EmployeePage.js"></script>-->
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->
+
     <script src="jsDAKA/Dash.js"></script>
     <script src="jsDAKA/AjaxCalls.js"></script>
 </body>
