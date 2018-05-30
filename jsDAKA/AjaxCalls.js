@@ -568,7 +568,7 @@ function updateInsurance(EmployeeInfo, current_row) {
 }
 
 //cancel employee insurance
-function cancelInsurance(EmployeeInfo, current_row) {
+function ajaxcancelInsurance(EmployeeInfo, current_row) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);

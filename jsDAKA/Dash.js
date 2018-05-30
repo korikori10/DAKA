@@ -72,7 +72,7 @@ function cancelInsurance() {
         EmployeeInfo.Com_insurance = 'False';
         EmployeeInfo.Insurance = 'False';
         EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
-        cancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+        ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
  
 
 }
