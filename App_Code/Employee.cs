@@ -631,11 +631,10 @@ public class Employee
 
         set
         {
-            if (doctype_id==1)
-            {
 
-            doc_id = employee_pass_id;
-            }
+
+            doc_id = value;
+  
         }
     }
 
