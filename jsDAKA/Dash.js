@@ -201,7 +201,7 @@ function renderEmployees(results) {
     }
     var dl = $('#DynamicEmployeesList');
     $.each(results, function (i, row) {
-        dynamicLi = '<option value="' + row.Employee_pass_id + '"> <h3>' + row.Fname + " " + row.Lname + '</h3> <p style="visibility:hidden"> ' + row.Employee_pass_id + row.Sys_id+'</p>  </option>';
+        dynamicLi = '<option value="' + row.Employee_pass_id + '" data-extra-search="{"sysid":' + row.Sys_id +'}"> <h3>' + row.Fname + " " + row.Lname + '</h3>  </option>';
         dl.append(dynamicLi);
     });
     ////////////////////////////////////////////
@@ -214,7 +214,9 @@ function renderEmployees(results) {
             EmployeeInfo.pass = value;
             sessionStorage.setItem("empInfo", EmployeeInfo.pass);
             window.location = "Employee.html"
-        }
+        },
+        dataAttr: 'data-extra',//search also for hidden values
+        searchField: ['value', 'text', 'other']
     });
 
 }
