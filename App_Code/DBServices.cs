@@ -1326,7 +1326,7 @@ public class DBServices
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
         sb.AppendFormat("Values('{0}','{1}' ,'{2}')", dis.Did, dis.Emp_id, dis.Description);
-        String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "'; INSERT INTO EMP_DIS_REASON (did, emp_id, description)";// where emp_id = '" + emp.Employee_pass_id + "' and doctype_id='" + emp.Doctype_id + "'; INSERT INTO DOCS " + "(doctype_id,img_url,last_update,ex_date,active,emp_id,doc_id)";
+        String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "'; UPDATE [employee in business] set end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' WHERE employee_pass_id = '" + dis.Emp_id +"' and end_date is null; INSERT INTO EMP_DIS_REASON (did, emp_id, description)";// where emp_id = '" + emp.Employee_pass_id + "' and doctype_id='" + emp.Doctype_id + "'; INSERT INTO DOCS " + "(doctype_id,img_url,last_update,ex_date,active,emp_id,doc_id)";
         command = prefix + sb.ToString();
 
         return command;
@@ -1773,8 +1773,8 @@ public class DBServices
         String command;
 
         StringBuilder sb = new StringBuilder();
-        // use a string builder to create the dynamic string
-        String prefix = "UPDATE [employee in business] SET end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date is null";
+        // use a string builder to create the dynamic string (start_date is the beggining of the new busi and the end of the no busi)
+        String prefix = "UPDATE [employee in business] SET end_date = '" + emp.Start_date + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date is null";
         command = prefix;// prefix;
 
         return command;

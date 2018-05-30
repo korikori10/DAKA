@@ -72,7 +72,7 @@ function renderBusinesses(results) {
     results = $.parseJSON(results.d);
     $('#businessSE').empty();
     $.each(results, function (i, row) {
-        dynamicLi = '<option value="' + row.Bus_id + '"> < a href= "#" > <h3>' + row.Bus_name + '</h3> <span class="ui-li-count"> ' + row.Bus_id+ '</span></a > </option>';
+        dynamicLi = '<option value="' + row.Bus_id + '"><h3>' + row.Bus_name + '</h3> </option>';
         $('#businessSE').append(dynamicLi);
     });
         var select = $("#businessSE").selectize({
