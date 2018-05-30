@@ -279,6 +279,23 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
     }
 
+    //employee update insurance
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string cancelInsurance(string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+
+
+        int updated = e.cancelInsurance(e);
+
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+    }
+
     //employee update gmah
     public string updateGmah(string EmployeeInfo)
     {

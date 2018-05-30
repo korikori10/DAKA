@@ -66,6 +66,16 @@ function changeInsurance() {
 
 }
 
+function cancelInsurance() {
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+    
+        EmployeeInfo.Com_insurance = 'False';
+        EmployeeInfo.Insurance = 'False';
+        EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
+        cancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+ 
+
+}
 
 function renderBusinesses(results) {
     //this is the callBackFunc 
@@ -158,6 +168,7 @@ $('.table').on('click', 'tr td button', function () {
     
 
 });
+
 $('#updateVisa').click(function () {
     $('#visaRenew').validate();
     

@@ -567,6 +567,35 @@ function updateInsurance(EmployeeInfo, current_row) {
 
 }
 
+//cancel employee insurance
+function cancelInsurance(EmployeeInfo, current_row) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+    // var table = $('#newemp');
+    $.ajax({
+        url: 'ajaxWebService.asmx/cancelInsurance',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        async: false,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                t1.row(current_row).remove().draw();
+            }, 1000);
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+
+
+}
+
 
 //update employee gmah
 

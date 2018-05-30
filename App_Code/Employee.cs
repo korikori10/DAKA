@@ -777,6 +777,16 @@ public class Employee
         return e;
 
     }
+    public int cancelInsurance(Employee emp)
+    {
+        DBServices dbs = new DBServices();
+
+        int e = dbs.cancelInsurance(emp);
+
+
+        return e;
+
+    }
 
     public int updateGmah(Employee emp)
     {
