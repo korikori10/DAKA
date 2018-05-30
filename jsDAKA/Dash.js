@@ -155,7 +155,7 @@ $('#updateVisa').click(function () {
     
     if ($('#visaRenew').valid()) {
         EmployeeInfo.Ex_date = $('#visaDate').val();
-        EmployeeInfo.Doc_id = $('#visaID').val();
+        EmployeeInfo.Doc_id = EmployeeInfo.pass;
         EmployeeInfo.Picture = empPic;
         EmployeeInfo.Doctype_id = '1';
         EmployeeInfo.Employee_pass_id = EmployeeInfo.pass
