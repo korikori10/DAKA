@@ -297,7 +297,9 @@ public class AJAXWebService : System.Web.Services.WebService
     }
 
     //employee update gmah
-    public string updateGmah(string EmployeeInfo)
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string updateGmahWS(string EmployeeInfo)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);

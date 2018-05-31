@@ -604,7 +604,7 @@ function updateGmah(EmployeeInfo, current_row) {
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
     $.ajax({
-        url: 'ajaxWebService.asmx/updateGmah',
+        url: 'ajaxWebService.asmx/updateGmahWS',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         data: emp,
