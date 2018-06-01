@@ -395,7 +395,7 @@ public class DBServices
         {
 
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM BUSINESSES";
+            string selectSTR = "SELECT*FROM v_businessTable";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             List<Business> businesses = new List<Business>();
@@ -410,6 +410,9 @@ public class DBServices
                 b.Phone = Convert.ToInt32(dr["phone"]);
                 b.Bus_type_code = Convert.ToInt32(dr["bus_type_code"]);
                 b.Contract_code = Convert.ToInt32(dr["contract_code"]);
+                b.Department_code= Convert.ToInt32(dr["department_code"]); ;
+                b.Department_name= dr["department_name"].ToString(); 
+                b.Bus_type_name= dr["bus_type_name"].ToString();
                 businesses.Add(b);
             }
 

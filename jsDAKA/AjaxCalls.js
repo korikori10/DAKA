@@ -63,11 +63,6 @@ function getEmployeess() {
                     }]
             });
 
-            //$('#studentTable tfoot th').each(function () {
-            //    var placeHolderTitle = $('#studentTable thead th').eq($(this).index()).text();
-            //    $(this).html('<input type="text" class="form-control input input-sm" placeholder = "Search ' + placeHolderTitle + '" />');
-            //});
-
         }
     });
 }
@@ -160,23 +155,44 @@ function getArchive() {
 
 //Get all businesses to Businusses table
 function getBusinessesTable() {
+    var datatableVariable = $('#BusinessTable');
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "ajaxWebService.asmx/getBusinessesTable",
         success: function (data) {
-            $datatableVariable = $('#BusinessTable').DataTable({
+                datatableVariable.DataTable({
+                dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'print',
+                                messageTop: 'Printing'
+                            },
+                            'copyHtml5',
+                            'excelHtml5',
+                            'pdfHtml5'
+                        ],
                 data: data,
                 columns: [
-                    {'data': 'Bus_id' },
+                    {
+                        'data': 'Bus_id',
+                        'visible': false
+                    }, 
                     { 'data': 'Bus_name' },
-                    { 'data': 'Phone'}
-                    
+                    { 'data': 'Department_name' },
+                    { 'data': 'Phone' },
+
+                    {
+                        'data': "",
+                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
+
+                    }
                 ]
+                    
             });
+
         }
     });
-
 }
 
 //Send SMS For Employees that needs to renew their visa
