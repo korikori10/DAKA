@@ -368,10 +368,26 @@
                                                 <h3 class="modal-title" id="myModalLabel35">האם להוציא עובד זה מדיור?</h3>
                                             </div>
                                             <form>
-                                                <div class="modal-footer">
-                                                    <input name="confirm" type="button" class="btn btn-outline-primary btn-lg" value="כן" />
-                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="לא" />
+                                                <div class="modal-body">
+                                                    <fieldset class="form-group floating-label-form-group">
+                                                        <input type="radio" id="noDiur" name="Diur" value="false" checked />
+
+                                                        <label for="input-17" class="">לא</label>
+                                                    </fieldset>
+
+                                                    <fieldset class="form-group floating-label-form-group">
+
+                                                        <input type="radio" id="yes" name="Diur" value="true" />
+
+                                                        <label for="input-18" class="">כן</label>
+                                                    </fieldset>
+
                                                 </div>
+                                                <div class="modal-footer">
+                                                    <input name="confirmDm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeDiur()" />
+                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                                </div>
+                                  
                                             </form>
                                         </div>
                                     </div>
