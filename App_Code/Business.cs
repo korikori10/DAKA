@@ -16,7 +16,9 @@ public class Business
     int phone;
     int bus_type_code;
     int contract_code;
-
+    int department_code;
+    string department_name;
+    string bus_type_name;
     public int Bus_id
     {
         get
@@ -118,6 +120,45 @@ public class Business
         set
         {
             contract_code = value;
+        }
+    }
+
+    public int Department_code
+    {
+        get
+        {
+            return department_code;
+        }
+
+        set
+        {
+            department_code = value;
+        }
+    }
+
+    public string Department_name
+    {
+        get
+        {
+            return department_name;
+        }
+
+        set
+        {
+            department_name = value;
+        }
+    }
+
+    public string Bus_type_name
+    {
+        get
+        {
+            return bus_type_name;
+        }
+
+        set
+        {
+            bus_type_name = value;
         }
     }
 
