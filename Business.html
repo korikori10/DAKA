@@ -117,9 +117,9 @@
                 <div class="col-md-12">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
-                            <li class="nav-item"><a class="nav-link" href="#" dir="rtl">פרטי העסק</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#" dir="rtl">מסמכים</a></li>
-                            <li class="nav-item"><a class="nav-link" href="EmployeeHistory.html" dir="rtl">אנשי קשר</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#busDetails" data-toggle="tab" dir="rtl">פרטי העסק</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" data-toggle="tab" dir="rtl">מסמכים</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contactsTab" data-toggle="tab" dir="rtl">אנשי קשר</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,8 +133,7 @@
                 <div class="col-md-12">
 
                     <div class="row">
-                        <!--Employee card-->
-                        <form class="form" id="BusinessDetails">
+                        
 
 
                             <section id="user-cards-with-square-thumbnail">
@@ -157,6 +156,8 @@
                                 </div>
                             </section>
 
+                                    <div class="tab-content">
+                                        <div class="fade tab-pane active in" id="busDetails"  aria-expanded="true">
                             <!--info-->
                             <div class="col-xl-9 col-md-8 col-xs-12">
                                 <div class="card">
@@ -174,76 +175,157 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block">
-                                            <!--<form class="form" id="EmployeeUpdate">-->
-                                            <div class="form-body">
-                                                <div class="row">
+                                        <div class="card-body collapse in">
+                                            <div class="card-block">
+                                                <form class="form" id="BusinessUpdate">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="bus_name">שם העסק : <span class="danger">*</span></label>
+                                                                <input type="text" class="form-control" id="bus_name" name="Bus_name" required=required />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="bus_id">:מספר עסק</label>
+                                                                <input type="text" class="form-control" id="bus_id" name="Bus_id" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="phoneNumber4"> טלפון  Phone Number :</label>
+                                                                <input type="tel" class="form-control" id="phoneNumber4" name="Phone" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="tbadd4">כתובת פרטית</label>
+                                                                <input type="text" class="form-control" id="textadd4" name="Add" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="tbcity4">עיר/ישוב</label>
+                                                                <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="bus_name">שם העסק : <span class="danger">*</span></label>
-                                                            <input type="text" class="form-control" id="bus_name" name="Bus_name" required>
+                                                            <label for="tbnum4">מספר בית</label>
+                                                            <input type="number" class="form-control" id="textaddnum4" name="Add_num" />
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="bus_id">:מספר עסק</label>
-                                                            <input type="text" class="form-control" id="bus_id" name="Bus_id">
-                                                        </div>
+                                                    <div class="form-actions right" id="info">
+                                                        <button type="button" class="btn btn-outline-warning mr-1">
+                                                            <i class="icon-cross2"></i> מחק
+                                                        </button>
+                                                        <button id="save" type="button" class="btn btn-outline-primary">
+                                                            <i class="icon-check2"></i> שמור
+                                                        </button>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="phoneNumber4"> טלפון  Phone Number :</label>
-                                                            <input type="tel" class="form-control" id="phoneNumber4" name="Phone">
-                                                        </div>
+                                               </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               </div>
+                                    <div class="fade tab-pane" id="contactsTab" aria-expanded="false">
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">איש קשר</h4>
+                                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                                    <div class="heading-elements">
+                                                        <ul class="list-inline mb-0">
+                                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                        </ul>
                                                     </div>
+                                                </div>
+                                                <div class="card-body collapse in">
+                                                    <div class="card-block">
+                                                        <form class="form">
+                                                            <div class="form-body">
+                                                                <h4 class="form-section"><i class="icon-eye6"></i>פרטים</h4>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="contact_name">שם מלא:</label>
+                                                                            <input type="text" class="form-control" id="contact_name" name="Contact_name" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="bus_id">:מספר איש קשר</label>
+                                                                            <input type="text" class="form-control" id="bus_id" name="Bus_id" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="placeofworkTitle4">בית עסק:</label>
+                                                                            <select class="selectize-select form-control" id="businessSE" name="Bus_id"></select>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="role_id">תפקיד</label>
+                                                                                <select class="selectize-select" id="role_id" name="Role_id"></select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="phoneNumber4"> טלפון  Phone Number :</label>
+                                                                            <input type="tel" class="form-control" id="phoneNumber4" name="Phone" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="email">דוא"ל: </label>
+                                                                        <input type="email" class="form-control" id="email" name="Email" />
+                                                                    </div>
+                                                                </div>
 
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbadd4">כתובת פרטית</label>
-                                                            <input type="text" class="form-control" id="textadd4" name="Add">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbcity4">עיר/ישוב</label>
-                                                            <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tbnum4">מספר בית</label>
-                                                        <input type="number" class="form-control" id="textaddnum4" name="Add_num">
-                                                    </div>
-                                                </div>
+                                                            </div>
 
-                                                <div class="form-actions right" id="info">
-                                                    <button type="button" class="btn btn-outline-warning mr-1">
-                                                        <i class="icon-cross2"></i> מחק
-                                                    </button>
-                                                    <button id="save" type="button" class="btn btn-outline-primary">
-                                                        <i class="icon-check2"></i> שמור
-                                                    </button>
+                                                            <div class="form-actions right">
+                                                                <button type="button" class="btn btn-outline-warning mr-1">
+                                                                    <i class="icon-cross2"></i> Cancel
+                                                                </button>
+                                                                <button type="submit" class="btn btn-outline-primary">
+                                                                    <i class="icon-check2"></i> Save
+                                                                </button>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        
 
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
 
     <footer class="footer footer-fixed footer-dark navbar-border">
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">DAKA </a>, Tom And Kori Rule </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>

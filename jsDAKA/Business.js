@@ -8,6 +8,7 @@ var h = false;
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
+    getContactsByBus(renderContacts);
     getBusinesses(renderBusinesses);  
 
 });
