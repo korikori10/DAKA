@@ -626,6 +626,33 @@ function updateGmah(EmployeeInfo, current_row) {
 
 }
 
+function updateDiur(EmployeeInfo, current_row) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+    $.ajax({
+        url: 'ajaxWebService.asmx/updateDiur',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        async: false,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                //  NotActiveEmpDatatableVariable.row(current_row).remove().draw();
+            }, 1000);
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+
+
+}
+
 function getCities(renderCities) {
     $.ajax({
         url: 'ajaxWebService.asmx/getCities',

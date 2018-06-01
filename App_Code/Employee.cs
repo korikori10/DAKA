@@ -798,6 +798,17 @@ public class Employee
         return e;
 
     }
+    
+        public int updateDiur(Employee emp)
+    {
+        DBServices dbs = new DBServices();
+
+        int e = dbs.updateDiur(emp);
+
+
+        return e;
+
+    }
     public int updateVisa(Employee emp)
     {
         DBServices dbs = new DBServices();

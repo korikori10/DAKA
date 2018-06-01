@@ -53,6 +53,19 @@ function changeGmah() {
     
 }
 
+function changeDiur() {
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+    if ($("input[name=Diur]:checked").val()) {
+        EmployeeInfo.Com_app = 'False';//כן תוציא לי מדיור
+        updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+    }
+    else {
+        EmployeeInfo.Com_app = 'True';//לא להוציא מדיור
+        updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+    }
+
+}
+
 function changeInsurance() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=insured]:checked").val()) {
