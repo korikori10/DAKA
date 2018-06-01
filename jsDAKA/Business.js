@@ -14,6 +14,24 @@ $(document).ready(function () {
 });
 
 
+BusinessInfo = new Object();
+
+
+// Button Clicks In Tables
+$('.table').on('click', 'tr td button', function () {
+    //Take the Employee ID from the table row
+    sessionStorage.removeItem("busiInfo")
+    tr = $(this).closest('tr');//.find('td:first').text();
+    tableId = $(this).closest('.table').attr('id');
+    whichid = $(this).closest('button').attr('name');
+    var data = $("#" + tableId).DataTable().row(tr).data();
+    BusinessInfo.Bus_id = data['Bus_id'];
+    if (whichid == "edit") {
+        //Go To Business Page
+        sessionStorage.setItem("busiInfo", BusinessInfo.Bus_id);
+        window.location = "Business.html";
+    }
+});
 function fixDate(date) {
 	var date = new Date(parseInt(date.substr(6)));
     var month = date.getMonth() + 1;

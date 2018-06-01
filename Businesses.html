@@ -9,27 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script type="text/javascript">
         $(document).ready(function () {
-            getBusinessesTable();
+        getBusinessesTable();
 
-        });
-        BusinessInfo = new Object();
-
-
-        // Button Clicks In Tables
-        $('.table').on('click', 'tr td button', function () {
-            //Take the Employee ID from the table row
-            sessionStorage.removeItem("busiInfo")
-            tr = $(this).closest('tr');//.find('td:first').text();
-            tableId = $(this).closest('.table').attr('id');
-            whichid = $(this).closest('button').attr('name');
-            var data = $("#" + tableId).DataTable().row(tr).data();
-            BusinessInfo.Bus_id = data['Bus_id'];
-            if (whichid == "edit") {
-                //Go To Business Page
-                sessionStorage.setItem("busiInfo", BusinessInfo.Bus_id);
-                window.location = "Business.html";
-            }
-        });
+});
     </script>
     <link href="StyleSheet.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico" />
@@ -224,6 +206,7 @@
     <script src="app-assets/js/scripts/extensions/block-ui.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/buttons/button-ladda.js"></script>
     <script src="app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-button-basic.js"></script>-->
+    <script src="jsDAKA/Business.js"></script>
     <script src="jsDAKA/AjaxCalls.js"></script>
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->
@@ -232,7 +215,6 @@
     <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/buttons/spin.min.js"></script>
-
     <!--לשים לב לשנות!!-->
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
