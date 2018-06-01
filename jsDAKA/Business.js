@@ -2,19 +2,21 @@
 var Business = new Object();
 resultsSave = new Object();
 var updated = new Object();
+var frm = new Object();
+var data = new Object();
 var h = false;
+BusinessInfo = new Object();
 
 
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-    getContactsByBus(renderContacts);
-    getBusinesses(renderBusinesses);  
+   // getContactsByBus(renderContacts);
+      
 
 });
 
 
-BusinessInfo = new Object();
 
 
 // Button Clicks In Tables
@@ -76,12 +78,19 @@ function populate(frm, data) {
 function renderBusinesses(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
+    var busID = sessionStorage.getItem("busiInfo");
     $('#businessSE').empty();
     $.each(results, function (i, row) {
-        dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
-        $('#businessSE').append(dynamicLi);
+
+        if (row.Bus_id == busID) {
+            frm = $("#BusinessUpdate");
+             data = row;
+            resultsSave = row;
+            populate(frm, data);
+        }
 
     });
+    $(".selectize-select").selectize();
 }
 
 function renderCountries(results) {
@@ -92,10 +101,7 @@ function renderCountries(results) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamiCountryList').append(dynamicLi);
     });
-    EmployeeInfo.pass = sessionStorage.getItem("empInfo");
-    $("#Employee_pass_id").val(EmployeeInfo.pass);
-    
-        getEmployeeById(EmployeeInfo, renderEmployeeByID);
+    getBusinesses(renderBusinesses);
         $('.selectize-select').selectize;
 }
 
@@ -110,31 +116,31 @@ function renderCities(results) {
 }
 
 //Put all data in place
-function renderEmployeeByID(results) {
+//function renderEmployeeByID(results) {
 
-    results = $.parseJSON(results.d);
+//    results = $.parseJSON(results.d);
 
-    if (results.Employee_pass_id === null) { results = null; }
-    else {
+//    if (results.Employee_pass_id === null) { results = null; }
+//    else {
 
-        var frm = $("#EmployeeUpdate");
-        var data = results;
-        resultsSave = results;
-        data.Birthday = fixDate(data.Birthday);
-        data.Start_date = fixDate(data.Start_date);
-        populate(frm, data);
-        if (data.Picture != null) {
-            $("#empImg").attr("src", data.Picture)
-        }
-        else {
-            $("#empImg").attr("src", "imges/no-img.jpg")
-        }
+//        var frm = $("#EmployeeUpdate");
+//        var data = results;
+//        resultsSave = results;
+//        data.Birthday = fixDate(data.Birthday);
+//        data.Start_date = fixDate(data.Start_date);
+//        populate(frm, data);
+//        if (data.Picture != null) {
+//            $("#empImg").attr("src", data.Picture)
+//        }
+//        else {
+//            $("#empImg").attr("src", "imges/no-img.jpg")
+//        }
 
-        $(".selectize-select").selectize();
+//        $(".selectize-select").selectize();
    
 
-    }
-}
+//    }
+//}
 
 //create 1 array for json from the form
     $.fn.serializeObject = function () {
