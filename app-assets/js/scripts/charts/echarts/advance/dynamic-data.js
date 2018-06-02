@@ -10,7 +10,18 @@
 
 // Tornado chart
 // ------------------------------
-
+var eJ ;
+var eF ;
+var eM ;
+var e4 ;
+var e5 ;
+var e6 ;
+var e7 ;
+var e8 ;
+var e9 ;
+var e10;
+var e11 ;
+var e12 ;
 $(window).on("load", function(){
 
     // Set paths
@@ -81,7 +92,7 @@ $(window).on("load", function(){
                 xAxis : [
                     {
                         type : 'category',
-                        boundaryGap : true,
+                     //   boundaryGap : true,
                         data : (function (){
                             var now = new Date();
                             var res = [];
@@ -95,15 +106,9 @@ $(window).on("load", function(){
                     },
                     {
                         type : 'category',
-                        boundaryGap : true,
-                        data : (function (){
-                            var res = [];
-                            var len = 10;
-                            while (len--) {
-                                res.push(len + 1);
-                            }
-                            return res;
-                        })()
+                       // boundaryGap : true,
+                        data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December'
+]
                     }
                 ],
 
@@ -113,7 +118,7 @@ $(window).on("load", function(){
                         type : 'value',
                         scale: true,
                         name: 'New Employee',
-                        boundaryGap: [0.2, 0.2]
+                     //   boundaryGap: [0.2, 0.2]
                     },
                     {
                         name: 'growth (%)',
