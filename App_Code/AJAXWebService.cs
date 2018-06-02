@@ -502,7 +502,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
         b = b.updateBusiness(b);
         // serialize to string
-        string jsonStringCategory = js.Serialize(e);
+        string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
 
     }

@@ -2097,7 +2097,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE Business SET bus_name = '"+ bus.Bus_name + "add = '"+ bus.Add + "add_city = '" + bus.Add_city + bus.Add_num + bus.Bus_type_code + bus.Department_code; 
+        String prefix = "UPDATE Business SET bus_name = '"+ bus.Bus_name + "add = '"+ bus.Add + "add_city = '" + bus.Add_city + "add_num = '" + bus.Add_num + "bus_type_code = '" + bus.Bus_type_code + "department_code = '" + bus.Department_code; 
         command = prefix;// prefix;
 
         return command;
