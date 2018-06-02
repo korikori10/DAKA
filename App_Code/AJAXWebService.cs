@@ -92,7 +92,21 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-//selectize disable list
+    
+           [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getContacts()
+    {
+        Contact c = new Contact();
+        List<Contact> LC = c.getContacts();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(LC);
+        return jsonStringCategory;
+
+    }
+
+    //selectize disable list
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getDisable()

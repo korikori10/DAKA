@@ -753,6 +753,23 @@ function getBusinesses(renderBusinesses) {
         }
     });
 }
+
+function getContactsByBus(renderContacts) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getContacts',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderContacts(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 function getDreason(renderDreasons) {
     $.ajax({
         url: 'ajaxWebService.asmx/getDisable',
