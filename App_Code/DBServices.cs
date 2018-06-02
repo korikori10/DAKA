@@ -2044,7 +2044,7 @@ public class DBServices
     //--------------------------------------------------------------------
     // Update business
     //--------------------------------------------------------------------
-    public Business updateBusiness(Business emp)
+    public Business updateBusiness(Business bus)
     {
 
         SqlConnection con;
@@ -2060,14 +2060,14 @@ public class DBServices
             throw (ex);
         }
 
-        String cStr = BuildUpdateCommand(emp);      // helper method to build the insert string
+        String cStr = BuildUpdateCommandBusiness(bus);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
 
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
-            return emp;
+            return bus;
         }
         catch (Exception ex)
         {
@@ -2089,7 +2089,7 @@ public class DBServices
 
 
     //--------------------------------------------------------------------
-    // Build the business a employy command String
+    // Build the business command String
     //--------------------------------------------------------------------
     private String BuildUpdateCommandBusiness(Business bus)
     {
@@ -2097,7 +2097,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE Business SET bus_name = '"+ bus.Bus_name + "add = '"+ bus.Add + "add_city = '" + bus.Add_city + "add_num = '" + bus.Add_num + "bus_type_code = '" + bus.Bus_type_code + "department_code = '" + bus.Department_code; 
+        String prefix = "UPDATE BUSINESSES SET bus_name = '"+ bus.Bus_name + "', [add] = '"+ bus.Add + "', add_city = '" + bus.Add_city + "', add_num = '" + bus.Add_num + "', bus_type_code = '" + bus.Bus_type_code + "', department_code = " + bus.Department_code + " Where bus_id = " + bus.Bus_id; 
         command = prefix;// prefix;
 
         return command;

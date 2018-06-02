@@ -194,7 +194,7 @@ public class Business
     {
         DBServices dbs = new DBServices();
 
-        Business b = new Business();// dbs.update(bus);
+        Business b =  dbs.updateBusiness(bus);
    
 
         return b;

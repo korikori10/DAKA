@@ -189,7 +189,7 @@ function renderContacts(results) {
     };
 
 //Check save or delete
-$("[name=updateB").on('click', function () {
+$("[name='updateB'").on('click', function () {
 
         swal({
             title: "האם אתה בטוח?",
