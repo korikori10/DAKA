@@ -58,7 +58,7 @@ $(window).on("load", function(){
 
                 // Add legend
                 legend: {
-                    data: ['New orders', 'In progress', 'Closed deals']
+                    data: ['עובדים חדשים']//, 'In progress', 'Closed deals']
                 },
 
                 // Add custom colors
@@ -72,7 +72,7 @@ $(window).on("load", function(){
                     type: 'category',
                     boundaryGap: false,
                     data: [
-                        'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+                        'ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי'
                     ]
                 }],
 
