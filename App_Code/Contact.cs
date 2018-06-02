@@ -138,4 +138,13 @@ public class Contact
         return LC;
 
     }
+    public List<Contact> getContacts()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Contact> LC = dbs.readContacts();
+
+        return LC;
+
+    }
 }

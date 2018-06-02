@@ -1,17 +1,18 @@
 ﻿var EmployeeInfo = new Object();
 var Business = new Object();
 resultsSave = new Object();
+var contactSave = new Object();
 var updated = new Object();
 var frm = new Object();
 var data = new Object();
 var h = false;
-BusinessInfo = new Object();
+var BusinessInfo = new Object();
 
 
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-   // getContactsByBus(renderContacts);
+  
       
 
 });
@@ -102,6 +103,7 @@ function renderCountries(results) {
         $('#DynamiCountryList').append(dynamicLi);
     });
     getBusinesses(renderBusinesses);
+    getContactsByBus(renderContacts);
         $('.selectize-select').selectize;
 }
 
@@ -115,32 +117,53 @@ function renderCities(results) {
     });
 }
 
+function createContactForm() {
+    // get the last DIV which ID starts with ^= "contact"
+    var $div = $('div[id^="contact"]:last');
+
+    // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+    // And increment that number by 1
+    var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
+    var id = 'contact' + num;
+
+    // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
+    var contact = '<div class="col-md-6" id="'+ id +'">'+ $div.html() + '</div>'; //$div.clone().prop('id', id);
+
+    // Finally insert $klon wherever you want
+    $(contact).appendTo('#contactsTab');
+    return id;
+}
+
 //Put all data in place
-//function renderEmployeeByID(results) {
+function renderContacts(results) {
 
-//    results = $.parseJSON(results.d);
+    results = $.parseJSON(results.d);
+    var busID = sessionStorage.getItem("busiInfo");
+    $.each(results, function (i, row) {
 
-//    if (results.Employee_pass_id === null) { results = null; }
-//    else {
+        if (row.Bus_id == busID) {
+            if (i == 0) {
+                frm = $("#contact1");
+                data = row;
+                contactSave[i] = row;
+                populate(frm, data);
+            }
+            else {
+                frm = $("#" + createContactForm());
+                data = row;
+                contactSave[i] = row;
+                populate(frm, data);
+            }
 
-//        var frm = $("#EmployeeUpdate");
-//        var data = results;
-//        resultsSave = results;
-//        data.Birthday = fixDate(data.Birthday);
-//        data.Start_date = fixDate(data.Start_date);
-//        populate(frm, data);
-//        if (data.Picture != null) {
-//            $("#empImg").attr("src", data.Picture)
-//        }
-//        else {
-//            $("#empImg").attr("src", "imges/no-img.jpg")
-//        }
+        }
 
-//        $(".selectize-select").selectize();
+    });
+
+
    
 
-//    }
-//}
+    }
+
 
 //create 1 array for json from the form
     $.fn.serializeObject = function () {
@@ -166,7 +189,7 @@ function renderCities(results) {
     };
 
 //Check save or delete
-    $("#info").on('click', function () {
+$("[name=updateB").on('click', function () {
 
         swal({
             title: "האם אתה בטוח?",
@@ -183,8 +206,8 @@ function renderCities(results) {
                 if (isConfirm) {
 
                     h = true;
-                    EmployeeInfo = $('#EmployeeUpdate').serializeObject();
-                    UpdateEmp(EmployeeInfo);
+                    BusinessInfo = $('#BusinessUpdate').serializeObject();
+                    UpdateBus(BusinessInfo);
 
 
                 }
@@ -200,18 +223,9 @@ function renderCities(results) {
     });
 
 //
-    function UpdateEmp(array) {
+    function UpdateBus(array) {
 
-        updated = true;
-        if (array.Business == resultsSave.Business) {
-            array.updateBus = false;
-        }
-        else {
-            array.updateBus = true;
-        }
 
-        UpdateEmployee({ EmployeeInfo: JSON.stringify(array) }, renderEmployeeByID);
-        if (array.Sys_id != resultsSave.Sys_id) {
-            sendEmail({ EmployeeInfo: JSON.stringify(array) })
-        }
+        UpdateBusiness({ BusinessInfo: JSON.stringify(array) }, renderBusinesses);
+ 
     }

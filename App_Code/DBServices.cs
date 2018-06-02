@@ -435,6 +435,53 @@ public class DBServices
     }
 
     /// <summary>
+    /// reads contacts from sql
+    /// </summary>
+    /// <returns>list of contacts</returns>
+    public List<Contact> readContacts()
+    {
+        SqlConnection con = null;
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_contacts";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Contact> contacts = new List<Contact>();
+            while (dr.Read())
+            {   // Read till the end of the data into a row
+                Contact b = new Contact();
+                b.Bus_id = Convert.ToInt32(dr["bus_id"]);
+                b.Contact_name = dr["contact_name"].ToString();
+                b.Email = dr["email"].ToString();
+                b.Contact_id = Convert.ToInt32(dr["contact_id"]);
+                b.Role_name = dr["role_name"].ToString(); 
+                b.Phone = Convert.ToInt32(dr["phone"]);
+                b.Role_id = Convert.ToInt32(dr["role_id"]);
+                b.Role_desc = dr["role_desc"].ToString();
+                contacts.Add(b);
+            }
+
+            return contacts;
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+        }
+    }
+
+    /// <summary>
     /// reads employees without business from sql
     /// </summary>
     /// <returns>list of employees</returns>
