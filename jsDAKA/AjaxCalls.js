@@ -572,6 +572,31 @@ function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
         });
 }
 
+//update spesific business
+function UpdateBusiness(BusinessInfo, renderBusinesses) {
+
+    // serialize the object to JSON string
+    var bus = JSON.stringify(BusinessInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/updateBusiness',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: bus,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+            renderEmployeeByID(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //update employee insurance
 function updateInsurance(EmployeeInfo, current_row) {
 

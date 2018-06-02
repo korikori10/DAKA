@@ -490,6 +490,23 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+    
+            [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string updateBusiness(string BusinesBusinessInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Business b = js.Deserialize<Business>(BusinessInfo);
+
+
+
+        b = b.updateBusiness(b);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(e);
+        return jsonStringCategory;
+
+    }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void getEmployeesnobusiness()

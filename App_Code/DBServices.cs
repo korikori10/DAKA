@@ -2040,5 +2040,67 @@ public class DBServices
 
         return command;
     }
+
+    //--------------------------------------------------------------------
+    // Update business
+    //--------------------------------------------------------------------
+    public Business update(Business emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildUpdateCommand(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return emp;
+        }
+        catch (Exception ex)
+        {
+            return null;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+
+    //--------------------------------------------------------------------
+    // Build the business a employy command String
+    //--------------------------------------------------------------------
+    private String BuildUpdateCommand(Employee emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        String prefix = "UPDATE EMPLOYEE SET lname = '" + emp.Lname + "', fname = '" + emp.Fname + "', birthday = '" + emp.Birthday + "', gender = '" + emp.Gender + "', origin_country = '" + emp.Origin_country + "', il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = '" + emp.Add + "', add_num = '" + emp.Add_num + "', phone = '" + emp.Phone + "', com_app = '" + emp.Com_app + "', monthly_rent = '" + emp.Rent + "', michpal_id = '" + emp.Sys_id + "', insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code + "', active = '" + emp.Active + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        command = prefix;// prefix;
+
+        return command;
+    }
     #endregion
 }
