@@ -52,7 +52,7 @@ $(window).on("load", function(){
 
                 // Add Legend
                 legend: {
-                    data:['Latest price', 'Pre-order queue']
+                    data: ['New Employees', 'New Employees Growth']
                 },
 
                 // Add custom colors
@@ -112,44 +112,42 @@ $(window).on("load", function(){
                     {
                         type : 'value',
                         scale: true,
-                        name : 'Price',
+                        name: 'New Employee',
                         boundaryGap: [0.2, 0.2]
                     },
                     {
-                        type : 'value',
-                        scale: true,
-                        name : 'Futures volume',
-                        boundaryGap: [0.2, 0.2]
+                        name: 'growth (%)',
+                        position: 'Right',
+                        type: 'value',
+                        name: "%",
+                        axisLabel: {
+                            formatter: "{value} %"
+                        },
+                        max: 100,
+                        inverse: true
                     }
                 ],
 
                 // Add series
                 series : [
                     {
-                        name:'Pre-order queue',
+                        name:'New Employees',
                         type:'bar',
                         xAxisIndex: 1,
                         yAxisIndex: 1,
-                        data:(function (){
-                            var res = [];
-                            var len = 10;
-                            while (len--) {
-                                res.push(Math.round(Math.random() * 1000));
-                            }
-                            return res;
-                        })()
+                        data: [eJ ,eF,eM,e4, e5, e6,e7,e8 , e9 ,e10 ,e11 ,e12 ]
                     },
                     {
-                        name:'Latest price',
-                        type:'line',
-                        data:(function (){
-                            var res = [];
-                            var len = 10;
-                            while (len--) {
-                                res.push((Math.random()*10 + 5).toFixed(1) - 0);
-                            }
-                            return res;
-                        })()
+                        name:'New Employees Growth',
+                        type: 'line',
+                        data: [eJ, (eF - eJ) / eJ, (eM - eF) / eF, (e4 - eM) / eM, (e5 - e4) / e4, (e6 - e5) / e5, (e7 - e6) / e6, (e8 - e7) / e7, (e9 - e8) / e8, (e10 - e9) / e9, (e11 - e10) / e10, (e12 - e11) / e11]//(function (){
+                        //    var res = [];
+                        //    var len = 10;
+                        //    while (len--) {
+                        //        res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                        //    }
+                        //    return res;
+                        //})()
                     }
                 ]
             };

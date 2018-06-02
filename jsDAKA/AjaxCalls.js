@@ -380,6 +380,26 @@ function StatisticsEmpByYear(RenderempByYear) {
 
 }
 
+//statistics page , emp growth by month
+function StatisticsEmpByMonth(RenderempByMonth) {
+    $.ajax({
+        url: 'AJAXWebService.asmx/ReadEmpByMonthStatistics',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            RenderempByMonth(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
+
+
 //חידושי ויזות
 function ReadEmployeesNeedNewVisa() { 
 $.ajax({

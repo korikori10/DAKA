@@ -543,6 +543,19 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadEmpByMonthStatistics()
+    {
+        DBServices db = new DBServices();
+        int[] arr = db.ReadEmpByMonthStatistics();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(arr);
+        return jsonStringCategory;
+
+    }
+
     //send SMS
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
