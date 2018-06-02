@@ -10,8 +10,11 @@
 
 // Basic Area chart
 // ------------------------------
+var e2016;
+var e2017;
+var e2018;
 $(window).on("load", function(){
-
+    StatisticsEmpByYear(RenderempByYear);
     // Set paths
     // ------------------------------
 
@@ -58,7 +61,7 @@ $(window).on("load", function(){
 
                 // Add legend
                 legend: {
-                    data: ['עובדים חדשים']//, 'In progress', 'Closed deals']
+                    data: ['New Employees', 'New Employees Growth']//, 'In progress ', 'Closed deals']
                 },
 
                 // Add custom colors
@@ -72,38 +75,55 @@ $(window).on("load", function(){
                     type: 'category',
                     boundaryGap: false,
                     data: [
-                        'ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי'
+                        //      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December'
+                        '2016', '2017', '2018'
                     ]
                 }],
 
                 // Vertical axis
                 yAxis: [{
+                    name: 'New Employee',
+                    position: 'Left',
                     type: 'value'
+                },
+                    {
+                     name: 'growth (%)',
+                    position:'Right',
+                    type: 'value',
+                    name: "%",
+                    axisLabel: {
+                        formatter: "{value} %"
+                    },
+                    max:100,
+                    inverse: true
                 }],
 
                 // Add series
                 series: [
                     {
-                        name: 'Closed deals',
+                        name: 'New Employees',
                         type: 'line',
                         smooth: true,
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [10, 12, 21, 54, 260, 830, 710]
-                    },
-                    {
-                        name: 'In progress',
-                        type: 'line',
-                        smooth: true,
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [30, 182, 434, 791, 390, 30, 10]
-                    },
-                    {
-                        name: 'New orders',
-                        type: 'line',
-                        smooth: true,
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [1320, 1132, 601, 234, 120, 90, 20]
+                        itemStyle: { normal: { areaStyle: { type: 'default' } } },
+                        data: [e2016, e2017, e2018]
                     }
+                    ,
+                    {
+                        name: 'New Employees Growth',
+                        type: 'line',
+                        yAxisIndex:1,
+                        smooth: true,
+                        
+                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                        data: [e2016, ((e2017 - e2016) / e2016)*100, ((e2018-e2017)/ e2017)*100]
+                    }//,
+                    //{
+                    //    name: 'New Employees',
+                    //    type: 'line',
+                    //    smooth: true,
+                    //    itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                    //    data: [1320, 1132, 601, 234, 120, 90, 20]
+                    //}
                 ]
             };
 
@@ -133,3 +153,10 @@ $(window).on("load", function(){
         }
     );
 });
+function RenderempByYear(results) {
+    statistics = results.d;
+    e2016 = statistics[1];
+    e2017 = statistics[3];
+    e2018 = statistics[5];
+
+}

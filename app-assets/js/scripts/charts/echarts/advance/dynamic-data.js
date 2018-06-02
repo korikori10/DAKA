@@ -15,7 +15,7 @@ $(window).on("load", function(){
 
     // Set paths
     // ------------------------------
-
+    StatisticsEmpByMonth(RenderempByMonth);
     require.config({
         paths: {
             echarts: '../../../app-assets/vendors/js/charts/echarts'
@@ -207,3 +207,18 @@ $(window).on("load", function(){
         }
     );
 });
+function RenderempByMonth(results) {
+    statistics = results.d;
+    eJ = statistics[1];
+    eF = statistics[3];
+    eM = statistics[5];
+    e4 = statistics[7];
+    e5 = statistics[9];
+    e6 = statistics[11];
+    e7 = statistics[13];
+    e8 = statistics[15];
+    e9 = statistics[17];
+    e10 = statistics[19];
+    e11 = statistics[21];
+    e12 = statistics[23];
+}

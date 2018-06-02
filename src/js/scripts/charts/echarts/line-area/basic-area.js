@@ -58,7 +58,7 @@ $(window).on("load", function(){
 
                 // Add legend
                 legend: {
-                    data: ['New orders', 'In progress', 'Closed deals']
+                    data: ['עובדים חדשים', 'In progress', 'Closed deals']
                 },
 
                 // Add custom colors

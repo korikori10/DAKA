@@ -957,6 +957,96 @@ public class DBServices
         }
     }
 
+    public int[] ReadEmpByYearStatistics()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+            // int total , grandtotal ;
+            int[] arr = new int[4];
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_growth_by_years_on_emp";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            User user = new User();
+            while (dr.Read())
+            {
+                arr[0] = Convert.ToInt32(dr["2016"]);
+                arr[1] = Convert.ToInt32(dr["2017"]);
+                arr[2] = Convert.ToInt32(dr["2018"]);
+
+            }
+
+            return arr;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
+    public int[] ReadEmpByMonthStatistics()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+            
+            int[] arr = new int[12];
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_growth_by_months_on_emp";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            while (dr.Read())
+            {
+                arr[0] = Convert.ToInt32(dr["Junuary"]);
+                arr[1] = Convert.ToInt32(dr["February"]);
+                arr[2] = Convert.ToInt32(dr["March"]);
+                arr[3] = Convert.ToInt32(dr["April"]);
+                arr[4] = Convert.ToInt32(dr["May"]);
+                arr[5] = Convert.ToInt32(dr["June"]);
+                arr[6] = Convert.ToInt32(dr["July"]);
+                arr[7] = Convert.ToInt32(dr["August"]);
+                arr[8] = Convert.ToInt32(dr["September"]);
+                arr[9] = Convert.ToInt32(dr["October"]);
+                arr[10] = Convert.ToInt32(dr["November"]);
+                arr[11] = Convert.ToInt32(dr["December"]);
+
+            }
+
+            return arr;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
     #endregion
 
 

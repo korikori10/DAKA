@@ -361,6 +361,24 @@ function StatisticsAllEmp(RenderTotalAllemp) {
     });
 
 }
+//statistics page , emp growth by year
+function StatisticsEmpByYear(RenderempByYear) {
+    $.ajax({
+        url: 'AJAXWebService.asmx/ReadEmpByYearStatistics',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            RenderempByYear(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
 
 //חידושי ויזות
 function ReadEmployeesNeedNewVisa() { 
