@@ -190,4 +190,14 @@ public class Business
         return BC;
 
     }
+    public Business updateBusiness(Business bus)
+    {
+        DBServices dbs = new DBServices();
+
+        Business b = new Business();// dbs.update(bus);
+   
+
+        return b;
+
+    }
 }

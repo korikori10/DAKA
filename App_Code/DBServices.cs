@@ -2091,13 +2091,13 @@ public class DBServices
     //--------------------------------------------------------------------
     // Build the business a employy command String
     //--------------------------------------------------------------------
-    private String BuildUpdateCommandBusiness(Business emp)
+    private String BuildUpdateCommandBusiness(Business bus)
     {
         String command;
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET lname = '"; //+ emp.bu + "', fname = '" + emp.Fname + "', birthday = '" + emp.Birthday + "', gender = '" + emp.Gender + "', origin_country = '" + emp.Origin_country + "', il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = '" + emp.Add + "', add_num = '" + emp.Add_num + "', phone = '" + emp.Phone + "', com_app = '" + emp.Com_app + "', monthly_rent = '" + emp.Rent + "', michpal_id = '" + emp.Sys_id + "', insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code + "', active = '" + emp.Active + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE Business SET bus_name = '"+ bus.Bus_name + "add = '"+ bus.Add + "add_city = '" + bus.Add_city + bus.Add_num + bus.Bus_type_code + bus.Department_code; 
         command = prefix;// prefix;
 
         return command;
