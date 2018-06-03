@@ -93,7 +93,7 @@ function renderBusinesses(results) {
         }
 
     });
-    $(".selectize-select").selectize();
+ 
 }
 
 function renderCountries(results) {
@@ -106,7 +106,7 @@ function renderCountries(results) {
     });
     getBusinesses(renderBusinesses);
     getContactsByBus(renderContacts);
-        $('.selectize-select').selectize;
+     
 }
 
 function renderCities(results) {
@@ -149,22 +149,25 @@ function createContactForm() {
     $(contact).appendTo('#contactsTab');
     return id;
 }
+function rolesSelect() {
+    $("[name='Role_id']:last").empty();
+    $.each(roles, function (i, row) {
+        dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
+        $("[name='Role_id']:last").append(dynamicLi);
 
+    });
+}
 //Put all data in place
 function renderContacts(results) {
 
-    $("name='Role_id'").empty();
-    $.each(roles, function (i, row) {
-        dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
-        $("name='Role_id'").append(dynamicLi);
 
-    });
     results = $.parseJSON(results.d);
     var busID = sessionStorage.getItem("busiInfo");
     $.each(results, function (i, row) {
 
         if (row.Bus_id == busID) {
             if (i == 0) {
+                rolesSelect();
                 frm = $("#contact1");
                 data = row;
                 contactSave[i] = row;
@@ -172,6 +175,7 @@ function renderContacts(results) {
             }
             else {
                 frm = $("#" + createContactForm());
+                rolesSelect();
                 data = row;
                 contactSave[i] = row;
                 populate(frm, data);
@@ -181,7 +185,7 @@ function renderContacts(results) {
 
     });
 
-
+    $('.selectize-select').selectize();
    
 
     }
