@@ -339,6 +339,52 @@ public class DBServices
 
 
     /// <summary>
+    /// Gets all deparments from DB
+    /// </summary>
+    /// <returns></returns>
+    public List<Department> readDepartments()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM DEPARTMENT_TYPE ";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Department> deps = new List<Department>();
+            while (dr.Read())
+            {
+
+                Department dep = new Department();
+                dep.Id = Convert.ToInt32(dr["department_code"]);
+                dep.Name = dr["department_name"].ToString();
+                
+
+
+
+                deps.Add(dep);
+            }
+            return deps;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
+    /// <summary>
     /// reads cities from sql
     /// </summary>
     /// <returns>list of cities</returns>

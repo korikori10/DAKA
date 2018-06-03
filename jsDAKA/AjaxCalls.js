@@ -799,6 +799,23 @@ function getBusinesses(renderBusinesses) {
     });
 }
 
+function getDepartments(renderDepartments)
+{
+    $.ajax({
+        url: 'ajaxWebService.asmx/getDepartments',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderDepartments(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 function getContactsByBus(renderContacts) {
     $.ajax({
         url: 'ajaxWebService.asmx/getContacts',
