@@ -586,7 +586,18 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadBusiByYearStatistics()
+    {
+        DBServices db = new DBServices();
+        Dictionary<int,int> arr = db.ReadBusiByYearStatistics();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(arr);
+        return jsonStringCategory;
 
+    }
     //send SMS
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
