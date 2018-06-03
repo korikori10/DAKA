@@ -1140,15 +1140,15 @@ public class DBServices
         }
     }
 
-    public Dictionary<int,int> ReadBusiByYearStatistics()
+    public List<Business> ReadBusiByYearStatistics()
     {
         SqlConnection con = null;
 
         try
         {
-            Dictionary<int, int> arr = new Dictionary<int, int>();
+           // Dictionary<string, int> arr = new Dictionary<string, int>();
             // int total , grandtotal ;
-            //List<> Employees = new List<Employee>();
+            List<Business> Business = new List<Business>();
 
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
             string selectSTR = "SELECT*FROM V_business_yearly_growth";
@@ -1156,11 +1156,13 @@ public class DBServices
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             while (dr.Read())
             {
-                arr.Add (Convert.ToInt32(dr["Year"]), Convert.ToInt32(dr["business Count"]));
-               
+                Business b = new Business();
+                b.Year = (dr["Year"]).ToString();
+                b.Count= Convert.ToInt32(dr["businessCount"]);
+                Business.Add(b);
             }
 
-            return arr;
+            return Business;
 
         }
         catch (Exception ex)

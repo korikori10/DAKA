@@ -26,9 +26,17 @@ var e12;
 var e2016;
 var e2017;
 var e2018;
-$(window).on("load", function(){
+
+var yearss;
+var detailss;
+var years= [];
+var details= [];
+var growth = [];
+var growths;
+$(window).on("load", function () {
     StatisticsEmpByYear(RenderempByYear);
     StatisticsEmpByMonth(RenderempByMonth);
+    StatisticsBusiByYear(RenderBusiByYear);
 
     // Set paths
     // ------------------------------
@@ -57,6 +65,7 @@ $(window).on("load", function(){
             // ------------------------------
             var myChart = ec.init(document.getElementById('basic-area'));
             var myChart2 = ec.init(document.getElementById('montly-data'));
+            var myChart3 = ec.init(document.getElementById('Yearly-data'));
 
 
             // Chart Options
@@ -218,12 +227,94 @@ $(window).on("load", function(){
                     }
                 ]
             };
+            chartOptions3forbusi = {
+
+                // Setup grid
+                grid: {
+                    x: 40,
+                    x2: 20,
+                    y: 35,
+                    y2: 25
+                },
+
+                // Add tooltip
+                tooltip: {
+                    trigger: 'axis'
+                },
+
+                // Add legend
+                legend: {
+                    data: ['New Businesses', 'New Businesses Growth']//, 'In progress ', 'Closed deals']
+                },
+
+                // Add custom colors
+                color: ['#FF847C', '#FECEA8', '#99B898'],
+
+                // Enable drag recalculate
+                calculable: true,
+
+                // Horizontal axis
+                xAxis: [{
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [
+                        yearss
+                    ]
+                }],
+
+                // Vertical axis
+                yAxis: [{
+                    name: 'Businesses',
+                    position: 'Left',
+                    type: 'value'
+                },
+                {
+                    name: 'growth (%)',
+                    position: 'Right',
+                    type: 'value',
+                    name: "%",
+                    axisLabel: {
+                        formatter: "{value} %"
+                    },
+                    max: 100,
+                    inverse: true
+                }],
+
+                // Add series
+                series: [
+                    {
+                        name: 'New Businesses',
+                        type: 'line',
+                        smooth: true,
+                        itemStyle: { normal: { areaStyle: { type: 'default' } } },
+                        data: [detailss]
+                    }
+                    ,
+                    {
+                        name: 'New Businesses Growth',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        smooth: true,
+
+                        itemStyle: { normal: { areaStyle: { type: 'default' } } },
+                        data: [growths]
+                    }//,
+                    //{
+                    //    name: 'New Employees',
+                    //    type: 'line',
+                    //    smooth: true,
+                    //    itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                    //    data: [1320, 1132, 601, 234, 120, 90, 20]
+                    //}
+                ]
+            };
+
             // Apply options
             // ------------------------------
 
             myChart.setOption(chartOptions);
             myChart2.setOption(chartOptions2);
-
+            myChart3.setOption(chartOptions3forbusi);
             // Resize chart
             // ------------------------------
 
@@ -240,6 +331,7 @@ $(window).on("load", function(){
                         // Resize chart
                         myChart.resize();
                         myChart2.resize();
+                        myChart3.resize();
                     }, 200);
                 }
             });
@@ -269,4 +361,41 @@ function RenderempByMonth(results) {
     e10 = statistics[19];
     e11 = statistics[21];
     e12 = statistics[23];
+}
+
+function RenderBusiByYear(results) {
+    statistics = $.parseJSON(results.d);
+    $.each(statistics, function (i, row) {
+        years[i] = row.Year;
+        details[i] = row.businessCount;
+        if (i == years.length) {
+            yearss += "'" + row.Year + "'"
+        }
+        else {
+
+            yearss += "'"+ row.Year + "',";
+        }
+        if (i == details.length) {
+            detailss += "'" + row.businessCount + "'"
+        } else {
+
+            detailss += "'" +row.businessCount + "' ,";
+        }
+         if (i>0) {
+             growth[i] = ((row.businessCount - growth[i-1])/growth[i-1])*100
+         }
+         else {
+
+             growth[i] = row.businessCount 
+         }
+    });
+
+    for (var i = 0; i < growth.length; i++) {
+        if (growth.length==i) {
+            growths += "'" + growth[i] + "'"     
+        } else {
+
+            growths += "'"+ growth[i]+"',";
+        }
+    }
 }

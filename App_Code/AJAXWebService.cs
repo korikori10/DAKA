@@ -591,7 +591,7 @@ public class AJAXWebService : System.Web.Services.WebService
     public string ReadBusiByYearStatistics()
     {
         DBServices db = new DBServices();
-        Dictionary<int,int> arr = db.ReadBusiByYearStatistics();
+        List<Business> arr = db.ReadBusiByYearStatistics();
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         string jsonStringCategory = js.Serialize(arr);
