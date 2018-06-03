@@ -7,12 +7,14 @@ var frm = new Object();
 var data = new Object();
 var h = false;
 var BusinessInfo = new Object();
+var roles = new Object();
 
 
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-  
+getDepartments(renderDepartments);
+    getRoles(renderRoles);
       
 
 });
@@ -117,6 +119,20 @@ function renderCities(results) {
     });
 }
 
+function renderDepartments(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#departmentSE').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
+        $('#departmentSE').append(dynamicLi);
+    });
+}
+function renderRoles(results) {
+    //this is the callBackFunc 
+    roles = $.parseJSON(results.d);  
+}
+
 function createContactForm() {
     // get the last DIV which ID starts with ^= "contact"
     var $div = $('div[id^="contact"]:last');
@@ -137,6 +153,12 @@ function createContactForm() {
 //Put all data in place
 function renderContacts(results) {
 
+    $("name='Role_id'").empty();
+    $.each(roles, function (i, row) {
+        dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
+        $("name='Role_id'").append(dynamicLi);
+
+    });
     results = $.parseJSON(results.d);
     var busID = sessionStorage.getItem("busiInfo");
     $.each(results, function (i, row) {
