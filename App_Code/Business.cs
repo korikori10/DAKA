@@ -190,6 +190,16 @@ public class Business
         return BC;
 
     }
+    public List<Business> getTypes()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Business> BC = dbs.readTypes();
+
+        return BC;
+
+    }
+
     public Business updateBusiness(Business bus)
     {
         DBServices dbs = new DBServices();

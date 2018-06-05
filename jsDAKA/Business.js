@@ -15,6 +15,7 @@ $(document).ready(function () {
     getCountries(renderCountries);
 getDepartments(renderDepartments);
     getRoles(renderRoles);
+   getTypes(renderTypes)
       
 
 });
@@ -128,6 +129,17 @@ function renderDepartments(results) {
         $('#departmentSE').append(dynamicLi);
     });
 }
+
+function renderTypes(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#typeSE').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Bus_type_code + '">' + row.Bus_type_name + '</option>';
+        $('#typeSE').append(dynamicLi);
+    });
+}
+
 function renderRoles(results) {
     //this is the callBackFunc 
     roles = $.parseJSON(results.d);  
@@ -194,6 +206,7 @@ function renderContacts(results) {
 //create 1 array for json from the form
     $.fn.serializeObject = function () {
         var o = {};
+        var disabled = this.find(':input:disabled').removeAttr('disabled');
         var a = this.serializeArray();
         $.each(a, function () {
             if (this.value == 'T') {
@@ -211,6 +224,7 @@ function renderContacts(results) {
                 o[this.name] = this.value || '';
             }
         });
+        disabled.attr('disabled', 'disabled');
         return o;
     };
 

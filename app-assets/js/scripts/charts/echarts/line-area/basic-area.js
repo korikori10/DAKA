@@ -103,6 +103,7 @@ $(window).on("load", function () {
                     data: [
                         //      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October','November', 'December'
                         '2016', '2017', '2018'
+                        
                     ]
                 }],
 
