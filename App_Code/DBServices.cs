@@ -385,6 +385,52 @@ public class DBServices
     }
 
     /// <summary>
+    /// Gets all business types from DB
+    /// </summary>
+    /// <returns></returns>
+    public List<Business> readTypes()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM [BUSINESS TYPE] ";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Business> deps = new List<Business>();
+            while (dr.Read())
+            {
+
+                Business type = new Business();
+                type.Bus_type_code = Convert.ToInt32(dr["bus_type_code"]);
+                type.Bus_type_name = dr["bus_type_name"].ToString();
+
+
+
+
+                deps.Add(type);
+            }
+            return deps;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
+    /// <summary>
     /// reads cities from sql
     /// </summary>
     /// <returns>list of cities</returns>

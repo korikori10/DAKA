@@ -33,10 +33,11 @@ function getEmployeess() {
                         messageTop: 'Printing'
                     },
                     'copyHtml5',
-                    'excelHtml5',
-                    'pdfHtml5',
+                    'csv',
+                    'pdf',
                     {
                         text: 'Archive',
+                        className: "my-1 btn btn-secondary",
                         action: function (e, dt, node, config) {
                             window.location = "Archive.html";
                         }
@@ -62,6 +63,9 @@ function getEmployeess() {
 
                     }]
             });
+            $(".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel").addClass("my-1 btn btn-secondary ");
+            $(".dt-buttons").addClass("btn-group");
+            $(".btn").removeClass("dt-button");
 
         }
     });
@@ -490,7 +494,8 @@ $.ajax({
     url: "ajaxWebService.asmx/getNewEmployees",
     success: function (data) {        
           t1 = $('#newemp').DataTable({
-             data: data,
+              data: data,
+              "bLengthChange": false,
              responsive: true,
              autoWidth: false,
       
@@ -530,8 +535,11 @@ function ReadEmployeesNotActive() {
         url: "ajaxWebService.asmx/ReadEmployeesNotActive",
         success: function (data) {
              NotActiveEmpDatatableVariable = $('#empnotactive').DataTable({
-                data: data,
-                responsive: true,
+                 data: data,
+                 "bLengthChange": false,
+                 responsive: {
+                        details: 'false',
+                 },
                 columns: [
                     {
                         'data': 'Employee_pass_id',
@@ -548,16 +556,17 @@ function ReadEmployeesNotActive() {
                     { 'data': 'Bus_name' },
                     {
                         'data': "",
-                        'defaultContent': '<button  name="gmah" data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success" data- original - title="רישום לצורך גמר חשבון""><i class="icon-file-subtract"></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button  name="gmah" data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success call-to-action-btn"  title="רישום לצורך גמר חשבון""><i data-toggle="tooltip" class="icon-file-subtract "></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view call-to-action-btn" title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'responsivePriority': 5000
                     },
-                    { 'data': 'Disable_reason' },
-                    { 'data': 'Phone' },
+                    { 'data': 'Disable_reason', 'responsivePriority': 20000 },
+                    { 'data': 'Phone', 'responsivePriority': 20000 },
                     {
                         'data': 'Ex_date', 'render': function (date) {
                             var date = new Date(parseInt(date.substr(6)));
                             var month = date.getMonth() + 1;
                             return date.getDate() + "/" + month + "/" + date.getFullYear();
-                        }
+                        }, 'responsivePriority': 20000
                     }
 
                 ]
@@ -808,6 +817,23 @@ function getDepartments(renderDepartments)
         dataType: 'json',
         success: function (results) {
             renderDepartments(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+
+function getTypes(renderTypes) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getTypes',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderTypes(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
