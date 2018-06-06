@@ -19,6 +19,8 @@ public class Business
     int department_code;
     string department_name;
     string bus_type_name;
+    string start_date;
+    string count;
     public int Bus_id
     {
         get
@@ -159,6 +161,32 @@ public class Business
         set
         {
             bus_type_name = value;
+        }
+    }
+
+    public string Start_date
+    {
+        get
+        {
+            return start_date;
+        }
+
+        set
+        {
+            start_date = value;
+        }
+    }
+
+    public string Count
+    {
+        get
+        {
+            return count;
+        }
+
+        set
+        {
+            count = value;
         }
     }
 

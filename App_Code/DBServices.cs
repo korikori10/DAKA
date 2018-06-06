@@ -1202,9 +1202,11 @@ public class DBServices
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             while (dr.Read())
             {
-                Business b = new Business();
-                b.Year = (dr["Year"]).ToString();
-                b.Count= Convert.ToInt32(dr["businessCount"]);
+                 Business b = new Business();
+                //int i = 0;
+                //string[] year = new string[];
+                b.Start_date = (dr["Year"]).ToString();
+                b.Count= (dr["businessCount"]).ToString();
                 Business.Add(b);
             }
 

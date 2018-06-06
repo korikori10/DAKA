@@ -365,23 +365,25 @@ function RenderempByMonth(results) {
 }
 
 function RenderBusiByYear(results) {
-    statistics = $.parseJSON(results.d);
+    yearss = results["years"];
+    detailss = results["count"]
+    //statistics = $.parseJSON(results.d);
     $.each(statistics, function (i, row) {
-        years[i] = row.Year;
-        details[i] = row.businessCount;
-        if (i == years.length) {
-            yearss += "'" + row.Year + "'"
-        }
-        else {
+    //    years[i] = row.Year;
+    //    details[i] = row.businessCount;
+    //    if (i == years.length) {
+    //        yearss += "'" + row.Year + "'"
+    //    }
+    //    else {
 
-            yearss += "'"+ row.Year + "',";
-        }
-        if (i == details.length) {
-            detailss += "'" + row.businessCount + "'"
-        } else {
+    //        yearss += "'"+ row.Year + "',";
+    //    }
+    //    if (i == details.length) {
+    //        detailss += "'" + row.businessCount + "'"
+    //    } else {
 
-            detailss += "'" +row.businessCount + "' ,";
-        }
+    //        detailss += "'" +row.businessCount + "' ,";
+    //    }
          if (i>0) {
              growth[i] = ((row.businessCount - growth[i-1])/growth[i-1])*100
          }
