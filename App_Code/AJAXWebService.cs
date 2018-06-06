@@ -605,9 +605,20 @@ public class AJAXWebService : System.Web.Services.WebService
     {
         DBServices db = new DBServices();
         List<Business> arr = db.ReadBusiByYearStatistics();
+        List<string> retArr = new List<string>();
+        string years = "";
+        string count = "";
+        foreach (var item in arr)
+        {
+             years += item.Start_date + ", ";
+             count += item.Count + ", ";
+        }
+            retArr.Add(years);
+            retArr.Add(count);
+        
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(arr);
+        string jsonStringCategory = js.Serialize(retArr);
         return jsonStringCategory;
 
     }
