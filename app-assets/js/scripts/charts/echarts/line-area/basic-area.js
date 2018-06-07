@@ -258,9 +258,9 @@ $(window).on("load", function () {
                 xAxis: [{
                     type: 'category',
                     boundaryGap: false,
-                    data: [
+                    data: 
                         yearss
-                    ]
+                    
                 }],
 
                 // Vertical axis
@@ -288,7 +288,7 @@ $(window).on("load", function () {
                         type: 'line',
                         smooth: true,
                         itemStyle: { normal: { areaStyle: { type: 'default' } } },
-                        data: [detailss]
+                        data: detailss
                     }
                     //,
                     //{
