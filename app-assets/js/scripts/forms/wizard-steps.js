@@ -47,7 +47,7 @@ $(".vertical-tab-steps").steps({
         finish: 'Submit'
     },
     onFinished: function (event, currentIndex) {
-        alert("Form submitted.");
+        insertBusandContact();
     }
 });
 

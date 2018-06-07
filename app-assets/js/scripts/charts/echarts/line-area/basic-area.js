@@ -290,16 +290,16 @@ $(window).on("load", function () {
                         itemStyle: { normal: { areaStyle: { type: 'default' } } },
                         data: [detailss]
                     }
-                    ,
-                    {
-                        name: 'New Businesses Growth',
-                        type: 'line',
-                        yAxisIndex: 1,
-                        smooth: true,
+                    //,
+                    //{
+                    //    name: 'New Businesses Growth',
+                    //    type: 'line',
+                    //    yAxisIndex: 1,
+                    //    smooth: true,
 
-                        itemStyle: { normal: { areaStyle: { type: 'default' } } },
-                        data: [growths]
-                    }//,
+                    //    itemStyle: { normal: { areaStyle: { type: 'default' } } },
+                    //    data: [growths]
+                    //}//,
                     //{
                     //    name: 'New Employees',
                     //    type: 'line',
@@ -365,8 +365,9 @@ function RenderempByMonth(results) {
 }
 
 function RenderBusiByYear(results) {
-    yearss = results["years"];
-    detailss = results["count"]
+    var resultData = $.parseJSON(results.d);
+    yearss = resultData[0];
+    detailss = resultData[1]
     //statistics = $.parseJSON(results.d);
     $.each(statistics, function (i, row) {
     //    years[i] = row.Year;

@@ -132,71 +132,99 @@ function renderCities(results) {
 }
 
 
+$.fn.serializeObject = function () {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (this.value == 'T') {
+            this.value = 'true'
+        }
+        else if (this.value == 'F') {
+            this.value = 'false'
+        }
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
 
-function insertEmp(array) {
+function insertBusandContact(){
 
+
+
+
+    var formData = $('#insertEmpForm').serializeObject();
+    // var result = JSON.stringify(formData);
+    //  var array = ($("#insertEmpForm").serialize());
+    insertEmp(formData);
 
     //EmployeeInfo = array;
 
-    if (isUpdate) {
-        if (EmpPic == null) {
-            array.Picture = resultsSave.Picture;
+    //if (isUpdate) {
+    //    if (EmpPic == null) {
+    //        array.Picture = resultsSave.Picture;
 
-        }
-        else {
-            array.Picture = EmpPic;
-        }
-        if (array.Business == resultsSave.Business) {
-            array.updateBus = false;
-        }
-        else {
-            array.updateBus = true;
-        }
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן פרטי עובד.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
+    //    }
+    //    else {
+    //        array.Picture = EmpPic;
+    //    }
+    //    if (array.Business == resultsSave.Business) {
+    //        array.updateBus = false;
+    //    }
+    //    else {
+    //        array.updateBus = true;
+    //    }
+    //    swal({
+    //        title: "האם אתה בטוח?",
+    //        text: "אתה עומד לעדכן פרטי עובד.",
+    //        type: "info",
+    //        confirmButtonText: "כן",
+    //        showCancelButton: "true",
+    //        cancelButtonText: "בטל",
+    //        closeOnConfirm: false,
+    //        showLoaderOnConfirm: true,
+    //    },
 
-            function (isConfirm) {
-                if (isConfirm) {
+    //        function (isConfirm) {
+    //            if (isConfirm) {
 
-                    updateEmployee({ EmployeeInfo: JSON.stringify(array) })
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
+    //                updateEmployee({ EmployeeInfo: JSON.stringify(array) })
+    //            }
+    //            else {
+    //                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+    //            }
+    //        });
 
-    }
-    else {
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד להוסיף עובד חדש.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
+    //}
+    //else {
+    //    swal({
+    //        title: "האם אתה בטוח?",
+    //        text: "אתה עומד להוסיף עובד חדש.",
+    //        type: "info",
+    //        confirmButtonText: "כן",
+    //        showCancelButton: "true",
+    //        cancelButtonText: "בטל",
+    //        closeOnConfirm: false,
+    //        showLoaderOnConfirm: true,
+    //    },
 
-            function (isConfirm) {
-                if (isConfirm) {
+    //        function (isConfirm) {
+    //            if (isConfirm) {
 
-                    insertEmployee({ EmployeeInfo: JSON.stringify(array) });
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
+    //                insertEmployee({ EmployeeInfo: JSON.stringify(array) });
+    //            }
+    //            else {
+    //                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+    //            }
+    //        });
 
-    }
+    //}
 
 }
 

@@ -606,19 +606,23 @@ public class AJAXWebService : System.Web.Services.WebService
         DBServices db = new DBServices();
         List<Business> arr = db.ReadBusiByYearStatistics();
         List<string> retArr = new List<string>();
-        string years = "";
+        List<string> years = new List<string>();
+        List<string> counts = new List<string>();
         string count = "";
         foreach (var item in arr)
         {
-             years += item.Start_date + ", ";
-             count += item.Count + ", ";
+            years.Add(item.Start_date);// + ", ";
+            counts.Add(item.Count.ToString());// + ", ";
         }
-            retArr.Add(years);
-            retArr.Add(count);
-        
+
+        years.Add("2017");
+        counts.Add("3");
+        //retArr.Add(years);
+        //retArr.Add(count);
+
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(retArr);
+        string jsonStringCategory = js.Serialize(new List<string>[] {years,counts });
         return jsonStringCategory;
 
     }
