@@ -1096,30 +1096,39 @@ public class DBServices
         }
     }
 
-    public int[] ReadEmpByYearStatistics()
+    public List<Employee> ReadEmpByYearStatistics()
     {
         SqlConnection con = null;
 
         try
         {
-            // int total , grandtotal ;
-            int[] arr = new int[4];
-
+            List<Employee> employees = new List<Employee>();
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM v_growth_by_years_on_emp";
+            string selectSTR = "SELECT*FROM V_employee_yearly_growth";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
-            User user = new User();
             while (dr.Read())
             {
-                arr[0] = Convert.ToInt32(dr["2016"]);
-                arr[1] = Convert.ToInt32(dr["2017"]);
-                arr[2] = Convert.ToInt32(dr["2018"]);
+                Employee e = new Employee();
+                e.Start_Year= (dr["start_Year"]).ToString();
+                e.EmployeeCount = (dr["employeeCount"]).ToString();
+                employees.Add(e);
+            }
+            for (int i = 0; i < employees.Count; i++)
+            {
+                if (i == 0)
+                {
+                    employees[i].Growth = "1";
+                }
+                else
+                {
+                    employees[i].Growth = (((Convert.ToDouble(employees[i].EmployeeCount) - Convert.ToDouble(employees[i - 1].EmployeeCount)) / Convert.ToDouble(employees[i - 1].EmployeeCount)) * 100).ToString();
+                }
 
             }
 
-            return arr;
-
+            employees[0].Growth = "0";
+            return employees;
         }
         catch (Exception ex)
         {
@@ -1212,7 +1221,7 @@ public class DBServices
             {
                 if (i == 0)
                 {
-                    Business[i].Growth = Business[i].Count;
+                    Business[i].Growth = "1";// Business[i].Count;
                 }
                 else
                 {
@@ -1221,7 +1230,7 @@ public class DBServices
                 
             }
 
-
+            Business[0].Growth = "0";
             return Business;
 
         }

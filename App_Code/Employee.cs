@@ -46,6 +46,9 @@ public class Employee
     DateTime last_update;
     string doc_id;
     bool final_bill;
+    string start_Year;
+    string employeeCount;
+    string growth;
     public Employee()
     {
         //
@@ -648,6 +651,45 @@ public class Employee
         set
         {
             final_bill = value;
+        }
+    }
+
+    public string Start_Year
+    {
+        get
+        {
+            return start_Year;
+        }
+
+        set
+        {
+            start_Year = value;
+        }
+    }
+
+    public string EmployeeCount
+    {
+        get
+        {
+            return employeeCount;
+        }
+
+        set
+        {
+            employeeCount = value;
+        }
+    }
+
+    public string Growth
+    {
+        get
+        {
+            return growth;
+        }
+
+        set
+        {
+            growth = value;
         }
     }
 

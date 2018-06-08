@@ -595,10 +595,20 @@ public class AJAXWebService : System.Web.Services.WebService
     public string ReadEmpByYearStatistics()
     {
         DBServices db = new DBServices();
-        int[] arr = db.ReadEmpByYearStatistics();
+        List<Employee> arr = db.ReadEmpByYearStatistics();
+        List<string> years = new List<string>();
+        List<string> counts = new List<string>();
+        List<string> growth = new List<string>();
+        foreach (var item in arr)
+        {
+            years.Add(item.Start_Year);
+            counts.Add(item.EmployeeCount.ToString());
+            growth.Add(item.Growth.ToString());
+        }
+
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(arr);
+        string jsonStringCategory = js.Serialize(new List<string>[] { years, counts, growth });
         return jsonStringCategory;
 
     }
