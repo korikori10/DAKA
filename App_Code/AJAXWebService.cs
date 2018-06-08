@@ -527,7 +527,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
 
-        b = b.InsertBusiness(b);
+      int b1 = b.InsertBusiness(b);
         // serialize to string
         string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
