@@ -281,4 +281,11 @@ $("[name='updateB'").on('click', function () {
 
         UpdateBusiness({ BusinessInfo: JSON.stringify(array) }, renderBusinesses);
  
-    }
+}
+
+function InsertBus(array) {
+
+
+    InsertBusiness({ BusinessInfo: JSON.stringify(array) }, renderBusinesses);
+
+}

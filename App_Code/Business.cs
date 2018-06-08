@@ -252,11 +252,11 @@ public class Business
         return b;
 
     }
-    public Business InsertBusiness(Business bus)
+    public int InsertBusiness(Business bus)
     {
         DBServices dbs = new DBServices();
 
-        Business b = dbs.updateBusiness(bus);
+        int b = dbs.insert(bus);
 
 
         return b;
