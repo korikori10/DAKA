@@ -299,14 +299,7 @@ $(window).on("load", function () {
 
                         itemStyle: { normal: { areaStyle: { type: 'default' } } },
                         data: growths
-                    }//,
-                    //{
-                    //    name: 'New Employees',
-                    //    type: 'line',
-                    //    smooth: true,
-                    //    itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                    //    data: [1320, 1132, 601, 234, 120, 90, 20]
-                    //}
+                    }
                 ]
             };
 

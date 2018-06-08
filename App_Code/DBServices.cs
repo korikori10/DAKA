@@ -1203,27 +1203,24 @@ public class DBServices
             while (dr.Read())
             {
                  Business b = new Business();
-                //int i = 0;
-                //string[] year = new string[];
+          
                 b.Start_date = (dr["Year"]).ToString();
                 b.Count= (dr["businessCount"]).ToString();
                 Business.Add(b);
             }
-            for (int i = 0; i < Business.Count
-                ; i++)
+            for (int i = 0; i < Business.Count; i++)
             {
-                Business b = new Business();
-
-                if (i==0)
+                if (i == 0)
                 {
-                    b.Growth = "1";   
+                    Business[i].Growth = Business[i].Count;
                 }
                 else
                 {
-                    b.Growth = (((Convert.ToInt32(Business[i].Count)- Convert.ToInt32(Business[i-1].Count))/ Convert.ToInt32(Business[i-1].Count))*100).ToString();
+                    Business[i].Growth = (((Convert.ToDouble(Business[i].Count) - Convert.ToDouble(Business[i - 1].Count)) / Convert.ToDouble(Business[i - 1].Count)) * 100).ToString();
                 }
-                Business.Add(b);
+                
             }
+
 
             return Business;
 

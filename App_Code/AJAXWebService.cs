@@ -624,21 +624,19 @@ public class AJAXWebService : System.Web.Services.WebService
         List<string> retArr = new List<string>();
         List<string> years = new List<string>();
         List<string> counts = new List<string>();
-        string count = "";
+        List<string> growth = new List<string>();
         foreach (var item in arr)
         {
-            years.Add(item.Start_date);// + ", ";
-            counts.Add(item.Count.ToString());// + ", ";
+            years.Add(item.Start_date);
+            counts.Add(item.Count.ToString());
+            growth.Add(item.Growth.ToString());
         }
 
-        years.Add("2017");
-        counts.Add("3");
-        //retArr.Add(years);
-        //retArr.Add(count);
-
+  
+       
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(new List<string>[] {years,counts });
+        string jsonStringCategory = js.Serialize(new List<string>[] {years,counts,growth });
         return jsonStringCategory;
 
     }
