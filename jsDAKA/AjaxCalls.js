@@ -673,13 +673,13 @@ function InsertBusiness(BusinessInfo, renderBusinesses) {
 function InsertContact(contactInfo) {
 
     // serialize the object to JSON string
-    var bus = JSON.stringify(contactInfo);
+    var con = JSON.stringify(contactInfo);
 
     $.ajax({
         url: 'ajaxWebService.asmx/insertContact',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
-        data: bus,
+        data: con,
         success: function (results) {
 
             setTimeout(function () {

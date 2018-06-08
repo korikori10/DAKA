@@ -147,4 +147,14 @@ public class Contact
         return LC;
 
     }
+    public int InsertContact(Contact con)
+    {
+        DBServices dbs = new DBServices();
+
+        int b = dbs.insert(con);
+
+
+        return b;
+
+    }
 }
