@@ -1209,6 +1209,20 @@ public class DBServices
                 b.Count= (dr["businessCount"]).ToString();
                 Business.Add(b);
             }
+            for (int i = 0; i < Business.Count; i++)
+            {
+                Business b = new Business();
+
+                if (i==0)
+                {
+                    b.Growth = "1";   
+                }
+                else
+                {
+                    b.Growth = (((Convert.ToInt32(Business[i].Count)- Convert.ToInt32(Business[i-1].Count))/ Convert.ToInt32(Business[i-1].Count))*100).ToString();
+                }
+                Business.Add(b);
+            }
 
             return Business;
 

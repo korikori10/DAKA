@@ -290,16 +290,16 @@ $(window).on("load", function () {
                         itemStyle: { normal: { areaStyle: { type: 'default' } } },
                         data: detailss
                     }
-                    //,
-                    //{
-                    //    name: 'New Businesses Growth',
-                    //    type: 'line',
-                    //    yAxisIndex: 1,
-                    //    smooth: true,
+                    ,
+                    {
+                        name: 'New Businesses Growth',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        smooth: true,
 
-                    //    itemStyle: { normal: { areaStyle: { type: 'default' } } },
-                    //    data: [growths]
-                    //}//,
+                        itemStyle: { normal: { areaStyle: { type: 'default' } } },
+                        data: growths
+                    }//,
                     //{
                     //    name: 'New Employees',
                     //    type: 'line',
@@ -367,39 +367,25 @@ function RenderempByMonth(results) {
 function RenderBusiByYear(results) {
     var resultData = $.parseJSON(results.d);
     yearss = resultData[0];
-    detailss = resultData[1]
+    detailss = resultData[1];
+    growths = resultData[2];
     //statistics = $.parseJSON(results.d);
-    $.each(statistics, function (i, row) {
-    //    years[i] = row.Year;
-    //    details[i] = row.businessCount;
-    //    if (i == years.length) {
-    //        yearss += "'" + row.Year + "'"
-    //    }
-    //    else {
+    
+    //     if (i>0) {
+    //         growth[i] = ((row.businessCount - growth[i-1])/growth[i-1])*100
+    //     }
+    //     else {
 
-    //        yearss += "'"+ row.Year + "',";
-    //    }
-    //    if (i == details.length) {
-    //        detailss += "'" + row.businessCount + "'"
+    //         growth[i] = row.businessCount 
+    //     }
+    //});
+
+    //for (var i = 0; i < growth.length; i++) {
+    //    if (growth.length==i) {
+    //        growths += "'" + growth[i] + "'"     
     //    } else {
 
-    //        detailss += "'" +row.businessCount + "' ,";
+    //        growths += "'"+ growth[i]+"',";
     //    }
-         if (i>0) {
-             growth[i] = ((row.businessCount - growth[i-1])/growth[i-1])*100
-         }
-         else {
-
-             growth[i] = row.businessCount 
-         }
-    });
-
-    for (var i = 0; i < growth.length; i++) {
-        if (growth.length==i) {
-            growths += "'" + growth[i] + "'"     
-        } else {
-
-            growths += "'"+ growth[i]+"',";
-        }
-    }
+    //}
 }

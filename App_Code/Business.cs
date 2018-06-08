@@ -21,6 +21,7 @@ public class Business
     string bus_type_name;
     string start_date;
     string count;
+    string growth;
     public int Bus_id
     {
         get
@@ -187,6 +188,19 @@ public class Business
         set
         {
             count = value;
+        }
+    }
+
+    public string Growth
+    {
+        get
+        {
+            return growth;
+        }
+
+        set
+        {
+            growth = value;
         }
     }
 
