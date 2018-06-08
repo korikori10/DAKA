@@ -46,6 +46,12 @@ public class Employee
     DateTime last_update;
     string doc_id;
     bool final_bill;
+    string start_Year;
+    string employeeCount;
+    string growth;
+    string start_year_for_month;
+    string months;
+    string employeeCountMonth;
     public Employee()
     {
         //
@@ -648,6 +654,84 @@ public class Employee
         set
         {
             final_bill = value;
+        }
+    }
+
+    public string Start_Year
+    {
+        get
+        {
+            return start_Year;
+        }
+
+        set
+        {
+            start_Year = value;
+        }
+    }
+
+    public string EmployeeCount
+    {
+        get
+        {
+            return employeeCount;
+        }
+
+        set
+        {
+            employeeCount = value;
+        }
+    }
+
+    public string Growth
+    {
+        get
+        {
+            return growth;
+        }
+
+        set
+        {
+            growth = value;
+        }
+    }
+
+    public string Start_year_for_month
+    {
+        get
+        {
+            return start_year_for_month;
+        }
+
+        set
+        {
+            start_year_for_month = value;
+        }
+    }
+
+    public string Months
+    {
+        get
+        {
+            return months;
+        }
+
+        set
+        {
+            months = value;
+        }
+    }
+
+    public string EmployeeCountMonth
+    {
+        get
+        {
+            return employeeCountMonth;
+        }
+
+        set
+        {
+            employeeCountMonth = value;
         }
     }
 

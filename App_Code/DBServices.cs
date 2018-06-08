@@ -1096,30 +1096,39 @@ public class DBServices
         }
     }
 
-    public int[] ReadEmpByYearStatistics()
+    public List<Employee> ReadEmpByYearStatistics()
     {
         SqlConnection con = null;
 
         try
         {
-            // int total , grandtotal ;
-            int[] arr = new int[4];
-
+            List<Employee> employees = new List<Employee>();
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM v_growth_by_years_on_emp";
+            string selectSTR = "SELECT*FROM V_employee_yearly_growth";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
-            User user = new User();
             while (dr.Read())
             {
-                arr[0] = Convert.ToInt32(dr["2016"]);
-                arr[1] = Convert.ToInt32(dr["2017"]);
-                arr[2] = Convert.ToInt32(dr["2018"]);
+                Employee e = new Employee();
+                e.Start_Year= (dr["start_Year"]).ToString();
+                e.EmployeeCount = (dr["employeeCount"]).ToString();
+                employees.Add(e);
+            }
+            for (int i = 0; i < employees.Count; i++)
+            {
+                if (i == 0)
+                {
+                    employees[i].Growth = "1";
+                }
+                else
+                {
+                    employees[i].Growth = (((Convert.ToDouble(employees[i].EmployeeCount) - Convert.ToDouble(employees[i - 1].EmployeeCount)) / Convert.ToDouble(employees[i - 1].EmployeeCount)) * 100).ToString();
+                }
 
             }
 
-            return arr;
-
+            employees[0].Growth = "0";
+            return employees;
         }
         catch (Exception ex)
         {
@@ -1137,37 +1146,28 @@ public class DBServices
         }
     }
 
-    public int[] ReadEmpByMonthStatistics()
+    public List<Employee> ReadEmpByMonthStatistics()
     {
         SqlConnection con = null;
 
         try
         {
-            
-            int[] arr = new int[12];
 
+            List<Employee> employees = new List<Employee>();
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM v_growth_by_months_on_emp";
+            string selectSTR = "SELECT*FROM [V_employee_monthly_growth]";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             while (dr.Read())
             {
-                arr[0] = Convert.ToInt32(dr["Junuary"]);
-                arr[1] = Convert.ToInt32(dr["February"]);
-                arr[2] = Convert.ToInt32(dr["March"]);
-                arr[3] = Convert.ToInt32(dr["April"]);
-                arr[4] = Convert.ToInt32(dr["May"]);
-                arr[5] = Convert.ToInt32(dr["June"]);
-                arr[6] = Convert.ToInt32(dr["July"]);
-                arr[7] = Convert.ToInt32(dr["August"]);
-                arr[8] = Convert.ToInt32(dr["September"]);
-                arr[9] = Convert.ToInt32(dr["October"]);
-                arr[10] = Convert.ToInt32(dr["November"]);
-                arr[11] = Convert.ToInt32(dr["December"]);
-
+                Employee e = new Employee();
+                e.Start_year_for_month = (dr["start_year_for_month"]).ToString();
+                e.EmployeeCountMonth = (dr["employeeCountMonth"]).ToString();
+                e.Months= (dr["Months"]).ToString();
+                employees.Add(e);
             }
-
-            return arr;
+           
+            return employees;
 
         }
         catch (Exception ex)
@@ -1203,28 +1203,25 @@ public class DBServices
             while (dr.Read())
             {
                  Business b = new Business();
-                //int i = 0;
-                //string[] year = new string[];
+          
                 b.Start_date = (dr["Year"]).ToString();
                 b.Count= (dr["businessCount"]).ToString();
                 Business.Add(b);
             }
-            for (int i = 0; i < Business.Count
-                ; i++)
+            for (int i = 0; i < Business.Count; i++)
             {
-                Business b = new Business();
-
-                if (i==0)
+                if (i == 0)
                 {
-                    b.Growth = "1";   
+                    Business[i].Growth = "1";// Business[i].Count;
                 }
                 else
                 {
-                    b.Growth = (((Convert.ToInt32(Business[i].Count)- Convert.ToInt32(Business[i-1].Count))/ Convert.ToInt32(Business[i-1].Count))*100).ToString();
+                    Business[i].Growth = (((Convert.ToDouble(Business[i].Count) - Convert.ToDouble(Business[i - 1].Count)) / Convert.ToDouble(Business[i - 1].Count)) * 100).ToString();
                 }
-                Business.Add(b);
+                
             }
 
+            Business[0].Growth = "0";
             return Business;
 
         }

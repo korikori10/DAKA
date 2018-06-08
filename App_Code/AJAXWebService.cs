@@ -595,10 +595,20 @@ public class AJAXWebService : System.Web.Services.WebService
     public string ReadEmpByYearStatistics()
     {
         DBServices db = new DBServices();
-        int[] arr = db.ReadEmpByYearStatistics();
+        List<Employee> arr = db.ReadEmpByYearStatistics();
+        List<string> years = new List<string>();
+        List<string> counts = new List<string>();
+        List<string> growth = new List<string>();
+        foreach (var item in arr)
+        {
+            years.Add(item.Start_Year);
+            counts.Add(item.EmployeeCount.ToString());
+            growth.Add(item.Growth.ToString());
+        }
+
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(arr);
+        string jsonStringCategory = js.Serialize(new List<string>[] { years, counts, growth });
         return jsonStringCategory;
 
     }
@@ -608,11 +618,22 @@ public class AJAXWebService : System.Web.Services.WebService
     public string ReadEmpByMonthStatistics()
     {
         DBServices db = new DBServices();
-        int[] arr = db.ReadEmpByMonthStatistics();
+        List<Employee> arr = db.ReadEmpByMonthStatistics();
+        List<string> yearstomonth = new List<string>();
+        List<string> countstomonth = new List<string>();
+        List<string> monthtomonth = new List<string>();
+        foreach (var item in arr)
+        {
+            yearstomonth.Add(item.Start_year_for_month);
+            countstomonth.Add(item.EmployeeCountMonth.ToString());
+            monthtomonth.Add(item.Months.ToString());
+        }
+
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(arr);
+        string jsonStringCategory = js.Serialize(new List<string>[] { yearstomonth, countstomonth, monthtomonth });
         return jsonStringCategory;
+
 
     }
     [WebMethod]
@@ -624,21 +645,19 @@ public class AJAXWebService : System.Web.Services.WebService
         List<string> retArr = new List<string>();
         List<string> years = new List<string>();
         List<string> counts = new List<string>();
-        string count = "";
+        List<string> growth = new List<string>();
         foreach (var item in arr)
         {
-            years.Add(item.Start_date);// + ", ";
-            counts.Add(item.Count.ToString());// + ", ";
+            years.Add(item.Start_date);
+            counts.Add(item.Count.ToString());
+            growth.Add(item.Growth.ToString());
         }
 
-        years.Add("2017");
-        counts.Add("3");
-        //retArr.Add(years);
-        //retArr.Add(count);
-
+  
+       
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(new List<string>[] {years,counts });
+        string jsonStringCategory = js.Serialize(new List<string>[] {years,counts,growth });
         return jsonStringCategory;
 
     }

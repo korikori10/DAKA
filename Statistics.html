@@ -28,6 +28,10 @@
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/colors.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/custom-rtl.css" />
+    <link rel="apple-touch-icon" href="app-assets/images/ico/apple-icon-120.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,400,500,700" rel="stylesheet" />
+
     <!-- END ROBUST CSS-->
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css" />
@@ -37,6 +41,7 @@
     <link href="app-assets/css/plugins/forms/selectize/selectize.css" rel="stylesheet" />
     <link href="app-assets/vendors/css/forms/selects/selectize.default.css" rel="stylesheet" />
     <link href="app-assets/vendors/css/extensions/sweetalert.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css" />
     <!-- END Page Level CSS-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -146,23 +151,23 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">גידול בעובדים בחודשים</h4>
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                    <h4 class="card-title">גידול עובדים בחודשים</h4>
+                                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="card-body collapse in">
-                                    <div class="card-block">
-                                        <div id="montly-data" class="height-400 echart-container"></div>
+                                <div class="card-content collapse show">
+                                    <div class="card-body">
+                                        <div id="multiple-series-rainbow" class="height-400 echart-container"></div>
                                     </div>
                                 </div>
                             </div>
@@ -258,6 +263,7 @@
     <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
     <script src="app-assets/vendors/js/charts/echarts/echarts.js"></script>
     <script src="app-assets/js/scripts/charts/echarts/line-area/basic-area.js"></script>
+    <script src="app-assets/js/scripts/charts/echarts/advance/multiple-series-rainbow.js"></script>
     <!--<script src="app-assets/js/scripts/charts/echarts/advance/dynamic-data.js"></script>-->
     <script src="jsDAKA/AjaxCalls.js"></script>
 
