@@ -618,11 +618,22 @@ public class AJAXWebService : System.Web.Services.WebService
     public string ReadEmpByMonthStatistics()
     {
         DBServices db = new DBServices();
-        int[] arr = db.ReadEmpByMonthStatistics();
+        List<Employee> arr = db.ReadEmpByMonthStatistics();
+        List<string> yearstomonth = new List<string>();
+        List<string> countstomonth = new List<string>();
+        List<string> monthtomonth = new List<string>();
+        foreach (var item in arr)
+        {
+            yearstomonth.Add(item.Start_year_for_month);
+            countstomonth.Add(item.EmployeeCountMonth.ToString());
+            monthtomonth.Add(item.Months.ToString());
+        }
+
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(arr);
+        string jsonStringCategory = js.Serialize(new List<string>[] { yearstomonth, countstomonth, monthtomonth });
         return jsonStringCategory;
+
 
     }
     [WebMethod]

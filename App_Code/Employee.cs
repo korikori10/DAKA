@@ -49,6 +49,9 @@ public class Employee
     string start_Year;
     string employeeCount;
     string growth;
+    string start_year_for_month;
+    string months;
+    string employeeCountMonth;
     public Employee()
     {
         //
@@ -690,6 +693,45 @@ public class Employee
         set
         {
             growth = value;
+        }
+    }
+
+    public string Start_year_for_month
+    {
+        get
+        {
+            return start_year_for_month;
+        }
+
+        set
+        {
+            start_year_for_month = value;
+        }
+    }
+
+    public string Months
+    {
+        get
+        {
+            return months;
+        }
+
+        set
+        {
+            months = value;
+        }
+    }
+
+    public string EmployeeCountMonth
+    {
+        get
+        {
+            return employeeCountMonth;
+        }
+
+        set
+        {
+            employeeCountMonth = value;
         }
     }
 

@@ -1146,37 +1146,28 @@ public class DBServices
         }
     }
 
-    public int[] ReadEmpByMonthStatistics()
+    public List<Employee> ReadEmpByMonthStatistics()
     {
         SqlConnection con = null;
 
         try
         {
-            
-            int[] arr = new int[12];
 
+            List<Employee> employees = new List<Employee>();
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM v_growth_by_months_on_emp";
+            string selectSTR = "SELECT*FROM [V_employee_monthly_growth]";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             while (dr.Read())
             {
-                arr[0] = Convert.ToInt32(dr["Junuary"]);
-                arr[1] = Convert.ToInt32(dr["February"]);
-                arr[2] = Convert.ToInt32(dr["March"]);
-                arr[3] = Convert.ToInt32(dr["April"]);
-                arr[4] = Convert.ToInt32(dr["May"]);
-                arr[5] = Convert.ToInt32(dr["June"]);
-                arr[6] = Convert.ToInt32(dr["July"]);
-                arr[7] = Convert.ToInt32(dr["August"]);
-                arr[8] = Convert.ToInt32(dr["September"]);
-                arr[9] = Convert.ToInt32(dr["October"]);
-                arr[10] = Convert.ToInt32(dr["November"]);
-                arr[11] = Convert.ToInt32(dr["December"]);
-
+                Employee e = new Employee();
+                e.Start_year_for_month = (dr["start_year_for_month"]).ToString();
+                e.EmployeeCountMonth = (dr["employeeCountMonth"]).ToString();
+                e.Months= (dr["Months"]).ToString();
+                employees.Add(e);
             }
-
-            return arr;
+           
+            return employees;
 
         }
         catch (Exception ex)
