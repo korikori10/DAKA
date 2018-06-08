@@ -644,6 +644,31 @@ function UpdateBusiness(BusinessInfo, renderBusinesses) {
     });
 }
 
+//insert spesific business
+function InsertBusiness(BusinessInfo, renderBusinesses) {
+
+    // serialize the object to JSON string
+    var bus = JSON.stringify(BusinessInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/insertBusiness',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: bus,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+            renderEmployeeByID(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //update employee insurance
 function updateInsurance(EmployeeInfo, current_row) {
 

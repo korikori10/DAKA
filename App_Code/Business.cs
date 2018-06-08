@@ -238,4 +238,14 @@ public class Business
         return b;
 
     }
+    public Business InsertBusiness(Business bus)
+    {
+        DBServices dbs = new DBServices();
+
+        Business b = dbs.updateBusiness(bus);
+
+
+        return b;
+
+    }
 }
