@@ -527,13 +527,29 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
 
-        b = b.updateBusiness(b);
+        b = b.InsertBusiness(b);
         // serialize to string
         string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
 
     }
 
+    
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string insertBusiness(string BusinessInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Business b = js.Deserialize<Business>(BusinessInfo);
+
+
+
+        b = b.updateBusiness(b);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(b);
+        return jsonStringCategory;
+
+    }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void getEmployeesnobusiness()

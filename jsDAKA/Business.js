@@ -8,6 +8,7 @@ var data = new Object();
 var h = false;
 var BusinessInfo = new Object();
 var roles = new Object();
+var newBus = new Object();
 
 
 $(document).ready(function () {
@@ -90,7 +91,13 @@ function renderBusinesses(results) {
             frm = $("#BusinessUpdate");
              data = row;
             resultsSave = row;
+            newBus = false;
             populate(frm, data);
+        }
+        else {
+            $('#bus_id').removeAttr('disabled');
+            newBus = true;
+
         }
 
     });
@@ -247,7 +254,13 @@ $("[name='updateB'").on('click', function () {
 
                     h = true;
                     BusinessInfo = $('#BusinessUpdate').serializeObject();
+                    if (newBus) {
+                        InsertBus(BusinessInfo);
+                    }
+                    else {
+
                     UpdateBus(BusinessInfo);
+                    }
 
 
                 }
