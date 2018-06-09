@@ -669,6 +669,31 @@ function InsertBusiness(BusinessInfo, renderBusinesses) {
     });
 }
 
+//insert spesific contact
+function InsertContact(contactInfo) {
+
+    // serialize the object to JSON string
+    var con = JSON.stringify(contactInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/insertContact',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: con,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+           
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //update employee insurance
 function updateInsurance(EmployeeInfo, current_row) {
 

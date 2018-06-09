@@ -520,7 +520,7 @@ public class AJAXWebService : System.Web.Services.WebService
     
             [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string updateBusiness(string BusinessInfo)
+    public string insertBusiness(string BusinessInfo)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Business b = js.Deserialize<Business>(BusinessInfo);
@@ -533,11 +533,25 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
-
-    
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string insertBusiness(string BusinessInfo)
+    public string insertContact(string contactInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Contact c = js.Deserialize<Contact>(contactInfo);
+
+
+
+        int c1 = c.InsertContact(c);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(c1);
+        return jsonStringCategory;
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string updateBusiness(string BusinessInfo)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Business b = js.Deserialize<Business>(BusinessInfo);

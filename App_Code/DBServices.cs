@@ -1374,6 +1374,70 @@ public class DBServices
     //--------------------------------------------------------------------
     // insert an Business
     //--------------------------------------------------------------------
+    public int insert(Contact cont)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildInsertCommand(cont);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the Insert command String for contact
+    //--------------------------------------------------------------------
+    private String BuildInsertCommand(Contact cont)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}')", cont.Contact_name, cont.Email, cont.Phone, cont.Role_id);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        String prefix = "INSERT INTO [contacts to business] " + "(contact_name, email, phone, role_id)";
+        //how do i get the contact id?
+       // string secondCommand = "; INSERT INTO [contacts in business] (bus_id, contact_id";
+        command = prefix + sb.ToString();
+
+        return command;
+    }
+
+    //--------------------------------------------------------------------
+    // insert an user
+    //--------------------------------------------------------------------
     public int insert(User user)
     {
 

@@ -16,7 +16,12 @@ $(document).ready(function () {
     getCountries(renderCountries);
 getDepartments(renderDepartments);
     getRoles(renderRoles);
-   getTypes(renderTypes)
+    getTypes(renderTypes)
+
+    //custom validation method
+    //$.validator.addMethod("alreadyexist", function (value, element) {
+    //    return name_list.indexOf(value) == -1;
+    //}, "מס' לקוח קיים");
       
 
 });
@@ -187,13 +192,15 @@ function renderContacts(results) {
         if (row.Bus_id == busID) {
             if (i == 0) {
                 rolesSelect();
-                frm = $("#contact1");
+                $("#contact1").find('form').attr('id', 'updatecontact1')
+                frm = $('#updatecontact1');
                 data = row;
                 contactSave[i] = row;
                 populate(frm, data);
             }
             else {
-                frm = $("#" + createContactForm());
+                id = createContactForm();
+                frm = $("#" + id).find('form').attr('id', 'update' + id);
                 rolesSelect();
                 data = row;
                 contactSave[i] = row;
@@ -205,7 +212,45 @@ function renderContacts(results) {
     });
 
     $('.selectize-select').selectize();
-   
+    $("[name='contactSave']").on('click', function () {
+        var contactFRM = $(this).closest('form')
+        swal({
+            title: "האם אתה בטוח?",
+            text: "אתה עומד לעדכן את פרטי איש הקשר.",
+            type: "info",
+            confirmButtonText: "כן",
+            showCancelButton: "true",
+            cancelButtonText: "בטל",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+
+            function (isConfirm) {
+                if (isConfirm) {
+
+                    h = true;
+                    contactInfo = contactFRM.serializeObject();
+                    contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
+                    if (contactInfo.Contact_id == false) {
+                        InsertContact(contactInfo);
+                    }
+                    else {
+
+                        UpdateContact(contactInfo);
+                    }
+
+
+                }
+                else {
+                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+
+
+
+
+
+    });
 
     }
 
@@ -240,7 +285,7 @@ $("[name='updateB'").on('click', function () {
 
         swal({
             title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן את פרטי העובד.",
+            text: "אתה עומד לעדכן את פרטי העסק.",
             type: "info",
             confirmButtonText: "כן",
             showCancelButton: "true",
@@ -273,7 +318,9 @@ $("[name='updateB'").on('click', function () {
 
 
 
-    });
+});
+
+
 
 //
     function UpdateBus(array) {
@@ -289,3 +336,5 @@ function InsertBus(array) {
     InsertBusiness({ BusinessInfo: JSON.stringify(array) }, renderBusinesses);
 
 }
+
+
