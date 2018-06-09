@@ -124,9 +124,8 @@ function getArchive() {
                         messageTop: 'Printing'
                     },
                     'copyHtml5',
-                    'excelHtml5',
-                    'pdfHtml5',
-                   
+                    'csv',
+                    'pdf'
                 ],
                 data: data,
                 columns: [
@@ -166,15 +165,15 @@ function getBusinessesTable() {
         url: "ajaxWebService.asmx/getBusinessesTable",
         success: function (data) {
                 datatableVariable.DataTable({
-                dom: 'Bfrtip',
-                        buttons: [
-                            {
-                                extend: 'print',
-                                messageTop: 'Printing'
-                            },
-                            'copyHtml5',
-                            'excelHtml5',
-                            'pdfHtml5'
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'print',
+                            messageTop: 'Printing'
+                        },
+                        'copyHtml5',
+                        'csv',
+                        'pdf'
                         ],
                 data: data,
                 columns: [
@@ -382,8 +381,24 @@ function StatisticsEmpByYear(RenderempByYear) {
 
     });
 
-}
+} 
+function StatisticsbusiByQuarter(RenderBusiByQuarter) {
+    $.ajax({
+        url: 'AJAXWebService.asmx/ReadBusiByQuarterStatistics',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            RenderempByYear(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
 
+    });
+
+}
 //statistics page , emp growth by month
 function StatisticsEmpByMonth(RenderempByMonth) {
     $.ajax({

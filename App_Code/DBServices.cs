@@ -1241,6 +1241,46 @@ public class DBServices
         }
     }
 
+    public List<Business> ReadBusiByQuarterStatistics()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+            List<Business> Business = new List<Business>();
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM [V_business_QUARTER_growth]";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            while (dr.Read())
+            {
+                Business b = new Business();
+
+                //b.Commence_date_Year = (dr["commence_date_Year"]).ToString();
+             //   b.Quarter = (dr["Quarter"]).ToString();
+                b.BusinessCountQuarter = (dr["businessCountQuarter"]).ToString();
+                Business.Add(b);
+            }
+            return Business;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
     #endregion
 
 

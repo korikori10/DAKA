@@ -675,6 +675,31 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadBusiByQuarterStatistics()
+    {
+        DBServices db = new DBServices();
+        List<Business> arr = db.ReadBusiByQuarterStatistics();
+    //    List<string> years = new List<string>();
+        List<string> counts = new List<string>();
+      //  List<string> Quarter = new List<string>();
+        foreach (var item in arr)
+        {
+       //     years.Add(item.Commence_date_Year);
+            counts.Add(item.BusinessCountQuarter.ToString());
+          //  Quarter.Add(item.Quarter.ToString());
+        }
+
+
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(new List<string>[] {  counts });
+        return jsonStringCategory;
+
+    }
     //send SMS
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

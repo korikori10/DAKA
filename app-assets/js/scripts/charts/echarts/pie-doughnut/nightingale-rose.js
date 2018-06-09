@@ -10,8 +10,12 @@
 
 // Nightingale rose chart
 // ------------------------------
-
+//busi quarter growth
+var year;
+var details;
+var quarter;
 $(window).on("load", function(){
+    StatisticsbusiByQuarter(RenderBusiByQuarter);
 
     // Set paths
     // ------------------------------
@@ -101,7 +105,7 @@ $(window).on("load", function(){
                         },
                         saveAsImage: {
                             show: true,
-                            title: 'Same as image',
+                            title: 'Save as image',
                             lang: ['Save']
                         }
                     }
@@ -145,18 +149,11 @@ $(window).on("load", function(){
                             }
                         },
                         data: [
-                            {value: 440, name: 'January'},
-                            {value: 260, name: 'February'},
-                            {value: 350, name: 'March'},
-                            {value: 250, name: 'April'},
-                            {value: 210, name: 'May'},
-                            {value: 350, name: 'June'},
-                            {value: 300, name: 'July'},
-                            {value: 430, name: 'August'},
-                            {value: 400, name: 'September'},
-                            {value: 450, name: 'October'},
-                            {value: 330, name: 'November'},
-                            {value: 200, name: 'December'}
+                            { value: details[0], name: 'Quarter 1' },
+                            { value: details[1], name: 'Quarter 2'},
+                            { value: details[2], name: 'Quarter 3'},
+                            { value: details[3], name: 'Quarter 4'}
+                        
                         ]
                     }
                 ]
@@ -189,3 +186,11 @@ $(window).on("load", function(){
         }
     );
 });
+
+function RenderBusiByQuarter(results)
+{
+    var resultData = $.parseJSON(results.d);
+ //   year = resultData[0];
+    details = resultData[0];
+ //   quarter = resultData[2];
+}

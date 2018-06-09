@@ -42,6 +42,7 @@
     <link href="app-assets/vendors/css/forms/selects/selectize.default.css" rel="stylesheet" />
     <link href="app-assets/vendors/css/extensions/sweetalert.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css" />
+    <link href="assets/css/style.css" rel="stylesheet" />
     <!-- END Page Level CSS-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -118,7 +119,7 @@
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
             <div class="content-body" style="height: 3128px;">
-                <div class="col-md-12">
+                <div class="col-md-8">
 
                     <div class="row">
                         <div id="basic-line" class="height-400">
@@ -150,29 +151,37 @@
 
 
                     </div>
+                </div>
+
+                <div class="col-md-4">
+
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-xs-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">גידול עובדים בחודשים</h4>
-                                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                    <h4 class="card-title">גידול בעובדים בחודשים</h4>
+                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="card-content collapse show">
-                                    <div class="card-body">
-                                        <div id="multiple-series-rainbow" class="height-400 echart-container"></div>
+                                <div class="card-body collapse in">
+                                    <div class="card-block">
+                                        <div id="basic-month" class="height-400 echart-container"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div class="col-md-6">
+
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="card">
@@ -196,28 +205,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">גידול בבתי עסק ברבעונים</h4>
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                        </ul>
-                                    </div>
+
+                </div>
+
+                <!--<div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">גידול בבתי עסק ברבעונים</h4>
+                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-body collapse in">
+                    <div class="card-block">
+                        <div id="Quarter-data" class="height-400 echart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+                <div class="col-md-6">
+
+                    <!-- Nightingale Rose Diagram Chart -->
+                    <div class="col-xl-6 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Nightingale Rose Diagram Chart</h4>
+                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                    </ul>
                                 </div>
-                                <div class="card-body collapse in">
-                                    <div class="card-block">
-                                        <div id="Quarter-data" class="height-400 echart-container"></div>
-                                    </div>
+                            </div>
+                            <div class="card-content collapse show">
+                                <div class="card-body">
+                                    <div id="nightingale-rose" class="height-400 echart-container"></div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -229,7 +266,6 @@
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">DAKA </a>, Tom And Kori Rule </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
     </footer>
     <!-- BEGIN VENDOR JS-->
-
 
     <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
@@ -258,18 +294,13 @@
     <script src="app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>
     <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-    <!-- <script src="app-assets/js/scripts/extensions/sweet-alerts.min.js"></script>-->
     <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>
     <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
     <script src="app-assets/vendors/js/charts/echarts/echarts.js"></script>
     <script src="app-assets/js/scripts/charts/echarts/line-area/basic-area.js"></script>
-    <script src="app-assets/js/scripts/charts/echarts/advance/multiple-series-rainbow.js"></script>
-    <!--<script src="app-assets/js/scripts/charts/echarts/advance/dynamic-data.js"></script>-->
+    <script src="app-assets/js/scripts/charts/echarts/pie-doughnut/nightingale-rose.js"></script>
     <script src="jsDAKA/AjaxCalls.js"></script>
 
     <!-- END PAGE VENDOR JS-->
-
-
-
 </body>
 </html>

@@ -22,6 +22,9 @@ public class Business
     string start_date;
     string count;
     string growth;
+    string commence_date_Year;
+    string quarter;
+    string businessCountQuarter;
     public int Bus_id
     {
         get
@@ -201,6 +204,46 @@ public class Business
         set
         {
             growth = value;
+        }
+    }
+
+    public string Commence_date_Year
+    {
+        get
+        {
+            return commence_date_Year;
+        }
+
+        set
+        {
+            commence_date_Year = value;
+        }
+    }
+
+
+    public string BusinessCountQuarter
+    {
+        get
+        {
+            return businessCountQuarter;
+        }
+
+        set
+        {
+            businessCountQuarter = value;
+        }
+    }
+
+    public string Quarter
+    {
+        get
+        {
+            return quarter;
+        }
+
+        set
+        {
+            quarter = value;
         }
     }
 
