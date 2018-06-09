@@ -463,17 +463,18 @@ $.ajax({
                     }
                 },
                 {
-                    'data': "",
-                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" data-toggle="modal" data-target="#Update_Expiration" class="btn btn-icon btn-success" data-toggle="tooltip" data- original - title="תוקף ויזה חדשה""><i class="icon-check"></i></button><button name="Disable" data-toggle="modal" data-target="#Disable" type="button" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="הפסקת עבודה"><i class="icon-ios-trash"></i></button>',
-                },
-                {
                     'data': 'Ex_date', 'render': function (date) {
                         var date = new Date(parseInt(date.substr(6)));
                         var month = date.getMonth() + 1;
                         return date.getDate() + "/" + month + "/" + date.getFullYear();
                     }
                 },
-                { 'data': 'Phone' }
+                { 'data': 'Phone' },
+                {
+                    'data': "",
+                    'defaultContent': '<button name="edit" type="button" class="btn btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="Update_Expiration" data-toggle="modal" data-target="#Update_Expiration" class="btn btn-icon btn-success call-to-action-btn" data-toggle="tooltip" data- original - title="תוקף ויזה חדשה""><i class="icon-check"></i></button><button name="Disable" data-toggle="modal" data-target="#Disable" type="button" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת עבודה"><i class="icon-ios-trash"></i></button>',
+                    'responsivePriority': 5000
+                }
             ]
         });
     }
@@ -503,13 +504,14 @@ function getEmployeesnobusiness() {
                             return details;
                         }
                     },
-                    {
-                        'data': "",
-                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="empwithbusi" data-toggle="modal" data-target="#empwithbusi" class="btn btn-icon btn-success" data-toggle="tooltip" data- original - title="ציוות מחדש""><i class="icon-check"></i></button><button name="Disable1" data-toggle="modal" data-target="#Disable" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="הפסקת עבודה""><i class="icon-ios-trash"></i></button>',
-                    },
                     { 'data': 'Bus_name' },
                     { 'data': 'Phone' },
-                    { 'data': 'Dayspass' }
+                    { 'data': 'Dayspass' },
+                    {
+                        'data': "",
+                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="empwithbusi" data-toggle="modal" data-target="#empwithbusi" class="btn btn-icon btn-success call-to-action-btn" data-toggle="tooltip" data- original - title="ציוות מחדש""><i class="icon-check"></i></button><button name="Disable1" data-toggle="modal" data-target="#Disable" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת עבודה""><i class="icon-ios-trash"></i></button>',
+                        'responsivePriority': 5000
+                    }
                 ]
             });
 
@@ -546,12 +548,12 @@ $.ajax({
                         return details;
                     }
                 },
+                { 'data': 'Bus_name' },
                 {
                     'data': "",
-                    'defaultContent': '<button  name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד ועדכון מספר מכפל"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
-
-                },
-                { 'data': 'Bus_name' }
+                    'defaultContent': '<button  name="edit" type="button" class="btn btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד ועדכון מספר מכפל"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success call-to-action-btn" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
+                    'responsivePriority': 5000
+                }
                 ]
         });
    
@@ -587,11 +589,6 @@ function ReadEmployeesNotActive() {
                         }
                     },
                     { 'data': 'Bus_name' },
-                    {
-                        'data': "",
-                        'defaultContent': '<button  name="gmah" data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success call-to-action-btn"  title="רישום לצורך גמר חשבון""><i data-toggle="tooltip" class="icon-file-subtract "></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view call-to-action-btn" title="צפה בעובד"><i class="icon-eye3"></i></button>',
-                        'responsivePriority': 5000
-                    },
                     { 'data': 'Disable_reason', 'responsivePriority': 20000 },
                     { 'data': 'Phone', 'responsivePriority': 20000 },
                     {
@@ -600,6 +597,11 @@ function ReadEmployeesNotActive() {
                             var month = date.getMonth() + 1;
                             return date.getDate() + "/" + month + "/" + date.getFullYear();
                         }, 'responsivePriority': 20000
+                    },
+                    {
+                        'data': "",
+                        'defaultContent': '<button name="gmah" data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success call-to-action-btn"  title="רישום לצורך גמר חשבון""><i data-toggle="tooltip" class="icon-file-subtract "></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view call-to-action-btn" title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'responsivePriority': 5000
                     }
 
                 ]
