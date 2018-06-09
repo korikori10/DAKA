@@ -18,7 +18,7 @@ $(window).on("load", function(){
 
     // Set paths
     // ------------------------------
-    StatisticsEmpByMonth(RenderempByMonth);
+    //StatisticsEmpByMonth(RenderempByMonth);
 
     require.config({
         paths: {
@@ -103,7 +103,7 @@ $(window).on("load", function(){
                 // Add legend
                 legend: {
                     x: 'right',
-                    data: yearsEmployee
+                    data:['2010','2011']// yearsEmployee
                 },
 
                 // Add custom colors
@@ -116,7 +116,7 @@ $(window).on("load", function(){
                 xAxis: [
                     {
                         type: 'category',
-                        data: month//['Food', 'clothing', 'live', 'household equipment and supplies', 'health care', 'transport and communication', 'education and entertainment services', 'other']
+                        data: ['Food', 'clothing', 'live', 'household equipment and supplies', 'health care', 'transport and communication', 'education and entertainment services', 'other']
                     }
                 ],
 
