@@ -9,7 +9,7 @@ using System.Web;
 public class Contact
 {
 
-    int contact_id;
+    string contact_id;
     string contact_name;
     int phone;
     string email;
@@ -18,7 +18,7 @@ public class Contact
     string role_name;
     string role_desc;
 
-    public int Contact_id
+    public string Contact_id
     {
         get
         {

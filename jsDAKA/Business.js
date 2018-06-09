@@ -17,7 +17,7 @@ $(document).ready(function () {
 getDepartments(renderDepartments);
     getRoles(renderRoles);
     getTypes(renderTypes)
-
+    $("#AddContact").on('click', function () { createContactForm() });
     //custom validation method
     //$.validator.addMethod("alreadyexist", function (value, element) {
     //    return name_list.indexOf(value) == -1;
@@ -170,7 +170,9 @@ function createContactForm() {
     var contact = '<div class="col-md-6" id="'+ id +'">'+ $div.html() + '</div>'; //$div.clone().prop('id', id);
 
     // Finally insert $klon wherever you want
-    $(contact).appendTo('#contactsTab');
+    //$(contact).appendTo('#contactsTab');
+    $(contact).insertBefore('#addContact');
+    rolesSelect();
     return id;
 }
 function rolesSelect() {
@@ -187,11 +189,11 @@ function renderContacts(results) {
 
     results = $.parseJSON(results.d);
     var busID = sessionStorage.getItem("busiInfo");
+    rolesSelect();
     $.each(results, function (i, row) {
 
         if (row.Bus_id == busID) {
             if (i == 0) {
-                rolesSelect();
                 $("#contact1").find('form').attr('id', 'updatecontact1')
                 frm = $('#updatecontact1');
                 data = row;
@@ -201,7 +203,6 @@ function renderContacts(results) {
             else {
                 id = createContactForm();
                 frm = $("#" + id).find('form').attr('id', 'update' + id);
-                rolesSelect();
                 data = row;
                 contactSave[i] = row;
                 populate(frm, data);
@@ -232,11 +233,11 @@ function renderContacts(results) {
                     contactInfo = contactFRM.serializeObject();
                     contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
                     if (contactInfo.Contact_id == false) {
-                        InsertContact(contactInfo);
+                        InsertContact({ contactInfo: JSON.stringify(contactInfo) } );
                     }
                     else {
 
-                        UpdateContact(contactInfo);
+                        UpdateContact({ contactInfo: JSON.stringify(contactInfo) });
                     }
 
 

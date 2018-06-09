@@ -547,7 +547,7 @@ public class DBServices
                 b.Bus_id = Convert.ToInt32(dr["bus_id"]);
                 b.Contact_name = dr["contact_name"].ToString();
                 b.Email = dr["email"].ToString();
-                b.Contact_id = Convert.ToInt32(dr["contact_id"]);
+                b.Contact_id = dr["contact_id"].ToString();
                 b.Role_name = dr["role_name"].ToString(); 
                 b.Phone = Convert.ToInt32(dr["phone"]);
                 b.Role_id = Convert.ToInt32(dr["role_id"]);
@@ -1467,10 +1467,10 @@ public class DBServices
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
         sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}')", cont.Contact_name, cont.Email, cont.Phone, cont.Role_id);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
-        String prefix = "INSERT INTO [contacts to business] " + "(contact_name, email, phone, role_id)";
+        String prefix = "INSERT INTO [contacts to business] " + "(contact_name, email, phone, role_id) ";
         //how do i get the contact id?
-       // string secondCommand = "; INSERT INTO [contacts in business] (bus_id, contact_id";
-        command = prefix + sb.ToString();
+       String secondCommand = "; INSERT INTO [contacts in business] (bus_id, contact_id) Values('"+ cont.Bus_id + "' ,(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
+        command = prefix + sb.ToString() + secondCommand;
 
         return command;
     }
