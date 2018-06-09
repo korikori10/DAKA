@@ -148,7 +148,9 @@ function getArchive() {
 
                     }]
             });
-
+            $(".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel").addClass("my-1 btn btn-secondary ");
+            $(".dt-buttons").addClass("btn-group");
+            $(".btn").removeClass("dt-button");
 
         }
     });
@@ -193,7 +195,9 @@ function getBusinessesTable() {
                 ]
                     
             });
-
+                $(".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel").addClass("my-1 btn btn-secondary ");
+                $(".dt-buttons").addClass("btn-group");
+                $(".btn").removeClass("dt-button");
         }
     });
 }
@@ -571,10 +575,12 @@ function ReadEmployeesNotActive() {
         success: function (data) {
              NotActiveEmpDatatableVariable = $('#empnotactive').DataTable({
                  data: data,
-                 "bLengthChange": false,
-                 responsive: {
-                        details: 'false',
-                 },
+                 //"bLengthChange": false,
+                 //responsive: {
+                 //       details: 'false',
+                 //},    
+                 responsive: true,
+
                 columns: [
                     {
                         'data': 'Employee_pass_id',
@@ -589,14 +595,14 @@ function ReadEmployeesNotActive() {
                         }
                     },
                     { 'data': 'Bus_name' },
-                    { 'data': 'Disable_reason', 'responsivePriority': 20000 },
-                    { 'data': 'Phone', 'responsivePriority': 20000 },
+                    { 'data': 'Disable_reason'},
+                    { 'data': 'Phone' },
                     {
                         'data': 'Ex_date', 'render': function (date) {
                             var date = new Date(parseInt(date.substr(6)));
                             var month = date.getMonth() + 1;
                             return date.getDate() + "/" + month + "/" + date.getFullYear();
-                        }, 'responsivePriority': 20000
+                        }
                     },
                     {
                         'data': "",
