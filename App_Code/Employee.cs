@@ -903,5 +903,14 @@ public class Employee
         return e;
 
     }
-    
+
+    public void insertEmployee(Employee e)
+    {
+
+
+        DBServices dbs = new DBServices();
+        dbs.insert(e);
+        dbs.insertEmpBus(e);
+
+    }
 }

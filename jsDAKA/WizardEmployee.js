@@ -76,23 +76,23 @@ function renderEmployeeByID(results) {
 
     results = $.parseJSON(results.d);
     resultsSave = results;
-    if (results.Employee_pass_id == null) {
+   // if (results.Employee_pass_id == null) {
         isUpdate = false;
-        $("#passportid").val(EmployeeInfo.pass);
+        //$("#passportid").val(EmployeeInfo.pass);
         results = null;
         document.getElementById("kindoform").innerHTML = "ברוכים הבאים! זוהי קליטה חדשה,אנא הזן את כל הפרטים";
-    }
-    else {
-        var frm = $("#insertEmpForm");
-        var data = results;
-        isUpdate = true;
-        data.Birthday = fixDate(data.Birthday);
-        populate(frm, data);
-        $('.selectize-select').selectize();
-        document.getElementById("kindoform").innerHTML = "עובד זה כבר פעיל במערכת, יש לבצע ציוות מחדש בלבד";
+   // }
+    //else {
+    //    var frm = $("#insertEmpForm");
+    //    var data = results;
+    //    isUpdate = true;
+    //    data.Birthday = fixDate(data.Birthday);
+    //    populate(frm, data);
+    //    $('.selectize-select').selectize();
+    //    document.getElementById("kindoform").innerHTML = "עובד זה כבר פעיל במערכת, יש לבצע ציוות מחדש בלבד";
 
 
-    }
+    //}
 
 }
 
@@ -103,7 +103,6 @@ function renderBusinesses(results) {
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
         $('#businessSE').append(dynamicLi);
-        //  $('#DynamicCitiesList').listview('refresh');
 
     });
 }
@@ -118,7 +117,7 @@ function renderCountries(results) {
 
     });
     EmployeeInfo.pass = sessionStorage.getItem("empInfo");
-    getEmployeeById(EmployeeInfo, renderEmployeeByID);
+    //getEmployeeById(EmployeeInfo, renderEmployeeByID);
 }
 
 function renderCities(results) {
@@ -136,45 +135,44 @@ function renderCities(results) {
 function insertEmp(array) {
 
 
-    //EmployeeInfo = array;
 
-    if (isUpdate) {
-        if (EmpPic == null) {
-            array.Picture = resultsSave.Picture;
+    //if (isUpdate) {
+    //    if (EmpPic == null) {
+    //        array.Picture = resultsSave.Picture;
 
-        }
-        else {
-            array.Picture = EmpPic;
-        }
-        if (array.Business == resultsSave.Business) {
-            array.updateBus = false;
-        }
-        else {
-            array.updateBus = true;
-        }
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן פרטי עובד.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
+    //    }
+    //    else {
+    //        array.Picture = EmpPic;
+    //    }
+    //    if (array.Business == resultsSave.Business) {
+    //        array.updateBus = false;
+    //    }
+    //    else {
+    //        array.updateBus = true;
+    //    }
+    //    swal({
+    //        title: "האם אתה בטוח?",
+    //        text: "אתה עומד לעדכן פרטי עובד.",
+    //        type: "info",
+    //        confirmButtonText: "כן",
+    //        showCancelButton: "true",
+    //        cancelButtonText: "בטל",
+    //        closeOnConfirm: false,
+    //        showLoaderOnConfirm: true,
+    //    },
 
-            function (isConfirm) {
-                if (isConfirm) {
+    //        function (isConfirm) {
+    //            if (isConfirm) {
 
-                    updateEmployee({ EmployeeInfo: JSON.stringify(array) })
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
+    //                updateEmployee({ EmployeeInfo: JSON.stringify(array) })
+    //            }
+    //            else {
+    //                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+    //            }
+    //        });
 
-    }
-    else {
+    //}
+    //else {
         swal({
             title: "האם אתה בטוח?",
             text: "אתה עומד להוסיף עובד חדש.",
@@ -196,7 +194,7 @@ function insertEmp(array) {
                 }
             });
 
-    }
+   // }
 
 }
 

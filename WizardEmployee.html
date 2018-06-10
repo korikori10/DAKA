@@ -115,222 +115,184 @@
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
             <div class="content-body" style="height: 3128px;">
-                    <div class="col-sm-9 col-md-9" style="float:left">
-                        <div class="card">
-                            <div class="card-header" id="card-header">
+                <div class="col-sm-9 col-md-9" style="float:left">
+                    <div class="card">
+                        <div class="card-header" id="card-header">
 
-                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                <div class="heading-elements">
-                                    <ul class="list-inline mb-0">
-                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                    </ul>
-                                </div>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
                             </div>
+                        </div>
 
-                            <div class="card-body collapse in">
-                                <div class="card-block">
-                                    <form action="#" class="vertical-tab-steps wizard-circle" id="insertEmpForm">
-                                        <!-- Step 1 --><h1 id="kindoform"></h1>
-                                        <h6>Step 1</h6>
-                                        <fieldset id="first">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="firstName4">שם פרטי : <span class="danger">*</span></label>
-                                                        <input type="text" class="form-control" id="firstName4" name="Fname" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="lastName4">שם משפחה<span class="danger">*</span></label>
-                                                        <input type="text" class="form-control" id="lastName4" name="Lname" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="passport7">מספר דרכון</label>
-                                                        <input type="text" class="form-control" id="passportid" name="Employee_pass_id">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tbcountry4">ארץ מוצא</label>
-                                                        <select name="Origin_country" class="selectize-select" id="DynamiCountryList" required>
-                                                            <option value="0">לא נבחרה מדינה</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="phoneNumber4"> טלפון נייד Phone Number :</label>
-                                                        <input type="tel" class="form-control" id="phoneNumber4" name="Phone">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="date4">תאריך לידה Date of Birth :</label>
-                                                        <input type="date" class="form-control" id="date4" name="Birthday">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="location3">מצב משפחתי</label>
-                                                        <select class="custom-select form-control" id="location3" name="Fam_stat_code">
-                                                            <option value="0"> בחר Select</option>
-                                                            <option value="1">רווק/ה</option>
-                                                            <option value="2">נשוי/אה</option>
-                                                            <option value="3">גרוש/ה</option>
-                                                            <option value="4">אלמן/ה</option>
-                                                            <option value="5">פרוד/ה</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="location3">מין</label>
-                                                        <select class="custom-select form-control" id="location3" name="Gender">
-                                                            <option value=""> בחר Select</option>
-                                                            <option value="F">זכר</option>
-                                                            <option value="T">נקבה</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="location3">אזרח ישראל:</label>
-                                                        <select class="selectize-select form-control" id="location3" name="Il_citizen">
-                                                            <option value=""> בחר Select</option>
-                                                            <option value="T">כן</option>
-                                                            <option value="F">לא</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="location3">עובד פעיל:</label>
-                                                        <select class="selectize-select form-control" id="location3" name="Active">
-                                                            <option value=""> בחר Select</option>
-                                                            <option value="T">כן</option>
-                                                            <option value="F">לא</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </fieldset>
-                                        <!-- Step 2 -->
-                                        <h6>Step 2</h6>
-                                        <fieldset id="second">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="jobTitle4">מקצוע</label>
-                                                        <input type="text" class="form-control" id="proposalTitle4" name="Occupation_code">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="placeofworkTitle4">מקום עבודה</label>
-                                                        <select class="selectize-select form-control" id="businessSE" name="Business"></select>
-                                                    </div>
-                                                    <!--<div class="form-group">
-                                                        <label for="department">מחלקה</label>
-                                                        <select class="selectize-select form-control" id="location3" name="Department_code">
-                                                            <option value=""> בחר Select</option>
-                                                            <option value="1">דקא דרום</option>
-                                                            <option value="2">דקא מרכז</option>
-                                                        </select>
-                                                    </div>-->
-                                                    <!--<div class="form-group">
-                                                        <label for="startdate4">תאריך תחילת עבודה </label>
-                                                        <input type="date" class="form-control" id="date4" name="startDate">
-                                                    </div>-->
-                                                </div>
-
-                                                <!-- <div class="row">-->
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="jobTitle6">שכר שעתי</label>
-                                                        <input type="number" class="form-control" id="jobTitle6" name="Salary_hour">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="shortDescription4">שבתון </label>
-                                                        <input type="text" class="form-control" id="jobTitle6" name="Sabatical">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="shortDescription4">Overtime:  שעות נוספות:</label>
-                                                        <input type="number" class="form-control" id="jobTitle6" name="Salary_overtime">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="shortDescription4">Transportation:  נסיעות:</label>
-                                                        <input type="number" class="form-control" id="jobTitle6" name="Salary_trans">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="shortDescription4">Weekly rest day:   יום חופש:</label>
-                                                        <input type="text" class="form-control" id="jobTitle6" name="Day_off">
-                                                    </div>
-                                                    <!--</div>-->
-                                                </div>
-                                            </div>
-
-                                        </fieldset>
-                                        <!-- Step 3 -->
-                                        <h6>Step 3</h6>
-                                        <fieldset>
-                                            <div class="row">
-
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <form action="#" class="vertical-tab-steps wizard-circle" id="insertEmpForm">
+                                    <!-- Step 1 --><h1 id="kindoform"></h1>
+                                    <h6>Step 1</h6>
+                                    <fieldset id="first">
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location3">מגורי חברה:</label>
-                                                            <select class="custom-select form-control" id="location3" name="Com_app">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="eventName4">שכירות חודשית:</label>
-                                                        <input type="number" class="form-control" id="eventName4" name="Rent">
-                                                    </div>
+                                                    <label for="firstName4">שם פרטי : <span class="danger">*</span></label>
+                                                    <input type="text" class="form-control" id="firstName4" name="Fname" required>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tbadd4">כתובת פרטית</label>
-                                                        <input type="text" class="form-control" id="textadd4" name="Add">
-                                                    </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastName4">שם משפחה<span class="danger">*</span></label>
+                                                    <input type="text" class="form-control" id="lastName4" name="Lname" required>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tbcity4">עיר/ישוב</label>
-                                                        <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
-                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="passport7">מספר דרכון</label>
+                                                    <input type="text" class="form-control" id="passportid" name="Employee_pass_id">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tbnum4">מספר בית</label>
-                                                        <input type="number" class="form-control" id="textaddnum4" name="Add_num">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tbcountry4">ארץ מוצא</label>
+                                                    <select name="Origin_country" class="selectize-select" id="DynamiCountryList" required>
+                                                        <option value="0">לא נבחרה מדינה</option>
+                                                    </select>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phoneNumber4"> טלפון נייד Phone Number :</label>
+                                                    <input type="tel" class="form-control" id="phoneNumber4" name="Phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="date4">תאריך לידה Date of Birth :</label>
+                                                    <input type="date" class="form-control" id="date4" name="Birthday">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="location3">מצב משפחתי</label>
+                                                    <select class="custom-select form-control" id="location3" name="Fam_stat_code">
+                                                        <option value="0"> בחר Select</option>
+                                                        <option value="1">רווק/ה</option>
+                                                        <option value="2">נשוי/אה</option>
+                                                        <option value="3">גרוש/ה</option>
+                                                        <option value="4">אלמן/ה</option>
+                                                        <option value="5">פרוד/ה</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="location3">מין</label>
+                                                    <select class="custom-select form-control" id="location3" name="Gender">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="F">זכר</option>
+                                                        <option value="T">נקבה</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="location3">אזרח ישראל:</label>
+                                                    <select class="selectize-select form-control" id="location3" name="Il_citizen">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="T">כן</option>
+                                                        <option value="F">לא</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="location3">עובד פעיל:</label>
+                                                    <select class="selectize-select form-control" id="location3" name="Active">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="T">כן</option>
+                                                        <option value="F">לא</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                    </fieldset>
+                                    <!-- Step 2 -->
+                                    <h6>Step 2</h6>
+                                    <fieldset id="second">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="jobTitle4">מקצוע</label>
+                                                    <input type="text" class="form-control" id="proposalTitle4" name="Occupation_code">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="placeofworkTitle4">מקום עבודה</label>
+                                                    <select class="selectize-select form-control" id="businessSE" name="Business"></select>
+                                                </div>
+                                                <!--<div class="form-group">
+                                                    <label for="department">מחלקה</label>
+                                                    <select class="selectize-select form-control" id="location3" name="Department_code">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="1">דקא דרום</option>
+                                                        <option value="2">דקא מרכז</option>
+                                                    </select>
+                                                </div>-->
+                                                <!--<div class="form-group">
+                                                    <label for="startdate4">תאריך תחילת עבודה </label>
+                                                    <input type="date" class="form-control" id="date4" name="startDate">
+                                                </div>-->
+                                            </div>
+
+                                            <!-- <div class="row">-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="jobTitle6">שכר שעתי</label>
+                                                    <input type="number" class="form-control" id="jobTitle6" name="Salary_hour">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shortDescription4">שבתון </label>
+                                                    <input type="text" class="form-control" id="jobTitle6" name="Sabatical">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shortDescription4">Overtime:  שעות נוספות:</label>
+                                                    <input type="number" class="form-control" id="jobTitle6" name="Salary_overtime">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shortDescription4">Transportation:  נסיעות:</label>
+                                                    <input type="number" class="form-control" id="jobTitle6" name="Salary_trans">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shortDescription4">Weekly rest day:   יום חופש:</label>
+                                                    <input type="text" class="form-control" id="jobTitle6" name="Day_off">
+                                                </div>
+                                                <!--</div>-->
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                    <!-- Step 3 -->
+                                    <h6>Step 3</h6>
+                                    <fieldset>
+                                        <div class="row">
+
+                                            <div class="form-group">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="location3">מבוטח:</label>
-                                                        <select class="custom-select form-control" id="location3" name="Insurance">
+                                                        <label for="location3">מגורי חברה:</label>
+                                                        <select class="custom-select form-control" id="location3" name="Com_app">
                                                             <option value=""> בחר Select</option>
                                                             <option value="T">כן</option>
                                                             <option value="F">לא</option>
@@ -338,23 +300,61 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </fieldset>
-                                        <!-- Step 4 -->
-                                        <h6>Step 4</h6>
-                                        <fieldset>
-                                            <div class="row">
-                                                <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="eventName4">שכירות חודשית:</label>
+                                                    <input type="number" class="form-control" id="eventName4" name="Rent">
+                                                </div>
                                             </div>
-                                            <div id="progressBar" style="position:relative; display:none">
-                                                <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
-                                                <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tbadd4">כתובת פרטית</label>
+                                                    <input type="text" class="form-control" id="textadd4" name="Add">
+                                                </div>
                                             </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tbcity4">עיר/ישוב</label>
+                                                    <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tbnum4">מספר בית</label>
+                                                    <input type="number" class="form-control" id="textaddnum4" name="Add_num">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="location3">מבוטח:</label>
+                                                    <select class="custom-select form-control" id="location3" name="Insurance">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="T">כן</option>
+                                                        <option value="F">לא</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <!-- Step 4 -->
+                                    <h6>Step 4</h6>
+                                    <fieldset>
+                                        <div class="row">
+                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera">
+                                        </div>
+                                        <div id="progressBar" style="position:relative; display:none">
+                                            <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        </div>
+                                    </fieldset>
+                                </form>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -392,12 +392,12 @@
     <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
     <script src="app-assets/js/core/app.js" type="text/javascript"></script>
     <script src="app-assets/js/scripts/ui/fullscreenSearch.js" type="text/javascript"></script>
-    <script src="app-assets/js/scripts/forms/wizard-steps.js" type="text/javascript"></script>
+    <!--<script src="app-assets/js/scripts/forms/wizard-steps.js" type="text/javascript"></script>-->
     <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
     <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>
-
-    <script src="DAKAjs/AjaxCalls.js"></script>
+    <script src="app-assets/js/scripts/forms/wizard-steps.js"></script>
     <script src="jsDAKA/WizardEmployee.js"></script>
+    <script src="jsDAKA/AjaxCalls.js"></script>
     <!-- <script src="app-assets/js/scripts/forms/validation/form-validation.js"></script>-->
     <!-- END PAGE LEVEL JS-->
     <script src="app-assets/js/scripts/modal/components-modal.js" type="text/javascript"></script>

@@ -9,34 +9,35 @@
 ==========================================================================================*/
 
 // Wizard tabs with numbers setup
-$(".number-tab-steps").steps({
-    headerTag: "h6",
-    bodyTag: "fieldset",
-    transitionEffect: "fade",
-    titleTemplate: '<span class="step">#index#</span> #title#',
-    labels: {
-        finish: 'Submit'
-    },
-    onFinished: function (event, currentIndex) {
-        alert("Form submitted.");
-    }
-});
+//$(".number-tab-steps").steps({
+//    headerTag: "h6",
+//    bodyTag: "fieldset",
+//    transitionEffect: "fade",
+//    titleTemplate: '<span class="step">#index#</span> #title#',
+//    labels: {
+//        finish: 'Submit'
+//    },
+//    onFinished: function (event, currentIndex) {
+//        alert("Form submitted.");
+//    }
+//});
 
 // Wizard tabs with icons setup
-$(".icons-tab-steps").steps({
-    headerTag: "h6",
-    bodyTag: "fieldset",
-    transitionEffect: "fade",
-    titleTemplate: '<span class="step">#index#</span> #title#',
-    labels: {
-        finish: 'Submit'
-    },
-    onFinished: function (event, currentIndex) {
-        alert("Form submitted.");
-    }
-});
+//$(".icons-tab-steps").steps({
+//    headerTag: "h6",
+//    bodyTag: "fieldset",
+//    transitionEffect: "fade",
+//    titleTemplate: '<span class="step">#index#</span> #title#',
+//    labels: {
+//        finish: 'Submit'
+//    },
+//    onFinished: function (event, currentIndex) {
+//        alert("Form submitted.");
+//    }
+//});
 
 // Vertical tabs form wizard setup
+var form = $("#insertEmpForm").show();
 $(".vertical-tab-steps").steps({
     headerTag: "h6",
     bodyTag: "fieldset",
@@ -46,59 +47,99 @@ $(".vertical-tab-steps").steps({
     labels: {
         finish: 'Submit'
     },
+    onStepChanging: function (event, currentIndex, newIndex) {
+        // Allways allow previous action even if the current form is not valid!
+        if (currentIndex > newIndex) {
+            return true;
+        }
+        form.validate().settings.ignore = ":disabled,:hidden";
+        return form.valid();
+    },
+    onFinishing: function (event, currentIndex) {
+        form.validate().settings.ignore = ":disabled";
+        return form.valid();
+    },
     onFinished: function (event, currentIndex) {
-        insertBusandContact();
+
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (this.value == 'T') {
+                    this.value = 'true'
+                }
+                else if (this.value == 'F') {
+                    this.value = 'false'
+                }
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        var formData = $('#insertEmpForm').serializeObject();
+        // var result = JSON.stringify(formData);
+        //  var array = ($("#insertEmpForm").serialize());
+        insertEmp(formData);
     }
 });
 
 // Validate steps wizard
 
 // Show form
-var form = $(".steps-validation").show();
+//var form = $(".steps-validation").show();
 
-$(".steps-validation").steps({
-    headerTag: "h6",
-    bodyTag: "fieldset",
-    transitionEffect: "fade",
-    titleTemplate: '<span class="step">#index#</span> #title#',
-    labels: {
-        finish: 'Submit'
-    },
-    onStepChanging: function (event, currentIndex, newIndex)
-    {
-        // Allways allow previous action even if the current form is not valid!
-        if (currentIndex > newIndex)
-        {
-            return true;
-        }
-        // Forbid next action on "Warning" step if the user is to young
-        if (newIndex === 3 && Number($("#age-2").val()) < 18)
-        {
-            return false;
-        }
-        // Needed in some cases if the user went back (clean up)
-        if (currentIndex < newIndex)
-        {
-            // To remove error styles
-            form.find(".body:eq(" + newIndex + ") label.error").remove();
-            form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
-        }
-        form.validate().settings.ignore = ":disabled,:hidden";
-        return form.valid();
-    },
-    onFinishing: function (event, currentIndex)
-    {
-        form.validate().settings.ignore = ":disabled";
-        return form.valid();
-    },
-    onFinished: function (event, currentIndex)
-    {
-        alert("Submitted!");
-    }
-});
+//$(".steps-validation").steps({
+//    headerTag: "h6",
+//    bodyTag: "fieldset",
+//    transitionEffect: "fade",
+//    titleTemplate: '<span class="step">#index#</span> #title#',
+//    labels: {
+//        finish: 'Submit'
+//    },
+//    onStepChanging: function (event, currentIndex, newIndex)
+//    {
+//        // Allways allow previous action even if the current form is not valid!
+//        if (currentIndex > newIndex)
+//        {
+//            return true;
+//        }
+//        // Forbid next action on "Warning" step if the user is to young
+//        if (newIndex === 3 && Number($("#age-2").val()) < 18)
+//        {
+//            return false;
+//        }
+//        // Needed in some cases if the user went back (clean up)
+//        if (currentIndex < newIndex)
+//        {
+//            // To remove error styles
+//            form.find(".body:eq(" + newIndex + ") label.error").remove();
+//            form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+//        }
+//        form.validate().settings.ignore = ":disabled,:hidden";
+//        return form.valid();
+//    },
+//    onFinishing: function (event, currentIndex)
+//    {
+//        form.validate().settings.ignore = ":disabled";
+//        return form.valid();
+//    },
+//    onFinished: function (event, currentIndex)
+//    {
+//        alert("Submitted!");
+//    }
+//});
 
 // Initialize validation
-$(".steps-validation").validate({
+var form1 = $("#insertEmpForm")
+
+form1.validate({
     ignore: 'input[type=hidden]', // ignore hidden fields
     errorClass: 'danger',
     successClass: 'success',
