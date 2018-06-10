@@ -180,7 +180,7 @@ $('.table').on('click', 'tr td button', function () {
 
 $('#updateVisa').click(function () {
     $('#visaRenew').validate();
-    
+
     if ($('#visaRenew').valid()) {
         EmployeeInfo.Ex_date = $('#visaDate').val();
         EmployeeInfo.Doc_id = EmployeeInfo.pass + $('#visaDate').val();
@@ -190,8 +190,10 @@ $('#updateVisa').click(function () {
         $('#Update_Expiration').modal('toggle');
         updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
-})
-
+});
+$('#AddNewBus').click(function () {
+    sessionStorage.removeItem("busiInfo")
+});
 
 $('#updateBusBTN').click(function () {
   //  $('#visaRenew').validate();
