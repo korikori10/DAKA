@@ -45,6 +45,9 @@ public class Employee
     string img_url;
     DateTime last_update;
     string doc_id;
+    bool food_incloud;
+    float food_pay;
+    float monthly_rent;
     bool final_bill;
     string start_Year;
     string employeeCount;
@@ -732,6 +735,45 @@ public class Employee
         set
         {
             employeeCountMonth = value;
+        }
+    }
+
+    public bool Food_incloud
+    {
+        get
+        {
+            return food_incloud;
+        }
+
+        set
+        {
+            food_incloud = value;
+        }
+    }
+
+    public float Food_pay
+    {
+        get
+        {
+            return food_pay;
+        }
+
+        set
+        {
+            food_pay = value;
+        }
+    }
+
+    public float Monthly_rent
+    {
+        get
+        {
+            return monthly_rent;
+        }
+
+        set
+        {
+            monthly_rent = value;
         }
     }
 
