@@ -133,6 +133,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+
     //selectize disable list
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -543,6 +544,22 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
         int c1 = c.InsertContact(c);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(c1);
+        return jsonStringCategory;
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string UpdateContact(string contactInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Contact c = js.Deserialize<Contact>(contactInfo);
+
+
+
+        int c1 = c.UpdateContact(c);
         // serialize to string
         string jsonStringCategory = js.Serialize(c1);
         return jsonStringCategory;

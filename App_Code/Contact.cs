@@ -157,4 +157,16 @@ public class Contact
         return b;
 
     }
+
+
+    public int UpdateContact(Contact con)
+    {
+        DBServices dbs = new DBServices();
+
+        int b = dbs.updateCont(con);
+
+
+        return b;
+
+    }
 }

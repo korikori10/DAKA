@@ -2522,5 +2522,66 @@ public class DBServices
 
         return command;
     }
+
+    //--------------------------------------------------------------------
+    // Update business
+    //--------------------------------------------------------------------
+    public int updateCont(Contact cont)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildUpdateCommandBusiness(cont);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+
+    //--------------------------------------------------------------------
+    // Build the business command String
+    //--------------------------------------------------------------------
+    private String BuildUpdateCommandBusiness(Contact cont)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        String prefix = "UPDATE [contacts to business] SET contact_name = '" + cont.Contact_name + "', email = '" + cont.Email + "', phone = '" + cont.Phone + "', role_id = '" + cont.Role_id + "' Where contact_id = " + cont.Contact_id;
+        command = prefix;// prefix;
+        return command;
+    }
     #endregion
 }
