@@ -1,5 +1,6 @@
 ﻿var statistics = new Object();
 EmployeeInfo = new Object();
+BusinessInfo = new Object();
 empPic = new Object();
 
 //$(document).ready(function () {
@@ -100,8 +101,9 @@ function renderBusinesses(results) {
     });
         var select = $("#businessSE").selectize({
             maxItems: 1, //Max items selectable in the textbox
-            maxOptions: 30 //Max options to render at once in the dropdown
-            }
+            maxOptions: 30, //Max options to render at once in the dropdown
+              dropdownOffsetWidth: 150
+        }
         );
 }
 function renderDreasons(results) {
@@ -217,7 +219,7 @@ $("#confirmDR").click(function () {
 })
 
 //SearchBox
-
+//employee
 function renderEmployees(results) {
     //this is the callBackFunc 
     totalEmp = 0;
@@ -247,27 +249,35 @@ function renderEmployees(results) {
 
 }
 
+//business
+function renderBusinesses(results) {
+    //this is the callBackFunc 
+    totalEmp = 0;
+    results = $.parseJSON(results.d);
+    for (var i = 1; i <= results.length; i++) {
+        totalEmp = i;
+    }
+    var dl = $('#DynamicBusinessList');
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Bus_id + '" data-extra-search="{"Businessid":' + row.Bus_id + '}"> <h3>' + row.Bus_name + '</h3>  </option>';
+        dl.append(dynamicLi);
+    });
+    ////////////////////////////////////////////
+    var select = $("#DynamicBusinessList").selectize({
+        maxItems: 1, //Max items selectable in the textbox
+        maxOptions: 30, //Max options to render at once in the dropdown
 
-//function renderEmployees(results) {
-//    //this is the callBackFunc 
-//    EmployeeInfo = results.d
+        onItemAdd: function (value) {
+            sessionStorage.removeItem("busiInfo")
+            BusinessInfo.Bus_id = value;
+            sessionStorage.setItem("busiInfo", BusinessInfo.Bus_id);
+            window.location = "Business.html"
+        },
+        dataAttr: 'data-extra',//search also for hidden values
+        searchField: ['value', 'text', 'other']
+    });
 
-//    $(".selectize-select").selectize({
-//        create: true,
-//        valueField: 'Emp_Pass_id',
-//        lableField: 'Fname',
-//        sortField: 'text',
-//        searchField: ['Emp_Pass_id', 'Fname', 'Lname'],
-//        options: EmployeeInfo
-//    });
-
-//}
-//Statistics callcack func
-//function RenderTotalnewemp(results) {
-//    statistics = results.d;
-    
-
-//}
+}
 
 function RenderTotalAllemp(results)
 {

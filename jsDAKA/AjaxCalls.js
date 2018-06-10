@@ -450,6 +450,7 @@ $.ajax({
     success: function (data) {
         datatableVariable = $('#newvisaalert').DataTable({
             data: data,
+            "bLengthChange": false,
             responsive: true,
             autoWidth: false,
 
@@ -494,6 +495,7 @@ function getEmployeesnobusiness() {
         success: function (data) {
              datatableVariable = $('#empNoBusi').DataTable({
                  data: data,
+                 "bLengthChange": false,
                  responsive: true,
                 columns: [
                     {
@@ -575,10 +577,7 @@ function ReadEmployeesNotActive() {
         success: function (data) {
              NotActiveEmpDatatableVariable = $('#empnotactive').DataTable({
                  data: data,
-                 //"bLengthChange": false,
-                 //responsive: {
-                 //       details: 'false',
-                 //},    
+                 "bLengthChange": false,
                  responsive: true,
 
                 columns: [

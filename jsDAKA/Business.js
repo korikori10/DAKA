@@ -14,7 +14,7 @@ var newBus = new Object();
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-getDepartments(renderDepartments);
+    getDepartments(renderDepartments);
     getRoles(renderRoles);
     getTypes(renderTypes)
     $("#AddContact").on('click', function () { createContactForm() });

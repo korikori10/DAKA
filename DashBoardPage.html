@@ -129,7 +129,7 @@
                     <a href="Businesses.html"><i class="icon-briefcase4"></i><span class="menu-title">עסקים</span></a>
                 </li>
                 <li class=" nav-item">
-                    <a href="#"><i class="icon-bar-chart"></i><span class="menu-title">סטטיסטיקות</span></a>
+                    <a href="Statistics.html"><i class="icon-bar-chart"></i><span class="menu-title">סטטיסטיקות</span></a>
                 </li>
                 <li class=" navigation-header">
                     <span data-i18n="nav.category.support">כניסת משתמשים</span><i data-toggle="tooltip" data-placement="right" data-original-title="Support" class="icon-ellipsis icon-ellipsis"></i>
@@ -242,160 +242,166 @@
                                     <select id="DynamicEmployeesList" class="selectize-select">
                                         <option value="0">חפש עובד....</option>
                                     </select>
-                                    <fieldset class="form-group position-relative">
-                                        <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="חפש בית עסק ..." />
-                                        <div class="form-control-position">
-                                            <i class="icon-search7 font-medium-4"></i>
+                                    <!--break-->
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-8">
+                                            <br />
                                         </div>
-                                    </fieldset>
+                                    </div>
+                                    <select id="DynamicBusinessList" class="selectize-select">
+                                        <option value="0">חפש בית עסק....</option>
+                                    </select>
                                 </div>
-
                             </div>
                             <!--/ searchbox-->
-                            <!-- עובדים לא פעילים-->
-                            <section>
-                                    <div class="card" >
-                                        <div class="card-header">
-                                            <h4 class="card-title">עובדים לא פעילים</h4>
-                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                            <div class="heading-elements">
-                                                <ul class="list-inline mb-0">
-                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="card-body collapse in">
-                                            <div class="card-block card-dashboard">
-                                                <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
-                                                <div class="dataTables_scroll">
-                                                    <div style="position: relative; overflow: auto; width: 100%;">
-                                                        <!--  <table class="table table-striped table-bordered responsive dataex-res-rowcontrol dataTable dtr-column collapsed" id="DataTables_Table_9" role="grid" aria-describedby="DataTables_Table_9_info">-->
+                            <!--break-->
 
-
-                                                        <table class="table table-striped table-bordered table-responsive dataex-res-visibility no-footer dtr-inline collapsed" role="grid" id="empnotactive" style="margin-left: 0px;width: 100%; ">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>מספר דרכון</th>
-                                                                    <th>מספר מכפל</th>
-                                                                    <th>שם העובד</th>
-                                                                    <th>מקום עבודה אחרון</th>
-                                                                    <th>סיבת עזיבה</th>
-                                                                    <th>טלפון</th>
-                                                                    <th>תוקף ויזה</th>
-                                                                    <th>פעולות</th>
-
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody></tbody>
-
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                <!--modals-->
-
-                                <div class="modal fade text-xs-left" id="Cancelinsurance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h3 class="modal-title" id="myModalLabel35">הפסקת ביטוח</h3>
-                                            </div>
-                                            <form id="Cancellation">
-
-                                                <div class="modal-body">
-                                                    <fieldset class="form-group floating-label-form-group has-danger">
-                                                        <label for="date4">תאריך :</label>
-                                                        <input type="date" class="form-control" id="cancellationDate" name="Ex_date" />
-                                                    </fieldset>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <input name="confirmCancellation" id="updateCancellation" type="button" class="btn btn-outline-primary btn-lg" value=" אישור לביטול ביטוח" onclick="cancelInsurance()" />
-                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                                </div>
-                                            </form>
-                                        </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-8">
+                                    <br />
+                                </div>
+                            </div>                            <!-- עובדים לא פעילים-->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">עובדים לא פעילים</h4>
+                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                    <div class="heading-elements">
+                                        <ul class="list-inline mb-0">
+                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                        </ul>
                                     </div>
                                 </div>
+                                <div class="card-body collapse in">
+                                    <div class="card-block card-dashboard">
+                                        <p class="card-text">אפשרות לראות למי צריך לדאוג</p>
+                                        <div class="dataTables_scroll">
+                                            <div style="position: relative; overflow: auto; width: 100%;">
+                                                <!--  <table class="table table-striped table-bordered responsive dataex-res-rowcontrol dataTable dtr-column collapsed" id="DataTables_Table_9" role="grid" aria-describedby="DataTables_Table_9_info">-->
 
-                                <div class="modal fade text-xs-left" id="gmah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h3 class="modal-title" id="myModalLabel35">רישום לצורך גמר חשבון</h3>
+
+                                                <table class="table table-striped table-bordered table-responsive dataex-res-visibility no-footer dtr-inline collapsed" role="grid" id="empnotactive" style="margin-left: 0px;width: 100%; ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>מספר דרכון</th>
+                                                            <th>מספר מכפל</th>
+                                                            <th>שם העובד</th>
+                                                            <th>מקום עבודה אחרון</th>
+                                                            <th>סיבת עזיבה</th>
+                                                            <th>טלפון</th>
+                                                            <th>תוקף ויזה</th>
+                                                            <th>פעולות</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+
+                                                </table>
                                             </div>
-                                            <form>
-                                                <div class="modal-body">
-                                                    <fieldset class="form-group floating-label-form-group">
-                                                        <input type="radio" id="noGmah" name="gmahh" value="false" checked=checked />
-
-                                                        <label for="input-17" class="">לא</label>
-                                                    </fieldset>
-
-                                                    <fieldset class="form-group floating-label-form-group">
-
-                                                        <input type="radio" id="yesGmah" name="gmahh" value="true" />
-
-                                                        <label for="input-18" class="">כן</label>
-                                                    </fieldset>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <input name="confirmGm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeGmah()" />
-                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                                </div>
-                                            </form>
                                         </div>
+
+
                                     </div>
                                 </div>
-                                <div class="modal fade text-xs-left" id="Diur" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h3 class="modal-title" id="myModalLabel35">האם להוציא עובד זה מדיור?</h3>
-                                            </div>
-                                            <form>
-                                                <div class="modal-body">
-                                                    <fieldset class="form-group floating-label-form-group">
-                                                        <input type="radio" id="noDiur" name="Diur" value="false" checked=checked />
+                            </div>
+                            <!--modals-->
 
-                                                        <label for="input-17" class="">לא</label>
-                                                    </fieldset>
-
-                                                    <fieldset class="form-group floating-label-form-group">
-
-                                                        <input type="radio" id="yes" name="Diur" value="true" />
-
-                                                        <label for="input-18" class="">כן</label>
-                                                    </fieldset>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <input name="confirmDm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeDiur()" />
-                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                                </div>
-
-                                            </form>
+                            <div class="modal fade text-xs-left" id="Cancelinsurance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h3 class="modal-title" id="myModalLabel35">הפסקת ביטוח</h3>
                                         </div>
+                                        <form id="Cancellation">
+
+                                            <div class="modal-body">
+                                                <fieldset class="form-group floating-label-form-group has-danger">
+                                                    <label for="date4">תאריך :</label>
+                                                    <input type="date" class="form-control" id="cancellationDate" name="Ex_date" />
+                                                </fieldset>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input name="confirmCancellation" id="updateCancellation" type="button" class="btn btn-outline-primary btn-lg" value=" אישור לביטול ביטוח" onclick="cancelInsurance()" />
+                                                <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
+
+                            <div class="modal fade text-xs-left" id="gmah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h3 class="modal-title" id="myModalLabel35">רישום לצורך גמר חשבון</h3>
+                                        </div>
+                                        <form>
+                                            <div class="modal-body">
+                                                <fieldset class="form-group floating-label-form-group">
+                                                    <input type="radio" id="noGmah" name="gmahh" value="false" checked=checked checked=checked checked=checked checked=checked />
+
+                                                    <label for="input-17" class="">לא</label>
+                                                </fieldset>
+
+                                                <fieldset class="form-group floating-label-form-group">
+
+                                                    <input type="radio" id="yesGmah" name="gmahh" value="true" />
+
+                                                    <label for="input-18" class="">כן</label>
+                                                </fieldset>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input name="confirmGm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeGmah()" />
+                                                <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade text-xs-left" id="Diur" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h3 class="modal-title" id="myModalLabel35">האם להוציא עובד זה מדיור?</h3>
+                                        </div>
+                                        <form>
+                                            <div class="modal-body">
+                                                <fieldset class="form-group floating-label-form-group">
+                                                    <input type="radio" id="noDiur" name="Diur" value="false" checked=checked checked=checked checked=checked checked=checked />
+
+                                                    <label for="input-17" class="">לא</label>
+                                                </fieldset>
+
+                                                <fieldset class="form-group floating-label-form-group">
+
+                                                    <input type="radio" id="yes" name="Diur" value="true" />
+
+                                                    <label for="input-18" class="">כן</label>
+                                                </fieldset>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input name="confirmDm" type="button" class="btn btn-outline-primary btn-lg" value="אישור" onclick="changeDiur()" />
+                                                <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- עובדים לא פעילים-->
                             <!--</form>-->
