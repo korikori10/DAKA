@@ -35,6 +35,9 @@ window.onload = function () {
 
         }
     })
+    $('#AddNewBus').click(function () {
+        sessionStorage.removeItem("busiInfo")
+    });
 }
 //});
 function setEmpFile(results) {
@@ -191,9 +194,7 @@ $('#updateVisa').click(function () {
         updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
 });
-$('#AddNewBus').click(function () {
-    sessionStorage.removeItem("busiInfo")
-});
+
 
 $('#updateBusBTN').click(function () {
   //  $('#visaRenew').validate();
