@@ -106,7 +106,7 @@ public class DBServices
                 e.Sabatical = Convert.ToInt32(dr["sabatical"]);
                 e.Occupation_code = Convert.ToInt32(dr["occupation_code"]);
                 e.Active = Convert.ToBoolean(dr["active"]);
-                e.Disable_reason = dr["disable_reason"].ToString();
+               // e.Disable_reason = dr["disable_reason"].ToString();
 
                 Employees.Add(e);
             }
@@ -1342,8 +1342,8 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}', '{17}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}','{25}','{26}','{27}','{28}')", emp.Employee_pass_id, emp.Lname, emp.Fname, emp.Birthday.ToString("yyyy-MM-dd"), emp.Gender, emp.Picture, emp.Origin_country, emp.Il_citizen, emp.Add_city, emp.Add, emp.Add_num, emp.Phone, emp.Com_app, emp.Sys_id, emp.Insurance, emp.Com_insurance, emp.Fam_stat_code, emp.Salary_hour, emp.Salary_overtime, emp.Salary_trans, emp.Day_off, emp.Sabatical, emp.Occupation_code, emp.Active, emp.Disable_reason,emp.Food_incloud,emp.Food_pay,emp.Monthly_rent,"false");//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
-        String prefix = "INSERT INTO EMPLOYEE " + "(employee_pass_id,lname,fname,birthday,gender,Picture,origin_country,il_citizen,add_city,add,add_num,phone,com_app,michpal_id,insurance,com_insurance,fam_stat_code,salary_hour,salary_overtime,salary_trans,day_off_id,sabatical, occupation_code,active,disable_reason,food_incloud,food_pay,monthly_rent,final_bill) ";
+        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}', '{17}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}','{25}','{26}','{27}')", emp.Employee_pass_id, emp.Lname, emp.Fname, emp.Birthday.ToString("yyyy-MM-dd"), emp.Gender, emp.Picture, emp.Origin_country, emp.Il_citizen, emp.Add_city, emp.Add, emp.Add_num, emp.Phone, emp.Com_app, emp.Sys_id, emp.Insurance, emp.Com_insurance, emp.Fam_stat_code, emp.Salary_hour, emp.Salary_overtime, emp.Salary_trans, emp.Day_off, emp.Sabatical, emp.Occupation_code, emp.Active,emp.Food_incloud,emp.Food_pay,emp.Monthly_rent,"false");//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        String prefix = "INSERT INTO EMPLOYEE " + "(employee_pass_id,lname,fname,birthday,gender,Picture,origin_country,il_citizen,add_city,[add],add_num,phone,com_app,michpal_id,insurance,com_insurance,fam_stat_code,salary_hour,salary_overtime,salary_trans,day_off_id,sabatical,occupation_code,active,food_incloud,food_pay,monthly_rent,final_bill) ";
         command = prefix + sb.ToString();
 
         return command;
@@ -1538,7 +1538,7 @@ public class DBServices
     }
 
     //--------------------------------------------------------------------
-    // insert an Business
+    // insert an tmployee in Business
     //--------------------------------------------------------------------
     public int insertEmpBus(Employee emp)
     {
@@ -1584,7 +1584,7 @@ public class DBServices
     }
 
     //--------------------------------------------------------------------
-    // Build the Insert command String for employee
+    // Build the Insert command String for employee in business
     //--------------------------------------------------------------------
     private String BuildInsertCommandEmpBus(Employee emp)
     {
@@ -1594,6 +1594,65 @@ public class DBServices
         // use a string builder to create the dynamic string
         sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, emp.Start_date);
         String prefix = "INSERT INTO [employee in business] " + "(employee_pass_id, bus_id, start_date)";
+        command = prefix + sb.ToString();
+
+        return command;
+    }
+
+    public int insertNEWEmpBus(Employee emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildInsertCommandNEWEmpBus(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the Insert command String for employee in business
+    //--------------------------------------------------------------------
+    private String BuildInsertCommandNEWEmpBus(Employee emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, DateTime.Now.ToString("yyyy-MM-dd"));
+        String prefix = "INSERT INTO [employee in business] " + "(employee_pass_id, bus_id,start_date)";
         command = prefix + sb.ToString();
 
         return command;

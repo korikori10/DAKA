@@ -160,7 +160,7 @@ public class AJAXWebService : System.Web.Services.WebService
         Employee e = new Employee();
         List<Employee> LE = e.getEmployees();
         JavaScriptSerializer js = new JavaScriptSerializer();
-        // serialize to string
+        // serialize to strinet
         var jsonStringCategory =  js.Serialize(LE) ;
      
         Context.Response.Write(jsonStringCategory);
@@ -532,6 +532,19 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void insertEmployee(string EmployeeInfo)
+    {
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+
+        e.insertEmployee(e);
+
 
     }
     [WebMethod]
