@@ -939,7 +939,7 @@ public class DBServices
     /// reads User from sql
     /// </summary>
     /// <returns>User</returns>
-    public User ReadUsers(int user_id)
+    public User ReadUsers(string user_id)
     {
         SqlConnection con = null;
 
@@ -947,7 +947,7 @@ public class DBServices
         {
 
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM USERS where uid = '" + user_id + "'";
+            string selectSTR = "SELECT*FROM USERS where u_name = '" + user_id + "'";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             User user = new User();

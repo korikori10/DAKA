@@ -692,6 +692,19 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getUserByUserName(string username)
+    {
+
+        User u = new User();
+        u = u.getUserByUserName(username);
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(u);
+        return jsonStringCategory;
+    }
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

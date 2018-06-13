@@ -1,4 +1,10 @@
 ﻿var datatableVariable = new Object();
+var local = true;
+var WSUrl = 'ajaxWebService.asmx';
+if (!local) {
+    WSUrl = 'http://proj.ruppin.ac.il/bgroup59/test2/tar2/ajaxwebservice.asmx';
+}
+
 //Get All Employees
 function getEmployees(renderEmployees) {
     $.ajax({
@@ -770,6 +776,47 @@ function updateInsurance(EmployeeInfo, current_row) {
 
 
 }
+//take user deatails from DB using ajax WS
+function getUserByUserName(username, renderUser) {
+    var dataString = '{"username":' + JSON.stringify(username) + '}';
+    $.ajax({
+        url: WSUrl + '/getUserByUserName',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderUser(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function getUserById(username, ValidateUser) {
+
+    // serialize the object to JSON string
+    var dataString = '{"username":' + JSON.stringify(username) + '}';
+
+    $.ajax({
+        url: WSUrl + '/getUserByUserName',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            ValidateUser(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+
 
 //cancel employee insurance
 function ajaxcancelInsurance(EmployeeInfo, current_row) {
