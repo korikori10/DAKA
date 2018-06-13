@@ -399,7 +399,7 @@ function StatisticsbusiByQuarter(RenderBusiByQuarter) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
-            RenderempByYear(results);
+            RenderBusiByQuarter(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -696,6 +696,29 @@ function InsertBusiness(BusinessInfo, renderBusinesses) {
         }
     });
 }
+
+//insert spesific Employee
+function insertEmployee(EmployeeInfo) {
+    var emp = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/insertEmployee',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        success: function () {
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+           // window.location = "DashBoardPage.html";
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 
 //insert spesific contact
 function InsertContact(contactInfo) {

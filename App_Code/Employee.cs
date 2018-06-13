@@ -952,7 +952,7 @@ public class Employee
 
         DBServices dbs = new DBServices();
         dbs.insert(e);
-        dbs.insertEmpBus(e);
+        dbs.insertNEWEmpBus(e);
 
     }
 }
