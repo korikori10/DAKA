@@ -312,30 +312,30 @@
                                     <fieldset>
                                         <div class="row">
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="location3">מגורי חברה:</label>
-                                                        <select class="custom-select form-control" id="location3" name="Com_app">
-                                                            <option value=""> בחר Select</option>
-                                                            <option value="T">כן</option>
-                                                            <option value="F">לא</option>
-                                                        </select>
-                                                    </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="location3">מגורי חברה:</label>
+                                                    <select class="custom-select form-control" id="location3" name="Com_app">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="T">כן</option>
+                                                        <option value="F">לא</option>
+                                                    </select>
+                                                </div>
                                                 <div class="form-group">
                                                     <label for="eventName4">שכירות חודשית:</label>
                                                     <input type="number" class="form-control" id="Monthly_rent" name="Monthly_rent">
                                                 </div>
                                                 <div class="form-group">
-                                                <label for="location3">מבוטח:</label>
-                                                <select class="custom-select form-control" id="location3" name="Insurance">
-                                                    <option value=""> בחר Select</option>
-                                                    <option value="T">כן</option>
-                                                    <option value="F">לא</option>
-                                                </select>
+                                                    <label for="location3">מבוטח:</label>
+                                                    <select class="custom-select form-control" id="location3" name="Insurance">
+                                                        <option value=""> בחר Select</option>
+                                                        <option value="T">כן</option>
+                                                        <option value="F">לא</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            
-                                       
+
+
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="tbadd4">כתובת פרטית</label>
@@ -350,19 +350,40 @@
                                                     <input type="number" class="form-control" id="textaddnum4" name="Add_num">
                                                 </div>
                                             </div>
-                                         
+
                                         </div>
-                                     
+
                                     </fieldset>
                                     <!-- Step 4 -->
                                     <h6>Step 4</h6>
                                     <fieldset>
                                         <div class="row">
-                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera">
+                                            <label for="badd4">צילות דרכון\ת.ז.</label>
+                                            <input type="file" id="Pic1" name="Picture1" accept="image/*;capture=camera">
                                         </div>
                                         <div id="progressBar" style="position:relative; display:none">
                                             <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
                                             <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <label for="tbad4">צילום אישור עבודה</label>
+                                            <input type="file" id="Pic2" name="Picture2" accept="image/*;capture=camera">
+                                        </div>
+                                        <div id="progressBar" style="position:relative; display:none">
+                                            <progress id="fpb2" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pbLBL2" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <label for="tbd4">תמונת העובד</label>
+                                            <input type="file" id="Pic3" name="Picture3" accept="image/*;capture=camera">
+                                        </div>
+                                        <div id="progressBar" style="position:relative; display:none">
+                                            <progress id="fpb3" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pbLBL3" style="position:absolute; left:35%; top:20%">Uploading...</span>
                                         </div>
                                     </fieldset>
                                 </form>

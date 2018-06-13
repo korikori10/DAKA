@@ -393,7 +393,7 @@ function StatisticsbusiByQuarter(RenderBusiByQuarter) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
-            RenderempByYear(results);
+            RenderBusiByQuarter(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");

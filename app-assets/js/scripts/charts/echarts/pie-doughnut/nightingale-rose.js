@@ -149,10 +149,10 @@ $(window).on("load", function(){
                             }
                         },
                         data: [
-                            { value: details[0], name: 'Quarter 1' },
-                            { value: details[1], name: 'Quarter 2'},
-                            { value: details[2], name: 'Quarter 3'},
-                            { value: details[3], name: 'Quarter 4'}
+                            { value: /*details[0]*/1, name: 'Quarter 1' },
+                            { value: 2, name: 'Quarter 2'},
+                            { value: 3, name: 'Quarter 3'},
+                            { value: 6, name: 'Quarter 4'}
                         
                         ]
                     }

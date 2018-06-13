@@ -1192,8 +1192,6 @@ public class DBServices
 
         try
         {
-           // Dictionary<string, int> arr = new Dictionary<string, int>();
-            // int total , grandtotal ;
             List<Business> Business = new List<Business>();
 
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
@@ -1255,12 +1253,12 @@ public class DBServices
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
             while (dr.Read())
             {
-                Business b = new Business();
+                Business b2 = new Business();
 
-                //b.Commence_date_Year = (dr["commence_date_Year"]).ToString();
-             //   b.Quarter = (dr["Quarter"]).ToString();
-                b.BusinessCountQuarter = (dr["businessCountQuarter"]).ToString();
-                Business.Add(b);
+               // b2.Commence_date_Year = (dr["commence_date_Year"]).ToString();
+              //  b2.Quarter = (dr["Quarter"]).ToString();
+                b2.BusinessCountQuarter = (dr["businessCountQuarter"]).ToString();
+                Business.Add(b2);
             }
             return Business;
 
