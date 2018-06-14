@@ -49,6 +49,7 @@ $(window).on("load", function () {
             'echarts',
             'echarts/chart/bar',
             'echarts/chart/line'
+           
         ],
 
 

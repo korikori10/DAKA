@@ -34,9 +34,7 @@ $(window).on("load", function(){
         [
             'echarts',
             'echarts/chart/pie',
-            'echarts/chart/funnel',
- 'echarts/chart/bar',
-            'echarts/chart/line',
+            'echarts/chart/funnel'
         ],
 
 

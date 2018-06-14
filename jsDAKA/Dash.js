@@ -10,7 +10,7 @@ window.onload = function () {
     getEmployeesnobusiness();
     getNewEmployees();
     ReadEmployeesNotActive();
-    getBusinesses(renderBusinesses);  
+    getBusinesses(renderBusinesses,renderBusinessesSearch);  
     getDreason(renderDreasons);  
   //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
@@ -43,7 +43,8 @@ window.onload = function () {
 function setEmpFile(results) {
     empPic = results;
 }
-
+//טבלת עובדים לא פעילים
+//גמ"ח
 function changeGmah() {
         EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
         if ($("input[name=gmahh]:checked").val()) {
@@ -56,7 +57,7 @@ function changeGmah() {
     }
     
 }
-
+//ביטול דיור
 function changeDiur() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=Diur]:checked").val()) {
@@ -69,7 +70,19 @@ function changeDiur() {
     }
 
 }
+//הפסקת ביטוח
+function cancelInsurance() {
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+    
+        EmployeeInfo.Com_insurance = 'False';
+        EmployeeInfo.Insurance = 'False';
+        EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
+        ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+ 
 
+}
+
+//טבלת עובדים חדשים
 function changeInsurance() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=insured]:checked").val()) {
@@ -83,16 +96,62 @@ function changeInsurance() {
 
 }
 
-function cancelInsurance() {
-    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
-    
-        EmployeeInfo.Com_insurance = 'False';
-        EmployeeInfo.Insurance = 'False';
-        EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
-        ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
- 
 
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
 }
+
+//טבלת חידושי ויזה
+$('#updateVisa').click(function () {
+    $('#visaRenew').validate();
+
+    if ($('#visaRenew').valid()) {
+        EmployeeInfo.Ex_date = $('#visaDate').val();
+        EmployeeInfo.Doc_id = EmployeeInfo.pass + $('#visaDate').val();
+        EmployeeInfo.Picture = empPic;
+        EmployeeInfo.Doctype_id = '1';
+        EmployeeInfo.Employee_pass_id = EmployeeInfo.pass
+        $('#Update_Expiration').modal('toggle');
+        updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+    }
+});
+//Disable reason
+$("#confirmDR").click(function () {
+
+    EmployeeInfo.Did = $('#DynamicDisableList').val();
+    EmployeeInfo.Emp_id = EmployeeInfo.pass;
+    EmployeeInfo.Description = $('#disableTXT').val();
+    $("#Disable").modal('toggle');
+    updateDisableReason({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+   
+})
+
+//טבלת ממתינים לציוות
+$('#updateBusBTN').click(function () {
+
+    EmployeeInfo.Business = $('#businessSE').val();        
+    EmployeeInfo.Start_date = $('#SchedulingDate').val();        
+  //  EmployeeInfo.End_date = $('#SchedulingDate').val();        
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+    $('#empwithbusi').modal('toggle');
+    updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+})
+
+$("#confirmDR2").click(function () {
+
+    EmployeeInfo.Did = $('#DynamicDisableList').val();
+    EmployeeInfo.Emp_id = EmployeeInfo.pass;
+    EmployeeInfo.Description = $('#disableTXT').val();
+    $("#Disable2").modal('toggle');
+    updateDisableReasonWithoutBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+
+})
 
 function renderBusinesses(results) {
     //this is the callBackFunc 
@@ -109,6 +168,7 @@ function renderBusinesses(results) {
         }
         );
 }
+
 function renderDreasons(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
@@ -123,17 +183,6 @@ function renderDreasons(results) {
     }
     );
 }
-
-function makeid() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (var i = 0; i < 5; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-}
-
 
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
@@ -181,47 +230,8 @@ $('.table').on('click', 'tr td button', function () {
 
 });
 
-$('#updateVisa').click(function () {
-    $('#visaRenew').validate();
+//SearchBox-
 
-    if ($('#visaRenew').valid()) {
-        EmployeeInfo.Ex_date = $('#visaDate').val();
-        EmployeeInfo.Doc_id = EmployeeInfo.pass + $('#visaDate').val();
-        EmployeeInfo.Picture = empPic;
-        EmployeeInfo.Doctype_id = '1';
-        EmployeeInfo.Employee_pass_id = EmployeeInfo.pass
-        $('#Update_Expiration').modal('toggle');
-        updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
-    }
-});
-
-
-$('#updateBusBTN').click(function () {
-  //  $('#visaRenew').validate();
-
-    //if ($('#visaRenew').valid()) {
-    EmployeeInfo.Business = $('#businessSE').val();        
-    EmployeeInfo.Start_date = $('#SchedulingDate').val();        
-  //  EmployeeInfo.End_date = $('#SchedulingDate').val();        
-    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
-    $('#empwithbusi').modal('toggle');
-        updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
-   // }
-})
-
-$("#confirmDR").click(function () {
-    //  $('#visaRenew').validate();
-
-    //if ($('#visaRenew').valid()) {
-    EmployeeInfo.Did = $('#DynamicDisableList').val();
-    EmployeeInfo.Emp_id = EmployeeInfo.pass;
-    EmployeeInfo.Description = $('#disableTXT').val();
-    $("#Disable").modal('toggle');
-    updateDisableReason({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
-    // }
-})
-
-//SearchBox
 //employee
 function renderEmployees(results) {
     //this is the callBackFunc 
@@ -253,14 +263,14 @@ function renderEmployees(results) {
 }
 
 //business
-function renderBusinesses(results) {
+function renderBusinessesSearch(results) {
     //this is the callBackFunc 
     totalEmp = 0;
     results = $.parseJSON(results.d);
     for (var i = 1; i <= results.length; i++) {
         totalEmp = i;
     }
-    var dl = $('#DynamicBusinessList');
+    dl = $('#DynamicBusinessList');
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_id + '" data-extra-search="{"Businessid":' + row.Bus_id + '}"> <h3>' + row.Bus_name + '</h3>  </option>';
         dl.append(dynamicLi);
@@ -282,6 +292,7 @@ function renderBusinesses(results) {
 
 }
 
+//statistics
 function RenderTotalAllemp(results)
 {
     statistics = results.d;

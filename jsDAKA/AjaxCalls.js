@@ -356,6 +356,7 @@ function Statistics(RenderTotalnewemp) {
     });
 
 }
+
 //statistics all active emp
 function StatisticsAllEmp(RenderTotalAllemp) {
     $.ajax({
@@ -374,6 +375,7 @@ function StatisticsAllEmp(RenderTotalAllemp) {
     });
 
 }
+
 //statistics page , emp growth by year
 function StatisticsEmpByYear(RenderempByYear) {
     $.ajax({
@@ -392,6 +394,8 @@ function StatisticsEmpByYear(RenderempByYear) {
     });
 
 } 
+
+//statistics page , busi growth by quarter
 function StatisticsbusiByQuarter(RenderBusiByQuarter) {
     $.ajax({
         url: 'AJAXWebService.asmx/ReadBusiByQuarterStatistics',
@@ -409,6 +413,7 @@ function StatisticsbusiByQuarter(RenderBusiByQuarter) {
     });
 
 }
+
 //statistics page , emp growth by month
 function StatisticsEmpByMonth(RenderempByMonth) {
     $.ajax({
@@ -428,7 +433,7 @@ function StatisticsEmpByMonth(RenderempByMonth) {
 
 }
 
-//statistics page , emp growth by year
+//statistics page , busi growth by year
 function StatisticsBusiByYear(RenderBusiByYear) {
     $.ajax({
         url: 'AJAXWebService.asmx/ReadBusiByYearStatistics',
@@ -454,7 +459,7 @@ $.ajax({
     dataType: "json",
     url: "ajaxWebService.asmx/ReadEmployeesNeedNewVisa",
     success: function (data) {
-        datatableVariable = $('#newvisaalert').DataTable({
+        t2 = $('#newvisaalert').DataTable({
             data: data,
             "bLengthChange": false,
             responsive: true,
@@ -499,7 +504,7 @@ function getEmployeesnobusiness() {
         dataType: "json",
         url: "ajaxWebService.asmx/getEmployeesnobusiness",
         success: function (data) {
-             datatableVariable = $('#empNoBusi').DataTable({
+             t3 = $('#empNoBusi').DataTable({
                  data: data,
                  "bLengthChange": false,
                  responsive: true,
@@ -789,7 +794,8 @@ function updateInsurance(EmployeeInfo, current_row) {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
                 t1.row(current_row).remove().draw();
             }, 1000);
-            
+            $("#insurance").modal('hide');
+
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -799,6 +805,7 @@ function updateInsurance(EmployeeInfo, current_row) {
 
 
 }
+
 //take user deatails from DB using ajax WS
 function getUserByUserName(username, renderUser) {
     var dataString = '{"username":' + JSON.stringify(username) + '}';
@@ -978,7 +985,7 @@ function getRoles(renderRoles) {
 
 }
 
-function getBusinesses(renderBusinesses) {
+function getBusinesses(renderBusinesses, renderBusinessesSearch) {
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',
         type: 'POST',
@@ -986,6 +993,7 @@ function getBusinesses(renderBusinesses) {
         dataType: 'json',
         success: function (results) {
             renderBusinesses(results);
+            renderBusinessesSearch(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1078,6 +1086,7 @@ function sendEmail(EmployeeInfo) {
         }
     });
 }
+
 //Upload Files
 function uploadFiles(formData, setEmpFile) {
     pbLBL = $("#pbLBL")
@@ -1107,7 +1116,7 @@ function uploadFiles(formData, setEmpFile) {
 function updateVisa (EmployeeInfo) {
 
     // serialize the object to JSON string
-    var emp = JSON.stringify(EmployeeInfo);
+    var emp = JSON.stringify(EmployeeInfo, current_row);
 
     $.ajax({
         url: 'ajaxWebService.asmx/updateVisa',
@@ -1118,8 +1127,9 @@ function updateVisa (EmployeeInfo) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                t2.row(current_row).remove().draw();
             }, 1000);
-            //  renderEmployeeByID(results);
+            $("#Update_Expiration").modal('hide');
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1128,7 +1138,7 @@ function updateVisa (EmployeeInfo) {
     });
 }
 
-function updateEmpBusiness(EmployeeInfo) {
+function updateEmpBusiness(EmployeeInfo, current_row ) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -1143,7 +1153,8 @@ function updateEmpBusiness(EmployeeInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-            //  renderEmployeeByID(results);
+            
+                t3.row(current_row).remove().draw();
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1152,7 +1163,34 @@ function updateEmpBusiness(EmployeeInfo) {
     });
 }
 
-function updateDisableReason(EmployeeInfo) {
+//Disable reason in visa table
+function updateDisableReason(EmployeeInfo, current_row) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/Updatedisablereason',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                t2.row(current_row).remove().draw();
+            }, 1000);
+            $("#Disable").modal('hide');
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -1167,7 +1205,9 @@ function updateDisableReason(EmployeeInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-            //  renderEmployeeByID(results);
+                t3.row(current_row).remove().draw();
+            $("#Disable2").modal('hide');
+
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
