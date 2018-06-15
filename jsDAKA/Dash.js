@@ -51,7 +51,7 @@ function changeGmah() {
             EmployeeInfo.Final_bill = 'True';
         updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
-        else if ($("input[name=gmahh]:checked").val() == semiTrue) {
+        else if ($("input[name=gmahh]:checked").val() === semiTrue) {
             EmployeeInfo.Final_bill = 'False';
         updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
@@ -89,7 +89,7 @@ function changeInsurance() {
         EmployeeInfo.Com_insurance = 'True';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
-    else if ($("input[name=insured]:checked").val() == semiTrue) {
+    else if ($("input[name=insured]:checked").val() === semiTrue) {
         EmployeeInfo.Com_insurance = 'False';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
@@ -198,21 +198,21 @@ $('.table').on('click', 'tr td button', function () {
     var data = $("#" + tableId).DataTable().row(current_row).data();
 
         EmployeeInfo.pass = data['Employee_pass_id'];
-    if (whichid == "edit") {
+    if (whichid === "edit") {
         //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);
         window.location = "Employee.html";
     }
-    else if (whichid == "activate") {
+    else if (whichid === "activate") {
         //Make Employee Active Again
         MakeEmpActive();  
     }
-    else if (whichid=="sms") {
+    else if (whichid==="sms") {
 
         //Send SMS To Employees
      //   SendSMS();
     }
-    else if (whichid == "email") {
+    else if (whichid === "email") {
     //    sendEmail(EmployeeInfo);
     }
     //else if (whichid == "insurance") {
@@ -295,18 +295,19 @@ function renderBusinessesSearch(results) {
 //statistics
 function RenderTotalAllemp(results)
 {
-    statistics = results.d;
-    document.getElementById("activeEmp").value = statistics[3];
-    document.getElementById("activeEmp").max = statistics[1];
-    document.getElementById("numnewemp").innerHTML = statistics[3];
+    statistics = $.parseJSON(results.d);
+    console.log(statistics[3]);
+    document.getElementById("activeEmp").value = statistics[2];
+    document.getElementById("activeEmp").max = statistics[0];
+    document.getElementById("numnewemp").innerHTML = statistics[2];
 
-    document.getElementById("allemp1").value = statistics[5];
-    document.getElementById("allemp1").max = statistics[1];
-    document.getElementById("allactiveemp").innerHTML = statistics[5];
+    document.getElementById("allemp1").value = statistics[1];
+    document.getElementById("allemp1").max = statistics[0];
+    document.getElementById("allactiveemp").innerHTML = statistics[1];
 
-    document.getElementById("allemp").value = statistics[7];
-    document.getElementById("allemp").max = statistics[1];
-    document.getElementById("numofleave").innerHTML = statistics[7];
+    document.getElementById("allemp").value = statistics[3];
+    document.getElementById("allemp").max = statistics[0];
+    document.getElementById("numofleave").innerHTML = statistics[3];
 }
 
 

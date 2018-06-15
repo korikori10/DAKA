@@ -1071,8 +1071,8 @@ public class DBServices
             while (dr.Read())
             {
                 arr[0] = Convert.ToInt32(dr["Total_Employees"]);
-                arr[2] = Convert.ToInt32(dr["total_active_emp"]);
-                arr[1] = Convert.ToInt32(dr["total_new_emp"]);
+                arr[1] = Convert.ToInt32(dr["total_active_emp"]);
+                arr[2] = Convert.ToInt32(dr["total_new_emp"]);
                 arr[3] = Convert.ToInt32(dr["Total_leaving_emp"]);
 
             }
