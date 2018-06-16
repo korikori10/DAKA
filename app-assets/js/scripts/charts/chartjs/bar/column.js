@@ -10,7 +10,13 @@
 
 // Column chart
 // ------------------------------
+//emp monthly growth
+var monthsinYearEmployee;//the years
+var month;
+var detailsmonthEmployee;
+
 $(window).on("load", function(){
+    StatisticsEmpByMonth(RenderempByMonth);
 
     //Get the context of the Chart canvas element we want to select
     var ctx = $("#column-chart");
@@ -59,10 +65,30 @@ $(window).on("load", function(){
             text: 'Chart.js Bar Chart'
         }
     };
+    var datasetsInsert = [];
+    //for (var i = 0; i < 2; i++) {
+    //    if (i==2) {// Put the length later
+    //        datasetsInsert[i] =
+    //            { label: "2018", data: [65, 59, 80, 81, 56], backgroundColor: "#673AB7", hoverBackgroundColor: "rgba(103,58,183,.9)", borderColor: "transparent" }]
+    //    }
+    //    else {
+    //        if (i==0) {
+    //            datasetsInsert[i] =
+    //                '[{label: "2018",data: [65, 59, 80, 81, 56],backgroundColor: "#673AB7",hoverBackgroundColor: "rgba(103,58,183,.9)",borderColor: "transparent"},'
 
+    //        } else {
+
+    //    datasetsInsert[i] =
+    //            '{label: "2018",data: [65, 59, 80, 81, 56],backgroundColor: "#673AB7",hoverBackgroundColor: "rgba(103,58,183,.9)",borderColor: "transparent"},'
+
+    //        }
+    //    }
+                
+
+    //}
     // Chart Data
     var chartData = {
-        labels: ["January", "February", "March", "April", "May"],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: "My First dataset",
             data: [65, 59, 80, 81, 56],
@@ -89,4 +115,12 @@ $(window).on("load", function(){
 
     // Create the chart
     var lineChart = new Chart(ctx, config);
-});
+    });
+
+function RenderempByMonth(results) {
+    var resultData = $.parseJSON(results.d);
+    monthsinYearEmployee = resultData[0];
+    detailsmonthEmployee = resultData[1];
+    month = resultData[2];
+
+}
