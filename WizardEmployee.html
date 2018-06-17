@@ -158,7 +158,8 @@
                         <div class="card-body collapse in">
                             <div class="card-block">
                                 <form action="#" class="vertical-tab-steps wizard-circle" id="insertEmpForm">
-                                    <!-- Step 1 --><h1 id="kindoform"></h1>
+                                    <!-- Step 1 -->
+                                    <h1 id="kindoform"></h1>
                                     <h6>Step 1</h6>
                                     <fieldset id="first">
                                         <div class="row">
@@ -357,35 +358,55 @@
                                     <!-- Step 4 -->
                                     <h6>Step 4</h6>
                                     <fieldset>
+
                                         <div class="row">
-                                            <label for="badd4">צילות דרכון\ת.ז.</label>
-                                            <input type="file" id="Pic1" class="form-control" name="Picture1" accept="image/*;capture=camera">
+                                            <label for="tbad4">תמונת העובד</label>
+                                            <input class="form-control" type="file" id="Pic" name="Picture" accept="image/*;capture=camera">
                                         </div>
                                         <div id="progressBar" style="position:relative; display:none">
+                                            <progress id="pb2" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pLBL2" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        </div>
+
+                                        <div class="row">
+                                            <label for="badd4">צילות דרכון\ת.ז.</label>
+                                            <input class="form-control" type="file" id="PicID" name="Picture1" accept="image/*;capture=camera">
+                                        </div>
+                                        <div id="progressBar1" style="position:relative; display:none">
                                             <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
                                             <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
                                         </div>
-                                    </fieldset>
-                                    <!--<fieldset>
+
+
                                         <div class="row">
-                                            <label for="tbad4">צילום אישור עבודה</label>
-                                            <input type="file" id="Pic2" name="Picture2" accept="image/*;capture=camera">
+                                            <label for="tbad">
+                                                צילום אישור עבודה
+                                            </label>
+                                            <input class="form-control" type="file" id="picAuth" name="Picture3" accept="image/*;capture=camera">
                                         </div>
-                                        <div id="progressBar" style="position:relative; display:none">
-                                            <progress id="fpb2" class="progress-striped progress-green" value="100" max="100"></progress>
-                                            <span id="pbLBL2" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        <div id="progressBar2" style="position:relative; display:none">
+                                            <progress id="pb1" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pLB2" style="position:absolute; left:35%; top:20%">Uploading...</span>
                                         </div>
-                                    </fieldset>
-                                    <fieldset>
                                         <div class="row">
-                                            <label for="tbd4">תמונת העובד</label>
-                                            <input type="file" id="Pic3" name="Picture3" accept="image/*;capture=camera">
+                                            <label for="tbad">
+                                                צילום ויזה
+                                            </label>
+                                            <input class="form-control" type="file" id="Picvisa" name="Picture4" accept="image/*;capture=camera">
                                         </div>
-                                        <div id="progressBar" style="position:relative; display:none">
-                                            <progress id="fpb3" class="progress-striped progress-green" value="100" max="100"></progress>
-                                            <span id="pbLBL3" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        <div id="progressBar4" style="position:relative; display:none">
+                                            <progress id="pV" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pVlBl" style="position:absolute; left:35%; top:20%">Uploading...</span>
                                         </div>
-                                    </fieldset>-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="date4_2">תוקף ויזה</label>
+                                                <input type="date" class="form-control" id="date4_2" name="Ex_date">
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+
                                 </form>
                             </div>
                         </div>
