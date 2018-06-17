@@ -90,7 +90,7 @@ $(window).on("load", function(){
     var chartData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-            label: "My First dataset",
+            label: "",
             data: [65, 59, 80, 81, 56],
             backgroundColor: "#673AB7",
             hoverBackgroundColor: "rgba(103,58,183,.9)",
