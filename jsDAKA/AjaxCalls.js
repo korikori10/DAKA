@@ -985,7 +985,7 @@ function getRoles(renderRoles) {
 
 }
 
-function getBusinesses(renderBusinesses, renderBusinessesSearch) {
+function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusinessesSearch
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',
         type: 'POST',
