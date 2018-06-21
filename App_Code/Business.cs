@@ -25,6 +25,8 @@ public class Business
     string commence_date_Year;
     string quarter;
     string businessCountQuarter;
+    string q1;
+    string q2; string q3; string q4;
     public int Bus_id
     {
         get
@@ -244,6 +246,58 @@ public class Business
         set
         {
             quarter = value;
+        }
+    }
+
+    public string Q1
+    {
+        get
+        {
+            return q1;
+        }
+
+        set
+        {
+            q1 = value;
+        }
+    }
+
+    public string Q2
+    {
+        get
+        {
+            return q2;
+        }
+
+        set
+        {
+            q2 = value;
+        }
+    }
+
+    public string Q3
+    {
+        get
+        {
+            return q3;
+        }
+
+        set
+        {
+            q3 = value;
+        }
+    }
+
+    public string Q4
+    {
+        get
+        {
+            return q4;
+        }
+
+        set
+        {
+            q4 = value;
         }
     }
 

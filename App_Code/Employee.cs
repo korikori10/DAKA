@@ -55,6 +55,7 @@ public class Employee
     string start_year_for_month;
     string months;
     string employeeCountMonth;
+    string january, february, march, april, may, june, july, august, september, october, november, december;
     public Employee()
     {
         //
@@ -773,6 +774,162 @@ public class Employee
         set
         {
             monthly_rent = value;
+        }
+    }
+
+    public string January
+    {
+        get
+        {
+            return january;
+        }
+
+        set
+        {
+            january = value;
+        }
+    }
+
+    public string February
+    {
+        get
+        {
+            return february;
+        }
+
+        set
+        {
+            february = value;
+        }
+    }
+
+    public string March
+    {
+        get
+        {
+            return march;
+        }
+
+        set
+        {
+            march = value;
+        }
+    }
+
+    public string April
+    {
+        get
+        {
+            return april;
+        }
+
+        set
+        {
+            april = value;
+        }
+    }
+
+    public string May
+    {
+        get
+        {
+            return may;
+        }
+
+        set
+        {
+            may = value;
+        }
+    }
+
+    public string June
+    {
+        get
+        {
+            return june;
+        }
+
+        set
+        {
+            june = value;
+        }
+    }
+
+    public string July
+    {
+        get
+        {
+            return july;
+        }
+
+        set
+        {
+            july = value;
+        }
+    }
+
+    public string August
+    {
+        get
+        {
+            return august;
+        }
+
+        set
+        {
+            august = value;
+        }
+    }
+
+    public string September
+    {
+        get
+        {
+            return september;
+        }
+
+        set
+        {
+            september = value;
+        }
+    }
+
+    public string October
+    {
+        get
+        {
+            return october;
+        }
+
+        set
+        {
+            october = value;
+        }
+    }
+
+    public string November
+    {
+        get
+        {
+            return november;
+        }
+
+        set
+        {
+            november = value;
+        }
+    }
+
+    public string December
+    {
+        get
+        {
+            return december;
+        }
+
+        set
+        {
+            december = value;
         }
     }
 

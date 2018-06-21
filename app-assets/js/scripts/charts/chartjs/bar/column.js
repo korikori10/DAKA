@@ -11,10 +11,10 @@
 // Column chart
 // ------------------------------
 //emp monthly growth
-var monthsinYearEmployee;//the years
-var month;
-var detailsmonthEmployee;
-
+var yearsString;
+var year;//the years
+var m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12;
+var datasetss = [];
 $(window).on("load", function(){
     StatisticsEmpByMonth(RenderempByMonth);
 
@@ -36,7 +36,9 @@ $(window).on("load", function(){
         maintainAspectRatio: false,
         responsiveAnimationDuration:500,
         legend: {
-            position: 'top',
+          //  position: 'top',
+            data: yearsString
+
         },
         scales: {
             xAxes: [{
@@ -62,46 +64,27 @@ $(window).on("load", function(){
         },
         title: {
             display: true,
-            text: 'Chart.js Bar Chart'
+            text: 'New Employees By month'
         }
     };
-    var datasetsInsert = [];
-    //for (var i = 0; i < 2; i++) {
-    //    if (i==2) {// Put the length later
-    //        datasetsInsert[i] =
-    //            { label: "2018", data: [65, 59, 80, 81, 56], backgroundColor: "#673AB7", hoverBackgroundColor: "rgba(103,58,183,.9)", borderColor: "transparent" }]
-    //    }
-    //    else {
-    //        if (i==0) {
-    //            datasetsInsert[i] =
-    //                '[{label: "2018",data: [65, 59, 80, 81, 56],backgroundColor: "#673AB7",hoverBackgroundColor: "rgba(103,58,183,.9)",borderColor: "transparent"},'
 
-    //        } else {
-
-    //    datasetsInsert[i] =
-    //            '{label: "2018",data: [65, 59, 80, 81, 56],backgroundColor: "#673AB7",hoverBackgroundColor: "rgba(103,58,183,.9)",borderColor: "transparent"},'
-
-    //        }
-    //    }
-                
-
-    //}
     // Chart Data
     var chartData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: "",
-            data: [65, 59, 80, 81, 56],
-            backgroundColor: "#673AB7",
-            hoverBackgroundColor: "rgba(103,58,183,.9)",
-            borderColor: "transparent"
-        }, {
-            label: "My Second dataset",
-            data: [28, 48, 40, 19, 86],
-            backgroundColor: "#E91E63",
-            hoverBackgroundColor: "rgba(233,30,99,.9)",
-            borderColor: "transparent"
-        }]
+        datasets: datasetss
+        //[{
+        //    label: "",
+        //    data: [65, 59, 80, 81, 56],
+        //    backgroundColor: "#673AB7",
+        //    hoverBackgroundColor: "rgba(103,58,183,.9)",
+        //    borderColor: "transparent"
+        //}, {
+        //    label: "My Second dataset",
+        //    data: [28, 48, 40, 19, 86],
+        //    backgroundColor: "#E91E63",
+        //    hoverBackgroundColor: "rgba(233,30,99,.9)",
+        //    borderColor: "transparent"
+        //}]
     };
 
     var config = {
@@ -119,8 +102,44 @@ $(window).on("load", function(){
 
 function RenderempByMonth(results) {
     var resultData = $.parseJSON(results.d);
-    monthsinYearEmployee = resultData[0];
-    detailsmonthEmployee = resultData[1];
-    month = resultData[2];
+    year = resultData[0];
+    m1 = resultData[1];
+    //   quarter = resultData[2];
+    m2 = resultData[2];
+    m3 = resultData[3];
+    m4 = resultData[4];
+    m5 = resultData[5]; 
+    m6 = resultData[6];
+    m7 = resultData[7];
+    m8 = resultData[8];
+    m9 = resultData[9];
+    m10 = resultData[10];
+    m11 = resultData[11];
+    m12 = resultData[12];
 
+    for (var i = 0; i < year.length; i++) {
+ 
+        yearsString[i] = year[i];
+        
+    }
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    for (var j = 0; j < year.length; j++) {
+        datasetss.push(
+            {
+                label: year[j],
+                data: [m1[j], m2[j], m3[j], m4[j], m5[j], m6[j], m7[j], m8[j], m9[j], m10[j], m11[j], m12[j]],
+                backgroundColor: getRandomColor(),
+                hoverBackgroundColor: "rgba(103,58,183,.9)",
+                borderColor: "transparent"
+
+            }
+        );//end-push
+    } 
 }

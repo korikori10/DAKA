@@ -663,19 +663,40 @@ public class AJAXWebService : System.Web.Services.WebService
     {
         DBServices db = new DBServices();
         List<Employee> arr = db.ReadEmpByMonthStatistics();
-        List<string> yearstomonth = new List<string>();
-        List<string> countstomonth = new List<string>();
-        List<string> monthtomonth = new List<string>();
+        List<string> year = new List<string>();
+        List<string> jan = new List<string>();
+        List<string> feb = new List<string>();
+        List<string> march = new List<string>();
+        List<string> apr = new List<string>();
+        List<string> may = new List<string>();
+        List<string> jun = new List<string>();
+        List<string> jul = new List<string>();
+        List<string> aug = new List<string>();
+        List<string> sep = new List<string>();
+        List<string> oc = new List<string>();
+        List<string> nov = new List<string>();
+        List<string> dec = new List<string>();
+
         foreach (var item in arr)
         {
-            yearstomonth.Add(item.Start_year_for_month);
-            countstomonth.Add(item.EmployeeCountMonth.ToString());
-            monthtomonth.Add(item.Months.ToString());
+            year.Add(item.Start_year_for_month);
+            jan.Add(item.January.ToString());
+            feb.Add(item.February.ToString());
+            march.Add(item.March.ToString());
+            apr.Add(item.April.ToString());
+            may.Add(item.May.ToString());
+            jun.Add(item.June.ToString());
+            jul.Add(item.July.ToString());
+            aug.Add(item.August.ToString());
+            sep.Add(item.September.ToString());
+            oc.Add(item.October.ToString());
+            nov.Add(item.November.ToString());
+            dec.Add(item.December.ToString());
         }
 
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(new List<string>[] { yearstomonth, countstomonth, monthtomonth });
+        string jsonStringCategory = js.Serialize(new List<string>[] { year,jan,feb,march,apr,may,jun,jul,aug,sep,oc,nov,dec });
         return jsonStringCategory;
 
 
@@ -725,21 +746,29 @@ public class AJAXWebService : System.Web.Services.WebService
     {
         DBServices db = new DBServices();
         List<Business> arr = db.ReadBusiByQuarterStatistics();
-    //    List<string> years = new List<string>();
-        List<string> counts = new List<string>();
-      //  List<string> Quarter = new List<string>();
+        List<string> years = new List<string>();
+        List<string> Q1 = new List<string>();
+        List<string> Q2 = new List<string>();
+        List<string> Q3 = new List<string>();
+        List<string> Q4 = new List<string>();
+
         foreach (var item in arr)
         {
-       //     years.Add(item.Commence_date_Year);
-            counts.Add(item.BusinessCountQuarter.ToString());
-          //  Quarter.Add(item.Quarter.ToString());
+           years.Add(item.Commence_date_Year);
+            Q1.Add(item.Q1.ToString());
+           Q2.Add(item.Q2.ToString());
+            Q3.Add(item.Q3.ToString());
+            Q4.Add(item.Q4.ToString());
         }
-
+        //List<string> Q1F = new List<string> { Q1[0], Q2[0], Q3[0], Q4[0] };
+        //List<string> Q2F = new List<string> { Q1[1], Q2[1], Q3[1], Q4[1] };
+        //List<string> Q3F = new List<string> { Q1[2], Q2[2], Q3[2], Q4[2] };
+       // List<string> Q4F = new List<string> { Q1[3], Q2[3], Q3[3], Q4[3] };
 
 
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(new List<string>[] {  counts });
+        string jsonStringCategory = js.Serialize(new List<string>[] {  years,Q1,Q2,Q3,Q4 });
         return jsonStringCategory;
 
     }

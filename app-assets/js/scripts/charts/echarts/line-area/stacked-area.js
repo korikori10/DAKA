@@ -10,8 +10,15 @@
 
 // Stacked area chart
 // ------------------------------
+var year;
+var yearsString=[];
+var q1;
+var q2;
+var q3;
+var q4;
 
 $(window).on("load", function(){
+    StatisticsbusiByQuarter(RenderBusiByQuarter);
 
     // Set paths
     // ------------------------------
@@ -56,10 +63,10 @@ $(window).on("load", function(){
                 tooltip: {
                     trigger: 'axis'
                 },
-
+      
                 // Add legend
                 legend: {
-                    data: ['Email marketing', 'Advertising alliance', 'Video ads', 'Direct access', 'Search engine']
+                    data: yearsString
                 },
 
                 // Add custom colors
@@ -72,59 +79,77 @@ $(window).on("load", function(){
                 xAxis: [{
                     type: 'category',
                     boundaryGap: false,
-                    data: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+                    data: ['QUARTER 1', 'QUARTER 2', 'QUARTER 3', 'QUARTER 4']
                 }],
 
                 // Add vertical axis
                 yAxis: [{
+                    name: 'New business',
+                    position: 'Left',
                     type: 'value'
-                }],
+                },
+                {
+                    name: 'growth (%)',
+                    position: 'Right',
+                    type: 'value',
+                    name: "%",
+                    axisLabel: {
+                        formatter: "{value} %"
+                    },
+                    max: 100,
+                    inverse: true
+                }
+                ],
 
                 // Add series
-                series: [
-                    {
-                        name: 'Email marketing',
-                        type: 'line',
-                        stack: 'Total',
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [120, 132, 101, 134, 90, 230, 210]
-                    },
-                    {
-                        name: 'Advertising alliance',
-                        type: 'line',
-                        stack: 'Total',
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [220, 182, 191, 234, 290, 330, 310]
-                    },
-                    {
-                        name: 'Video ads',
-                        type: 'line',
-                        stack: 'Total',
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [150, 232, 201, 154, 190, 330, 410]
-                    },
-                    {
-                        name: 'Direct access',
-                        type: 'line',
-                        stack: 'Total',
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [320, 332, 301, 334, 390, 330, 320]
-                    },
-                    {
-                        name: 'Search engine',
-                        type: 'line',
-                        stack: 'Total',
-                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-                        data: [820, 932, 901, 934, 1290, 1330, 1320]
-                    }
-                ]
-            };
+                //series: [
+                //    {
+                //        name: 'Email marketing',
+                //        type: 'line',
+                //        stack: 'Total',
+                //        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                //        data: [120, 132, 101, 134, 90, 230, 210]
+                //    },
+                //    {
+                //        name: 'Advertising alliance',
+                //        type: 'line',
+                //        stack: 'Total',
+                //        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                //        data: [220, 182, 191, 234, 290, 330, 310]
+                //    },
+                //    {
+                //        name: 'Video ads',
+                //        type: 'line',
+                //        stack: 'Total',
+                //        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                //        data: [150, 232, 201, 154]
+                //    },
+                //    {
+                //        name: 'Direct access',
+                //        type: 'line',
+                //        stack: 'Total',
+                //        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                //        data: [320, 332, 301, 334, 390, 330, 320]
+                //    },
+                //    {
+                //        name: 'Search engine',
+                //        type: 'line',
+                //        stack: 'Total',
+                //        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                //        data: [820, 932, 901, 934, 1290, 1330, 1320]
+                //    }
+                //]
+                series: seriess
 
+                
+
+            };
+                //end-for-loop
+            
             // Apply options
             // ------------------------------
 
             myChart.setOption(chartOptions);
-
 
 
             // Resize chart
@@ -148,3 +173,47 @@ $(window).on("load", function(){
         }
     );
 });
+
+
+function RenderBusiByQuarter(results) {
+    var resultData = $.parseJSON(results.d);
+      year = resultData[0];
+    q1= resultData[1];
+    //   quarter = resultData[2];
+    q2 = resultData[2];
+    q3 = resultData[3];
+    q4 = resultData[4];
+
+    for (var i = 0; i < year.length; i++) {
+        //if (i == 2) {
+        //    yearsString [i]= "'"+ year[i]+"'" ;
+
+        //} else {
+        yearsString[i] =  year[i] ;
+        //}
+    }
+    seriess = [];
+    for (var j = 0; j < year.length; j++) {
+        seriess.push(
+            {
+                name: year[j],
+                type: 'line',
+                stack: 'Total',
+                //symbol: 'none',
+                itemStyle: {
+                    normal: {
+                        areaStyle: {
+
+                            type: 'default'
+                        }
+                    }
+                }
+                ,
+                data: [
+                    q1[j], q2[j], q3[j], q4[j],
+                ]
+
+            }
+        );//end-push
+    } 
+}

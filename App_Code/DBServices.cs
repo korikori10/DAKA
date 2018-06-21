@@ -1162,9 +1162,19 @@ public class DBServices
             {
                 Employee e = new Employee();
 
-                e.Start_year_for_month = (dr["start_year_for_month"]).ToString();
-                e.EmployeeCountMonth = (dr["employeeCountMonth"]).ToString();
-                e.Months= (dr["Months"]).ToString();
+                e.Start_year_for_month = (dr["Year"]).ToString();
+                e.January = (dr["January"]).ToString();
+                e.February = (dr["February"]).ToString();
+                e.March = (dr["March"]).ToString();
+                e.April = (dr["April"]).ToString();
+                e.May = (dr["May"]).ToString();
+                e.June = (dr["June"]).ToString();
+                e.July = (dr["July"]).ToString();
+                e.August = (dr["August"]).ToString();
+                e.September = (dr["September"]).ToString();
+                e.October= (dr["October"]).ToString();
+                e.November = (dr["November"]).ToString();
+                e.December = (dr["December"]).ToString();
                 employees.Add(e);
             }
            
@@ -1256,9 +1266,11 @@ public class DBServices
             {
                 Business b2 = new Business();
 
-               // b2.Commence_date_Year = (dr["commence_date_Year"]).ToString();
-              //  b2.Quarter = (dr["Quarter"]).ToString();
-                b2.BusinessCountQuarter = (dr["businessCountQuarter"]).ToString();
+                b2.Commence_date_Year = (dr["Year"]).ToString();
+                b2.Q1 = (dr["Q1"]).ToString();
+                b2.Q2 = (dr["Q2"]).ToString();
+                b2.Q3 = (dr["Q3"]).ToString();
+                b2.Q4 = (dr["Q4"]).ToString();
                 Business.Add(b2);
             }
             return Business;
