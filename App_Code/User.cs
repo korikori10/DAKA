@@ -15,6 +15,8 @@ public class User
     string full_name;
     int u_type_code;
     int phone;
+    string u_type_name;
+    string user_img;
 
     public int Uid
     {
@@ -94,6 +96,32 @@ public class User
         }
     }
 
+    public string U_type_name
+    {
+        get
+        {
+            return u_type_name;
+        }
+
+        set
+        {
+            u_type_name = value;
+        }
+    }
+
+    public string User_img
+    {
+        get
+        {
+            return user_img;
+        }
+
+        set
+        {
+            user_img = value;
+        }
+    }
+
     public User()
     {
         //
@@ -101,7 +129,7 @@ public class User
         //
     }
 
-    public User(int uid, string u_name, string u_pwd, string full_name, int u_type_code, int phone)
+    public User(int uid, string u_name, string u_pwd, string full_name, int u_type_code, int phone, string user_img)
     {
         this.uid = uid;
         this.u_name = u_name;
@@ -109,6 +137,7 @@ public class User
         this.full_name = full_name;
         this.u_type_code = u_type_code;
         this.phone = phone;
+        this.user_img = user_img;
     }
     public User getUserByUserName(string username)
     {
@@ -118,5 +147,21 @@ public class User
 
         return u;
 
+    }
+    public List<User> getUsers()
+    {
+        DBServices dbs = new DBServices();
+
+        List<User> BC = dbs.readUsers();
+
+        return BC;
+    }
+    public List<User> getTypes()
+    {
+        DBServices dbs = new DBServices();
+
+        List<User> BC = dbs.readUserTypes();
+
+        return BC;
     }
 }

@@ -901,9 +901,58 @@ public class DBServices
                 u.Full_name= dr["full_name"].ToString();
                 u.U_type_code = Convert.ToInt32(dr["U_type_code"]);
                 u.Phone = Convert.ToInt32(dr["phone"]);
+                u.User_img = dr["user_img"].ToString();
 
 
-               Users.Add(u);
+                Users.Add(u);
+            }
+
+            return Users;
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+
+
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+
+
+    }
+    /// <summary>
+    /// reads Users from sql
+    /// </summary>
+    /// <returns>list of Users</returns>
+    public List<User> readUserTypes()
+    {
+
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM [USERS TYPES]";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<User> Users = new List<User>();
+            while (dr.Read())
+            {   // Read till the end of the data into a row
+                User u = new User();
+
+                u.U_type_code = Convert.ToInt32(dr["U_type_code"]);
+                u.U_type_name = dr["U_type_name"].ToString();
+                Users.Add(u);
             }
 
             return Users;
@@ -947,7 +996,7 @@ public class DBServices
             User user = new User();
             while (dr.Read())
             {
-                user = new User(Convert.ToInt32(dr["uid"]), dr["u_name"].ToString(), dr["u_pwd"].ToString(), dr["full_name"].ToString(), Convert.ToInt32(dr["U_type_code"]), Convert.ToInt32(dr["phone"]));
+                user = new User(Convert.ToInt32(dr["uid"]), dr["u_name"].ToString(), dr["u_pwd"].ToString(), dr["full_name"].ToString(), Convert.ToInt32(dr["U_type_code"]), Convert.ToInt32(dr["phone"]), dr["user_img"].ToString());
             }
             return user;
 

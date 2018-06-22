@@ -80,6 +80,19 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+    
+            [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getUserTypes()
+    {
+        User ut = new User();
+        List<User> LUT = ut.getTypes();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(LUT);
+        return jsonStringCategory;
+
+    }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getRoles()
@@ -120,7 +133,19 @@ public class AJAXWebService : System.Web.Services.WebService
     }
 
     
-           [WebMethod]
+            [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getUsers()
+    {
+        User U = new User();
+        List<User> UL = U.getUsers();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(UL);
+        return jsonStringCategory;
+
+    }
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getContacts()
     {

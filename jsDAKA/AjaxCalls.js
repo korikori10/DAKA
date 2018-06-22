@@ -357,7 +357,7 @@ function Statistics(RenderTotalnewemp) {
 
 }
 
-function getUsers(renderUsers); {
+function getUsers(renderUsers) {
     $.ajax({
         url: 'ajaxWebService.asmx/getUsers',
         type: 'POST',
@@ -365,7 +365,7 @@ function getUsers(renderUsers); {
         contentType: 'application/json; charset = utf-8',
         success: function (results) {
 
-            renderEmployees(results);
+            renderUsers(results);
         },
         error: function (request, error) {
             alert('Network error has occurred please try again!');
@@ -1056,12 +1056,12 @@ function getTypes(renderTypes) {
 
 function getUserTypes(renderUserTypes) {
     $.ajax({
-        url: 'ajaxWebService.asmx/getTypes',
+        url: 'ajaxWebService.asmx/getUserTypes',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         dataType: 'json',
         success: function (results) {
-            renderTypes(results);
+            renderUserTypes(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
