@@ -356,6 +356,23 @@ function Statistics(RenderTotalnewemp) {
     });
 
 }
+function getUsers(renderUsers); {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getUsers',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+
+            renderEmployees(results);
+        },
+        error: function (request, error) {
+            alert('Network error has occurred please try again!');
+        }
+
+    });
+
+}
 
 //statistics all active emp
 function StatisticsAllEmp(RenderTotalAllemp) {
@@ -1021,6 +1038,22 @@ function getDepartments(renderDepartments)
 
 
 function getTypes(renderTypes) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getTypes',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderTypes(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function getUserTypes(renderUserTypes) {
     $.ajax({
         url: 'ajaxWebService.asmx/getTypes',
         type: 'POST',

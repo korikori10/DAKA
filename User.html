@@ -159,79 +159,34 @@
                                     <div class="tab-content">
                                        
                                     <!--<div class="fade tab-pane" id="contactsTab" aria-expanded="false">-->
-                                        <div class="col-md-6" id="contact1">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h4 class="card-title">איש קשר</h4>
-                                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                                    <div class="heading-elements">
-                                                        <ul class="list-inline mb-0">
-                                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body collapse in">
+                                        <div class="col-xl-4 col-md-6 col-xs-12" id="user1">
+                                            <div class="card box-shadow-2">
+                                                  <form class="form" id="userUpdate">
+                                                <div class="text-xs-center">
                                                     <div class="card-block">
-                                                        <form class="form" id="userUpdate">
-                                                            <div class="form-body">
-                                                                <h4 class="form-section"><i class="icon-eye6"></i>פרטים</h4>
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="contact_name">שם מלא:</label>
-                                                                            <input type="text" class="form-control" id="Full_name" name="Full_name" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="bus_id">:מספר משתמש</label>
-                                                                            <input type="text" class="form-control" id="contact_id" name="Uid" disabled/>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group">
-                                                                                <label for="role_id">תפקיד</label>
-                                                                                <select class="selectize-select" id="role_id" name="U_type_code"></select>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="phoneNumber4"> טלפון  Phone Number :</label>
-                                                                            <input type="tel" class="form-control" id="phoneNumber4" name="Phone" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="email">דוא"ל / שם משתמש: </label>
-                                                                        <input type="email" class="form-control" id="email" name="U_name" />
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="form-actions right">
-                                                                <button type="button" class="btn btn-outline-warning mr-1">
-                                                                    <i class="icon-cross2"></i> Cancel
-                                                                </button>
-                                                                <button type="button" class="btn btn-outline-primary" name="contactSave">
-                                                                    <i class="icon-check2"></i> Save
-                                                                </button>
-                                                            </div>
-                                                        </form>
-
+                                                            <img src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <h4 class="card-title">Michelle Howard</h4>
+                                                        <h6 class="card-subtitle text-muted">Managing Director</h6>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <button type="button" class="btn btn-danger mr-1"><i class="icon-plus4"></i> עדכן משתמש</button>
+                                                        <button type="button" class="btn btn-primary mr-1"><i class="icon-head"></i> איפוס סיסמה</button>
                                                     </div>
                                                 </div>
+                                                <div class="list-group list-group-flush">
+                                                    <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input type="text" name="uid" disabled /></div>
+                                                    <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input type="text" name="u_name"/></div>
+                                                    <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input type="tel" name="phone" /></div>
+                                                    <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select  name="U_type_code"></select></div>
+                                                </div>
+                                              </form>
                                             </div>
                                         </div>
-                                        <div class="row" id="addContact">
-                                            <button type="button" class="btn btn-outline-primary" id="AddContact">
-                                                <i class="icon-plus"></i> Add Contact
+                                        <div class="row" id="addUser">
+                                            <button type="button" class="btn btn-outline-primary" id="AddUser">
+                                                <i class="icon-plus"></i> Add User
                                             </button>
                                         </div>
                                     </div>

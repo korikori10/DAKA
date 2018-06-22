@@ -1,7 +1,12 @@
-﻿$(document).ready(function () {
-    var username = sessionStorage.getItem('userName');
+﻿
+var roles = new Object();
+$(document).ready(function () {
+   // var username = sessionStorage.getItem('userName');
 
-    getUserByUserName(username, renderUser);
+    //  getUserByUserName(username, renderUser);
+    getUserTypes(renderUserTypes)
+    getUsers(renderUsers);
+    $("#AddUser").on('click', function () { createUserForm() });
 });
 
 //Func for the wizard form
@@ -37,4 +42,103 @@ function renderUser(results) {
     data = results;
     resultsSave = results;
     populate(frm, data);
+}
+
+
+function renderUserTypes(results) {
+    //this is the callBackFunc 
+    roles = $.parseJSON(results.d);
+}
+
+function createUserForm() {
+    // get the last DIV which ID starts with ^= "contact"
+    var $div = $('div[id^="user"]:last');
+
+    // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+    // And increment that number by 1
+    var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
+    var id = 'user' + num;
+
+    // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
+    var contact = '<div class="col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
+
+    // Finally insert $klon wherever you want
+    //$(contact).appendTo('#contactsTab');
+    $(contact).insertBefore('#addUser');
+    rolesSelect();
+    return id;
+}
+function rolesSelect() {
+    $("[name='Role_id']:last").empty();
+    $.each(roles, function (i, row) {
+        dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
+        $("[name='Role_id']:last").append(dynamicLi);
+
+    });
+}
+
+//Put all data in place
+function renderUsers(results) {
+
+
+    results = $.parseJSON(results.d);
+    var busID = sessionStorage.getItem("busiInfo");
+    rolesSelect();
+    $.each(results, function (i, row) {
+
+
+        if (i == 0) {
+            $("#user1").find('form').attr('id', 'updateuser1')
+            frm = $('#updateuser1');
+            data = row;
+            contactSave[i] = row;
+            populate(frm, data);
+        }
+        else {
+            id = createUserForm();
+            frm = $("#" + id).find('form').attr('id', 'updateuser' + id);
+            data = row;
+            contactSave[i] = row;
+            populate(frm, data);
+        }
+
+
+
+    });
+
+    $('.selectize-select').selectize();
+    $("[name='contactSave']").on('click', function () {
+        var contactFRM = $(this).closest('form')
+        swal({
+            title: "האם אתה בטוח?",
+            text: "אתה עומד לעדכן את פרטי איש הקשר.",
+            type: "info",
+            confirmButtonText: "כן",
+            showCancelButton: "true",
+            cancelButtonText: "בטל",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+
+            function (isConfirm) {
+                if (isConfirm) {
+
+                    h = true;
+                    contactInfo = contactFRM.serializeObject();
+                    contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
+                    if (contactInfo.Contact_id == false) {
+                        InsertContact({ contactInfo: JSON.stringify(contactInfo) });
+                    }
+                    else {
+
+                        UpdateContact({ contactInfo: JSON.stringify(contactInfo) });
+                    }
+
+
+                }
+                else {
+                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+    });
 }
