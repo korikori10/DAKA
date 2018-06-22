@@ -14,6 +14,7 @@ public class Doc
     DateTime last_update;
     DateTime ex_date;
     bool active;
+    string employee_pass_id;
 
     public string Doc_id
     {
@@ -93,6 +94,19 @@ public class Doc
         }
     }
 
+    public string Employee_pass_id
+    {
+        get
+        {
+            return employee_pass_id;
+        }
+
+        set
+        {
+            employee_pass_id = value;
+        }
+    }
+
     public Doc()
     {
         //
@@ -108,5 +122,15 @@ public class Doc
         this.last_update = last_update;
         this.ex_date = ex_date;
         this.active = active;
+    }
+
+    public List<Doc> getDocs(Doc d)
+    {
+        DBServices dbs = new DBServices();
+
+        List<Doc> LD = dbs.ReadDocs(d);
+
+        return LD;
+        //
     }
 }

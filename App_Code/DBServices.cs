@@ -795,51 +795,45 @@ public class DBServices
     }
 
     /// <summary>
-    /// reads businesses from sql
+    /// reads contract from sql
     /// </summary>
-    /// <returns>list of businesses</returns>
-    //public List<Business> readBusinesses()
-    //{
-    //    SqlConnection con = null;
-    //    try
-    //    {
+    /// <returns>docs</returns>
+    public List<Doc> ReadDocs(Doc doc)
+    {
+        SqlConnection con = null;
 
-    //        con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-    //        string selectSTR = "SELECT*FROM BUSINESSES";
-    //        SqlCommand cmd = new SqlCommand(selectSTR, con);
-    //        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
-    //        List<Business> businesses = new List<Business>();
-    //        while (dr.Read())
-    //        {   // Read till the end of the data into a row
-    //            Business b = new Business();           
-    //            b.Bus_id = Convert.ToInt32(dr["bus_id"]);
-    //            b.Bus_name = dr["bus_name"].ToString();
-    //            b.Add_city = Convert.ToInt32(dr["add_city"]);
-    //            b.Add = dr["add"].ToString();
-    //            b.Add_num = Convert.ToInt32(dr["add_num"]);
-    //            b.Phone = Convert.ToInt32(dr["phone"]);
-    //            b.Bus_type_code = Convert.ToInt32(dr["bus_type_code"]);
-    //            b.Contract_code = Convert.ToInt32(dr["contract_code"]);   
-    //            businesses.Add(b);
-    //        }
+        try
+        {
+            List<Doc> docs = new List<Doc>();
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT [img_url] FROM DOCS where emp_id = '" + doc.Employee_pass_id + "' and doctype_id='" + doc.Doctype_id + "'";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+        
+            while (dr.Read())
+            {
+                Doc d = new Doc();
+                d.Img_url= dr["img_url"].ToString();
+                docs.Add(d);
+            }
+            return docs;
 
-    //        return businesses;
-    //    }
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
 
-    //    catch (Exception ex)
-    //    {
-    //        // write to log
-    //        throw (ex);
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
 
-    //    }
-    //    finally
-    //    {
-    //        if (con != null)
-    //        {
-    //            con.Close();
-    //        }
-    //    }
-    //}
+        }
+    }
 
     /// <summary>
     /// reads business from sql

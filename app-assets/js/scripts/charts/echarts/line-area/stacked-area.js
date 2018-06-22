@@ -154,7 +154,7 @@ $(window).on("load", function(){
 
             // Resize chart
             // ------------------------------
-
+            
             $(function () {
 
                 // Resize chart on menu width change and window resize

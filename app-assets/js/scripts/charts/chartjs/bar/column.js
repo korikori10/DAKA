@@ -15,6 +15,7 @@ var yearsString;
 var year;//the years
 var m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12;
 var datasetss = [];
+var lineChart;
 $(window).on("load", function(){
     StatisticsEmpByMonth(RenderempByMonth);
 
@@ -36,8 +37,7 @@ $(window).on("load", function(){
         maintainAspectRatio: false,
         responsiveAnimationDuration:500,
         legend: {
-          //  position: 'top',
-            data: yearsString
+            position: 'top',
 
         },
         scales: {
@@ -97,14 +97,46 @@ $(window).on("load", function(){
     };
 
     // Create the chart
-    var lineChart = new Chart(ctx, config);
+
+    //var resetCanvas = function () {
+    //    $('#column-chart').remove(); // this is my <canvas> element
+    //    $('#graph-container').append('<canvas id="column-chart"><canvas>');
+    //    canvas = document.querySelector('#olumn-chart');
+    //    ctx = canvas.getContext('2d');
+    //    ctx.canvas.width = $('#graph').width(); // resize to parent width
+    //    ctx.canvas.height = $('#graph').height(); // resize to parent height
+    //    var x = canvas.width / 2;
+    //    var y = canvas.height / 2;
+    //    ctx.font = '10pt Verdana';
+    //    ctx.textAlign = 'center';
+    //    ctx.fillText('This text is centered on the canvas', x, y);
+    //};
+       //$(function () {
+    lineChart = new Chart(ctx, config);
+
+    // Resync the render size
+    //lineChart.resize();
+       //    // Resize chart on menu width change and window resize
+       //    $(window).on('resize', resize);
+       //    $(".menu-toggle").on('click', resize);
+
+       //    // Resize function
+       //    function resize() {
+       //        setTimeout(function () {
+
+       //            // Resize chart
+       //            lineChart.resize();
+       //        }, 200);
+       //    }
+       //});
+
     });
+
 
 function RenderempByMonth(results) {
     var resultData = $.parseJSON(results.d);
     year = resultData[0];
     m1 = resultData[1];
-    //   quarter = resultData[2];
     m2 = resultData[2];
     m3 = resultData[3];
     m4 = resultData[4];
@@ -117,11 +149,6 @@ function RenderempByMonth(results) {
     m11 = resultData[11];
     m12 = resultData[12];
 
-    for (var i = 0; i < year.length; i++) {
- 
-        yearsString[i] = year[i];
-        
-    }
     function getRandomColor() {
         var letters = '0123456789ABCDEF'.split('');
         var color = '#';

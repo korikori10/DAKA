@@ -489,6 +489,24 @@ public class AJAXWebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadDocs(string DocsInfo)
+    {
+     
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Doc d = js.Deserialize<Doc>(DocsInfo);
+
+
+        List<Doc> LD = d.getDocs(d);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(d);
+        return jsonStringCategory;
+
+
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string GetEmployeeById(string pass)
 {
     Employee e = new Employee();

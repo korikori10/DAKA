@@ -117,9 +117,9 @@
                 <div class="col-md-12">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
-                            <li class="nav-item"><a class="nav-link" href="#" dir="rtl" >מידע אישי</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#" dir="rtl" >מסמכים</a></li>
-                            <li class="nav-item"><a class="nav-link" href="EmployeeHistory.html" dir="rtl" >היסטוריה</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#empDetails" data-toggle="tab" dir="rtl" >מידע אישי</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#EmpDocs" data-toggle="tab"  dir="rtl" >מסמכים</a></li>
+                            <li class="nav-item"><a class="nav-link" href="EmployeeHistory.html" data-toggle="tab" dir="rtl" >היסטוריה</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,222 +133,280 @@
                 <div class="col-md-12">
 
                     <div class="row">
-                        <!--Employee card-->       
-                        <form class="form" id="EmployeeUpdate">
+                        <div class="tab-content">
+                            <div class="fade tab-pane active in" id="empDetails" aria-expanded="true">
+
+                                <!--Employee card-->
+                                <form class="form" id="EmployeeUpdate">
 
 
-                            <section id="user-cards-with-square-thumbnail">
-                                <div class="col-xl-3 col-md-4 col-xs-12">
-                                    <div class="card">
-                                        <div class="text-xs-center">
-                                            <div class="card-block">
-                                                <img id="empImg" name="Picture" src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image" />
-                                            </div>
-                                            <div id="namePassC" class="card-block">
-                                  
-                                                    <input type="text" readonly=readonly id="Fname" name="Fname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" style="text-align:left"/>
-                                                    <input type="text" readonly=readonly id="Lname" name="Lname" class="card-title form-control-static font-weight-bold font-size-large col-md-6"  />
-                                  
-                                                    <input id="Employee_pass_id" class="card-subtitle text-muted form-control-static font-weight-bold font-size-large" style="text-align:center"/>
+                                    <section id="user-cards-with-square-thumbnail">
+                                        <div class="col-xl-3 col-md-4 col-xs-12">
+                                            <div class="card">
+                                                <div class="text-xs-center">
+                                                    <div class="card-block">
+                                                        <img id="empImg" name="Picture" src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image" />
+                                                    </div>
+                                                    <div id="namePassC" class="card-block">
+
+                                                        <input type="text" readonly=readonly id="Fname" name="Fname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" style="text-align:left" />
+                                                        <input type="text" readonly=readonly id="Lname" name="Lname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" />
+
+                                                        <input id="Employee_pass_id" class="card-subtitle text-muted form-control-static font-weight-bold font-size-large" style="text-align:center" />
+                                                    </div>
+
                                                 </div>
-
                                             </div>
-                                    </div>
-                                </div>
-                            </section>
+                                        </div>
+                                    </section>
 
-                            <!--info-->
-                            <div class="col-xl-9 col-md-8 col-xs-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">
-                                            <i class="icon-eye6"></i> מידע אישי
-                                        </h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
+                                    <!--info-->
+                                    <div class="col-xl-9 col-md-8 col-xs-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title">
+                                                    <i class="icon-eye6"></i> מידע אישי
+                                                </h4>
+                                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                                <div class="heading-elements">
+                                                    <ul class="list-inline mb-0">
+                                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-body collapse in">
+                                                <div class="card-block">
+                                                    <!--<form class="form" id="EmployeeUpdate">-->
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="form-group" style="visibility:hidden">
+                                                                <label for="passID" class="sr-only"></label>
+                                                                <input type="text" id="empPassTB" class="form-control" placeholder="מספר מערכת" name="Employee_pass_id" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="userinput1" class="sr-only">system number</label>
+                                                                    <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="Sys_id" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="userinput2" class="sr-only">Date of birth</label>
+                                                                    <input type="date" id="dobTB" class="form-control" placeholder="תאריך לידה" name="Birthday" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="userinput3" class="sr-only">place of work</label>
+                                                                    <select id="businessSE" class="form-control" name="Business"> </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="userinput4" class="sr-only">Adress</label>
+                                                                    <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Add" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="userinput3" class="sr-only">מין</label>
+                                                                    <select class=" custom-select form-control" id="genderTB" name="Gender">
+                                                                        <option value=""> בחר Select</option>
+                                                                        <option value="F">זכר</option>
+                                                                        <option value="T">נקבה</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="userinput4" class="sr-only">מצב משפחתי</label>
+                                                                    <select class="custom-select form-control" id="location3" name="Fam_stat_code">
+                                                                        <option value="0"> בחר Select</option>
+                                                                        <option value="1">רווק/ה</option>
+                                                                        <option value="2">נשוי/אה</option>
+                                                                        <option value="3">גרוש/ה</option>
+                                                                        <option value="4">אלמן/ה</option>
+                                                                        <option value="5">פרוד/ה</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="tbcountry4">ארץ מוצא</label><br />
+                                                                    <select name="Origin_country" class="selectize-select" id="DynamiCountryList">
+                                                                        <option value="0">לא נבחרה מדינה</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="location3">אזרח ישראל:</label>
+                                                                    <select class="custom-select form-control" id="il_citizen" name="Il_citizen">
+                                                                        <option value=""> בחר Select</option>
+                                                                        <option value="T">כן</option>
+                                                                        <option value="F">לא</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="phoneNumber4"> טלפון נייד Phone Number :</label>
+                                                                    <input type="tel" class="form-control" id="phone" name="Phone" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="tbcity4">עיר/ישוב</label>
+                                                                    <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="tbnum4">מספר בית</label>
+                                                                    <input type="number" class="form-control" id="textaddnum4" name="Add_num" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="tbcity4">האם פעיל?</label>
+                                                                    <select class="custom-select form-control" id="Active" name="Active">
+                                                                        <option value=""> בחר Select</option>
+                                                                        <option value="T">כן</option>
+                                                                        <option value="F">לא</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="location3">מגורי חברה:</label>
+                                                                    <select class="custom-select form-control" id="location3" name="Com_app">
+                                                                        <option value=""> בחר Select</option>
+                                                                        <option value="T">כן</option>
+                                                                        <option value="F">לא</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="eventName4">שכירות חודשית:</label>
+                                                                    <input type="number" class="form-control" id="eventName4" name="Rent" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="location3">מבוטח:</label>
+                                                                    <select class="custom-select form-control" id="insuranceSE" name="Insurance">
+                                                                        <option value=""> בחר Select</option>
+                                                                        <option value="T">כן</option>
+                                                                        <option value="F">לא</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="location3">ביטוח חברה:</label>
+                                                                    <select class="custom-select form-control" id="comInsuranceSE" name="Com_insurance">
+                                                                        <option value=""> בחר Select</option>
+                                                                        <option value="T">כן</option>
+                                                                        <option value="F">לא</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-actions right" id="info">
+                                                            <button type="button" class="btn btn-outline-warning mr-1">
+                                                                <i class="icon-cross2"></i> מחק
+                                                            </button>
+                                                            <button id="save" type="button" class="btn btn-outline-primary">
+                                                                <i class="icon-check2"></i> שמור
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block">
-                                            <!--<form class="form" id="EmployeeUpdate">-->
-                                            <div class="form-body">
-                                                <div class="row">
-                                                    <div class="form-group" style="visibility:hidden">
-                                                        <label for="passID" class="sr-only"></label>
-                                                        <input type="text" id="empPassTB" class="form-control" placeholder="מספר מערכת" name="Employee_pass_id" />
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="userinput1" class="sr-only">system number</label>
-                                                            <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="Sys_id" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="userinput2" class="sr-only">Date of birth</label>
-                                                            <input type="date"  id="dobTB" class="form-control" placeholder="תאריך לידה" name="Birthday" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="userinput3" class="sr-only">place of work</label>
-                                                            <select id="businessSE" class="form-control" name="Business"> </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="userinput4" class="sr-only">Adress</label>
-                                                            <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Add" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="userinput3" class="sr-only">מין</label>
-                                                            <select class=" custom-select form-control" id="genderTB" name="Gender">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="F">זכר</option>
-                                                                <option value="T">נקבה</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="userinput4" class="sr-only">מצב משפחתי</label>
-                                                            <select class="custom-select form-control" id="location3" name="Fam_stat_code">
-                                                                <option value="0"> בחר Select</option>
-                                                                <option value="1">רווק/ה</option>
-                                                                <option value="2">נשוי/אה</option>
-                                                                <option value="3">גרוש/ה</option>
-                                                                <option value="4">אלמן/ה</option>
-                                                                <option value="5">פרוד/ה</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbcountry4">ארץ מוצא</label><br />
-                                                            <select name="Origin_country" class="selectize-select" id="DynamiCountryList">
-                                                                <option value="0">לא נבחרה מדינה</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location3">אזרח ישראל:</label>
-                                                            <select class="custom-select form-control" id="il_citizen" name="Il_citizen">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="phoneNumber4"> טלפון נייד Phone Number :</label>
-                                                            <input type="tel" class="form-control" id="phone" name="Phone" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbcity4">עיר/ישוב</label>
-                                                            <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbnum4">מספר בית</label>
-                                                            <input type="number" class="form-control" id="textaddnum4" name="Add_num" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbcity4">האם פעיל?</label>
-                                                            <select class="custom-select form-control" id="Active" name="Active">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                </form>
+                            </div>
+                            <div class="fade tab-pane active in" id="EmpDocs" aria-expanded="false">
+                                <!--<div class="nav-tabs-custom col-md-6" style="display: block;margin-left: auto;margin-right: auto">
+        <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
+            <li class="nav-item"><a class="nav-link" href="#Visas" data-toggle="tab" dir="rtl">ויזה</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Passports" data-toggle="tab" dir="rtl">צילומי דרכון</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Contracts" data-toggle="tab" dir="rtl">חוזה עבודה</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="fade tab-pane active in" id="Contracts" aria-expanded="true">
+            dfghjk
+        </div>
 
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location3">מגורי חברה:</label>
-                                                            <select class="custom-select form-control" id="location3" name="Com_app">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="eventName4">שכירות חודשית:</label>
-                                                            <input type="number" class="form-control" id="eventName4" name="Rent" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location3">מבוטח:</label>
-                                                            <select class="custom-select form-control" id="insuranceSE" name="Insurance">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location3">ביטוח חברה:</label>
-                                                            <select class="custom-select form-control" id="comInsuranceSE" name="Com_insurance">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
+    </div>-->
 
-                                                <div class="form-actions right" id="info">
-                                                    <button type="button" class="btn btn-outline-warning mr-1">
-                                                        <i class="icon-cross2"></i> מחק
-                                                    </button>
-                                                    <button id="save" type="button" class="btn btn-outline-primary">
-                                                        <i class="icon-check2"></i> שמור
-                                                    </button>
+                                <div class="col-xl-6 col-md-2 col-xs-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                <i class="icon-eye6"></i> חוזה עבודה
+                                            </h4>
+                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse in">
+                                            <div class="card-block">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="form-group" >
+                                                            
+                                                        </div>
+                                                    </div>
+                                               
+
+                                                    <div class="form-actions right" id="contractSave">
+                                                        <button type="button" class="btn btn-outline-warning mr-1">
+                                                            <i class="icon-cross2"></i> מחק
+                                                        </button>
+                                                        <button id="saveCon" type="button" class="btn btn-outline-primary">
+                                                            <i class="icon-check2"></i> שמור
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-
-                    </div>
-                                </div>
                             </div>
                         </div>
-
+                            </div>
+                        </div>
+            </div>
                         </div>
 
     <footer class="footer footer-fixed footer-dark navbar-border">

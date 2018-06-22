@@ -356,6 +356,7 @@ function Statistics(RenderTotalnewemp) {
     });
 
 }
+
 function getUsers(renderUsers); {
     $.ajax({
         url: 'ajaxWebService.asmx/getUsers',
@@ -1241,6 +1242,27 @@ function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
                 t3.row(current_row).remove().draw();
             $("#Disable2").modal('hide');
 
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function getTheDocs(DocsInfo, renderDocs) {
+
+    // serialize the object to JSON string
+    var dataString = JSON.stringify(DocsInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/ReadDocs',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderDocs(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
