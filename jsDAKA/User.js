@@ -1,11 +1,13 @@
 ﻿var UserSave = new Object();
 var roles = new Object();
+var UserInfo = new object();
 $(document).ready(function () {
    // var username = sessionStorage.getItem('userName');
 
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     getUsers(renderUsers);
+    UpdateUsercall(UserInfo, renderUser);
     $("#AddUser").on('click', function () { createUserForm() });
 });
 
@@ -36,6 +38,7 @@ function populate(frm, data) {
         }
     });
 }
+
 function renderUser(results) {
     results = $.parseJSON(results.d);
     frm = $("#userUpdate");
@@ -43,6 +46,7 @@ function renderUser(results) {
     resultsSave = results;
     populate(frm, data);
 }
+
 
 
 function renderUserTypes(results) {
@@ -68,6 +72,7 @@ function createUserForm() {
     rolesSelect();
     return id;
 }
+
 function rolesSelect() {
     $("[name='U_type_code']:last").empty();
     $.each(roles, function (i, row) {
@@ -114,10 +119,10 @@ function renderUsers(results) {
 
     $('.selectize-select').selectize();
     $("[name='UserSave']").on('click', function () {
-        var contactFRM = $(this).closest('form')
+        var userFRM = $(this).closest('form')
         swal({
             title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן את פרטי איש הקשר.",
+            text: "אתה עומד לעדכן את פרטי המשתמש.",
             type: "info",
             confirmButtonText: "כן",
             showCancelButton: "true",
@@ -130,7 +135,7 @@ function renderUsers(results) {
                 if (isConfirm) {
 
                     h = true;
-                    contactInfo = contactFRM.serializeObject();
+                    UserInfo = contactFRM.serializeObject();
                     contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
                     if (contactInfo.Contact_id == false) {
                         InsertContact({ contactInfo: JSON.stringify(contactInfo) });

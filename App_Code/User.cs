@@ -164,11 +164,12 @@ public class User
 
         return BC;
     }
-    public void UpdateUser(User u)
+    public int UpdateUser(User u)
     {
         DBServices dbs = new DBServices();
 
-        dbs.updateUser(u);
+        
+        return dbs.updateUser(u);
 
     }
 }
