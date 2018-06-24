@@ -524,7 +524,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
         List<Doc> LD = d.getDocs(d);
         // serialize to string
-        string jsonStringCategory = js.Serialize(d);
+        string jsonStringCategory = js.Serialize(LD);
         return jsonStringCategory;
 
 

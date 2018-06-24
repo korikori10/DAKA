@@ -806,7 +806,7 @@ public class DBServices
         {
             List<Doc> docs = new List<Doc>();
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT [img_url] FROM DOCS where emp_id = '" + doc.Employee_pass_id + "'";// and doctype_id='" + doc.Doctype_id + "'";
+            string selectSTR = "SELECT * FROM DOCS where emp_id = '" + doc.Employee_pass_id + "'";// and doctype_id='" + doc.Doctype_id + "'";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
         

@@ -4,7 +4,9 @@
 $(document).ready(function () {
     DocsInfo.Employee_pass_id = sessionStorage.getItem("empInfo");
     getTheDocs({ DocsInfo: JSON.stringify(DocsInfo) }, renderDocs);
-  
+    $('#docTypeFilter').on('change', function () {
+        $(".docCards").not("[name='"+ this.value+"']" ).att
+    });
 });
 
 function renderDocs(results) {
@@ -16,24 +18,24 @@ function renderDocs(results) {
     var doctype = "5";
     $.each(results, function (i, row) {
 
-        if (row.Doctype_id == doctype) {
-            if (i == 0) {
-                $("#doc1").find('img').attr('id', 'docimg1')
-                var img = $('#docimg1').att('src', row.Img_url);
+        //if (row.Doctype_id == doctype) {
+        if (i == 0) {
+            $("#doc1").attr('name', row.Doctype_id);
+                $("#doc1").find('iframe').attr('id', 'docimg1')
+                var img = $('#docimg1').attr('src', row.Img_url);
                 //data = row;
                 //contactSave[i] = row;
                 //populate(frm, data);
 
             }
             else {
-                id = createContractForm();
-                frm = $("#" + id).find('form').attr('id', 'update' + id);
-                data = row;
-                contactSave[i] = row;
-                populate(frm, data);
+            id = createContractForm();
+            $("#" + id).attr('name', row.Doctype_id);
+                img = $("#" + id).find('iframe').attr('id', 'img' + id);
+                var img = $('#docimg1').attr('src', row.Img_url);
             }
 
-        }
+       // }
 
     });
 }
@@ -47,10 +49,10 @@ function createContractForm() {
     var id = 'doc' + num;
 
     // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
-    var docs = '<div class="col-xl-6 col-md-2 col-xs-4"' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
+    var docs = '<div class="col-xl-4 col-md-6 col-xs-12"' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
 
     // Finally insert $klon wherever you want
-    $(contact).appendTo('#EmpDocs');
+    $(docs).appendTo('#EmpDocs');
   //  $(contact).insertBefore('#addContact');
    // rolesSelect();
     return id;
