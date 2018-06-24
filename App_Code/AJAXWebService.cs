@@ -529,6 +529,20 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
     }
+   
+          [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getDocTypes()
+    {
+        Doc d = new Doc();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        List<Doc> LD = d.getDocTypes();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(LD);
+        return jsonStringCategory;
+
+
+    }
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

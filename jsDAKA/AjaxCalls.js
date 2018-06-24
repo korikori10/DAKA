@@ -1317,3 +1317,20 @@ function getTheDocs(DocsInfo, renderDocs) {
         }
     });
 }
+
+function getDocTypes(renderDocTypes) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getDocTypes',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderDocTypes(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+
+}
