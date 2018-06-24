@@ -696,22 +696,21 @@ function UpdateBusiness(BusinessInfo, renderBusinesses) {
 }
 
 //update spesific user
-function UpdateUsercall(UserInfo, renderUser) {
+function UpdateUsercall(UserInfo) {
 
     // serialize the object to JSON string
-    var emp = JSON.stringify(UserInfo);
+    var user = JSON.stringify(UserInfo);
 
     $.ajax({
         url: 'ajaxWebService.asmx/UpdateUser',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
-        data: emp,
+        data: user,
         success: function (results) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-            renderUser(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");

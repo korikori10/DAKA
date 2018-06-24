@@ -1467,7 +1467,7 @@ public class DBServices
     }
 
     //--------------------------------------------------------------------
-    // insert an Business
+    // insert an Contact
     //--------------------------------------------------------------------
     public int insert(Contact cont)
     {
@@ -1585,8 +1585,8 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values({0}, '{1}' ,{2}, {3}, {4},{5})", user.Uid, user.U_name, user.U_pwd, user.Full_name, user.U_type_code,user.Phone);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
-        String prefix = "INSERT INTO USERS " + "(uid,u_name,u_pwd,full_name,U_type_code,phone)";
+        sb.AppendFormat("Values({0}, '{1}' ,{2}, {3}, {4},{5})", user.Uid, user.U_name, user.Full_name, user.U_type_code,user.Phone,user.User_img);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        String prefix = "INSERT INTO USERS " + "(uid,u_name,full_name,U_type_code,phone,user_img)";
         command = prefix + sb.ToString();
 
         return command;
@@ -2338,7 +2338,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE USERS SET  u_name = '" + u.U_name + "', u_pwd = '" + u.U_pwd + "',full_name = '"+u.Full_name+ "',u_type_code = '" + u.U_type_code + "',phone = '" +u.Phone+"',user_img = '"+u.User_img +  " Where uid = " + u.Uid;
+        String prefix = "UPDATE USERS SET u_name = '" + u.U_name + "',full_name = '" + u.Full_name + "',u_type_code = '" + u.U_type_code + "',phone = '" + u.Phone + "',user_img = '" + u.User_img + "' Where uid = '" + u.Uid + "'";
         command = prefix;
 
         return command;
