@@ -1,13 +1,13 @@
 ﻿var UserSave = new Object();
 var roles = new Object();
-var UserInfo = new object();
+var UserInfo = new Object();
+
 $(document).ready(function () {
    // var username = sessionStorage.getItem('userName');
 
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     getUsers(renderUsers);
-    UpdateUsercall(UserInfo, renderUser);
     $("#AddUser").on('click', function () { createUserForm() });
 });
 
@@ -39,6 +39,29 @@ function populate(frm, data) {
     });
 }
 
+$.fn.serializeObject = function () {
+    var o = {};
+    var disabled = this.find(':input:disabled').removeAttr('disabled');
+    var a = this.serializeArray();
+    $.each(a, function () {
+        if (this.value == 'T') {
+            this.value = 'true'
+        }
+        else if (this.value == 'F') {
+            this.value = 'false'
+        }
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    disabled.attr('disabled', 'disabled');
+    return o;
+};
 function renderUser(results) {
     results = $.parseJSON(results.d);
     frm = $("#userUpdate");
@@ -64,11 +87,11 @@ function createUserForm() {
     var id = 'user' + num;
 
     // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
-    var contact = '<div class="col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
+    var user = '<div class="col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
 
     // Finally insert $klon wherever you want
     //$(contact).appendTo('#contactsTab');
-    $(contact).insertBefore('#addUser');
+    $(user).insertBefore('#addUser');
     rolesSelect();
     return id;
 }
@@ -87,7 +110,7 @@ function renderUsers(results) {
 
 
     results = $.parseJSON(results.d);
-    var busID = sessionStorage.getItem("busiInfo");
+    var USERID = sessionStorage.getItem("userInfo");
     rolesSelect();
     $.each(results, function (i, row) {
 
@@ -118,6 +141,7 @@ function renderUsers(results) {
     });
 
     $('.selectize-select').selectize();
+
     $("[name='UserSave']").on('click', function () {
         var userFRM = $(this).closest('form')
         swal({
@@ -135,14 +159,16 @@ function renderUsers(results) {
                 if (isConfirm) {
 
                     h = true;
-                    UserInfo = contactFRM.serializeObject();
-                    contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
-                    if (contactInfo.Contact_id == false) {
-                        InsertContact({ contactInfo: JSON.stringify(contactInfo) });
+                    UserInfo = userFRM.serializeObject();
+                    UserInfo.Full_name = userFRM.find('h4').html();
+                    UserInfo.User_img = userFRM.find('img').attr('src');
+                  //  UserInfo.Uid = sessionStorage.getItem("userInfo");
+                    if (UserInfo.Uid == false) {
+                   //     InsertContact({ contactInfo: JSON.stringify(contactInfo) });
                     }
                     else {
 
-                        UpdateContact({ contactInfo: JSON.stringify(contactInfo) });
+                        UpdateUsercall({ UserInfo: JSON.stringify(UserInfo) });
                     }
 
 
