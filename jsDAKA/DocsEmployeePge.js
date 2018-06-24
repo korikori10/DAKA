@@ -1,9 +1,9 @@
 ﻿var DocsInfo = new Object();
+//var docs = new Object();
 
 $(document).ready(function () {
-    DocsInfo.pass = sessionStorage.getItem("empInfo");
- 
-    getTheDocs(DocsInfo, renderDocs)
+    DocsInfo.Employee_pass_id = sessionStorage.getItem("empInfo");
+    getTheDocs({ DocsInfo: JSON.stringify(DocsInfo) }, renderDocs);
   
 });
 
@@ -18,8 +18,8 @@ function renderDocs(results) {
 
         if (row.Doctype_id == doctype) {
             if (i == 0) {
-                $("#doc1").find('img').attr('id', 'updatecontract1')
-                //frm = $('#updatecontract1');
+                $("#doc1").find('img').attr('id', 'docimg1')
+                var img = $('#docimg1').att('src', row.Img_url);
                 //data = row;
                 //contactSave[i] = row;
                 //populate(frm, data);
@@ -39,18 +39,18 @@ function renderDocs(results) {
 }
 function createContractForm() {
     // get the last DIV which ID starts with ^= "contact"
-    var $div = $('div[id^="contract"]:last');
+    var $div = $('div[id^="doc"]:last');
 
     // Read the Number from that DIV's ID (i.e: 3 from "klon3")
     // And increment that number by 1
     var num = parseInt($div.prop("id").match(/\d+/g), 10) + 1;
-    var id = 'contract' + num;
+    var id = 'doc' + num;
 
     // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
-    var contact = '<div class="col-md-6" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
+    var docs = '<div class="col-xl-6 col-md-2 col-xs-4"' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
 
     // Finally insert $klon wherever you want
-    //$(contact).appendTo('#contactsTab');
+    $(contact).appendTo('#EmpDocs');
   //  $(contact).insertBefore('#addContact');
    // rolesSelect();
     return id;
