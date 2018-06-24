@@ -1,4 +1,4 @@
-﻿
+﻿var UserSave = new Object();
 var roles = new Object();
 $(document).ready(function () {
    // var username = sessionStorage.getItem('userName');
@@ -69,10 +69,10 @@ function createUserForm() {
     return id;
 }
 function rolesSelect() {
-    $("[name='Role_id']:last").empty();
+    $("[name='U_type_code']:last").empty();
     $.each(roles, function (i, row) {
-        dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
-        $("[name='Role_id']:last").append(dynamicLi);
+        dynamicLi = '<option value="' + row.U_type_code + '">' + row.U_type_name + '</option>';
+        $("[name='U_type_code']:last").append(dynamicLi);
 
     });
 }
@@ -91,15 +91,21 @@ function renderUsers(results) {
             $("#user1").find('form').attr('id', 'updateuser1')
             frm = $('#updateuser1');
             data = row;
-            contactSave[i] = row;
+            UserSave[i] = row;
             populate(frm, data);
+            $("#user1").find('h4').html(row.Full_name);
+            $("#user1").find('h6').html($("[name='U_type_code']:last option:selected").text());
+            $("#user1").find('img').attr('src', row.User_img);
         }
         else {
             id = createUserForm();
             frm = $("#" + id).find('form').attr('id', 'updateuser' + id);
             data = row;
-            contactSave[i] = row;
+            UserSave[i] = row;
             populate(frm, data);
+            $("#" + id).find('h4').html(row.Full_name);
+            $("#" + id).find('h6').html($("[name='U_type_code']:last option:selected").text());
+            $("#" + id).find('img').attr('src', row.User_img);
         }
 
 
@@ -107,7 +113,7 @@ function renderUsers(results) {
     });
 
     $('.selectize-select').selectize();
-    $("[name='contactSave']").on('click', function () {
+    $("[name='UserSave']").on('click', function () {
         var contactFRM = $(this).closest('form')
         swal({
             title: "האם אתה בטוח?",
