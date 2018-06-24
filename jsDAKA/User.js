@@ -1,6 +1,7 @@
 ﻿var UserSave = new Object();
 var roles = new Object();
 var UserInfo = new Object();
+var flag = false;
 
 $(document).ready(function () {
    // var username = sessionStorage.getItem('userName');
@@ -8,9 +9,12 @@ $(document).ready(function () {
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     getUsers(renderUsers);
-    $("#AddUser").on('click', function () { createUserForm() });
 });
-
+// $("#AddUser").on('click', function () { flag = true; createUserForm(flag);});
+function adduser() {
+    flag = true;
+    createUserForm(flag);
+}
 //Func for the wizard form
 function populate(frm, data) {
     $.each(data, function (key, value) {
@@ -77,9 +81,10 @@ function renderUserTypes(results) {
     roles = $.parseJSON(results.d);
 }
 
-function createUserForm() {
+function createUserForm(flag) {
     // get the last DIV which ID starts with ^= "contact"
     var $div = $('div[id^="user"]:last');
+    
 
     // Read the Number from that DIV's ID (i.e: 3 from "klon3")
     // And increment that number by 1
@@ -88,11 +93,14 @@ function createUserForm() {
 
     // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
     var user = '<div class="col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
-
     // Finally insert $klon wherever you want
     //$(contact).appendTo('#contactsTab');
     $(user).insertBefore('#addUser');
     rolesSelect();
+    //if (flag) {
+    //    var $h4 = user.find('h4').html("");//<input type='text' name='Full_name' />
+    //    var $h6 = user.find('h6').html("");
+    //}
     return id;
 }
 
@@ -126,7 +134,8 @@ function renderUsers(results) {
             $("#user1").find('img').attr('src', row.User_img);
         }
         else {
-            id = createUserForm();
+            flag = false;
+            id = createUserForm(flag);
             frm = $("#" + id).find('form').attr('id', 'updateuser' + id);
             data = row;
             UserSave[i] = row;
@@ -179,3 +188,4 @@ function renderUsers(results) {
             });
     });
 }
+
