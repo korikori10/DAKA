@@ -357,7 +357,7 @@ function Statistics(RenderTotalnewemp) {
 
 }
 
-function getUsers(renderUsers); {
+function getUsers(renderUsers) {
     $.ajax({
         url: 'ajaxWebService.asmx/getUsers',
         type: 'POST',
