@@ -15,6 +15,8 @@ public class Doc
     DateTime ex_date;
     bool active;
     string employee_pass_id;
+    string doc_name;
+    string doc_desc;
 
     public string Doc_id
     {
@@ -107,6 +109,32 @@ public class Doc
         }
     }
 
+    public string Doc_name
+    {
+        get
+        {
+            return doc_name;
+        }
+
+        set
+        {
+            doc_name = value;
+        }
+    }
+
+    public string Doc_desc
+    {
+        get
+        {
+            return doc_desc;
+        }
+
+        set
+        {
+            doc_desc = value;
+        }
+    }
+
     public Doc()
     {
         //
@@ -129,6 +157,16 @@ public class Doc
         DBServices dbs = new DBServices();
 
         List<Doc> LD = dbs.ReadDocs(d);
+
+        return LD;
+        //
+    }
+    
+            public List<Doc> getDocTypes()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Doc> LD = dbs.ReadDocTypes();
 
         return LD;
         //

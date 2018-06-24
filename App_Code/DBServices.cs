@@ -835,7 +835,44 @@ public class DBServices
 
         }
     }
+    public List<Doc> ReadDocTypes()
+    {
+        SqlConnection con = null;
 
+        try
+        {
+            List<Doc> docs = new List<Doc>();
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT * FROM DOC_TYPE";// and doctype_id='" + doc.Doctype_id + "'";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+
+            while (dr.Read())
+            {
+                Doc d = new Doc();
+                d.Doc_name = dr["doc_name"].ToString();
+                d.Doctype_id = Convert.ToInt32(dr["doctype_id"]);
+                d.Doc_desc = dr["doc_name"].ToString();
+                docs.Add(d);
+            }
+            return docs;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
     /// <summary>
     /// reads business from sql
     /// </summary>

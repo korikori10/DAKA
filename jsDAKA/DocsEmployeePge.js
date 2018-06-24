@@ -1,13 +1,35 @@
 ﻿var DocsInfo = new Object();
+var DocTypes = new Object();
 //var docs = new Object();
 
 $(document).ready(function () {
     DocsInfo.Employee_pass_id = sessionStorage.getItem("empInfo");
-    getTheDocs({ DocsInfo: JSON.stringify(DocsInfo) }, renderDocs);
+    getDocTypes(renderDocTypes);
+    
     $('#docTypeFilter').on('change', function () {
-        $(".docCards").not("[name='"+ this.value+"']" ).att
+        if (this.value == 0) {
+            $(".docCards").children().show();
+        }
+        else {
+            $(".docCards").children().show();
+            $(".docCards").not("[name='" + this.value + "']").children().hide()
+        }
     });
 });
+
+function renderDocTypes(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    DocTypes = results;
+    $('#docTypeFilter').empty();
+    dynamicLi = '<option value="0">הצג הכל</option>';
+    $('#docTypeFilter').append(dynamicLi);
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Doctype_id + '">' + row.Doc_name + '</option>';
+        $('#docTypeFilter').append(dynamicLi);
+    });
+    getTheDocs({ DocsInfo: JSON.stringify(DocsInfo) }, renderDocs);
+}
 
 function renderDocs(results) {
 
@@ -21,8 +43,14 @@ function renderDocs(results) {
         //if (row.Doctype_id == doctype) {
         if (i == 0) {
             $("#doc1").attr('name', row.Doctype_id);
-                $("#doc1").find('iframe').attr('id', 'docimg1')
-                var img = $('#docimg1').attr('src', row.Img_url);
+            $("#doc1").find('iframe').attr('id', 'docimg1');
+            var img = $('#docimg1').attr('src', row.Img_url);
+            $.each(DocTypes, function (j, rows) {
+                if (row.Doctype_id == rows.Doctype_id) {
+                    $("#doc1").find('h4').html('<i class="icon-eye6"></i> ' + rows.Doc_name);
+                    return
+                }
+            });
                 //data = row;
                 //contactSave[i] = row;
                 //populate(frm, data);
@@ -32,7 +60,13 @@ function renderDocs(results) {
             id = createContractForm();
             $("#" + id).attr('name', row.Doctype_id);
                 img = $("#" + id).find('iframe').attr('id', 'img' + id);
-                var img = $('#docimg1').attr('src', row.Img_url);
+            var img = $('#docimg1').attr('src', row.Img_url);
+            $.each(DocTypes, function (j, rows) {
+                if (row.Doctype_id == rows.Doctype_id) {
+                    $("#" + id).find('h4').html('<i class="icon-eye6"></i> ' + rows.Doc_name);
+                    return
+                }
+            });
             }
 
        // }
@@ -49,7 +83,7 @@ function createContractForm() {
     var id = 'doc' + num;
 
     // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
-    var docs = '<div class="col-xl-4 col-md-6 col-xs-12"' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
+    var docs = '<div class="docCards col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
 
     // Finally insert $klon wherever you want
     $(docs).appendTo('#EmpDocs');
