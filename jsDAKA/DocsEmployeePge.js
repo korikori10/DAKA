@@ -18,11 +18,12 @@ function renderDocs(results) {
 
         if (row.Doctype_id == doctype) {
             if (i == 0) {
-                $("#contract1").find('form').attr('id', 'updatecontract1')
-                frm = $('#updatecontract1');
-                data = row;
-                contactSave[i] = row;
-                populate(frm, data);
+                $("#doc1").find('img').attr('id', 'updatecontract1')
+                //frm = $('#updatecontract1');
+                //data = row;
+                //contactSave[i] = row;
+                //populate(frm, data);
+
             }
             else {
                 id = createContractForm();

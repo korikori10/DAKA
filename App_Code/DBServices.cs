@@ -814,6 +814,7 @@ public class DBServices
             {
                 Doc d = new Doc();
                 d.Img_url= dr["img_url"].ToString();
+                d.Doctype_id = Convert.ToInt32(dr["doctype_id"]);
                 docs.Add(d);
             }
             return docs;
