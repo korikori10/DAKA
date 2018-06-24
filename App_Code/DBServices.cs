@@ -2285,7 +2285,7 @@ public class DBServices
     //--------------------------------------------------------------------
     // Update user
     //--------------------------------------------------------------------
-    public int update(User u)
+    public int updateUser(User u)
     {
 
         SqlConnection con;
@@ -2301,7 +2301,7 @@ public class DBServices
             throw (ex);
         }
 
-        String cStr = BuildUpdateCommand(u);      // helper method to build the insert string
+        String cStr = BuildUpdateuserCommand(u);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
 
@@ -2332,14 +2332,14 @@ public class DBServices
     //--------------------------------------------------------------------
     // Build the update a user command String
     //--------------------------------------------------------------------
-    private String BuildUpdateCommand(User u)
+    private String BuildUpdateuserCommand(User u)
     {
         String command;
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        //String prefix = "UPDATE productN SET inventory = " /*+ emp.Inventory + " Where product_id = " + emp.ProductId*/;
-        command = "";// prefix;
+        String prefix = "UPDATE USERS SET  u_name = '" + u.U_name + "', u_pwd = '" + u.U_pwd + "',full_name = '"+u.Full_name+ "',u_type_code = '" + u.U_type_code + "',phone = '" +u.Phone+"',user_img = '"+u.User_img +  " Where uid = " + u.Uid;
+        command = prefix;
 
         return command;
     }
