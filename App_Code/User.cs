@@ -164,4 +164,11 @@ public class User
 
         return BC;
     }
+    public void UpdateUser(User u)
+    {
+        DBServices dbs = new DBServices();
+
+        dbs.updateUser(u);
+
+    }
 }
