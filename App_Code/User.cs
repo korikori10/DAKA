@@ -172,4 +172,14 @@ public class User
         return dbs.updateUser(u);
 
     }
+    public int InsertUser(User u)
+    {
+        DBServices dbs = new DBServices();
+
+        int u1 = dbs.insert(u);
+
+
+        return u1;
+
+    }
 }

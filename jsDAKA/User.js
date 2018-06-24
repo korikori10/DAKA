@@ -164,7 +164,7 @@ function renderUsers(results) {
                     UserInfo.User_img = userFRM.find('img').attr('src');
                   //  UserInfo.Uid = sessionStorage.getItem("userInfo");
                     if (UserInfo.Uid == false) {
-                   //     InsertContact({ contactInfo: JSON.stringify(contactInfo) });
+                        InsertUserCall({ UserInfo: JSON.stringify(UserInfo) });
                     }
                     else {
 
