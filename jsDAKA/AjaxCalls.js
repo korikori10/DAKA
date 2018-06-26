@@ -544,7 +544,7 @@ function getEmployeesnobusiness() {
                     { 'data': 'Dayspass' },
                     {
                         'data': "",
-                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="empwithbusi" data-toggle="modal" data-target="#empwithbusi" class="btn btn-icon btn-success call-to-action-btn" data-toggle="tooltip" data- original - title="ציוות מחדש""><i class="icon-check"></i></button><button name="Disable1" data-toggle="modal" data-target="#Disable" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת עבודה""><i class="icon-ios-trash"></i></button>',
+                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button><button name="empwithbusi" data-toggle="modal" data-target="#empwithbusi" class="btn btn-icon btn-success call-to-action-btn" data-toggle="tooltip" data- original - title="ציוות מחדש""><i class="icon-check"></i></button><button name="Disable1" data-toggle="modal" data-target="#Disable" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת עבודה""><i class="icon-ios-trash"></i></button><button name="sms" id="sms"  class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="שליחת SMS""><i class="icon-ios-trash"></i></button>',
                         'responsivePriority': 5000
                     }
                 ]

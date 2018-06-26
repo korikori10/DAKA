@@ -210,7 +210,7 @@ $('.table').on('click', 'tr td button', function () {
     else if (whichid==="sms") {
 
         //Send SMS To Employees
-     //   SendSMS();
+        SendSMS();
     }
     else if (whichid === "email") {
     //    sendEmail(EmployeeInfo);
