@@ -634,7 +634,15 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void updateUserPass(string userName, string pass)
+    {
+        User u = new User();
+        u.updatePass(userName, pass);
 
+
+    }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string UpdateContact(string contactInfo)

@@ -9,6 +9,22 @@ $(document).ready(function () {
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     getUsers(renderUsers);
+    var username = sessionStorage.getItem('userName');
+
+    $('#password').click(function () {
+        $('#resetPassModal').modal('toggle');
+    });
+    $('#resetPass').click(function () {
+        var newpass = $('#newPass').val();
+
+
+        if (newpass == $('#newPassCon').val()) {
+            updatePass(newpass, username)
+        }
+        else {
+            $('#error').html('*הסיסמאות לא תואמות').css("color", "red");
+        }
+    });
 });
 // $("#AddUser").on('click', function () { flag = true; createUserForm(flag);});
 function adduser() {
@@ -169,14 +185,14 @@ function renderUsers(results) {
 
                     h = true;
                     UserInfo = userFRM.serializeObject();
-                    UserInfo.Full_name = userFRM.find('h4').html();
-                    UserInfo.User_img = userFRM.find('img').attr('src');
-                  //  UserInfo.Uid = sessionStorage.getItem("userInfo");
-                    if (UserInfo.Uid == false) {
+                    
+                    //  UserInfo.Uid = sessionStorage.getItem("userInfo");
+                    if (UserInfo.Uid == undefined) {
                         InsertUserCall({ UserInfo: JSON.stringify(UserInfo) });
                     }
                     else {
-
+                        UserInfo.Full_name = userFRM.find('h4').html();
+                        UserInfo.User_img = userFRM.find('img').attr('src');
                         UpdateUsercall({ UserInfo: JSON.stringify(UserInfo) });
                     }
 

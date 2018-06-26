@@ -182,4 +182,10 @@ public class User
         return u1;
 
     }
+    public void updatePass(string userName, string pass)
+    {
+        DBServices dbs = new DBServices();
+
+        dbs.updateUserPass(userName, pass);
+    }
 }
