@@ -964,14 +964,17 @@ public class AJAXWebService : System.Web.Services.WebService
         {
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("tolas22@gmail.com", "Tk11061989"),
-                EnableSsl = true
+                Credentials = new NetworkCredential("kori.hash@gmail.com", "liroy1010"),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false
+
             };
             MailMessage mail = new MailMessage();
-            System.Net.Mail.Attachment attachment;
-            string DOC = "/images/IMG_1659.JPG";
-            attachment = new System.Net.Mail.Attachment(DOC);
-            mail.Attachments.Add(attachment);
+            //System.Net.Mail.Attachment attachment;
+          //  string DOC = "/images/IMG_1659.JPG";
+            //attachment = new System.Net.Mail.Attachment(DOC);
+          //  mail.Attachments.Add(attachment);
             // Get date-only portion of date, without its time.
             DateTime dateOnly = e.Start_date.Date;
             // Display date using short date string.
@@ -988,11 +991,18 @@ public class AJAXWebService : System.Web.Services.WebService
                     country = item.Name;
                 }
             }
-            client.Send("tolas22@gmail.com", "kori.hash@gmail.com", "ביטוח לעובד מספר  " +
-                e.Sys_id, "היי,\nמבקשת לבצע ביטוח לעובד מספר מכפל " +
-                e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך- " + g );
+            string outEmail = "kori.hash@gmail.com"; 
+            string reEmail = "tolas22@gmail.com";
+            string Subject = "ביטוח לעובד מספר  " + e.Sys_id;
+            string message = "היי,\nמבקשת לבצע ביטוח לעובד מספר מכפל " + e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך- " + g;
+            mail.To.Add(outEmail);
+            mail.From = new MailAddress(reEmail);
+            mail.Subject = Subject;
+            mail.Body = message;
+            mail.IsBodyHtml = true;
+            //client.Send( outEmail, reEmail, Subject, message );
             client.Send(mail);
-            Console.WriteLine("Sent");
+            
         }
         catch (Exception ex)
         {
