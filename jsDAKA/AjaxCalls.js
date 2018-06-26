@@ -770,7 +770,7 @@ function insertEmployee(EmployeeInfo) {
 function InsertUserCall(UserInfo) {
 
     // serialize the object to JSON string
-    var user = JSON.stringify(UsertInfo);
+    var user = JSON.stringify(UserInfo);
 
     $.ajax({
         url: 'ajaxWebService.asmx/insertUser',
@@ -1333,4 +1333,24 @@ function getDocTypes(renderDocTypes) {
         }
     });
 
+}
+
+function updatePass(newpass, username) {
+    userPass = JSON.stringify({ userName: username, pass: newpass })
+    $.ajax({
+        url: WSUrl + '/updateUserPass',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: userPass,
+        success: function () {
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+
+        }
+    });
 }
