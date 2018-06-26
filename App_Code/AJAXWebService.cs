@@ -1001,6 +1001,7 @@ public class AJAXWebService : System.Web.Services.WebService
             mail.Body = message;
             mail.IsBodyHtml = true;
             //client.Send( outEmail, reEmail, Subject, message );
+            client.Credentials = new NetworkCredential(reEmail, "Tk170917");
             client.Send(mail);
             
         }
