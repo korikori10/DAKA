@@ -1,36 +1,36 @@
 ﻿var UserSave = new Object();
 var roles = new Object();
 var UserInfo = new Object();
-var flag = false;
-
+var username="";
 $(document).ready(function () {
-   // var username = sessionStorage.getItem('userName');
 
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     getUsers(renderUsers);
-    var username = sessionStorage.getItem('userName');
-
     $('#password').click(function () {
         $('#resetPassModal').modal('toggle');
     });
-    $('#resetPass').click(function () {
-        var newpass = $('#newPass').val();
 
-
-        if (newpass == $('#newPassCon').val()) {
-            updatePass(newpass, username)
-        }
-        else {
-            $('#error').html('*הסיסמאות לא תואמות').css("color", "red");
-        }
-    });
 });
-// $("#AddUser").on('click', function () { flag = true; createUserForm(flag);});
-function adduser() {
-    flag = true;
-    createUserForm(flag);
-}
+
+
+$('#resetPass').click(function () {
+    var newpass = $('#newPass').val();
+
+
+    if (newpass == $('#newPassCon').val()) {
+        username = $("#user-name").val();
+        updatePass(newpass, username )
+    }
+    else {
+        $('#error').html('*הסיסמאות לא תואמות').css("color", "red");
+    }
+});
+
+$("#AddUser").on('click', function () {
+    createUserForm();
+});
+
 //Func for the wizard form
 function populate(frm, data) {
     $.each(data, function (key, value) {
@@ -97,7 +97,7 @@ function renderUserTypes(results) {
     roles = $.parseJSON(results.d);
 }
 
-function createUserForm(flag) {
+function createUserForm() {
     // get the last DIV which ID starts with ^= "contact"
     var $div = $('div[id^="user"]:last');
     
@@ -120,13 +120,17 @@ function createUserForm(flag) {
     return id;
 }
 
-function rolesSelect() {
+function rolesSelect(flag) {
     $("[name='U_type_code']:last").empty();
     $.each(roles, function (i, row) {
         dynamicLi = '<option value="' + row.U_type_code + '">' + row.U_type_name + '</option>';
         $("[name='U_type_code']:last").append(dynamicLi);
+        if (flag) {
+            $("#modal_u_type").append(dynamicLi);
+        }
 
     });
+    flag = false;
 }
 
 //Put all data in place
@@ -135,7 +139,8 @@ function renderUsers(results) {
 
     results = $.parseJSON(results.d);
     var USERID = sessionStorage.getItem("userInfo");
-    rolesSelect();
+    var flag = true;
+    rolesSelect(flag);
     $.each(results, function (i, row) {
 
 
@@ -150,8 +155,7 @@ function renderUsers(results) {
             $("#user1").find('img').attr('src', row.User_img);
         }
         else {
-            flag = false;
-            id = createUserForm(flag);
+            id = createUserForm();
             frm = $("#" + id).find('form').attr('id', 'updateuser' + id);
             data = row;
             UserSave[i] = row;
@@ -187,7 +191,7 @@ function renderUsers(results) {
                     UserInfo = userFRM.serializeObject();
                     
                     //  UserInfo.Uid = sessionStorage.getItem("userInfo");
-                    if (UserInfo.Uid == undefined) {
+                    if (UserInfo.Uid === undefined) {
                         InsertUserCall({ UserInfo: JSON.stringify(UserInfo) });
                     }
                     else {
@@ -197,6 +201,33 @@ function renderUsers(results) {
                     }
 
 
+                }
+                else {
+                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+    });
+
+    $("[name='UserDelete']").on('click', function () {
+        var userFRM = $(this).closest('form')
+        swal({
+            title: "האם אתה בטוח?",
+            text: "אתה עומד למחוק את המשתמש מהמערכת.",
+            type: "info",
+            confirmButtonText: "כן",
+            showCancelButton: "true",
+            cancelButtonText: "בטל",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
+
+            function (isConfirm) {
+                if (isConfirm) {
+
+                    h = true;
+                    UserInfo = userFRM.serializeObject();
+
+                    DeleteUserCall({ UserInfo: JSON.stringify(UserInfo) });
                 }
                 else {
                     // swal("Cancelled", "Your imaginary file is safe :)", "error");

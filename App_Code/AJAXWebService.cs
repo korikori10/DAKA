@@ -645,6 +645,18 @@ public class AJAXWebService : System.Web.Services.WebService
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void DeleteUser(string UserInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        User u = js.Deserialize<User>(UserInfo);
+
+        DBServices db = new DBServices();
+        db.delete(u);
+
+
+    }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string UpdateContact(string contactInfo)
     {
         JavaScriptSerializer js = new JavaScriptSerializer();

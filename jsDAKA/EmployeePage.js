@@ -139,7 +139,9 @@ function renderEmployeeByID(results) {
         });
         return o;
     };
-
+$(".icon-expand2").on('click', function () {
+    $("iframe").height("700px");
+});
 //Check save or delete
     $("#info").on('click', function () {
 

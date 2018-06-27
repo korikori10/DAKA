@@ -2626,4 +2626,58 @@ public class DBServices
         return command;
     }
     #endregion
+    #region Delete
+    public int delete(User u)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildDeleteCommand(u);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    private string BuildDeleteCommand(User u)
+    {
+
+
+        string cmdStr = "DELETE FROM USERS WHERE uid = '" + u.Uid + "'";
+        return cmdStr;
+
+
+    }
+    #endregion
 }

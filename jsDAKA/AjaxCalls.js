@@ -790,6 +790,33 @@ function InsertUserCall(UserInfo) {
         }
     });
 }
+
+//Delete user
+
+function DeleteUserCall(UserInfo) {
+
+    // serialize the object to JSON string
+    var user = JSON.stringify(UserInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/DeleteUser',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: user,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //insert spesific contact
 function InsertContact(contactInfo) {
 

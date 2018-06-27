@@ -131,120 +131,121 @@
                 </div>
                 <!--personal deatails-->
                 <div class="col-md-12">
+                    <!---modal--->
+                        <div class="modal fade text-xs-left" id="AddUser1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h3 class="modal-title" id="myModalLabel35"> הוספת משתמש חדש</h3>
+                                    </div>
+                                    <form>
 
+                                        <div class="modal-body">
+                                            <div class="text-xs-center">
+                                                <div class="card-block">
+                                                    <input type="image" src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
+                                                    <br /> <input type="file" name="user_img" />
+                                                </div>
+                                                <div class="card-block">
+                                                    <h4 class="card-title"></h4>
+                                                    <h6 class="card-subtitle text-muted"></h6>
+                                                </div>
+
+                                            </div>
+                                            <div class="list-group list-group-flush">
+                                                <!--<div class="list-group-item">--><!--<i class="icon-briefcase4"></i> מספר משתמש-->
+                                                <!--<input type="text" name="Uid" hidden=hidden />-->
+                                                <!--</div>-->
+                                                <div class="list-group-item"><i class="icon-mail6"></i>שם פרטי ומשפחה   <input class="form-control" type="text" name="Full_name" /></div>
+                                                <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
+                                                <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
+                                                <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control" id="modal_u_type" name="U_type_code"></select></div>
+                                                <div class="list-group-item"> <i class="icon-clipboard2"></i> סיסמא   <input class="form-control" type="password" name="U_pwd" /></div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input name="UserSave" type="button" class="btn btn-outline-primary btn-lg" value="שמור" id="SearchEmployee" />
+                                            <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <!---modal--->
                     <div class="row">
-                        
 
-                                    <div class="tab-content">
-                                       
-                                    <!--<div class="fade tab-pane" id="contactsTab" aria-expanded="false">-->
-                                        <div class="col-xl-4 col-md-6 col-xs-12" id="user1">
-                                            <div class="card box-shadow-2">
-                                                  <form class="form" id="userUpdate">
-                                                <div class="text-xs-center">
-                                                    <div class="card-block">
-                                                            <img src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <h4 class="card-title"></h4>
-                                                        <h6 class="card-subtitle text-muted"></h6>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <button type="button" onclick="usersave()" class="btn btn-danger mr-1" name="UserSave"><i class="icon-plus4"></i> עדכן משתמש</button>
-                                                        <button type="button" data-toggle="modal" data-target="#resetPassModal" class="btn btn-primary mr-1"><i class="icon-head"></i> איפוס סיסמה</button>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group list-group-flush">
-                                                    <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input type="text" name="Uid" disabled/></div>
-                                                    <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input type="text" name="U_name"/></div>
-                                                    <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input type="tel" name="Phone" /></div>
-                                                    <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control"  name="U_type_code"></select></div>
-                                                </div>
-                                              </form>
+
+                        <div class="tab-content">
+
+                            <!--<div class="fade tab-pane" id="contactsTab" aria-expanded="false">-->
+                            <div class="col-xl-4 col-md-6 col-xs-12" id="user1">
+                                <div class="card box-shadow-2">
+                                    <form class="form" id="userUpdate">
+                                        <div class="text-xs-center">
+                                            <div class="card-block">
+                                                <img src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
+                                            </div>
+                                            <div class="card-block">
+                                                <h4 class="card-title"></h4>
+                                                <h6 class="card-subtitle text-muted"></h6>
+                                            </div>
+                                            <div class="card-block">
+                                                <button type="button" class="btn btn-danger mr-1" name="UserSave"><i class="icon-plus4"></i> עדכן משתמש</button>
+                                                <button type="button" class="btn btn-danger mr-1" name="UserDelete"><i class="icon-plus4"></i> מחק משתמש</button>
+                                                <button type="button" data-toggle="modal" data-target="#resetPassModal" class="btn btn-primary mr-1"><i class="icon-head"></i> איפוס סיסמה</button>
                                             </div>
                                         </div>
-                                        <div class="row" id="addUser">
-                                            <!--<button onclick="adduser()" type="button" class="btn btn-outline-primary" id="AddUser">
-        <i class="icon-plus"></i> Add User
-    </button>-->
-                                            <button data-toggle="modal" data-target="#AddUser" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-success btn-min-width btn-square icon-android-person-add">הוספת משתמש</button>
-                                            <!-- Modal -->
-                                            <div class="modal fade text-xs-left" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                            <h3 class="modal-title" id="myModalLabel35"> הוספת משתמש חדש</h3>
-                                                        </div>
-                                                        <form>
-
-                                                            <div class="modal-body">
-                                                                <div class="text-xs-center">
-                                                                    <div class="card-block">
-                                                                        <input type="image" src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
-                                                                        <br /> <input type="file" name="user_img" />
-                                                                    </div>
-                                                                    <div class="card-block">
-                                                                        <h4 class="card-title"></h4>
-                                                                        <h6 class="card-subtitle text-muted"></h6>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="list-group list-group-flush">
-                                                                    <!--<div class="list-group-item">--><!--<i class="icon-briefcase4"></i> מספר משתמש-->
-                                                                    <!--<input type="text" name="Uid" hidden=hidden />-->
-                                                                    <!--</div>-->
-                                                                    <div class="list-group-item"><i class="icon-mail6"></i>שם פרטי ומשפחה   <input type="text" name="Full_name" /></div>
-                                                                    <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input type="text" name="U_name" /></div>
-                                                                    <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input type="tel" name="Phone" /></div>
-                                                                    <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select name="U_type_code"></select></div>
-                                                                    <div class="list-group-item"> <i class="icon-clipboard2"></i> סיסמא   <input type="password" name="U_pwd" /></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <input name="UserSave" type="button" class="btn btn-outline-primary btn-lg" value="שמור" id="SearchEmployee" />
-                                                                <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--</a>-->
-                                            <div class="modal fade text-xs-left" id="resetPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                            <h3 class="modal-title" id="myModalLabel35">שינוי סיסמה</h3>
-                                                        </div>
-                                                        <form id="resetPassForm">
-
-                                                            <div class="modal-body">
-                                                                <fieldset class="form-group floating-label-form-group has-danger">
-                                                                    <label for="newPass">סיסמה חדשה :</label>
-                                                                    <input type="password" class="form-control" id="newPass" name="newPass" />
-                                                                    <label for="newPassCon">אמת סיסמה חדשה :</label>
-                                                                    <input type="password" class="form-control" id="newPassCon" name="newPassCon" />
-                                                                </fieldset>
-                                                                <div id="error"></div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <input name="resetpass" id="resetPass" type="button" class="btn btn-outline-primary btn-lg" value="אפס סיסמה" />
-                                                                <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                        <div class="list-group list-group-flush">
+                                            <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input class="form-control" type="text" name="Uid" disabled=disabled /></div>
+                                            <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
+                                            <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
+                                            <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control" name="U_type_code"></select></div>
                                         </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row" id="addUser">
+                            </div>
+                            <!--<button onclick="adduser()" type="button" class="btn btn-outline-primary" id="AddUser">
+                <i class="icon-plus"></i> Add User
+            </button>-->
+                            <button data-toggle="modal" data-target="#AddUser1" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-success btn-min-width btn-square icon-android-person-add">הוספת משתמש</button>
+                            <!--</a>-->
+                            <div class="modal fade text-xs-left" id="resetPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h3 class="modal-title" id="myModalLabel35">שינוי סיסמה</h3>
+                                        </div>
+                                        <form id="resetPassForm">
+
+                                            <div class="modal-body">
+                                                <fieldset class="form-group floating-label-form-group has-danger">
+                                                    <label for="newPass">סיסמה חדשה :</label>
+                                                    <input type="password" class="form-control" id="newPass" name="newPass" />
+                                                    <label for="newPassCon">אמת סיסמה חדשה :</label>
+                                                    <input type="password" class="form-control" id="newPassCon" name="newPassCon" />
+                                                </fieldset>
+                                                <div id="error"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input name="resetpass" id="resetPass" type="button" class="btn btn-outline-primary btn-lg" value="אפס סיסמה" />
+                                                <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+                </div>
                         
 
                     </div>
