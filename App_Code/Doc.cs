@@ -18,6 +18,9 @@ public class Doc
     string doc_name;
     string doc_desc;
     int bus_id;
+    int contract_code, contype_id;
+    DateTime signature_sdate, signature_fdate;
+    string contract_pic, cont_name;
 
     public string Doc_id
     {
@@ -146,6 +149,84 @@ public class Doc
         set
         {
             bus_id = value;
+        }
+    }
+
+    public int Contract_code
+    {
+        get
+        {
+            return contract_code;
+        }
+
+        set
+        {
+            contract_code = value;
+        }
+    }
+
+    public int Contype_id
+    {
+        get
+        {
+            return contype_id;
+        }
+
+        set
+        {
+            contype_id = value;
+        }
+    }
+
+    public DateTime Signature_sdate
+    {
+        get
+        {
+            return signature_sdate;
+        }
+
+        set
+        {
+            signature_sdate = value;
+        }
+    }
+
+    public DateTime Signature_fdate
+    {
+        get
+        {
+            return signature_fdate;
+        }
+
+        set
+        {
+            signature_fdate = value;
+        }
+    }
+
+    public string Contract_pic
+    {
+        get
+        {
+            return contract_pic;
+        }
+
+        set
+        {
+            contract_pic = value;
+        }
+    }
+
+    public string Cont_name
+    {
+        get
+        {
+            return cont_name;
+        }
+
+        set
+        {
+            cont_name = value;
         }
     }
 

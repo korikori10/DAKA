@@ -1077,7 +1077,8 @@ function getRoles(renderRoles) {
 
 }
 
-function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusinessesSearch
+function getBusinesses(renderBusinesses)//, renderBusinessesSearch) {//, renderBusinessesSearch
+{
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',
         type: 'POST',
@@ -1085,6 +1086,22 @@ function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusi
         dataType: 'json',
         success: function (results) {
             renderBusinesses(results);
+           // renderBusinessesSearch(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+function getBusinesses( renderBusinessesSearch) {//, renderBusinessesSearch
+    $.ajax({
+        url: 'ajaxWebService.asmx/getBusinesses',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+          //  renderBusinesses(results);
             renderBusinessesSearch(results);
         },
         error: function (xhr, status, error) {
@@ -1210,6 +1227,31 @@ function uploadFiles(formData, setEmpFile) {
             setEmpFile(results);
             pbLBL.text('Complete');
             pbDiv.fadeOut(2000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
+
+//Upload contracts
+function uploadFiles(formData, setDocFile) {
+    pbLBL = $("#pbLBL")
+    pbDiv = $("#progressBar")
+    $.ajax({
+        url: 'UploadHandler.ashx',
+        method: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (results) {
+            setDocFile(results);
+          pbLBL.text('Complete');
+          pbDiv.fadeOut(2000);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1346,7 +1388,7 @@ function getTheDocs(DocsInfo, renderDocs) {
 }
 
 //busi docs
-function getTheDocsBusi(renderDocs, DocsInfo) {
+function getTheDocsBusi(DocsInfo, renderDocs) {
 
      //serialize the object to JSON string
     var dataString = JSON.stringify(DocsInfo);

@@ -1,38 +1,46 @@
 ﻿var DocsInfo = new Object();
 //var DocTypes = new Object();
-//var docs = new Object();
+var docpic = new Object();
 
 $(document).ready(function () {
     DocsInfo.Bus_id = sessionStorage.getItem("busiInfo");
-    getTheDocsBusi(renderDocs, DocsInfo);
+    getTheDocsBusi({ DocsInfo: JSON.stringify(DocsInfo) },renderDocs);
 
-   // getDocTypes(renderDocTypes);
 
-    //$('#docTypeFilter').on('change', function () {
-    //    if (this.value == 0) {
-    //        $(".docCards").children().show();
-    //    }
-    //    else {
-    //        $(".docCards").children().show();
-    //        $(".docCards").not("[name='" + this.value + "']").children().hide()
-    //    }
-    //});
+    //Picture or file upload
+    $("#contract").on("change", function () {
+         pbLBL = $("#pbLBL")
+        pbDiv = $("#progressBar")
+         pbLBL.text('Uploading...');
+      pbDiv.fadeIn(500)
+        var files = $(this).get(0).files;
+        if (files.length > 0) {
+
+
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append(files[i].name, files[i])
+            }
+            uploadFiles(formData, setDocFile);
+
+        }
+    });
+
 });
+function setDocFile(results) {
+    docpic = results;
+}
+$('#InsertContract').click(function () {
+//    $('#visaRenew').validate();
 
-//function renderDocTypes(results) {
-//    //this is the callBackFunc 
-//    results = $.parseJSON(results.d);
-//    DocTypes = results;
-//    $('#docTypeFilter').empty();
-//    dynamicLi = '<option value="0">הצג הכל</option>';
-//    $('#docTypeFilter').append(dynamicLi);
-//    $.each(results, function (i, row) {
-//        dynamicLi = '<option value="' + row.Doctype_id + '">' + row.Doc_name + '</option>';
-//        $('#docTypeFilter').append(dynamicLi);
-//    });
-//    getTheDocs({ DocsInfo: JSON.stringify(DocsInfo) }, renderDocs);
-//}
-
+   // if ($('#visaRenew').valid()) {
+    DocsInfo.Bus_id = sessionStorage.getItem("busiInfo");
+    DocsInfo.Contract_pic = docpic;
+    DocsInfo.Contype_id = '1';
+       // $('#Update_Expiration').modal('toggle');
+        updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+  //  }
+});
 function renderDocs(results) {
 
 
@@ -43,17 +51,20 @@ function renderDocs(results) {
     $.each(results, function (i, row) {
         if (i == 0) {
 
-//            $("#doc1").attr('name', row.Do);
-           $("#doc1").find('iframe').attr('id', 'docimg1');
-           var img = $("#" + id).find('iframe').attr('id', 'img' + id);
-           $('#img' + id).attr('src', row.Img_url);
+            $("#doc1").attr('name', row.Contype_id);
+            $("#doc1").find('iframe').attr('id', 'docimg1');
+            var img = $('#docimg1').attr('src', row.Contract_pic);
+
+           // $("#doc1").find('iframe').attr('id', 'docimg1');
+           //var img = $("#" + id).find('iframe').attr('id', 'img' + id);
+           //$('#img' + id).attr('src', row.Contract_pic);
             
         }
         else {
             id = createContractForm();
-            $("#" + id).attr('name', row.Doctype_id);
+            $("#" + id).attr('name', row.Contype_id);
             var img = $("#" + id).find('iframe').attr('id', 'img' + id);
-            $('#img' + id).attr('src', row.Img_url);
+            $('#img' + id).attr('src', row.Contract_pic);
            
         }
 
@@ -74,7 +85,7 @@ function createContractForm() {
     var docs = '<div class="docCards col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
 
     // Finally insert $klon wherever you want
-    $(docs).appendTo('#EmpDocs');
+    $(docs).appendTo('#BusiDocsInsert');
     //  $(contact).insertBefore('#addContact');
     // rolesSelect();
     return id;

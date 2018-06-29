@@ -34,7 +34,7 @@ window.onload = function () {
             uploadFiles(formData, setEmpFile);
 
         }
-    })
+    });
     $('#AddNewBus').click(function () {
         sessionStorage.removeItem("busiInfo")
     });

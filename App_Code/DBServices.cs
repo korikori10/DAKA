@@ -886,15 +886,19 @@ public class DBServices
         {
             List<Doc> docs = new List<Doc>();
             con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT * FROM DOCS where bus_id = '" + doc.Bus_id + "'";// and doctype_id='" + doc.Doctype_id + "'";
+            string selectSTR = "SELECT * FROM Business_Contracts where bus_id = '" + doc.Bus_id + "'";// and doctype_id='" + doc.Doctype_id + "'";
             SqlCommand cmd = new SqlCommand(selectSTR, con);
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
 
             while (dr.Read())
             {
                 Doc d = new Doc();
-                d.Img_url = dr["img_url"].ToString();
-                d.Doctype_id = Convert.ToInt32(dr["doctype_id"]);
+                d.Contract_code = Convert.ToInt32(dr["contract_code"]);
+                d.Contype_id = Convert.ToInt32(dr["contype_id"]);
+                d.Signature_sdate = Convert.ToDateTime(dr["signature_sdate"]);
+                d.Signature_fdate = Convert.ToDateTime(dr["signature_fdate"]);
+                d.Contract_pic = dr["contract_pic"].ToString();
+                d.Cont_name = dr["cont_name"].ToString();
                 docs.Add(d);
             }
             return docs;
