@@ -17,6 +17,7 @@ public class Doc
     string employee_pass_id;
     string doc_name;
     string doc_desc;
+    int bus_id;
 
     public string Doc_id
     {
@@ -135,6 +136,19 @@ public class Doc
         }
     }
 
+    public int Bus_id
+    {
+        get
+        {
+            return bus_id;
+        }
+
+        set
+        {
+            bus_id = value;
+        }
+    }
+
     public Doc()
     {
         //
@@ -161,8 +175,17 @@ public class Doc
         return LD;
         //
     }
-    
-            public List<Doc> getDocTypes()
+    public List<Doc> getBusiDocs(Doc d)
+    {
+        DBServices dbs = new DBServices();
+
+        List<Doc> LD = dbs.ReadBusiDocs(d);
+
+        return LD;
+        //
+    }
+
+    public List<Doc> getDocTypes()
     {
         DBServices dbs = new DBServices();
 

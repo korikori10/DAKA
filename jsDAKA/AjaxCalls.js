@@ -1323,7 +1323,7 @@ function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
         }
     });
 }
-
+//emp docs
 function getTheDocs(DocsInfo, renderDocs) {
 
     // serialize the object to JSON string
@@ -1331,6 +1331,28 @@ function getTheDocs(DocsInfo, renderDocs) {
 
     $.ajax({
         url: 'ajaxWebService.asmx/ReadDocs',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderDocs(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+//busi docs
+function getTheDocsBusi(renderDocs, DocsInfo) {
+
+     //serialize the object to JSON string
+    var dataString = JSON.stringify(DocsInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/ReadDocsBusi',
         data: dataString,
         type: 'POST',
         dataType: "json",

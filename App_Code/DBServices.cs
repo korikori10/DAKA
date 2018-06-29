@@ -873,6 +873,48 @@ public class DBServices
 
         }
     }
+
+    /// <summary>
+    /// reads contract from sql for busi
+    /// </summary>
+    /// <returns>docs</returns>
+    public List<Doc> ReadBusiDocs(Doc doc)
+    {
+        SqlConnection con = null;
+
+        try
+        {
+            List<Doc> docs = new List<Doc>();
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT * FROM DOCS where bus_id = '" + doc.Bus_id + "'";// and doctype_id='" + doc.Doctype_id + "'";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+
+            while (dr.Read())
+            {
+                Doc d = new Doc();
+                d.Img_url = dr["img_url"].ToString();
+                d.Doctype_id = Convert.ToInt32(dr["doctype_id"]);
+                docs.Add(d);
+            }
+            return docs;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
     /// <summary>
     /// reads business from sql
     /// </summary>

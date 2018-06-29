@@ -59,8 +59,8 @@ function renderDocs(results) {
             else {
             id = createContractForm();
             $("#" + id).attr('name', row.Doctype_id);
-                img = $("#" + id).find('iframe').attr('id', 'img' + id);
-            var img = $('#docimg1').attr('src', row.Img_url);
+            var img = $("#" + id).find('iframe').attr('id', 'img' + id);
+            $('#img' + id).attr('src', row.Img_url);
             $.each(DocTypes, function (j, rows) {
                 if (row.Doctype_id == rows.Doctype_id) {
                     $("#" + id).find('h4').html('<i class="icon-eye6"></i> ' + rows.Doc_name);
