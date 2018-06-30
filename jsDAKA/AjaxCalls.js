@@ -114,6 +114,32 @@ function MakeEmpActive(EmployeeInfo, refreshTable) {
     });        
 }
 
+function MakeEmpNotActive(EmployeeInfo, current_row) {
+
+    var dataString = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/UpdateToUnActive',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function () {
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                NotActiveEmpDatatableVariable.row(current_row).remove().draw();
+            }, 1000);
+            //$("#insurance").modal('hide');
+
+         
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //Archive
 function getArchive() {
      datatableVariable = $('#ArchiveTable');
@@ -226,39 +252,7 @@ function SendSMS() {
     });
 
 }
-    //function ReadEmployeesNeedNewVisa() {
-    //    $.ajax({
-    //        type: "POST",
-    //        dataType: "json",
-    //        url: "ajaxWebService.asmx/ReadEmployeesNeedNewVisa",
-    //        success: function (data) {
-    //            var datatableVariable = $('#newvisaalert').DataTable({
-    //                data: data,
-    //                columns: [
-    //                    {
-    //                        'data': 'Employee_pass_id',
-    //                        'visible': false
-    //                    },
-    //                    { 'data': 'Sys_id' },
-    //                    { 'data': 'Fname' },
-    //                    { 'data': 'Lname' },
-    //                    {
-    //                        'data': 'Ex_date', 'render': function (date) {
-    //                            var date = new Date(parseInt(date.substr(6)));
-    //                            var month = date.getMonth() + 1;
-    //                            return date.getDate() + "/" + month + "/" + date.getFullYear();
-    //                        }
-    //                    },
-    //                    { 'data': 'Phone' },
-    //                    {
-    //                        'data': "",
-    //                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button id="edit" name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data-original-title="צפה בעובד"><i class="icon-eye3"></i></button>',
-    //                    }]
-    //            });
-    //        }
-    //    });
-
-    //}
+    
 //SearchBox
  function getEmployeesearch(renderEmployees) {
         $.ajax({
@@ -568,6 +562,10 @@ $.ajax({
               "bLengthChange": false,
              responsive: true,
              autoWidth: false,
+             "scrollY": "200px",
+             "scrollCollapse": true,
+             "paging": true,
+             "scrollX": false,
       
                 columns: [
                  {
@@ -608,7 +606,11 @@ function ReadEmployeesNotActive() {
                  data: data,
                  "bLengthChange": false,
                  responsive: true,
-
+                 autoWidth: false,
+                 "scrollY": "200px",
+                 "scrollCollapse": true,
+                 "paging": true,
+                 "scrollX": false,
                 columns: [
                     {
                         'data': 'Employee_pass_id',
@@ -634,7 +636,7 @@ function ReadEmployeesNotActive() {
                     },
                     {
                         'data': "",
-                        'defaultContent': '<button name="gmah" data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success call-to-action-btn"  title="רישום לצורך גמר חשבון""><i data-toggle="tooltip" class="icon-file-subtract "></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view call-to-action-btn" title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="gmahB"  data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success call-to-action-btn"  title="רישום לצורך גמר חשבון""><i data-toggle="tooltip" class="icon-file-subtract "></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view call-to-action-btn" title="צפה בעובד"><i class="icon-eye3"></i></button>',
                         'responsivePriority': 5000
                     }
 
@@ -1255,6 +1257,24 @@ function sendEmail(EmployeeInfo) {
         contentType: 'application/json; charset = utf-8',
         success: function () {
            
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function sendEmailCancelInsurance(EmployeeInfo) {
+    var dataString = JSON.stringify(EmployeeInfo);
+    $.ajax({
+        url: 'ajaxWebService.asmx/CancelInsuranceSendEmail',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function () {
+
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
