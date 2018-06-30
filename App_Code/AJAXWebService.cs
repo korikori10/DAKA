@@ -288,11 +288,11 @@ public class AJAXWebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string UpdateToUnActive(string pass)
+    public string UpdateToUnActive(string EmployeeInfo)
     {
         Employee e = new Employee();
 
-        int updated = e.UpdateToUNActive(pass);
+        int updated = e.UpdateToUNActive(EmployeeInfo);
         // serialize to string
         JavaScriptSerializer js = new JavaScriptSerializer();
         string jsonStringCategory = js.Serialize(updated);

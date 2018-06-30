@@ -73,7 +73,7 @@ public class Employee
         this.end_date = end_date;
     }
     //for employee not active
-    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, string disable_reason,string bus_name)
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, string disable_reason,string bus_name,bool com_app,bool com_insurance, bool final_bill)
     {
         this.employee_pass_id = employee_pass_id;
         this.lname = lname;
@@ -83,6 +83,9 @@ public class Employee
         this.phone = phone;
         this.disable_reason = disable_reason;
         this.bus_name = bus_name;
+        this.com_app = com_app;
+        this.com_insurance = com_insurance;
+        this.final_bill = final_bill;
     }
 
     //for employees no busi
@@ -1044,7 +1047,7 @@ public class Employee
     {
         DBServices dbs = new DBServices();
 
-        int LE = dbs.UpdateToActive(emp);
+        int LE = dbs.UpdateToUnActive(emp);
 
         return LE;
 

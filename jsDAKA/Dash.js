@@ -38,6 +38,7 @@ window.onload = function () {
     $('#AddNewBus').click(function () {
         sessionStorage.removeItem("busiInfo")
     });
+
 }
 //});
 function setEmpFile(results) {
@@ -45,8 +46,9 @@ function setEmpFile(results) {
 }
 //טבלת עובדים לא פעילים
 //גמ"ח
+
 function changeGmah() {
-        EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
+    EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
         if ($("input[name=gmahh]:checked").val()) {
             EmployeeInfo.Final_bill = 'True';
         updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
@@ -197,6 +199,36 @@ function renderDreasons(results) {
     );
 }
 
+//function checkedGmah() {
+//    //   $('input[name=gmahB]').click(function () {
+//    if (EmployeeInfo.Final_bill) {
+
+//        //$("#yesGmah").prop("checked", true)
+//        $("input[name=gmahh][value=" + EmployeeInfo.Final_bill + "]").prop("checked", true);
+//    }
+    // });
+//}
+$('#gmah').on('shown.bs.modal', function (e) {
+    //var $radios = $('input:radio[name=gmahh]');
+    //if ($radios.is(':checked') === false) {
+    //    $radios.filter('[value=EmployeeInfo.Final_bill]').prop('checked', true);
+    //}
+    $("input[name=gmahh][value=" + EmployeeInfo.Final_bill + "]").iCheck('check');
+});
+$('#Diur').on('shown.bs.modal', function (e) {
+    //var $radios = $('input:radio[name=gmahh]');
+    //if ($radios.is(':checked') === false) {
+    //    $radios.filter('[value=EmployeeInfo.Final_bill]').prop('checked', true);
+    //}
+    $("input[name=Diur][value=" + EmployeeInfo.Com_app + "]").iCheck('check');
+});
+$('#insurance').on('shown.bs.modal', function (e) {
+    //var $radios = $('input:radio[name=gmahh]');
+    //if ($radios.is(':checked') === false) {
+    //    $radios.filter('[value=EmployeeInfo.Final_bill]').prop('checked', true);
+    //}
+    $("input[name=insured][value=" + EmployeeInfo.Com_insurance + "]").iCheck('check');
+});
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
  //Take the Employee ID from the table row
@@ -210,7 +242,11 @@ $('.table').on('click', 'tr td button', function () {
     whichid = $(this).closest('button').attr('name');
     var data = $("#" + tableId).DataTable().row(current_row).data();
 
-        EmployeeInfo.pass = data['Employee_pass_id'];
+    EmployeeInfo.pass = data['Employee_pass_id'];
+    EmployeeInfo.Final_bill = data['Final_bill'];
+    EmployeeInfo.Com_app = data['Com_app'];
+    EmployeeInfo.Com_insurance = data['Com_insurance'];
+  
     if (whichid === "edit") {
         //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);

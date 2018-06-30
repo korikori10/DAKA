@@ -731,7 +731,7 @@ public class DBServices
             while (dr.Read())
             {
                 Employee Emp;
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]),dr["d_name"].ToString(),dr["bus_name"].ToString());
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]),dr["d_name"].ToString(),dr["bus_name"].ToString(),Convert.ToBoolean(dr["com_app"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToBoolean(dr["final_bill"]));
                 Employees.Add(Emp);
             }
             return Employees;
@@ -1980,7 +1980,7 @@ public class DBServices
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
         sb.AppendFormat("Values('{0}','{1}' ,'{2}')", dis.Did, dis.Emp_id, dis.Description);
-        String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "'; UPDATE [employee in business] set end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' WHERE employee_pass_id = '" + dis.Emp_id +"' and end_date is null; INSERT INTO EMP_DIS_REASON (did, emp_id, description)";// where emp_id = '" + emp.Employee_pass_id + "' and doctype_id='" + emp.Doctype_id + "'; INSERT INTO DOCS " + "(doctype_id,img_url,last_update,ex_date,active,emp_id,doc_id)";
+        String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "'; UPDATE [employee in business] set end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' WHERE employee_pass_id = '" + dis.Emp_id +"' and end_date is null; INSERT INTO EMP_DIS_REASON (did, emp_id, description)";
         command = prefix + sb.ToString();
 
         return command;
@@ -2300,7 +2300,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET active ='0' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET com_app='0',final_bill='1' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;
