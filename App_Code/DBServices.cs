@@ -180,7 +180,7 @@ public class DBServices
                 e.Sabatical = Convert.ToInt32(dr["sabatical"]);
                 e.Occupation_code = Convert.ToInt32(dr["occupation_code"]);
                 e.Active = Convert.ToBoolean(dr["active"]);
-                e.Disable_reason = dr["disable_reason"].ToString();
+              //  e.Disable_reason = dr["disable_reason"].ToString();
 
                 Employees.Add(e);
             }
@@ -2235,6 +2235,72 @@ public class DBServices
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
         String prefix = "UPDATE EMPLOYEE SET  active ='1' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        command = prefix;// prefix;
+
+        return command;
+    }
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="emp"></param>
+    /// <returns> employee active</returns>
+
+    public int UpdateToUnActive(string emp)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildUpdateUnactiveCommand(emp);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the active emp  command String
+    //--------------------------------------------------------------------
+    private String BuildUpdateUnactiveCommand(string emp)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        String prefix = "UPDATE EMPLOYEE SET active ='0' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;

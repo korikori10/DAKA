@@ -1040,6 +1040,15 @@ public class Employee
         return LE;
 
     }
+    public int UpdateToUNActive(string emp)
+    {
+        DBServices dbs = new DBServices();
+
+        int LE = dbs.UpdateToActive(emp);
+
+        return LE;
+
+    }
     public List<Employee> UpdateToUnActive(string pass)
     {
         DBServices dbs = new DBServices();

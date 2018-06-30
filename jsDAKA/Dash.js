@@ -55,6 +55,10 @@ function changeGmah() {
             EmployeeInfo.Final_bill = 'False';
         updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
+if (EmployeeInfo.Com_insurance == 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
+        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+
+}
     
 }
 //ביטול דיור
@@ -68,6 +72,10 @@ function changeDiur() {
         EmployeeInfo.Com_app = 'True';//לא להוציא מדיור
         updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
+if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
+        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+
+}
 
 }
 //הפסקת ביטוח
@@ -78,7 +86,12 @@ function cancelInsurance() {
         EmployeeInfo.Insurance = 'False';
         EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
         ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
- 
+        sendEmailCancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+
+if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
+        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+
+}
 
 }
 

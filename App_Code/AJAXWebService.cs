@@ -280,7 +280,26 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
     }
+    /// <summary>
+    ///  employee to unactive and send to archive
+    /// </summary>
+    /// <param name="pass"></param>
+    /// <returns></returns>
 
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string UpdateToUnActive(string pass)
+    {
+        Employee e = new Employee();
+
+        int updated = e.UpdateToUNActive(pass);
+        // serialize to string
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        string jsonStringCategory = js.Serialize(updated);
+        return jsonStringCategory;
+
+
+    }
     //employee update insurance
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -1073,6 +1092,64 @@ public class AJAXWebService : System.Web.Services.WebService
             client.Credentials = new NetworkCredential(reEmail, "Tk170917");
             client.Send(mail);
             
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+        //Console.ReadLine();
+        //Response.Write("SEND MAIL");
+    }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public void CancelInsuranceSendEmail (string EmployeeInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+        try
+        {
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("kori.hash@gmail.com", "liroy1010"),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false
+
+            };
+            MailMessage mail = new MailMessage();
+            //System.Net.Mail.Attachment attachment;
+            //  string DOC = "/images/IMG_1659.JPG";
+            //attachment = new System.Net.Mail.Attachment(DOC);
+            //  mail.Attachments.Add(attachment);
+            // Get date-only portion of date, without its time.
+            DateTime dateOnly = e.Start_date.Date;
+            // Display date using short date string.
+            string g = (dateOnly.ToString("d"));
+
+            Country c = new Country();
+            List<Country> LC = c.getCountries();
+            string country = "";
+
+            foreach (var item in LC)
+            {
+                if (item.Id == e.Origin_country)
+                {
+                    country = item.Name;
+                }
+            }
+            string outEmail = "kori.hash@gmail.com";
+            string reEmail = "tolas22@gmail.com";
+            string Subject = "ביטוח לעובד מספר  " + e.Sys_id;
+            string message = "היי,\nמבקשת לבטל ביטוח לעובד מספר מכפל " + e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך- " + g;
+            mail.To.Add(outEmail);
+            mail.From = new MailAddress(reEmail);
+            mail.Subject = Subject;
+            mail.Body = message;
+            mail.IsBodyHtml = true;
+            //client.Send( outEmail, reEmail, Subject, message );
+            client.Credentials = new NetworkCredential(reEmail, "Tk170917");
+            client.Send(mail);
+
         }
         catch (Exception ex)
         {

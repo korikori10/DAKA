@@ -114,6 +114,37 @@ function MakeEmpActive(EmployeeInfo, refreshTable) {
     });        
 }
 
+function MakeEmpNotActive(EmployeeInfo, current_row) {
+    var dataString = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/UpdateToUnActive',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function () {
+
+            setTimeout(function () {
+                swal({
+                    title: "בוצע!",
+                    text: "כל הנתונים נשמרו בהצלחה",
+                    type: "success",
+                },
+                    function (isConfirm) {
+                        NotActiveEmpDatatableVariable.row(current_row).remove().draw();
+                    }, 1000);
+             //   $("#insurance").modal('hide');
+
+            });
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //Archive
 function getArchive() {
      datatableVariable = $('#ArchiveTable');
@@ -568,6 +599,10 @@ $.ajax({
               "bLengthChange": false,
              responsive: true,
              autoWidth: false,
+             "scrollY": "200px",
+             "scrollCollapse": true,
+             "paging": true,
+             "scrollX": false,
       
                 columns: [
                  {
@@ -1255,6 +1290,24 @@ function sendEmail(EmployeeInfo) {
         contentType: 'application/json; charset = utf-8',
         success: function () {
            
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function sendEmailCancelInsurance(EmployeeInfo) {
+    var dataString = JSON.stringify(EmployeeInfo);
+    $.ajax({
+        url: 'ajaxWebService.asmx/CancelInsuranceSendEmail',
+        data: dataString,
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function () {
+
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
