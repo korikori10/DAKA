@@ -275,4 +275,15 @@ public class Doc
         return LD;
         //
     }
+    
+    public int insertContract(Doc con)
+    {
+        DBServices dbs = new DBServices();
+
+        int b = dbs.insertContract(con);
+
+
+        return b;
+
+    }
 }

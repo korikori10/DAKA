@@ -133,197 +133,180 @@
 
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-6 col-xs-12">
-
-                </div>
-                <div class="content-header-right col-md-6 col-xs-12">
-                    <div role="group" aria-label="Button group with nested dropdown" class="btn-group float-md-right">
+            <div class="content-body" style="height: 3128px;">
+                <div class="col-sm-9 col-md-9" style="float:left">
+                    <div class="content-header row">
+                        <div class="content-header-left col-md-6 col-xs-12">
+                            <h2 class="content-header-title mb-0">עמוד הוספת בית עסק חדש</h2>
+                            <p class="text-muted mb-0">הוספת בית עסק חדש למערכת</p>
+                        </div>
+                        <div class="content-header-right breadcrumbs-right col-md-6 col-xs-12">
+                            <div class="breadcrumb-wrapper col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="DashBoardPage.html">דף הבית</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="Businesses.html">עמוד עסקים</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">
+                                        הוספת בית עסק חדש
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="content-header-lead col-xs-12 mt-2">
+                            <p class="lead">
+                                כאן אפשר להוסיף בית עסק חדש. אנא מלא\י את הפרטים הנדרשים ולבסוף הקש\י אישור.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="content-header-lead col-xs-12 mt-1">
-                </div>
-            </div>
-            <div class="content-body">
-                <section class="row" id="vertical-tabs">
-                    <div class="col-sm-12 col-md-12">
 
+                    <div class="card">
+                        <div class="card-header" id="card-header">
 
-                            <div class="card">
-                                <div class="card-header" id="card-header">
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
 
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <form action="#" class="vertical-tab-steps wizard-circle" name="WizardBusiForm" id="insertEmpForm">
+                                    <!-- Step 1 -->
+                                    <h1 id="kindoform"></h1>
+                                     <h6>פרטי בית העסק</h6>
+                                     <fieldset id="first">
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="bus_name">שם העסק : <span class="danger">*</span></label>
+                                                     <input type="text" class="form-control" id="bus_name" name="Bus_name" required>
+                                                 </div>
+                                             </div>
 
-                                <div class="card-body collapse in">
-                                    <div class="card-block">
-                                        <form action="#" class="vertical-tab-steps wizard-circle" id="insertEmpForm">
-                                            <!-- Step 1 --><h1 id="kindoform"></h1>
-                                            <h6>Step 1</h6>
-                                            <fieldset id="first">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="bus_name">שם העסק : <span class="danger">*</span></label>
-                                                            <input type="text" class="form-control" id="bus_name" name="Bus_name" required>
-                                                        </div>
-                                                    </div>
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="bus_id">:מספר עסק</label>
+                                                     <input type="text" class="form-control" id="bus_id" name="Bus_id">
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="phoneNumber4"> טלפון  Phone Number :</label>
+                                                     <input type="tel" class="form-control" id="phoneNumber4" name="Phone">
+                                                 </div>
+                                             </div>
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="bus_id">:מספר עסק</label>
-                                                            <input type="text" class="form-control" id="bus_id" name="Bus_id">
-                                                        </div>
-                                                    </div>
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="tbadd4">כתובת פרטית</label>
+                                                     <input type="text" class="form-control" id="textadd4" name="Add">
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="tbcity4">עיר/ישוב</label>
+                                                     <select name="Add_city" class="selectize-select form-control" id="DynamicCitiesList"></select>
+                                                 </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="tbnum4">מספר בית</label>
+                                                     <input type="number" class="form-control" id="textaddnum4" name="Add_num">
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="row">
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="departmentSE">חטיבה</label>
+                                                     <select name="Department_code" class="selectize-select form-control" id="departmentSE"></select>
+                                                 </div>
+                                             </div>
+                                             <div class="col-md-6">
+                                                 <div class="form-group">
+                                                     <label for="departmentSE">סוג עסק</label>
+                                                     <select name="Bus_type_code" class="selectize-select form-control" id="typeSE"></select>
+                                                 </div>
+                                             </div>
+                                         </div>
+
+                                     </fieldset>
+                                    <!-- Step 2 -->
+                                    <h6>הוספת איש קשר</h6>
+                                    <fieldset id="second">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="contact_name">שם מלא:</label><span class="danger">*</span>
+                                                    <input type="text" class="form-control" id="contact_name" name="Contact_name">
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="phoneNumber4"> טלפון  Phone Number :</label>
-                                                            <input type="tel" class="form-control" id="phoneNumber4" name="Phone">
-                                                        </div>
-                                                    </div>
-
+                                            </div>
+                                     
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="role_id">תפקיד</label>
+                                                    <select class="selectize-select form-control" id="role_id" name="Role_id"></select>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbadd4">כתובת פרטית</label>
-                                                            <input type="text" class="form-control" id="textadd4" name="Add">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tbcity4">עיר/ישוב</label>
-                                                            <select name="Add_city" class="selectize-select" id="DynamicCitiesList"></select>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            </div> 
+                                        </div>
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="tbnum4">מספר בית</label>
-                                                        <input type="number" class="form-control" id="textaddnum4" name="Add_num">
+                                                        <label for="phoneNumber4"> טלפון  Phone Number :</label>
+                                                        <input type="tel" class="form-control" id="phoneNumber4" name="phoneContact">
                                                     </div>
                                                 </div>
 
-                                            </fieldset>
-                                            <!-- Step 2 -->
-                                            <h6>הוספת איש קשר</h6>
-                                            <fieldset id="second">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="contact_name">שם מלא:</label>
-                                                            <input type="text" class="form-control" id="contact_name" name="Contact_name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="bus_id">:מספר איש קשר</label>
-                                                            <input type="text" class="form-control" id="bus_id" name="Bus_id">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="placeofworkTitle4">בית עסק:</label>
-                                                            <select class="selectize-select form-control" id="businessSE" name="Bus_id"></select>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="role_id">תפקיד</label>
-                                                                <select class="selectize-select" id="role_id" name="Role_id"></select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="phoneNumber4"> טלפון  Phone Number :</label>
-                                                            <input type="tel" class="form-control" id="phoneNumber4" name="Phone">
-                                                        </div>
-                                                    </div>
+
+                                                <div class="col-md-6">
+
                                                     <div class="form-group">
                                                         <label for="email">דוא"ל: </label>
                                                         <input type="email" class="form-control" id="email" name="Email">
                                                     </div>
                                                 </div>
-                 
+                                            </div>
+                                    
 
 
-                                            </fieldset>
-                                            <!-- Step 3 -->
-                                            <!--<h6>Step 3</h6>
-                                            <fieldset>
-                                                <div class="row">
 
-                                                    <div class="form-group">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="location3">מגורי חברה:</label>
-                                                                <select class="custom-select form-control" id="location3" name="Com_app">
-                                                                    <option value=""> בחר Select</option>
-                                                                    <option value="T">כן</option>
-                                                                    <option value="F">לא</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="eventName4">שכירות חודשית:</label>
-                                                            <input type="number" class="form-control" id="eventName4" name="Rent">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                     
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="location3">מבוטח:</label>
-                                                            <select class="custom-select form-control" id="location3" name="Insurance">
-                                                                <option value=""> בחר Select</option>
-                                                                <option value="T">כן</option>
-                                                                <option value="F">לא</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>-->
-                                            <!-- Step 4 -->
-                                            <h6>Step 4</h6>
-                                            <fieldset>
-                                                <div class="row">
-                                                    <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera">
-                                                </div>
-                                                <div id="progressBar" style="position:relative; display:none">
-                                                    <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
-                                                    <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
+</fieldset>
+                                   
+                                    <!-- Step 3 -->
+                                    <!--<h6>העלאת חוזה</h6>
+                                    <fieldset>
+                                        <div class="row">
+                                            <label > חוזה התקשרות:</label><br />
+                                            <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera">
+                                        </div>
+                                        <div id="progressBar" style="position:relative; display:none">
+                                            <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
+                                            <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                        </div>
+                                    </fieldset>-->
+                                </form>
                             </div>
-                       
-
-
+                        </div>
                     </div>
-                </section>
+
+
+                </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Form wizard with vertical tabs section end -->
@@ -362,7 +345,7 @@
     <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
     <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>
 
-    <script src="DAKAjs/AjaxCalls.js"></script>
+    <script src="jsDAKA/AjaxCalls.js"></script>
     <script src="jsDAKA/WizardBusiness.js"></script>
     <!-- <script src="app-assets/js/scripts/forms/validation/form-validation.js"></script>-->
     <!-- END PAGE LEVEL JS-->

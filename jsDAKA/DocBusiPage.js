@@ -27,6 +27,7 @@ $(document).ready(function () {
     });
 
 });
+
 function setDocFile(results) {
     docpic = results;
 }
@@ -38,7 +39,7 @@ $('#InsertContract').click(function () {
     DocsInfo.Contract_pic = docpic;
     DocsInfo.Contype_id = '1';
        // $('#Update_Expiration').modal('toggle');
-        updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+    InsertheContract({ DocsInfo: JSON.stringify(DocsInfo) });
   //  }
 });
 function renderDocs(results) {
@@ -55,10 +56,7 @@ function renderDocs(results) {
             $("#doc1").find('iframe').attr('id', 'docimg1');
             var img = $('#docimg1').attr('src', row.Contract_pic);
 
-           // $("#doc1").find('iframe').attr('id', 'docimg1');
-           //var img = $("#" + id).find('iframe').attr('id', 'img' + id);
-           //$('#img' + id).attr('src', row.Contract_pic);
-            
+         
         }
         else {
             id = createContractForm();

@@ -744,6 +744,30 @@ function InsertBusiness(BusinessInfo, renderBusinesses) {
     });
 }
 
+//insert spesific business
+function InsertBusinessContact(BusiInfo) {
+
+    // serialize the object to JSON string
+    var bus = JSON.stringify(BusiInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/insertBusinessAndContact',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: bus,
+        success: function (results) {
+            alert(results);
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
 //insert spesific Employee
 function insertEmployee(EmployeeInfo) {
     var emp = JSON.stringify(EmployeeInfo);
@@ -842,6 +866,32 @@ function InsertContact(contactInfo) {
     });
 }
 
+
+
+//insert spesific contract
+function InsertheContract(DocsInfo) {
+
+    // serialize the object to JSON string
+    var doc = JSON.stringify(DocsInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/insertContract',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: doc,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
 
 //insert spesific contact
 function UpdateContact(contactInfo) {
@@ -1094,14 +1144,15 @@ function getBusinesses(renderBusinesses)//, renderBusinessesSearch) {//, renderB
         }
     });
 }
-function getBusinesses( renderBusinessesSearch) {//, renderBusinessesSearch
+
+function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusinessesSearch
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         dataType: 'json',
         success: function (results) {
-          //  renderBusinesses(results);
+            renderBusinesses(results);
             renderBusinessesSearch(results);
         },
         error: function (xhr, status, error) {

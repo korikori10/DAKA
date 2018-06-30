@@ -609,6 +609,23 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string insertBusinessAndContact(string BusiInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Business b = js.Deserialize<Business>(BusiInfo);
+
+
+
+        int b1 = b.insertBusinessAndContactServer(b);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(b);
+        return jsonStringCategory;
+
+    }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void insertEmployee(string EmployeeInfo)
@@ -631,6 +648,21 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
         int c1 = c.InsertContact(c);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(c1);
+        return jsonStringCategory;
+
+    }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string insertContract(string DocsInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Doc c = js.Deserialize<Doc>(DocsInfo);
+
+
+
+        int c1 = c.insertContract(c);
         // serialize to string
         string jsonStringCategory = js.Serialize(c1);
         return jsonStringCategory;

@@ -1,13 +1,15 @@
 ﻿selectedCity = new Object();
-EmployeeInfo = new Object();
+BusiInfo = new Object();
 resultsSave = new Object();
-isUpdate = new Object();
-var EmpPic = null;
+
+var BusContractFile = null;
 
 $(document).ready(function () {
     getCities(renderCities);
-   getRoles(renderRoles);
+    getRoles(renderRoles);
     getBusinesses(renderBusinesses);
+    getDepartments(renderDepartments);
+    getTypes(renderTypes);
     //Picture or file upload
     $("#Pic").on("change", function () {
         pbLBL = $("#pbLBL")
@@ -22,14 +24,14 @@ $(document).ready(function () {
             for (var i = 0; i < files.length; i++) {
                 formData.append(files[i].name, files[i])
             }
-            uploadFiles(formData, setEmpFile);
+            uploadFiles(formData, setBusContractFile);
 
         }
     })
 });
 
-function setEmpFile(results) {
-    EmpPic = results;
+function BusContractFile(results) {
+    BusContractFile = results;
 }
 
 function fixDate(date) {
@@ -72,30 +74,6 @@ function populate(frm, data) {
     );
 }
 
-function renderEmployeeByID(results) {
-
-    results = $.parseJSON(results.d);
-    resultsSave = results;
-    if (results.Employee_pass_id == null) {
-        isUpdate = false;
-        $("#passportid").val(EmployeeInfo.pass);
-        results = null;
-        document.getElementById("kindoform").innerHTML = "ברוכים הבאים! זוהי קליטה חדשה,אנא הזן את כל הפרטים";
-    }
-    else {
-        var frm = $("#insertEmpForm");
-        var data = results;
-        isUpdate = true;
-        data.Birthday = fixDate(data.Birthday);
-        populate(frm, data);
-        $('.selectize-select').selectize();
-        document.getElementById("kindoform").innerHTML = "עובד זה כבר פעיל במערכת, יש לבצע ציוות מחדש בלבד";
-
-
-    }
-
-}
-
 function renderBusinesses(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
@@ -117,8 +95,7 @@ function renderRoles(results) {
         $('#role_id').append(dynamicLi);
 
     });
-    EmployeeInfo.pass = sessionStorage.getItem("empInfo");
-    getEmployeeById(EmployeeInfo, renderEmployeeByID);
+
 }
 
 function renderCities(results) {
@@ -131,6 +108,25 @@ function renderCities(results) {
     });
 }
 
+function renderDepartments(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#departmentSE').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
+        $('#departmentSE').append(dynamicLi);
+    });
+}
+
+function renderTypes(results) {
+    //this is the callBackFunc 
+    results = $.parseJSON(results.d);
+    $('#typeSE').empty();
+    $.each(results, function (i, row) {
+        dynamicLi = '<option value="' + row.Bus_type_code + '">' + row.Bus_type_name + '</option>';
+        $('#typeSE').append(dynamicLi);
+    });
+}
 
 $.fn.serializeObject = function () {
     var o = {};
@@ -154,77 +150,37 @@ $.fn.serializeObject = function () {
     return o;
 };
 
-function insertBusandContact(){
-
-
-
+function insertBusandContact(formData){
 
     var formData = $('#insertEmpForm').serializeObject();
-    // var result = JSON.stringify(formData);
-    //  var array = ($("#insertEmpForm").serialize());
-    insertEmp(formData);
+    var result = JSON.stringify(formData);
+    var array = ($("#insertEmpForm").serialize());
+  
 
-    //EmployeeInfo = array;
+    BusiInfo = formData;
+    BusiInfo.Contract_code = "1";
+        swal({
+            title: "האם אתה בטוח?",
+            text: "אתה עומד להוסיף בית עסק ואיש קשר חדש.",
+            type: "info",
+            confirmButtonText: "כן",
+            showCancelButton: "true",
+            cancelButtonText: "בטל",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        },
 
-    //if (isUpdate) {
-    //    if (EmpPic == null) {
-    //        array.Picture = resultsSave.Picture;
+            function (isConfirm) {
+                if (isConfirm) {
 
-    //    }
-    //    else {
-    //        array.Picture = EmpPic;
-    //    }
-    //    if (array.Business == resultsSave.Business) {
-    //        array.updateBus = false;
-    //    }
-    //    else {
-    //        array.updateBus = true;
-    //    }
-    //    swal({
-    //        title: "האם אתה בטוח?",
-    //        text: "אתה עומד לעדכן פרטי עובד.",
-    //        type: "info",
-    //        confirmButtonText: "כן",
-    //        showCancelButton: "true",
-    //        cancelButtonText: "בטל",
-    //        closeOnConfirm: false,
-    //        showLoaderOnConfirm: true,
-    //    },
+                    InsertBusinessContact({ BusiInfo: JSON.stringify(BusiInfo) });
+                }
+                else {
+                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
 
-    //        function (isConfirm) {
-    //            if (isConfirm) {
-
-    //                updateEmployee({ EmployeeInfo: JSON.stringify(array) })
-    //            }
-    //            else {
-    //                // swal("Cancelled", "Your imaginary file is safe :)", "error");
-    //            }
-    //        });
-
-    //}
-    //else {
-    //    swal({
-    //        title: "האם אתה בטוח?",
-    //        text: "אתה עומד להוסיף עובד חדש.",
-    //        type: "info",
-    //        confirmButtonText: "כן",
-    //        showCancelButton: "true",
-    //        cancelButtonText: "בטל",
-    //        closeOnConfirm: false,
-    //        showLoaderOnConfirm: true,
-    //    },
-
-    //        function (isConfirm) {
-    //            if (isConfirm) {
-
-    //                insertEmployee({ EmployeeInfo: JSON.stringify(array) });
-    //            }
-    //            else {
-    //                // swal("Cancelled", "Your imaginary file is safe :)", "error");
-    //            }
-    //        });
-
-    //}
+    
 
 }
 

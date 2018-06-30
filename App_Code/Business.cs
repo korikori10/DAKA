@@ -14,11 +14,18 @@ public class Business
     string add;
     int add_num;
     int phone;
+    int phoneContact;
     int bus_type_code;
     int contract_code;
     int department_code;
     string department_name;
     string bus_type_name;
+    string contact_id;
+    string contact_name;
+    string email;
+    int role_id;
+    string role_name;
+    string role_desc;
     string start_date;
     string count;
     string growth;
@@ -301,6 +308,97 @@ public class Business
         }
     }
 
+    public string Contact_id
+    {
+        get
+        {
+            return contact_id;
+        }
+
+        set
+        {
+            contact_id = value;
+        }
+    }
+
+    public string Contact_name
+    {
+        get
+        {
+            return contact_name;
+        }
+
+        set
+        {
+            contact_name = value;
+        }
+    }
+
+    public string Email
+    {
+        get
+        {
+            return email;
+        }
+
+        set
+        {
+            email = value;
+        }
+    }
+
+    public int Role_id
+    {
+        get
+        {
+            return role_id;
+        }
+
+        set
+        {
+            role_id = value;
+        }
+    }
+
+    public string Role_name
+    {
+        get
+        {
+            return role_name;
+        }
+
+        set
+        {
+            role_name = value;
+        }
+    }
+
+    public string Role_desc
+    {
+        get
+        {
+            return role_desc;
+        }
+
+        set
+        {
+            role_desc = value;
+        }
+    }
+
+    public int PhoneContact
+    {
+        get
+        {
+            return phoneContact;
+        }
+
+        set
+        {
+            phoneContact = value;
+        }
+    }
+
     public Business()
     {
         //
@@ -354,6 +452,16 @@ public class Business
         DBServices dbs = new DBServices();
 
         int b = dbs.insert(bus);
+
+
+        return b;
+
+    }
+    public int insertBusinessAndContactServer(Business bus)
+    {
+        DBServices dbs = new DBServices();
+
+        int b = dbs.insertBusinessAndContactServer(bus);
 
 
         return b;

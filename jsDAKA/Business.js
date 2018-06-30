@@ -16,13 +16,11 @@ $(document).ready(function () {
     getCountries(renderCountries);
     getDepartments(renderDepartments);
     getRoles(renderRoles);
-    getTypes(renderTypes)
+    getTypes(renderTypes);
+    getContactsByBus(renderContacts);
+
     $("#AddContact").on('click', function () { createContactForm() });
-    //custom validation method
-    //$.validator.addMethod("alreadyexist", function (value, element) {
-    //    return name_list.indexOf(value) == -1;
-    //}, "מס' לקוח קיים");
-      
+  
 
 });
 
@@ -118,7 +116,6 @@ function renderCountries(results) {
         $('#DynamiCountryList').append(dynamicLi);
     });
     getBusinesses(renderBusinesses);
-    getContactsByBus(renderContacts);
      
 }
 
@@ -190,15 +187,18 @@ function renderContacts(results) {
     results = $.parseJSON(results.d);
     var busID = sessionStorage.getItem("busiInfo");
     rolesSelect();
+    flag = true;
     $.each(results, function (i, row) {
 
         if (row.Bus_id == busID) {
-            if (i == 0) {
+
+            if (flag) {
                 $("#contact1").find('form').attr('id', 'updatecontact1')
                 frm = $('#updatecontact1');
                 data = row;
                 contactSave[i] = row;
                 populate(frm, data);
+                flag = false;
             }
             else {
                 id = createContactForm();

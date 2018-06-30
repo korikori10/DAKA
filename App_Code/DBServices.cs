@@ -893,10 +893,10 @@ public class DBServices
             while (dr.Read())
             {
                 Doc d = new Doc();
-                d.Contract_code = Convert.ToInt32(dr["contract_code"]);
-                d.Contype_id = Convert.ToInt32(dr["contype_id"]);
+                d.Contract_code = Convert.ToInt32(GetString(dr["contract_code"]));
+                d.Contype_id = Convert.ToInt32(GetString(dr["contype_id"]));
                 d.Signature_sdate = Convert.ToDateTime(dr["signature_sdate"]);
-                d.Signature_fdate = Convert.ToDateTime(dr["signature_fdate"]);
+               // d.Signature_fdate = Convert.ToDateTime(dr["signature_fdate"]);
                 d.Contract_pic = dr["contract_pic"].ToString();
                 d.Cont_name = dr["cont_name"].ToString();
                 docs.Add(d);
@@ -1542,11 +1542,77 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values({0}, '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", busi.Bus_id, busi.Bus_name, busi.Add_city, busi.Add, busi.Add_num, busi.Phone, busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        sb.AppendFormat("Values({0}, '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", busi.Bus_id, busi.Bus_name, busi.Add_city, busi.Add, busi.Add_num, busi.Phone, busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));
         String prefix = "INSERT INTO BUSINESSES " + "(bus_id,bus_name,add_city,add,add_num,phone,bus_type_code,contract_code, department_code, commence_date)";
         command = prefix + sb.ToString();
 
         return command;
+    }
+
+    //--------------------------------------------------------------------
+    // insert an Business
+    //--------------------------------------------------------------------
+    public int insertBusinessAndContactServer(Business busi)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildInsertCommanda(busi);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the Insert command String for busi and contact
+    //--------------------------------------------------------------------
+    private String BuildInsertCommanda(Business busi)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        sb.AppendFormat("Values({0}, '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", busi.Bus_id, busi.Bus_name, busi.Add_city, busi.Add, busi.Add_num, busi.Phone, busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));
+        String prefix = "INSERT INTO BUSINESSES " + "(bus_id,bus_name,add_city,[add],add_num,phone,bus_type_code,contract_code, department_code, commence_date)";
+        String secondCommand = "; INSERT INTO [contacts to business] (contact_name, email, phone, role_id) Values('" + busi.Contact_name + "','" + busi.Email + "','" + busi.PhoneContact + "','" + busi.Role_id + "')";// ,(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
+        String thirdCommand = "; INSERT INTO [contacts in business] ([bus_id],[contact_id]) Values('" + busi.Bus_id + "',(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
+
+        command = prefix + sb.ToString() + secondCommand+ thirdCommand;
+
+
+        return command; 
     }
 
     //--------------------------------------------------------------------
@@ -1919,6 +1985,69 @@ public class DBServices
 
         return command;
     }
+
+    //for contract
+    public int insertContract(Doc doc)
+    {
+
+        SqlConnection con;
+        SqlCommand cmd;
+
+        try
+        {
+            con = connect("DAKADBConnectionString"); // create the connection
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+        }
+
+        String cStr = BuildInsertCommand(doc);      // helper method to build the insert string
+
+        cmd = CreateCommand(cStr, con);             // create the command
+
+        try
+        {
+            int numEffected = cmd.ExecuteNonQuery(); // execute the command
+            return numEffected;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+            // write to log
+            throw (ex);
+        }
+
+        finally
+        {
+            if (con != null)
+            {
+                // close the db connection
+                con.Close();
+            }
+        }
+
+    }
+
+    //--------------------------------------------------------------------
+    // Build the Insert command String for contract
+    //--------------------------------------------------------------------
+    private String BuildInsertCommand(Doc doc)
+    {
+        String command;
+
+        StringBuilder sb = new StringBuilder();
+        // use a string builder to create the dynamic string
+        sb.AppendFormat("Values('{0}', '{1}','{2}' )",  doc.Contype_id, DateTime.Now.ToString("yyyy-MM-dd"), doc.Contract_pic);
+        String prefix = "INSERT INTO [CONTRACTS] " + "( contype_id, [signature_sdate],contract_pic) ";
+        //how do i get the contract id?
+        String secondCommand = "; INSERT INTO [BUS_CONTR] (bus_id, contract_code) Values('" + doc.Bus_id + "' ,(Select top(1) contract_code from [CONTRACTS] order by contract_code desc))";
+        command = prefix + sb.ToString() + secondCommand;
+
+        return command;
+    }
+
     #endregion
 
 
