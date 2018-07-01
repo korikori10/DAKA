@@ -1796,7 +1796,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, emp.Start_date);
+        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, DateTime.Now.ToString("yyyy-MM-dd"));
         String prefix = "INSERT INTO [employee in business] " + "(employee_pass_id, bus_id, start_date)";
         command = prefix + sb.ToString();
 
@@ -2739,7 +2739,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string (start_date is the beggining of the new busi and the end of the no busi)
-        String prefix = "UPDATE [employee in business] SET end_date = '" + emp.Start_date + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date is null";
+        String prefix = "UPDATE [employee in business] SET end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' Where employee_pass_id = '" + emp.Employee_pass_id + "' and end_date is null";
         command = prefix;// prefix;
 
         return command;
