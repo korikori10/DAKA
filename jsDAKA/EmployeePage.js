@@ -8,8 +8,8 @@ var h = false;
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-    getBusinesses(renderBusinesses);  
-
+    //getBusinesses(renderBusinesses, renderBusinessesSearch);  
+    getBusinessesE(renderBusinesses)
 });
 
 

@@ -51,11 +51,11 @@ function changeGmah() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
         if ($("input[name=gmahh]:checked").val()) {
             EmployeeInfo.Final_bill = 'True';
-        updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+        updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
         else if ($("input[name=gmahh]:checked").val() === semiTrue) {
             EmployeeInfo.Final_bill = 'False';
-        updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+        updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
 if (EmployeeInfo.Com_insurance == 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
         MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
@@ -68,11 +68,11 @@ function changeDiur() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     if ($("input[name=Diur]:checked").val()) {
         EmployeeInfo.Com_app = 'False';//כן תוציא לי מדיור
-        updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+        updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
     else {
         EmployeeInfo.Com_app = 'True';//לא להוציא מדיור
-        updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+        updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
 if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
         MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
@@ -199,15 +199,7 @@ function renderDreasons(results) {
     );
 }
 
-//function checkedGmah() {
-//    //   $('input[name=gmahB]').click(function () {
-//    if (EmployeeInfo.Final_bill) {
 
-//        //$("#yesGmah").prop("checked", true)
-//        $("input[name=gmahh][value=" + EmployeeInfo.Final_bill + "]").prop("checked", true);
-//    }
-    // });
-//}
 $('#gmah').on('shown.bs.modal', function (e) {
    
     $("input[name=gmahh][value=" + EmployeeInfo.Final_bill + "]").iCheck('check');
@@ -243,7 +235,10 @@ $('.table').on('click', 'tr td button', function () {
     EmployeeInfo.Final_bill = data['Final_bill'];
     EmployeeInfo.Com_app = data['Com_app'];
     EmployeeInfo.Com_insurance = data['Com_insurance'];
-  
+    //EmployeeInfo.Origin_country = data['Origin_country'];
+    EmployeeInfo.Fname = data['Fname'];
+    EmployeeInfo.Lname = data['Lname'];
+    EmployeeInfo.Sys_id = data['Sys_id'];
     if (whichid === "edit") {
         //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);

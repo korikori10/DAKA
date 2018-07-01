@@ -1082,7 +1082,7 @@ public class AJAXWebService : System.Web.Services.WebService
             string outEmail = "kori.hash@gmail.com"; 
             string reEmail = "tolas22@gmail.com";
             string Subject = "ביטוח לעובד מספר  " + e.Sys_id;
-            string message = "היי,\nמבקשת לבצע ביטוח לעובד מספר מכפל " + e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך- " + g;
+            string message = "היי,\nמבקשת לבצע ביטוח לעובד מספר מכפל " + e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך: " + DateTime.Now.ToString("yyyy-MM-dd");
             mail.To.Add(outEmail);
             mail.From = new MailAddress(reEmail);
             mail.Subject = Subject;
@@ -1100,6 +1100,9 @@ public class AJAXWebService : System.Web.Services.WebService
         //Console.ReadLine();
         //Response.Write("SEND MAIL");
     }
+
+
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void CancelInsuranceSendEmail (string EmployeeInfo)
@@ -1122,9 +1125,9 @@ public class AJAXWebService : System.Web.Services.WebService
             //attachment = new System.Net.Mail.Attachment(DOC);
             //  mail.Attachments.Add(attachment);
             // Get date-only portion of date, without its time.
-            DateTime dateOnly = e.Start_date.Date;
+            DateTime dateOnly = e.Ex_date.Date;
             // Display date using short date string.
-            string g = (dateOnly.ToString("d"));
+           string g = (dateOnly.ToString("d"));
 
             Country c = new Country();
             List<Country> LC = c.getCountries();
@@ -1140,7 +1143,7 @@ public class AJAXWebService : System.Web.Services.WebService
             string outEmail = "kori.hash@gmail.com";
             string reEmail = "tolas22@gmail.com";
             string Subject = "ביטוח לעובד מספר  " + e.Sys_id;
-            string message = "היי,\nמבקשת לבטל ביטוח לעובד מספר מכפל " + e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך- " + g;
+            string message = "היי,\n מבקשת לבטל ביטוח לעובד מספר מכפל " + e.Sys_id + "\n מספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך: " +g;//"\nנתין: " + country +
             mail.To.Add(outEmail);
             mail.From = new MailAddress(reEmail);
             mail.Subject = Subject;

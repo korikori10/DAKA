@@ -993,7 +993,7 @@ function getUserById(username, ValidateUser) {
 
 
 //cancel employee insurance
-function ajaxcancelInsurance(EmployeeInfo, current_row) {
+function ajaxcancelInsurance(EmployeeInfo) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -1008,7 +1008,6 @@ function ajaxcancelInsurance(EmployeeInfo, current_row) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-                t1.row(current_row).remove().draw();
             }, 1000);
 
         },
@@ -1024,7 +1023,7 @@ function ajaxcancelInsurance(EmployeeInfo, current_row) {
 
 //update employee gmah
 
-function updateGmah(EmployeeInfo, current_row) {
+function updateGmah(EmployeeInfo) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -1038,7 +1037,6 @@ function updateGmah(EmployeeInfo, current_row) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-              //  NotActiveEmpDatatableVariable.row(current_row).remove().draw();
             }, 1000);
 
         },
@@ -1051,7 +1049,7 @@ function updateGmah(EmployeeInfo, current_row) {
 
 }
 
-function updateDiur(EmployeeInfo, current_row) {
+function updateDiur(EmployeeInfo) {
 
     // serialize the object to JSON string
     var emp = JSON.stringify(EmployeeInfo);
@@ -1065,7 +1063,6 @@ function updateDiur(EmployeeInfo, current_row) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-                //  NotActiveEmpDatatableVariable.row(current_row).remove().draw();
             }, 1000);
 
         },
@@ -1156,6 +1153,22 @@ function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusi
         success: function (results) {
             renderBusinesses(results);
             renderBusinessesSearch(results);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+function getBusinessesE(renderBusinesses){//, renderBusinessesSearch) {//, renderBusinessesSearch
+    $.ajax({
+        url: 'ajaxWebService.asmx/getBusinesses',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: 'json',
+        success: function (results) {
+            renderBusinesses(results);
+          //  renderBusinessesSearch(results);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1373,9 +1386,10 @@ function updateEmpBusiness(EmployeeInfo, current_row ) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-            }, 1000);
-            
-                t3.row(current_row).remove().draw();
+            //    t3.row(current_row).remove().draw();
+            }, 1000); 
+            $("#empwithbusi").modal('hide');
+
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
