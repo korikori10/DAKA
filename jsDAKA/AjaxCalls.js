@@ -1009,7 +1009,7 @@ function ajaxcancelInsurance(EmployeeInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-
+            $("#Cancelinsurance").modal('hide');
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1064,7 +1064,7 @@ function updateDiur(EmployeeInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-
+            $("#Diur").modal('hide');
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
