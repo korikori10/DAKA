@@ -100,11 +100,11 @@ if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &
 //טבלת עובדים חדשים
 function changeInsurance() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
-    if ($("input[name=insured]:checked").val()) {
+    if ($('#insured').prop('checked')) {
         EmployeeInfo.Com_insurance = 'True';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
-    else if ($("input[name=insured]:checked").val() === semiTrue) {
+    else if ($('#otherIn').prop('checked')) {
         EmployeeInfo.Com_insurance = 'False';
         updateInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }

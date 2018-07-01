@@ -1038,7 +1038,7 @@ function updateGmah(EmployeeInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-
+                $("#gmah").modal('hide');
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1386,9 +1386,9 @@ function updateEmpBusiness(EmployeeInfo, current_row ) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-            //    t3.row(current_row).remove().draw();
+               t3.row(current_row).remove().draw();
             }, 1000); 
-           // $("#empwithbusi").modal('hide');
+            $("#empwithbusi").modal('hide');
 
         },
         error: function (xhr, status, error) {
