@@ -1388,7 +1388,7 @@ function updateEmpBusiness(EmployeeInfo, current_row ) {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             //    t3.row(current_row).remove().draw();
             }, 1000); 
-            $("#empwithbusi").modal('hide');
+           // $("#empwithbusi").modal('hide');
 
         },
         error: function (xhr, status, error) {
@@ -1440,7 +1440,7 @@ function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
-                t3.row(current_row).remove().draw();
+               // t3.row(current_row).remove().draw();
             $("#Disable2").modal('hide');
 
         },
