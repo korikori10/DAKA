@@ -731,7 +731,7 @@ public class DBServices
             while (dr.Read())
             {
                 Employee Emp;
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]),dr["d_name"].ToString(),dr["bus_name"].ToString(),Convert.ToBoolean(dr["com_app"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToBoolean(dr["final_bill"]));
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(GetString(dr["ex_date"])), Convert.ToInt32(dr["phone"]),dr["d_name"].ToString(),dr["bus_name"].ToString(),Convert.ToBoolean(dr["com_app"]), Convert.ToBoolean(dr["com_insurance"]), Convert.ToBoolean(GetString(dr["final_bill"])));
                 Employees.Add(Emp);
             }
             return Employees;
