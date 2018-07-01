@@ -209,24 +209,21 @@ function renderDreasons(results) {
     // });
 //}
 $('#gmah').on('shown.bs.modal', function (e) {
-    //var $radios = $('input:radio[name=gmahh]');
-    //if ($radios.is(':checked') === false) {
-    //    $radios.filter('[value=EmployeeInfo.Final_bill]').prop('checked', true);
-    //}
+   
     $("input[name=gmahh][value=" + EmployeeInfo.Final_bill + "]").iCheck('check');
 });
 $('#Diur').on('shown.bs.modal', function (e) {
-    //var $radios = $('input:radio[name=gmahh]');
-    //if ($radios.is(':checked') === false) {
-    //    $radios.filter('[value=EmployeeInfo.Final_bill]').prop('checked', true);
-    //}
-    $("input[name=Diur][value=" + EmployeeInfo.Com_app + "]").iCheck('check');
+
+    if (EmployeeInfo.Com_app) {
+        value = false;
+    }
+    else {
+        value = true;
+    }
+    $("input[name=Diur][value=" + value + "]").iCheck('check');
 });
 $('#insurance').on('shown.bs.modal', function (e) {
-    //var $radios = $('input:radio[name=gmahh]');
-    //if ($radios.is(':checked') === false) {
-    //    $radios.filter('[value=EmployeeInfo.Final_bill]').prop('checked', true);
-    //}
+  
     $("input[name=insured][value=" + EmployeeInfo.Com_insurance + "]").iCheck('check');
 });
 // Button Clicks In Tables
