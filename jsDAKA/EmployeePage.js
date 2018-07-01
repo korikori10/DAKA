@@ -111,15 +111,19 @@ function renderEmployeeByID(results) {
             $("#empImg").attr("src", "imges/no-img.jpg")
         }
 
-        $(".selectize-select").selectize();
    
 
     }
+    if ($('#sysIdTB').val() != 0) {
+        $('#sysIdTB').attr('disabled', 'disabled')
+    }
+        $(".selectize-select").selectize();
 }
 
 //create 1 array for json from the form
     $.fn.serializeObject = function () {
         var o = {};
+        var disabled = this.find(':input:disabled').removeAttr('disabled');
         var a = this.serializeArray();
         $.each(a, function () {
             if (this.value == 'T') {
@@ -137,6 +141,7 @@ function renderEmployeeByID(results) {
                 o[this.name] = this.value || '';
             }
         });
+        disabled.attr('disabled', 'disabled');
         return o;
     };
 $(".icon-expand2").on('click', function () {
