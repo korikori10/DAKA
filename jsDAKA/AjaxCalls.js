@@ -1269,7 +1269,9 @@ function sendEmail(EmployeeInfo) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function () {
-           
+            setTimeout(function () {
+            swal("נשלח מייל!", "אימייל הפעלה נשלח לחברת הביטוח", "success");
+        }, 1500);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -1287,7 +1289,9 @@ function sendEmailCancelInsurance(EmployeeInfo) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function () {
-
+            setTimeout(function () {
+                swal("נשלח מייל!", "אימייל הפסקה נשלח לחברת הביטוח", "success");
+            }, 1500);
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
