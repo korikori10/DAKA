@@ -128,7 +128,7 @@ function MakeEmpNotActive(EmployeeInfo, current_row) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
                 NotActiveEmpDatatableVariable.row(current_row).remove().draw();
-            }, 1000);
+            }, 1500);
             //$("#insurance").modal('hide');
 
          
@@ -1443,8 +1443,8 @@ function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
 
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                t3.row(current_row).remove().draw();
             }, 1000);
-               // t3.row(current_row).remove().draw();
             $("#Disable2").modal('hide');
 
         },
