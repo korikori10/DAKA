@@ -16,122 +16,107 @@ var year;//the years
 var m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12;
 var datasetss = [];
 var lineChart;
-$(window).on("load", function(){
-    StatisticsEmpByMonth(RenderempByMonth);
+$(window).on("load", function () {
 
-    //Get the context of the Chart canvas element we want to select
-    var ctx = $("#column-chart");
+        StatisticsEmpByMonth(RenderempByMonth);
 
-    // Chart Options
-    var chartOptions = {
-        // Elements options apply to all of the options unless overridden in a dataset
-        // In this case, we are setting the border of each bar to be 2px wide and green
-        elements: {
-            rectangle: {
-                borderWidth: 2,
-                borderColor: 'rgb(0, 255, 0)',
-                borderSkipped: 'bottom'
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        responsiveAnimationDuration:500,
-        legend: {
-            position: 'top',
+        //Get the context of the Chart canvas element we want to select
 
-        },
-        scales: {
-            xAxes: [{
-                display: true,
-                gridLines: {
-                    color: "#f3f3f3",
-                    drawTicks: false,
-                },
-                scaleLabel: {
-                    display: true,
-                }
-            }],
-            yAxes: [{
-                display: true,
-                gridLines: {
-                    color: "#f3f3f3",
-                    drawTicks: false,
-                },
-                scaleLabel: {
-                    display: true,
-                }
-            }]
-        },
-        title: {
-            display: true,
-            text: 'New Employees By month'
-        }
-    };
+        lineChart = new Chart(ctx, config);
 
-    // Chart Data
-    var chartData = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: datasetss
-        //[{
-        //    label: "",
-        //    data: [65, 59, 80, 81, 56],
-        //    backgroundColor: "#673AB7",
-        //    hoverBackgroundColor: "rgba(103,58,183,.9)",
-        //    borderColor: "transparent"
-        //}, {
-        //    label: "My Second dataset",
-        //    data: [28, 48, 40, 19, 86],
-        //    backgroundColor: "#E91E63",
-        //    hoverBackgroundColor: "rgba(233,30,99,.9)",
-        //    borderColor: "transparent"
-        //}]
-    };
-
-    var config = {
-        type: 'bar',
-
-        // Chart Options
-        options : chartOptions,
-
-        data : chartData
-    };
-
-    // Create the chart
-
-    //var resetCanvas = function () {
-    //    $('#column-chart').remove(); // this is my <canvas> element
-    //    $('#graph-container').append('<canvas id="column-chart"><canvas>');
-    //    canvas = document.querySelector('#olumn-chart');
-    //    ctx = canvas.getContext('2d');
-    //    ctx.canvas.width = $('#graph').width(); // resize to parent width
-    //    ctx.canvas.height = $('#graph').height(); // resize to parent height
-    //    var x = canvas.width / 2;
-    //    var y = canvas.height / 2;
-    //    ctx.font = '10pt Verdana';
-    //    ctx.textAlign = 'center';
-    //    ctx.fillText('This text is centered on the canvas', x, y);
-    //};
-       //$(function () {
-    lineChart = new Chart(ctx, config);
-
-    // Resync the render size
-    //lineChart.resize();
-       //    // Resize chart on menu width change and window resize
-       //    $(window).on('resize', resize);
-       //    $(".menu-toggle").on('click', resize);
-
-       //    // Resize function
-       //    function resize() {
-       //        setTimeout(function () {
-
-       //            // Resize chart
-       //            lineChart.resize();
-       //        }, 200);
-       //    }
-       //});
 
     });
+    $(function () {
 
+        // Resize chart on menu width change and window resize
+        $(window).on('resize', resize);
+        $(".menu-toggle").on('click', resize);
+
+        // Resize function
+        function resize() {
+            setTimeout(function () {
+
+                // Resize chart
+                lineChart.resize();
+    
+            }, 3000);
+        }
+    });
+var ctx = $("#column-chart");
+
+// Chart Options
+var chartOptions = {
+    // Elements options apply to all of the options unless overridden in a dataset
+    // In this case, we are setting the border of each bar to be 2px wide and green
+    elements: {
+        rectangle: {
+            borderWidth: 2,
+            borderColor: 'rgb(0, 255, 0)',
+            borderSkipped: 'bottom'
+        }
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    responsiveAnimationDuration: 500,
+    legend: {
+        position: 'top',
+
+    },
+    scales: {
+        xAxes: [{
+            display: true,
+            gridLines: {
+                color: "#f3f3f3",
+                drawTicks: false,
+            },
+            scaleLabel: {
+                display: true,
+            }
+        }],
+        yAxes: [{
+            display: true,
+            gridLines: {
+                color: "#f3f3f3",
+                drawTicks: false,
+            },
+            scaleLabel: {
+                display: true,
+            }
+        }]
+    },
+    title: {
+        display: true,
+        text: 'New Employees By month'
+    }
+};
+
+// Chart Data
+var chartData = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    datasets: datasetss
+    //[{
+    //    label: "",
+    //    data: [65, 59, 80, 81, 56],
+    //    backgroundColor: "#673AB7",
+    //    hoverBackgroundColor: "rgba(103,58,183,.9)",
+    //    borderColor: "transparent"
+    //}, {
+    //    label: "My Second dataset",
+    //    data: [28, 48, 40, 19, 86],
+    //    backgroundColor: "#E91E63",
+    //    hoverBackgroundColor: "rgba(233,30,99,.9)",
+    //    borderColor: "transparent"
+    //}]
+};
+
+var config = {
+    type: 'bar',
+
+    // Chart Options
+    options: chartOptions,
+
+    data: chartData
+};
 
 function RenderempByMonth(results) {
     var resultData = $.parseJSON(results.d);
@@ -157,7 +142,8 @@ function RenderempByMonth(results) {
         }
         return color;
     }
-    for (var j = 0; j < year.length; j++) {
+    len = year.length;
+    for (var j = 0; j < len; j++) {
         datasetss.push(
             {
                 label: year[j],
