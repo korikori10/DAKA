@@ -41,6 +41,21 @@ window.onload = function () {
 
 }
 //});
+    $('#Cancelinsurance').on('shown.bs.modal', function (e) {
+        //  $('#Cancelinsurance').click(function () {
+        if (EmployeeInfo.Insurance == false) {
+
+            $('#cancellationDate').attr('disabled', 'disabled');
+        }
+        //  });
+
+    });
+//function Dontsend() {
+//    if (EmployeeInfo.Insurance == 'False') {
+
+//        $('#cancellationDate').attr('disabled', 'disabled');
+//    }
+//}
 function setEmpFile(results) {
     empPic = results;
 }
@@ -83,12 +98,17 @@ if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &
 //הפסקת ביטוח
 function cancelInsurance() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
-    
+    if (EmployeeInfo.Insurance != 'False') {
+
+        sendEmailCancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
         EmployeeInfo.Com_insurance = 'False';
         EmployeeInfo.Insurance = 'False';
         EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
         ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
-        sendEmailCancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+    }
+    else {
+       // $("#Cancellation").datepicker("#cancellationDate", "disabled", true);
+    }
 
 if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
         MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
@@ -110,6 +130,7 @@ function changeInsurance() {
     }
 
 }
+
 
 
 function makeid() {
@@ -234,6 +255,7 @@ $('.table').on('click', 'tr td button', function () {
     EmployeeInfo.pass = data['Employee_pass_id'];
     EmployeeInfo.Final_bill = data['Final_bill'];
     EmployeeInfo.Com_app = data['Com_app'];
+    EmployeeInfo.Insurance = data['Insurance'];
     EmployeeInfo.Com_insurance = data['Com_insurance'];
     //EmployeeInfo.Origin_country = data['Origin_country'];
     EmployeeInfo.Fname = data['Fname'];
