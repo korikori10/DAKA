@@ -183,20 +183,20 @@
                                                     <div class="form-body">
                                                         <div class="row">
                                                             <div class="form-group" style="visibility:hidden">
-                                                                <label for="passID" class="sr-only"></label>
-                                                                <input type="text" id="empPassTB" class="form-control" placeholder="מספר מערכת" name="Employee_pass_id" />
+                                                                <label for="passID">מספר דרכון</label>
+                                                                <input type="text" id="empPassTB" class="form-control" placeholder="מספר דרכון" name="Employee_pass_id" />
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="userinput1" class="sr-only">system number</label>
+                                                                    <label for="userinput1" >מספר מכפל</label>
                                                                     <input type="text" id="sysIdTB" class="form-control" placeholder="מספר מערכת" name="Sys_id" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="userinput2" class="sr-only">Date of birth</label>
+                                                                    <label for="userinput2">תאריך לידה</label>
                                                                     <input type="date" id="dobTB" class="form-control" placeholder="תאריך לידה" name="Birthday" />
                                                                 </div>
                                                             </div>
@@ -204,13 +204,13 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="userinput3" class="sr-only">place of work</label>
+                                                                    <label for="userinput3" >בית עסק</label>
                                                                     <select id="businessSE" class="form-control" name="Business"> </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="userinput4" class="sr-only">Adress</label>
+                                                                    <label for="userinput4">כתובת</label><br />
                                                                     <input type="text" id="addressTB" class="form-control" placeholder="כתובת" name="Add" />
                                                                 </div>
                                                             </div>
@@ -218,7 +218,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="userinput3" class="sr-only">מין</label>
+                                                                    <label for="userinput3" >מין</label><br />
                                                                     <select class=" custom-select form-control" id="genderTB" name="Gender">
                                                                         <option value=""> בחר Select</option>
                                                                         <option value="F">זכר</option>
@@ -228,7 +228,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="userinput4" class="sr-only">מצב משפחתי</label>
+                                                                    <label for="userinput4" >מצב משפחתי</label><br />
                                                                     <select class="custom-select form-control" id="location3" name="Fam_stat_code">
                                                                         <option value="0"> בחר Select</option>
                                                                         <option value="1">רווק/ה</option>
@@ -251,7 +251,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="location3">אזרח ישראל:</label>
+                                                                    <label for="location3">אזרח ישראל</label>
                                                                     <select class="custom-select form-control" id="il_citizen" name="Il_citizen">
                                                                         <option value=""> בחר Select</option>
                                                                         <option value="T">כן</option>
@@ -261,7 +261,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="phoneNumber4"> טלפון נייד Phone Number :</label>
+                                                                    <label for="phoneNumber4">טלפון נייד</label>
                                                                     <input type="tel" class="form-control" id="phone" name="Phone" />
                                                                 </div>
                                                             </div>
@@ -294,7 +294,7 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="location3">מגורי חברה:</label>
+                                                                    <label for="location3">מגורי חברה</label>
                                                                     <select class="custom-select form-control" id="location3" name="Com_app">
                                                                         <option value=""> בחר Select</option>
                                                                         <option value="T">כן</option>
@@ -304,15 +304,15 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="eventName4">שכירות חודשית:</label>
-                                                                    <input type="number" class="form-control" id="eventName4" name="Rent" />
+                                                                    <label for="eventName4">שכירות חודשית</label>
+                                                                    <input type="number" class="form-control" id="eventName4" name="Monthly_rent" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="location3">מבוטח:</label>
+                                                                    <label for="location3">מבוטח</label>
                                                                     <select class="custom-select form-control" id="insuranceSE" name="Insurance">
                                                                         <option value=""> בחר Select</option>
                                                                         <option value="T">כן</option>
@@ -322,7 +322,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="location3">ביטוח חברה:</label>
+                                                                    <label for="location3">ביטוח חברה</label>
                                                                     <select class="custom-select form-control" id="comInsuranceSE" name="Com_insurance">
                                                                         <option value=""> בחר Select</option>
                                                                         <option value="T">כן</option>
