@@ -41,21 +41,43 @@ window.onload = function () {
 
 }
 //});
+//button vallidations
+//if email and cancelation already done make it disable
     $('#Cancelinsurance').on('shown.bs.modal', function (e) {
-        //  $('#Cancelinsurance').click(function () {
         if (EmployeeInfo.Insurance == false) {
 
             $('#cancellationDate').attr('disabled', 'disabled');
+            document.getElementById("Forfalse").innerHTML += "<span style='color: red;'> * ביטול הביטוח ושליחת המייל כבר נעשו </span>";
+            //$('#updateCancellation').attr('disabled', 'disabled');
         }
-        //  });
 
+});
+
+//If System id(michpalid) is not filled yet,you can't send email to insurance
+    $('#insurance').on('shown.bs.modal', function (e) {
+        if (EmployeeInfo.Sys_id == 0) {
+            $("#insurance").modal('hide');
+       //   $('#updateCancellation').attr('disabled', 'disabled');
+
+            swal("אינך יכול לעדכן ביטוח ולשלוח מייל לפני עדכון מספר מכפל העובד!", "פעולה לא תקינה", "warning");
+
+
+
+        
+        }
     });
-//function Dontsend() {
-//    if (EmployeeInfo.Insurance == 'False') {
 
-//        $('#cancellationDate').attr('disabled', 'disabled');
-//    }
-//}
+function fixDate(date) {
+    var date = new Date(parseInt(date.substr(6)));
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if (month.toString().length < 2) { month = '0' + month; }
+
+    if (day.toString().length < 2) { day = '0' + day; }
+
+    return date.getFullYear() + "-" + month + "-" + day;
+
+}
 function setEmpFile(results) {
     empPic = results;
 }
@@ -261,6 +283,7 @@ $('.table').on('click', 'tr td button', function () {
     EmployeeInfo.Fname = data['Fname'];
     EmployeeInfo.Lname = data['Lname'];
     EmployeeInfo.Sys_id = data['Sys_id'];
+    EmployeeInfo.Ex_date = data['Ex_date'];
     if (whichid === "edit") {
         //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);
