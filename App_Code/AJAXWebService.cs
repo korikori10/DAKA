@@ -505,6 +505,30 @@ public class AJAXWebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string insertSignature(string svgString, string[] fileString)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        PDF pdf = new PDF();
+        List<string> saveFileString = pdf.AddSignature(svgString, fileString);
+        string jsonStringCategory = js.Serialize(saveFileString);
+        return jsonStringCategory;
+
+    }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string InsertDoc(string FileInfo)
+    {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Doc file = js.Deserialize<Doc>(FileInfo);
+
+        int updated = file.updateDoc(file);
+        // serialize to string
+        string jsonStringCategory = js.Serialize(file);
+        return jsonStringCategory;
+    }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void ReadEmployeesNeedNewVisa()
     {
         Employee e = new Employee();

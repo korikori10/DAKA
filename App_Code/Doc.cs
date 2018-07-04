@@ -286,4 +286,14 @@ public class Doc
         return b;
 
     }
+    public int updateDoc(Doc d)
+    {
+        DBServices dbs = new DBServices();
+
+        int e = dbs.inserNewtDoc(d);
+
+
+        return e;
+
+    }
 }

@@ -1534,3 +1534,116 @@ function updatePass(newpass, username) {
         }
     });
 }
+
+//Upload files from wizard
+function uploadFiles(formData, setEmpVisa) {
+    pbLBL = $("#pVlBl")
+    pbDiv = $("#progressBar4")
+    $.ajax({
+        url: UHUrl,
+        method: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (results) {
+            setEmpVisa(results);
+            pbLBL.text('Complete');
+            pbDiv.fadeOut(2000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
+//Upload files from wizard
+function uploadFiles(formData, setEmpID) {
+    pbLBL = $("#pbLBL")
+    pbDiv = $("#progressBar1")
+    $.ajax({
+        url: UHUrl,
+        method: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (results) {
+            setEmpID(results);
+            pbLBL.text('Complete');
+            pbDiv.fadeOut(2000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
+
+//Upload files from wizard
+function uploadFiles(formData, setEmpAuth) {
+    pbLBL = $("#pLB2")
+    pbDiv = $("#progressBar2")
+    $.ajax({
+        url: UHUrl,
+        method: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (results) {
+            setEmpAuth(results);
+            pbLBL.text('Complete');
+            pbDiv.fadeOut(2000);
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+
+    });
+
+}
+
+//Insert docs
+function InsertConts(FileInfo, i, finished) {
+
+    // serialize the object to JSON string
+    var file = JSON.stringify(FileInfo);
+    $.ajax({
+        url: WSUrl + '/InsertDoc',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: file,
+        success: function (results) {
+            finished(i)
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
+
+function InsertDocs(FileInfo) {
+
+    // serialize the object to JSON string
+    var file = JSON.stringify(FileInfo);
+    $.ajax({
+        url: WSUrl + '/InsertDoc',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: file,
+        success: function (results) {
+
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+        }
+    });
+}
