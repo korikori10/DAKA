@@ -147,9 +147,64 @@ function renderEmployeeByID(results) {
 $(".icon-expand2").on('click', function () {
     $("iframe").height("700px");
 });
-//Check save or delete
-    $("#info").on('click', function () {
 
+var form1 = $('#EmployeeUpdate')
+
+form1.validate({
+    ignore: 'input[type=hidden]', // ignore hidden fields
+    errorClass: 'danger',
+    successClass: 'success',
+    highlight: function (element, errorClass) {
+        $(element).removeClass(errorClass);
+    },
+    unhighlight: function (element, errorClass) {
+        $(element).removeClass(errorClass);
+    },
+    errorPlacement: function (error, element) {
+        error.insertAfter(element);
+    },
+
+    rules: {
+        email: {
+            email: true
+        }
+    },
+    showErrors: function (errorMap, errorList) {
+        var errors = this.numberOfInvalids();  // <- NUMBER OF INVALIDS
+        console.log(errors);
+
+        this.defaultShowErrors(); // <- ENABLE default MESSAGES
+    }
+});
+$.extend($.validator.messages, {
+    required: "השדה הזה הינו שדה חובה",
+    remote: "נא לתקן שדה זה",
+    email: "נא למלא כתובת דוא\"ל חוקית",
+    url: "נא למלא כתובת אינטרנט חוקית",
+    date: "נא למלא תאריך חוקי",
+    dateISO: "נא למלא תאריך חוקי (ISO)",
+    number: "נא למלא מספר",
+    digits: "נא למלא רק מספרים",
+    creditcard: "נא למלא מספר כרטיס אשראי חוקי",
+    equalTo: "נא למלא את אותו ערך שוב",
+    extension: "נא למלא ערך עם סיומת חוקית",
+    maxlength: $.validator.format(".נא לא למלא יותר מ- {0} תווים"),
+    minlength: $.validator.format("נא למלא לפחות {0} תווים"),
+    rangelength: $.validator.format("נא למלא ערך בין {0} ל- {1} תווים"),
+    range: $.validator.format("נא למלא ערך בין {0} ל- {1}"),
+    max: $.validator.format("נא למלא ערך קטן או שווה ל- {0}"),
+    min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
+});
+
+//Check save or delete
+$("#info").on('click', function () {
+    var form = $('#EmployeeUpdate');
+    $('input[type="tel"]').rules('add', { maxlength: 9 });
+    $('input[type="number"]').rules('add', { maxlength: 9 });
+    form.validate().settings.ignore = ":disabled,:hidden";
+    if (form.valid()) {
+
+     
         swal({
             title: "האם אתה בטוח?",
             text: "אתה עומד לעדכן את פרטי העובד.",
@@ -174,7 +229,7 @@ $(".icon-expand2").on('click', function () {
                     // swal("Cancelled", "Your imaginary file is safe :)", "error");
                 }
             });
-
+    }
 
 
 
