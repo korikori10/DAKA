@@ -206,7 +206,6 @@ $("#confirmDR2").click(function () {
     EmployeeInfo.Did = $('#DynamicDisableList').val();
     EmployeeInfo.Emp_id = EmployeeInfo.pass;
     EmployeeInfo.Description = $('#disableTXT').val();
-    $("#Disable2").modal('toggle');
     updateDisableReasonWithoutBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
 
 })

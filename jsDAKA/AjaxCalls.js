@@ -80,7 +80,7 @@ function getEmployeess() {
 }
 
 //Make Employee active again from Archive
-function MakeEmpActive(EmployeeInfo) {
+function MakeEmpActive(EmployeeInfo, current_row) {
     var dataString = JSON.stringify(EmployeeInfo);
 
     $.ajax({
@@ -90,24 +90,12 @@ function MakeEmpActive(EmployeeInfo) {
         dataType: "json",
         contentType: 'application/json; charset = utf-8',
         success: function () {
-
             setTimeout(function () {
-                swal({
-                    title: "בוצע!",
-                    text: "כל הנתונים נשמרו בהצלחה",
-                    type: "success",
-                },
-                    function (isConfirm) {
-                    //    var table = $('#ArchiveTable').DataTable();
-
-                     //   datatableVariable.ajax.reload();
-                       
-                      // refreshTable()
-
-                      //  getArchive();
-                    }, 1000);
-
-            });
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                datatableVariableArchive.row(current_row).remove().draw();
+            }, 1500);
+                   //     datatableVariableArchive.row(current_row).remove().draw();
+        
         },
         error: function (xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
@@ -144,13 +132,13 @@ function MakeEmpNotActive(EmployeeInfo, current_row) {
 
 //Archive
 function getArchive() {
-     datatableVariable = $('#ArchiveTable');
+     datatableVariableArchive = $('#ArchiveTable');
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "AJAXWebService.asmx/getArchive",
         success: function (data) {
-            datatableVariable.DataTable({
+            datatableVariableArchive.DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     {
