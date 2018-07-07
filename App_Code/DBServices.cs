@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -58,9 +59,20 @@ public class DBServices
     }
     #endregion
 
+    //Log writer:
+    public static void Log(string logMessage, string errorMessage , TextWriter w)
+    {
+        w.Write("\r\nLog Entry : ");
+        w.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
+            DateTime.Now.ToLongDateString());
+        w.WriteLine(" Error :{0}", errorMessage);
+        w.WriteLine(" Text :{0}", logMessage);
+        w.WriteLine("UserName: {0}", Environment.UserName);
+        w.WriteLine("-------------------------------");
+    }
 
     #region SELECT COMMANDs
-    
+
     /// <summary>
     /// reads employees  from sql
     /// </summary>
@@ -117,6 +129,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -191,6 +208,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -238,6 +260,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -291,6 +318,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -335,6 +367,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -368,6 +405,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -415,6 +457,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -461,6 +508,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -508,6 +560,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -558,6 +615,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -605,6 +667,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -653,6 +720,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -698,6 +770,12 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+                
+                
+            }
             throw (ex);
 
         }
@@ -743,6 +821,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -783,6 +866,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -825,6 +913,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -867,6 +960,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -905,6 +1003,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -951,6 +1054,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -989,6 +1097,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1041,6 +1154,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1089,6 +1207,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1132,6 +1255,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1176,6 +1304,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1213,6 +1346,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1254,6 +1392,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
             throw (ex);
 
         }
@@ -1304,6 +1447,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
 
         }
@@ -1355,6 +1503,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
 
         }
@@ -1408,6 +1561,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
 
         }
@@ -1450,6 +1608,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
 
         }
@@ -1485,6 +1648,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1499,8 +1667,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1547,6 +1720,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1561,8 +1739,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1609,6 +1792,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1623,8 +1811,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1675,6 +1868,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1689,8 +1887,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1739,6 +1942,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1753,8 +1961,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1801,6 +2014,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1815,8 +2033,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1860,6 +2083,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1874,8 +2102,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1922,6 +2155,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1936,8 +2174,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1984,6 +2227,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -1998,8 +2246,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2056,6 +2309,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2070,8 +2328,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2119,8 +2382,14 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            // write to log
-            throw (ex);
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.GetType() + " - " + ex.Message, ex.StackTrace ,  w);
+
+            }
+                
+                // write to log
+                throw (ex);
         }
 
         String cStr = BuildInsertNewDocCommand(emp);      // helper method to build the insert string
@@ -2134,8 +2403,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2188,6 +2462,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
         
@@ -2202,8 +2481,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return null;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2246,6 +2530,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2260,8 +2549,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2313,6 +2607,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2327,8 +2626,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2379,6 +2683,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2393,8 +2702,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2444,6 +2758,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2458,8 +2777,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2503,6 +2827,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2517,8 +2846,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+             
+            }
             throw (ex);
         }
 
@@ -2567,6 +2901,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2581,8 +2920,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2631,7 +2975,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2646,8 +2996,14 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2692,6 +3048,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2706,8 +3067,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2755,6 +3121,12 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2769,8 +3141,13 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2817,6 +3194,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2831,8 +3213,14 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
+
             // write to log
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2879,6 +3267,11 @@ public class DBServices
         catch (Exception ex)
         {
             // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
             throw (ex);
         }
 
@@ -2893,8 +3286,8 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return null;
-            // write to log
+ 
+                   // write to log
             throw (ex);
         }
 
@@ -2939,7 +3332,7 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            // write to log
+                   // write to log
             throw (ex);
         }
 
@@ -2955,7 +3348,7 @@ public class DBServices
         catch (Exception ex)
         {
 
-            // write to log
+                   // write to log
             throw (ex);
         }
 
@@ -2998,7 +3391,7 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            // write to log
+                   // write to log
             throw (ex);
         }
 
@@ -3013,8 +3406,8 @@ public class DBServices
         }
         catch (Exception ex)
         {
-            return 0;
-            // write to log
+ 
+                   // write to log
             throw (ex);
         }
 
