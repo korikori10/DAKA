@@ -1,10 +1,10 @@
 ﻿
+var EmployeeInfo = new Object();
 
 $(document).ready(function () {
     getArchive();
 });
 
-var EmployeeInfo = new Object();
 
 
 // Button Clicks In Tables

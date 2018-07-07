@@ -283,7 +283,8 @@ $('.table').on('click', 'tr td button', function () {
     EmployeeInfo.Fname = data['Fname'];
     EmployeeInfo.Lname = data['Lname'];
     EmployeeInfo.Sys_id = data['Sys_id'];
-    EmployeeInfo.Ex_date = data['Ex_date'];
+    EmployeeInfo.Bus_id = data['Bus_id'];
+   // EmployeeInfo.Ex_date = data['Ex_date'];
     if (whichid === "edit") {
         //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);

@@ -196,8 +196,34 @@ $.extend($.validator.messages, {
     min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
 });
 
+$("#delete").on('click', function () {
+    swal({
+        title: "האם אתה בטוח?",
+        text: "השינויים שעשית לא ישמרו",
+        type: "info",
+        confirmButtonText: "כן",
+        showCancelButton: "true",
+        cancelButtonText: "בטל",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+    },
+
+        function (isConfirm) {
+            if (isConfirm) {
+
+                location.reload();
+
+            }
+            else {
+                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+
+
+});
+
 //Check save or delete
-$("#info").on('click', function () {
+$("#save").on('click', function () {
     var form = $('#EmployeeUpdate');
     $('input[type="tel"]').rules('add', { maxlength: 9 });
     $('input[type="number"]').rules('add', { maxlength: 9 });

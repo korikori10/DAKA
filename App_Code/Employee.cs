@@ -50,6 +50,7 @@ public class Employee
     float monthly_rent;
     bool final_bill;
     string start_Year;
+    int bus_id;
     string employeeCount;
     string growth;
     string start_year_for_month;
@@ -99,7 +100,7 @@ public class Employee
         this.bus_name = bus_name;
         this.dayspass = dayspass;
     }
-    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date,int phone)
+    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date,int phone,int bus_id)
     {
         this.employee_pass_id = employee_pass_id;
         this.lname = lname;
@@ -107,6 +108,8 @@ public class Employee
         this.sys_id = sys_id;
         this.ex_date = ex_date;
         this.phone = phone;
+        this.bus_id = bus_id;
+
     }
     public Employee(string employee_pass_id, string lname, string fname, int sys_id, string bus_name, bool insurance, bool il_citizen, bool active)
     {
@@ -151,9 +154,7 @@ public class Employee
         this.business = business;
     }
 
-    public Employee(string employee_pass_id, string lname, string fname, int sys_id, DateTime ex_date, int phone, object v1, string v2, string v3) : this(employee_pass_id, lname, fname, sys_id, ex_date, phone)
-    {
-    }
+   
     //newvisaupdate
     public Employee(int doctype_id, string img_url, DateTime last_update, DateTime ex_date, bool active, string employee_pass_id,string doc_id)
     {
@@ -933,6 +934,19 @@ public class Employee
         set
         {
             december = value;
+        }
+    }
+
+    public int Bus_id
+    {
+        get
+        {
+            return bus_id;
+        }
+
+        set
+        {
+            bus_id = value;
         }
     }
 

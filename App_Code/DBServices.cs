@@ -690,7 +690,7 @@ public class DBServices
                 Employee Emp = new Employee();
                // Doc c = new Doc();
                 //c = new Doc( dr["doc_id"].ToString(),Convert.ToInt32(dr["doctype_id"]), dr["img_url"].ToString(),Convert.ToDateTime( dr["last_update"]), Convert.ToDateTime(dr["ex_date"]), Convert.ToBoolean(dr["active"]));
-                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]));
+                Emp = new Employee(dr["employee_pass_id"].ToString(), dr["lname"].ToString(), dr["fname"].ToString(), Convert.ToInt32(GetString(dr["michpal_id"])), Convert.ToDateTime(dr["ex_date"]), Convert.ToInt32(dr["phone"]), Convert.ToInt32(dr["bus_id"]));
                 Employees.Add(Emp);
                 //docs.Add(c);
             }
@@ -1979,10 +1979,22 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}','{1}' ,'{2}')", dis.Did, dis.Emp_id, dis.Description);
-        String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "'; UPDATE [employee in business] set end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' WHERE employee_pass_id = '" + dis.Emp_id +"' and end_date is null; INSERT INTO EMP_DIS_REASON (did, emp_id, description)";
-        command = prefix + sb.ToString();
+        if (dis.Bus_id==0)
+        {
 
+        sb.AppendFormat("Values('{0}','{1}' ,'{2}')", dis.Did, dis.Emp_id, dis.Description);
+        String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "';INSERT INTO EMP_DIS_REASON (did, emp_id, description)";
+        command = prefix + sb.ToString();
+        }
+        else
+        {
+            // use a string builder to create the dynamic string
+            sb.AppendFormat("Values('{0}','{1}' ,'{2}')", dis.Did, dis.Emp_id, dis.Description);
+            String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "';UPDATE [employee in business] set end_date = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' WHERE employee_pass_id = '" + dis.Emp_id + "' and end_date is null;INSERT INTO EMP_DIS_REASON (did, emp_id, description)";
+
+            String secondCommand = "; INSERT INTO [employee in business] (employee_pass_id, bus_id, start_date) Values('" + dis.Emp_id + "' ,'0','"+ DateTime.Now.ToString("yyyy-MM-dd") + "')";
+            command = prefix + sb.ToString() + secondCommand;
+          }
         return command;
     }
 
@@ -2296,7 +2308,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET  active ='1' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET  active ='1',final_bill='false' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;
@@ -2362,7 +2374,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET com_app='0',final_bill='1' Where employee_pass_id = '" + emp + "' "; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET com_app='0',final_bill='1' Where employee_pass_id = '" + emp + "'";// UPDATE [employee in business] set end_date =null ,bus_id='0' WHERE employee_pass_id = '" + emp + "'";
         command = prefix;// prefix;
 
         return command;

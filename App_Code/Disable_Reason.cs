@@ -12,6 +12,7 @@ public class Disable_Reason
     string d_name;
     string description;
     string emp_id;
+    int bus_id;
     public Disable_Reason()
     {
         //
@@ -76,6 +77,19 @@ public class Disable_Reason
         set
         {
             emp_id = value;
+        }
+    }
+
+    public int Bus_id
+    {
+        get
+        {
+            return bus_id;
+        }
+
+        set
+        {
+            bus_id = value;
         }
     }
 
