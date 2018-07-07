@@ -40,7 +40,7 @@ $('.table').on('click', 'tr td button', function () {
             function (isConfirm) {
                 if (isConfirm) {
 
-                    MakeEmpActive(EmployeeInfo, refreshTable);
+                    MakeEmpActive(EmployeeInfo);
                 }
                 else {
                     // swal("Cancelled", "Your imaginary file is safe :)", "error");
@@ -58,9 +58,5 @@ $('.table').on('click', 'tr td button', function () {
     }
 });
 
-function refreshTable() {
-    //var table = $('#ArchiveTable').DataTable();
-    //table.ajax.reload();//refreshTable();
-    
-};
+
 

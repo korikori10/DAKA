@@ -78,7 +78,7 @@ function getEmployeess() {
 }
 
 //Make Employee active again from Archive
-function MakeEmpActive(EmployeeInfo, refreshTable) {
+function MakeEmpActive(EmployeeInfo) {
     var dataString = JSON.stringify(EmployeeInfo);
 
     $.ajax({
@@ -98,7 +98,7 @@ function MakeEmpActive(EmployeeInfo, refreshTable) {
                     function (isConfirm) {
                     //    var table = $('#ArchiveTable').DataTable();
 
-                        datatableVariable.ajax.reload();
+                     //   datatableVariable.ajax.reload();
                        
                       // refreshTable()
 
