@@ -1628,7 +1628,23 @@ function InsertConts(FileInfo, i, finished) {
         }
     });
 }
+//Get all Occupations for wizard
+function getOccu(renderOccu) {
+    $.ajax({
+        url: WSUrl + '/getOccupation',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderOccu(results);
+        },
+        error: function (request, error) {
+            alert('Network error has occurred please try again!');
+        }
 
+    });
+
+} 
 function InsertDocs(FileInfo) {
 
     // serialize the object to JSON string
