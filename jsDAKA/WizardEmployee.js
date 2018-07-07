@@ -244,6 +244,7 @@ function renderCountries(results) {
     });
     //EmployeeInfo.pass = sessionStorage.getItem("empInfo");
     //getEmployeeById(EmployeeInfo, renderEmployeeByID);
+    $('.selectize-select').selectize();
 }
 
 function renderCities(results) {

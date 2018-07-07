@@ -42,4 +42,13 @@ public class Occupation
             occupation_desc = value;
         }
     }
+    public List<Occupation> getOccupation()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Occupation> LE = dbs.readOccupation();
+
+        return LE;
+
+    }
 }
