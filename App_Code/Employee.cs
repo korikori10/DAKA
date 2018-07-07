@@ -49,6 +49,7 @@ public class Employee
     float food_pay;
     float monthly_rent;
     bool final_bill;
+    string commence_date;
     string start_Year;
     string employeeCount;
     string growth;
@@ -936,6 +937,19 @@ public class Employee
         }
     }
 
+    public string Commence_date
+    {
+        get
+        {
+            return commence_date;
+        }
+
+        set
+        {
+            commence_date = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();
@@ -1114,13 +1128,13 @@ public class Employee
 
     }
 
-    public void insertEmployee(Employee e)
+    public int insertEmployee(Employee e)
     {
 
 
         DBServices dbs = new DBServices();
         dbs.insert(e);
-        dbs.insertNEWEmpBus(e);
-
+       int inserted = dbs.insertNEWEmpBus(e);
+        return inserted;
     }
 }

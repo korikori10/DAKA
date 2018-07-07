@@ -12,7 +12,7 @@ $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinesses(renderBusinesses);
-    getOccu(renderOccu);
+
     //fields autocomplete logic
     $('[name=Il_citizen]').on('change', function () {
         if (this.value == 'T') {
@@ -244,7 +244,7 @@ function renderCountries(results) {
     });
     //EmployeeInfo.pass = sessionStorage.getItem("empInfo");
     //getEmployeeById(EmployeeInfo, renderEmployeeByID);
-    $('.selectize-select').selectize();
+    getOccu(renderOccu);
 }
 
 function renderCities(results) {
@@ -270,6 +270,7 @@ function renderOccu(results) {
         dynamicLi = '<option value="' + row.Occupation_code + '">' + row.Occupation_desc + '</option>';
         $('#OccuSE').append(dynamicLi);
     });
+    $('.selectize-select').selectize();
 }
 
 function insertEmp(array) {
@@ -278,46 +279,6 @@ function insertEmp(array) {
     array.Occupation_desc = $('#OccuSE option:selected').text();
     array.Day_off_name = $('#day_off option:selected').text();
 
-
-    if (isUpdate) {
-        if (EmpPic == null) {
-            array.Picture = resultsSave.Picture;
-
-        }
-        else {
-            array.Picture = EmpPic;
-        }
-        if (array.Business == resultsSave.Business) {
-            array.updateBus = false;
-            updateBus = false;
-        }
-        else {
-            array.updateBus = true;
-            updateBus = true;
-        }
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן פרטי עובד.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
-
-            function (isConfirm) {
-                if (isConfirm) {
-
-                    updateEmployee({ EmployeeInfo: JSON.stringify(array) }, InsertAllDocs)
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
-
-    }
-    else {
         swal({
             title: "האם אתה בטוח?",
             text: "אתה עומד להוסיף עובד חדש.",
@@ -341,35 +302,17 @@ function insertEmp(array) {
 
     }
 
-}
 
 function InsertAllDocs(results) {
-    if (!isUpdate) {
+   
         EmpVisa.Ex_date = $('#date4_2').val();
         InsertDocs({ FileInfo: JSON.stringify(EmpVisa) });
         InsertDocs({ FileInfo: JSON.stringify(EmpID) });
         InsertDocs({ FileInfo: JSON.stringify(EmpAuth) });
 
-    }
-    if (!updateBus) {
-        swal({
-            title: "בוצע!",
-            text: "כל הנתונים נשמרו בהצלחה",
-            type: "success",
-            confirmButtonText: "חזור למסך הבית",
-        },
-
-            function (isConfirm) {
-
-                window.location = "Dash.html"
-
-            })
-    }
-    else {
         sessionStorage.setItem('contract', results.d);
         window.location = "ContractDisplay.html";
 
-    }
 }
 
 

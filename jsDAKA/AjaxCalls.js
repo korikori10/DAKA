@@ -1,8 +1,10 @@
 ﻿var datatableVariable = new Object();
 var local = true;
 var WSUrl = 'ajaxWebService.asmx';
+var UHUrl = 'UploadHandler.ashx';
 if (!local) {
-    WSUrl = 'http://proj.ruppin.ac.il/bgroup59/test2/tar2/ajaxwebservice.asmx';
+    WSUrl = 'https://proj.ruppin.ac.il/bgroup59/test2/tar2/ajaxWebService.asmx';
+    UHUrl = 'https://proj.ruppin.ac.il/bgroup59/test2/tar2/UploadHandler.ashx'
 }
 
 //Get All Employees
@@ -771,7 +773,7 @@ function InsertBusinessContact(BusiInfo) {
 }
 
 //insert spesific Employee
-function insertEmployee(EmployeeInfo) {
+function insertEmployee(EmployeeInfo, InsertAllDocs) {
     var emp = JSON.stringify(EmployeeInfo);
 
     $.ajax({
@@ -779,7 +781,8 @@ function insertEmployee(EmployeeInfo) {
         type: 'POST',
         contentType: 'application/json; charset = utf-8',
         data: emp,
-        success: function () {
+        success: function (results) {
+            InsertAllDocs(results);
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);

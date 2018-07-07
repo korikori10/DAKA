@@ -88,7 +88,7 @@ $(".vertical-tab-steps").steps({
         var formData = $('#insertEmpForm').serializeObject();
         // var result = JSON.stringify(formData);
         //  var array = ($("#insertEmpForm").serialize());
-        if ($('td[name=WizardBusiForm]')) {
+        if ($('#insertEmpForm').attr('name') === 'WizardBusiForm') {
             insertBusandContact(formData);
         }
         else {
