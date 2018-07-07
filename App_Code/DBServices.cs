@@ -250,47 +250,7 @@ public class DBServices
         }
     }
 
-    public List<Country> readCountries()
-    {
-        SqlConnection con = null;
-
-        try
-        {
-
-            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
-            string selectSTR = "SELECT*FROM Country ";
-            SqlCommand cmd = new SqlCommand(selectSTR, con);
-            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
-            List<Country> countries = new List<Country>();
-            while (dr.Read())
-            {
-
-                Country country = new Country();
-                country.Id = Convert.ToInt32(dr["ID"]);
-                country.Name = dr["CountryName"].ToString();
-                country.Country_code = dr["country_code"].ToString();
-
-
-
-                countries.Add(country);
-            }
-            return countries;
-        }
-        catch (Exception ex)
-        {
-            // write to log
-            throw (ex);
-
-        }
-        finally
-        {
-            if (con != null)
-            {
-                con.Close();
-            }
-
-        }
-    }
+  
     /// <summary>
     /// Handles DBnull Exception------>להכניס לEX
     /// </summary>
