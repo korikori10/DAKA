@@ -57,13 +57,7 @@ window.onload = function () {
     $('#insurance').on('shown.bs.modal', function (e) {
         if (EmployeeInfo.Sys_id == 0) {
             $("#insurance").modal('hide');
-       //   $('#updateCancellation').attr('disabled', 'disabled');
-
             swal("אינך יכול לעדכן ביטוח ולשלוח מייל לפני עדכון מספר מכפל העובד!", "פעולה לא תקינה", "warning");
-
-
-
-        
         }
     });
 
@@ -77,10 +71,12 @@ function fixDate(date) {
 
     return date.getFullYear() + "-" + month + "-" + day;
 
-}
+    }
+
 function setEmpFile(results) {
     empPic = results;
 }
+
 //טבלת עובדים לא פעילים
 //גמ"ח
 
@@ -94,12 +90,13 @@ function changeGmah() {
             EmployeeInfo.Final_bill = 'False';
         updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
-if (EmployeeInfo.Com_insurance == 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
-        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+//if (EmployeeInfo.Com_insurance == 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
+//        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
 
-}
+//}
     
 }
+
 //ביטול דיור
 function changeDiur() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
@@ -111,12 +108,13 @@ function changeDiur() {
         EmployeeInfo.Com_app = 'True';//לא להוציא מדיור
         updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
-if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
-        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+//if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
+//        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+
+//}
 
 }
 
-}
 //הפסקת ביטוח
 function cancelInsurance() {
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
@@ -128,14 +126,11 @@ function cancelInsurance() {
         EmployeeInfo.Ex_date = $('#cancellationDate').val(); 
         ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
-    else {
-       // $("#Cancellation").datepicker("#cancellationDate", "disabled", true);
-    }
 
-if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
-        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
+//if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
+//        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
 
-}
+//}
 
 }
 
@@ -179,6 +174,7 @@ $('#updateVisa').click(function () {
         updateVisa({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
 });
+
 //Disable reason
 $("#confirmDR").click(function () {
 
@@ -246,6 +242,7 @@ $('#gmah').on('shown.bs.modal', function (e) {
    
     $("input[name=gmahh][value=" + EmployeeInfo.Final_bill + "]").iCheck('check');
 });
+
 $('#Diur').on('shown.bs.modal', function (e) {
 
     if (EmployeeInfo.Com_app) {
@@ -256,10 +253,12 @@ $('#Diur').on('shown.bs.modal', function (e) {
     }
     $("input[name=Diur][value=" + value + "]").iCheck('check');
 });
+
 $('#insurance').on('shown.bs.modal', function (e) {
   
     $("input[name=insured][value=" + EmployeeInfo.Com_insurance + "]").iCheck('check');
 });
+
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
  //Take the Employee ID from the table row
@@ -298,27 +297,17 @@ $('.table').on('click', 'tr td button', function () {
         //Send SMS To Employees
         SendSMS();
     }
-    else if (whichid === "email") {
-    //    sendEmail(EmployeeInfo);
-    }
-    //else if (whichid == "insurance") {
-    //    //    sendEmail(EmployeeInfo);
+    //else if (whichid === "email") {
+    ////    sendEmail(EmployeeInfo);
     //}
-    //else if (whichid == "Update_Expiration") {
-    //    //    sendEmail(EmployeeInfo);
-    //} else if (whichid == "Disable") {
-    //    //    sendEmail(EmployeeInfo);
-    //}
-    //else {
-    //    window.location = "error404.html";
-    //        }
+
     
 
 });
 
-//SearchBox-
 
-//employee
+
+//employee //SearchBox-
 function renderEmployees(results) {
     //this is the callBackFunc 
     totalEmp = 0;

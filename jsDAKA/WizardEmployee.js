@@ -11,7 +11,7 @@ EmpAuth = new Object();
 $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
-    getBusinesses(renderBusinesses);
+    getBusinessesW(renderBusinesses);
 
     //fields autocomplete logic
     $('[name=Il_citizen]').on('change', function () {

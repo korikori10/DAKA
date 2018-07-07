@@ -7,7 +7,7 @@ var BusContractFile = null;
 $(document).ready(function () {
     getCities(renderCities);
     getRoles(renderRoles);
-    getBusinesses(renderBusinesses);
+    getBusinessesW(renderBusinesses);
     getDepartments(renderDepartments);
     getTypes(renderTypes);
     //Picture or file upload

@@ -19,12 +19,13 @@ function getEmployees(renderEmployees) {
             renderEmployees(results);
         },
         error: function (request, error) {
-            alert('Network error has occurred please try again!');
+            window.location = "error404.html";
         }
 
     });
 
 }
+
 //Get All Employees for employees table
 function getEmployeess() {
     var datatableVariable = $('#EmployeesTable');
@@ -75,6 +76,10 @@ function getEmployeess() {
             $(".dt-buttons").addClass("btn-group");
             $(".btn").removeClass("dt-button");
 
+        },
+        error: function (request, error) {
+            window.location = "error404.html";
+             alert('Network error has occurred please try again!');
         }
     });
 }
@@ -93,13 +98,14 @@ function MakeEmpActive(EmployeeInfo, current_row) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
                 datatableVariableArchive.row(current_row).remove().draw();
-            }, 1500);
-                   //     datatableVariableArchive.row(current_row).remove().draw();
-        
+            }, 1500);       
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+            swal("התרחשה שגיאה במערכת,עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);   
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });        
 }
@@ -124,8 +130,11 @@ function MakeEmpNotActive(EmployeeInfo, current_row) {
          
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת,עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -174,6 +183,9 @@ function getArchive() {
             $(".dt-buttons").addClass("btn-group");
             $(".btn").removeClass("dt-button");
 
+        },
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 
@@ -220,6 +232,9 @@ function getBusinessesTable() {
                 $(".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel").addClass("my-1 btn btn-secondary ");
                 $(".dt-buttons").addClass("btn-group");
                 $(".btn").removeClass("dt-button");
+        },
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -235,10 +250,12 @@ function SendSMS() {
             alert("sms sent");
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
-
     });
 
 }
@@ -253,9 +270,8 @@ function SendSMS() {
             success: function (results) {
                 renderEmployees(results);
             },
-            error: function (xhr, status, error) {
-                var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
+            error: function (request, error) {
+                window.location = "error404.html";
             }
         });
     }
@@ -275,9 +291,9 @@ function getEmployeeById(EmployeeInfo, renderEmployeeByID) {
         success: function (results) {
             renderEmployeeByID(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -317,6 +333,9 @@ function getHistory(EmployeeInfo) {
 
 
 
+        },
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 
@@ -332,9 +351,8 @@ function Statistics(RenderTotalnewemp) {
         success: function (results) {
             RenderTotalnewemp(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
 
     });
@@ -352,7 +370,7 @@ function getUsers(renderUsers) {
             renderUsers(results);
         },
         error: function (request, error) {
-            alert('Network error has occurred please try again!');
+            window.location = "error404.html";
         }
 
     });
@@ -369,9 +387,8 @@ function StatisticsAllEmp(RenderTotalAllemp) {
         success: function (results) {
             RenderTotalAllemp(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
 
     });
@@ -388,9 +405,8 @@ function StatisticsEmpByYear(RenderempByYear) {
         success: function (results) {
             RenderempByYear(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
 
     });
@@ -407,9 +423,8 @@ function StatisticsbusiByQuarter(RenderBusiByQuarter) {
         success: function (results) {
             RenderBusiByQuarter(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
 
     });
@@ -426,9 +441,8 @@ function StatisticsEmpByMonth(RenderempByMonth) {
         success: function (results) {
             RenderempByMonth(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
 
     });
@@ -445,9 +459,8 @@ function StatisticsBusiByYear(RenderBusiByYear) {
         success: function (results) {
             RenderBusiByYear(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
 
     });
@@ -495,6 +508,13 @@ $.ajax({
                 }
             ]
         });
+    },
+    error: function (xhr, status, error) {
+        setTimeout(function () {
+            swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+        }, 1000);
+        var err = eval("(" + xhr.responseText + ")");
+        //alert(err.Message);
     }
 });
 }
@@ -534,6 +554,13 @@ function getEmployeesnobusiness() {
                 ]
             });
 
+        },
+        error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
+            var err = eval("(" + xhr.responseText + ")");
+            //alert(err.Message);
         }
     });
 
@@ -580,6 +607,13 @@ $.ajax({
                 ]
         });
    
+    },
+    error: function (xhr, status, error) {
+        setTimeout(function () {
+            swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+        }, 1000);
+        var err = eval("(" + xhr.responseText + ")");
+        //alert(err.Message);
     }
 });
 
@@ -632,6 +666,13 @@ function ReadEmployeesNotActive() {
 
                 ]
             }); 
+        },
+        error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
+            var err = eval("(" + xhr.responseText + ")");
+            //alert(err.Message);
         }
     });
 
@@ -656,8 +697,11 @@ function UpdateEmployee(EmployeeInfo, renderEmployeeByID) {
                 renderEmployeeByID(results);    
             },
             error: function (xhr, status, error) {
+                setTimeout(function () {
+                    swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+                }, 1000);
                 var err = eval("(" + xhr.responseText + ")");
-                alert(err.Message);
+                //alert(err.Message);
             }
         });
 }
@@ -681,8 +725,11 @@ function UpdateBusiness(BusinessInfo, renderBusinesses) {
             renderEmployeeByID(results);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -705,8 +752,11 @@ function UpdateUsercall(UserInfo) {
             }, 1000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -730,9 +780,13 @@ function InsertBusiness(BusinessInfo, renderBusinesses) {
             renderEmployeeByID(results);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
+        
     });
 }
 
@@ -754,8 +808,11 @@ function InsertBusinessContact(BusiInfo) {
             }, 1000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -777,8 +834,11 @@ function insertEmployee(EmployeeInfo, InsertAllDocs) {
            // window.location = "DashBoardPage.html";
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -795,9 +855,11 @@ function InsertSignature(svg, file, insertContract) {
             insertContract(results)
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-
+            //alert(err.Message);
         }
     });
 }
@@ -821,8 +883,11 @@ function InsertUserCall(UserInfo) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -847,8 +912,11 @@ function DeleteUserCall(UserInfo) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -872,8 +940,11 @@ function InsertContact(contactInfo) {
            
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -899,8 +970,11 @@ function InsertheContract(DocsInfo) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -924,8 +998,11 @@ function UpdateContact(contactInfo) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -952,8 +1029,11 @@ function updateInsurance(EmployeeInfo, current_row) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 
@@ -972,12 +1052,12 @@ function getUserByUserName(username, renderUser) {
         success: function (results) {
             renderUser(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
+
 
 function getUserById(username, ValidateUser) {
 
@@ -993,9 +1073,8 @@ function getUserById(username, ValidateUser) {
         success: function (results) {
             ValidateUser(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1022,8 +1101,11 @@ function ajaxcancelInsurance(EmployeeInfo) {
             $("#Cancelinsurance").modal('hide');
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 
@@ -1051,8 +1133,11 @@ function updateGmah(EmployeeInfo) {
                 $("#gmah").modal('hide');
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 
@@ -1077,8 +1162,11 @@ function updateDiur(EmployeeInfo) {
             $("#Diur").modal('hide');
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 
@@ -1095,7 +1183,7 @@ function getCities(renderCities) {
             renderCities(results);
         },
         error: function (request, error) {
-            alert('Network error has occurred please try again!');
+            window.location = "error404.html";
         }
 
     });
@@ -1112,7 +1200,7 @@ function getCountries(renderCountries) {
             renderCountries(results);
         },
         error: function (request, error) {
-            alert('Network error has occurred please try again!');
+            window.location = "error404.html";
         }
 
     });
@@ -1136,7 +1224,7 @@ function getRoles(renderRoles) {
 
 }
 
-function getBusinesses(renderBusinesses)//, renderBusinessesSearch) {//, renderBusinessesSearch
+function getBusinessesW(renderBusinesses)//, renderBusinessesSearch) {//, renderBusinessesSearch
 {
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',
@@ -1147,9 +1235,8 @@ function getBusinesses(renderBusinesses)//, renderBusinessesSearch) {//, renderB
             renderBusinesses(results);
            // renderBusinessesSearch(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1164,12 +1251,12 @@ function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusi
             renderBusinesses(results);
             renderBusinessesSearch(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
+
 function getBusinessesE(renderBusinesses){//, renderBusinessesSearch) {//, renderBusinessesSearch
     $.ajax({
         url: 'ajaxWebService.asmx/getBusinesses',
@@ -1180,9 +1267,8 @@ function getBusinessesE(renderBusinesses){//, renderBusinessesSearch) {//, rende
             renderBusinesses(results);
           //  renderBusinessesSearch(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1197,9 +1283,8 @@ function getDepartments(renderDepartments)
         success: function (results) {
             renderDepartments(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1214,9 +1299,8 @@ function getTypes(renderTypes) {
         success: function (results) {
             renderTypes(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1230,9 +1314,8 @@ function getUserTypes(renderUserTypes) {
         success: function (results) {
             renderUserTypes(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1246,9 +1329,8 @@ function getContactsByBus(renderContacts) {
         success: function (results) {
             renderContacts(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1262,9 +1344,8 @@ function getDreason(renderDreasons) {
         success: function (results) {
             renderDreasons(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 
@@ -1284,8 +1365,11 @@ function sendEmail(EmployeeInfo) {
         }, 1500);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1304,8 +1388,11 @@ function sendEmailCancelInsurance(EmployeeInfo) {
             }, 1500);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1327,8 +1414,11 @@ function uploadFiles(formData, setEmpFile) {
             pbDiv.fadeOut(2000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
 
     });
@@ -1352,8 +1442,11 @@ function uploadFiles(formData, setDocFile) {
           pbDiv.fadeOut(2000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
 
     });
@@ -1380,8 +1473,11 @@ function updateVisa (EmployeeInfo) {
             $("#Update_Expiration").modal('hide');
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1406,8 +1502,11 @@ function updateEmpBusiness(EmployeeInfo, current_row ) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1433,8 +1532,11 @@ function updateDisableReason(EmployeeInfo, current_row) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1459,8 +1561,11 @@ function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1479,9 +1584,8 @@ function getTheDocs(DocsInfo, renderDocs) {
         success: function (results) {
             renderDocs(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1501,9 +1605,8 @@ function getTheDocsBusi(DocsInfo, renderDocs) {
         success: function (results) {
             renderDocs(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 }
@@ -1517,9 +1620,8 @@ function getDocTypes(renderDocTypes) {
         success: function (results) {
             renderDocTypes(results);
         },
-        error: function (xhr, status, error) {
-            var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+        error: function (request, error) {
+            window.location = "error404.html";
         }
     });
 
@@ -1538,9 +1640,11 @@ function updatePass(newpass, username) {
             }, 1000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
-
+            //alert(err.Message);
         }
     });
 }
@@ -1562,8 +1666,11 @@ function uploadFiles(formData, setEmpVisa) {
             pbDiv.fadeOut(2000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
 
     });
@@ -1586,8 +1693,11 @@ function uploadFiles(formData, setEmpID) {
             pbDiv.fadeOut(2000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
 
     });
@@ -1611,8 +1721,11 @@ function uploadFiles(formData, setEmpAuth) {
             pbDiv.fadeOut(2000);
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
 
     });
@@ -1633,8 +1746,11 @@ function InsertConts(FileInfo, i, finished) {
             finished(i)
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
@@ -1649,12 +1765,13 @@ function getOccu(renderOccu) {
             renderOccu(results);
         },
         error: function (request, error) {
-            alert('Network error has occurred please try again!');
+            window.location = "error404.html";
         }
 
     });
 
-} 
+}
+
 function InsertDocs(FileInfo) {
 
     // serialize the object to JSON string
@@ -1668,8 +1785,11 @@ function InsertDocs(FileInfo) {
 
         },
         error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
             var err = eval("(" + xhr.responseText + ")");
-            alert(err.Message);
+            //alert(err.Message);
         }
     });
 }
