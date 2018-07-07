@@ -130,26 +130,27 @@ function makeid() {
 
 function setEmpVisa(results) {
     EmpVisa.Img_url = results;
-    EmpVisa.Doc_id = EmployeeInfo.pass + makeid();
+    EmpVisa.Doc_id = $('#passportid').val() + makeid();
     EmpVisa.Doctype_id = '1';
-    EmpVisa.Employee_pass_id = EmployeeInfo.pass;
+    EmpVisa.Employee_pass_id = $('#passportid').val();
 
 }
 function setEmpAuth(results) {
     EmpAuth.Img_url = results;
-    EmpAuth.Doc_id = EmployeeInfo.pass + makeid();
+    EmpAuth.Doc_id = $('#passportid').val() + makeid();
     EmpAuth.Doctype_id = '3';
-    EmpAuth.Employee_pass_id = EmployeeInfo.pass;
+    EmpAuth.Employee_pass_id = $('#passportid').val();
 }
 function setEmpID(results) {
     EmpID.Img_url = results;
-    EmpID.Doc_id = EmployeeInfo.pass + makeid();
+    EmpID.Doc_id = $('#passportid').val() + makeid();
     EmpID.Doctype_id = '2';
-    EmpID.Employee_pass_id = EmployeeInfo.pass;
+    EmpID.Employee_pass_id = $('#passportid').val();
 }
 
 function setEmpPic(results) {
     EmpPic = results;
+    console.log(EmpPic)
 }
 
 function fixDate(date) {
@@ -278,6 +279,7 @@ function insertEmp(array) {
     array.Bus_name = $('#businessSE option:selected').text();
     array.Occupation_desc = $('#OccuSE option:selected').text();
     array.Day_off_name = $('#day_off option:selected').text();
+    array.Picture = EmpPic;
 
         swal({
             title: "האם אתה בטוח?",
@@ -310,7 +312,8 @@ function InsertAllDocs(results) {
         InsertDocs({ FileInfo: JSON.stringify(EmpID) });
         InsertDocs({ FileInfo: JSON.stringify(EmpAuth) });
 
-        sessionStorage.setItem('contract', results.d);
+    sessionStorage.setItem('contract', results.d);
+    sessionStorage.setItem("empInfo", $('#passportid').val());
         window.location = "ContractDisplay.html";
 
 }

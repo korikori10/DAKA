@@ -794,6 +794,25 @@ function insertEmployee(EmployeeInfo, InsertAllDocs) {
         }
     });
 }
+function InsertSignature(svg, file, insertContract) {
+    var data = JSON.stringify({ svgString: svg, fileString: file })
+
+    $.ajax({
+        url: WSUrl + '/insertSignature',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        dataType: "json",
+        data: data,
+        success: function (results) {
+            insertContract(results)
+        },
+        error: function (xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err.Message);
+
+        }
+    });
+}
 
 //insert spesific user
 function InsertUserCall(UserInfo) {
