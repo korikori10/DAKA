@@ -314,54 +314,55 @@ public class AJAXWebService : System.Web.Services.WebService
 
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
-        if (updated > 0)
-        {
+        //another notification for insurance status change
+        //if (updated > 0)
+        //{
 
 
-            var request = WebRequest.Create("https://onesignal.com/api/v1/notifications") as HttpWebRequest;
-            string pushTXT = "מצב הביטוח של עובד מס " + e.Employee_pass_id + " השתנה";
-            request.KeepAlive = true;
-            request.Method = "POST";
-            request.ContentType = "application/json; charset=utf-8";
+        //    var request = WebRequest.Create("https://onesignal.com/api/v1/notifications") as HttpWebRequest;
+        //    string pushTXT = "מצב הביטוח של עובד מס " + e.Employee_pass_id + " השתנה";
+        //    request.KeepAlive = true;
+        //    request.Method = "POST";
+        //    request.ContentType = "application/json; charset=utf-8";
 
-            request.Headers.Add("authorization", "Basic MTZiZDk0Y2EtMzc5Ni00YWM5LWJmMjgtYWVmYjNhYjFkZTJi");
+        //    request.Headers.Add("authorization", "Basic MTZiZDk0Y2EtMzc5Ni00YWM5LWJmMjgtYWVmYjNhYjFkZTJi");
 
-            var serializer = new JavaScriptSerializer();
-            var obj = new
-            {
-                app_id = "83d04d9a-0af5-47ff-8e0d-daa16120ede1",
-                contents = new { en = "Employee insurance status", he = pushTXT },
-                headings = new { en = "Employee number " + e.Employee_pass_id + " insurance status has changed", he = "סטאטוס ביטוח" },
-                included_segments = new string[] { "All" }
-            };
-            var param = serializer.Serialize(obj);
-            byte[] byteArray = Encoding.UTF8.GetBytes(param);
+        //    var serializer = new JavaScriptSerializer();
+        //    var obj = new
+        //    {
+        //        app_id = "83d04d9a-0af5-47ff-8e0d-daa16120ede1",
+        //        contents = new { en = "Employee insurance status", he = pushTXT },
+        //        headings = new { en = "Employee number " + e.Employee_pass_id + " insurance status has changed", he = "סטאטוס ביטוח" },
+        //        included_segments = new string[] { "All" }
+        //    };
+        //    var param = serializer.Serialize(obj);
+        //    byte[] byteArray = Encoding.UTF8.GetBytes(param);
 
-            string responseContent = null;
+        //    string responseContent = null;
 
-            try
-            {
-                using (var writer = request.GetRequestStream())
-                {
-                    writer.Write(byteArray, 0, byteArray.Length);
-                }
+        //    try
+        //    {
+        //        using (var writer = request.GetRequestStream())
+        //        {
+        //            writer.Write(byteArray, 0, byteArray.Length);
+        //        }
 
-                using (var response = request.GetResponse() as HttpWebResponse)
-                {
-                    using (var reader = new StreamReader(response.GetResponseStream()))
-                    {
-                        responseContent = reader.ReadToEnd();
-                    }
-                }
-            }
-            catch (WebException ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-                System.Diagnostics.Debug.WriteLine(new StreamReader(ex.Response.GetResponseStream()).ReadToEnd());
-            }
+        //        using (var response = request.GetResponse() as HttpWebResponse)
+        //        {
+        //            using (var reader = new StreamReader(response.GetResponseStream()))
+        //            {
+        //                responseContent = reader.ReadToEnd();
+        //            }
+        //        }
+        //    }
+        //    catch (WebException ex)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine(ex.Message);
+        //        System.Diagnostics.Debug.WriteLine(new StreamReader(ex.Response.GetResponseStream()).ReadToEnd());
+        //    }
 
-            System.Diagnostics.Debug.WriteLine(responseContent);
-        }
+        //    System.Diagnostics.Debug.WriteLine(responseContent);
+        //}
         return jsonStringCategory;
     }
 
@@ -1066,12 +1067,12 @@ public class AJAXWebService : System.Web.Services.WebService
         //set password, user name, message text, semder name and number
         string userName ="smsgal";
         string password ="gal969";
-        string messageText = System.Security.SecurityElement.Escape(" תזכורת מספר 1: יש לחדש ויזה בשלושה ימים הקרובים. בסיום יש ליצור קשר. ");
+        string messageText = System.Security.SecurityElement.Escape(" תזכורת: יש לחדש ויזה בשלושה ימים הקרובים. בסיום יש ליצור קשר. ");
         string sender = "daka";
         //set phone numbers
         string phonesList =phone;//0503333334;0503333335;0503333336;0503333337";
         //set additional parameters
-        string timeToSend = "20/04/2018 21:21";
+        string timeToSend = DateTime.Now.ToString("dd/MM/yyyy hh:mm");
         // create XML
         StringBuilder sbXml = new StringBuilder();
         sbXml.Append("<Inforu>");
