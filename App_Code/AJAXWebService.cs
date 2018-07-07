@@ -526,6 +526,19 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(file);
         return jsonStringCategory;
     }
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string getOccupation()
+    {
+        Occupation o = new Occupation();
+        List<Occupation> LE = o.getOccupation();
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        var jsonStringCategory = js.Serialize(LE);
+        //Context.Response.Write(jsonStringCategory);
+        return jsonStringCategory;
+
+    }
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -671,13 +684,68 @@ public class AJAXWebService : System.Web.Services.WebService
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public void insertEmployee(string EmployeeInfo)
+    public string insertEmployee(string EmployeeInfo)
     {
+
 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
+        e.Commence_date = DateTime.Now.ToString("dd/MM/yyy");
+        int inserted = e.insertEmployee(e);
+        PDF pdf = new PDF();
+        List<string> contractPath = pdf.fillForm(e);
 
-        e.insertEmployee(e);
+        if (inserted > 0)
+        {
+
+
+            var request = WebRequest.Create("https://onesignal.com/api/v1/notifications") as HttpWebRequest;
+            string pushTXT = "נוסף עובד חדש מס' " + e.Employee_pass_id;
+            request.KeepAlive = true;
+            request.Method = "POST";
+            request.ContentType = "application/json; charset=utf-8";
+
+            request.Headers.Add("authorization", "Basic MTZiZDk0Y2EtMzc5Ni00YWM5LWJmMjgtYWVmYjNhYjFkZTJi");
+
+            var serializer = new JavaScriptSerializer();
+            var obj = new
+            {
+                app_id = "83d04d9a-0af5-47ff-8e0d-daa16120ede1",
+                contents = new { en = "Employee insurance status", he = pushTXT },
+                headings = new { en = "Employee number " + e.Employee_pass_id + " insurance status has changed", he = "עובד חדש במערכת!" },
+                included_segments = new string[] { "All" }
+            };
+            var param = serializer.Serialize(obj);
+            byte[] byteArray = Encoding.UTF8.GetBytes(param);
+
+            string responseContent = null;
+
+            try
+            {
+                using (var writer = request.GetRequestStream())
+                {
+                    writer.Write(byteArray, 0, byteArray.Length);
+                }
+
+                using (var response = request.GetResponse() as HttpWebResponse)
+                {
+                    using (var reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        responseContent = reader.ReadToEnd();
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(new StreamReader(ex.Response.GetResponseStream()).ReadToEnd());
+            }
+
+            System.Diagnostics.Debug.WriteLine(responseContent);
+        }
+
+        string jsonStringCategory = js.Serialize(contractPath);
+        return jsonStringCategory;
 
 
     }

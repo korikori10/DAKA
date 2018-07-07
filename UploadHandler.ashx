@@ -19,7 +19,7 @@ public class UploadHandler : IHttpHandler {
                 string fileRNDName = Path.GetFileName(file.FileName);
                 string fileName = context.Server.MapPath("~/images/"+ fileRNDName.Split('.')[0] + Path.GetRandomFileName() +"." + fileRNDName.Split('.')[1]);
                 file.SaveAs(fileName);
-                string fileUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + HttpContext.Current.Request.ApplicationPath + "/images/"+System.IO.Path.GetFileName(file.FileName);
+                string fileUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + HttpContext.Current.Request.ApplicationPath + "/images/"+System.IO.Path.GetFileName(fileName);
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 // serialize to string

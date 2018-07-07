@@ -110,7 +110,7 @@ function finished(i) {
 
             function (isConfirm) {
 
-                window.location = "Dash.html"
+                window.location = "DashBoardPage.html"
 
             })
     }

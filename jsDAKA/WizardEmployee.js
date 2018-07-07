@@ -12,7 +12,7 @@ $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinesses(renderBusinesses);
-    getOccu(renderOccu);
+
     //fields autocomplete logic
     $('[name=Il_citizen]').on('change', function () {
         if (this.value == 'T') {
@@ -130,26 +130,27 @@ function makeid() {
 
 function setEmpVisa(results) {
     EmpVisa.Img_url = results;
-    EmpVisa.Doc_id = EmployeeInfo.pass + makeid();
+    EmpVisa.Doc_id = $('#passportid').val() + makeid();
     EmpVisa.Doctype_id = '1';
-    EmpVisa.Employee_pass_id = EmployeeInfo.pass;
+    EmpVisa.Employee_pass_id = $('#passportid').val();
 
 }
 function setEmpAuth(results) {
     EmpAuth.Img_url = results;
-    EmpAuth.Doc_id = EmployeeInfo.pass + makeid();
+    EmpAuth.Doc_id = $('#passportid').val() + makeid();
     EmpAuth.Doctype_id = '3';
-    EmpAuth.Employee_pass_id = EmployeeInfo.pass;
+    EmpAuth.Employee_pass_id = $('#passportid').val();
 }
 function setEmpID(results) {
     EmpID.Img_url = results;
-    EmpID.Doc_id = EmployeeInfo.pass + makeid();
+    EmpID.Doc_id = $('#passportid').val() + makeid();
     EmpID.Doctype_id = '2';
-    EmpID.Employee_pass_id = EmployeeInfo.pass;
+    EmpID.Employee_pass_id = $('#passportid').val();
 }
 
 function setEmpPic(results) {
     EmpPic = results;
+    console.log(EmpPic)
 }
 
 function fixDate(date) {
@@ -244,6 +245,7 @@ function renderCountries(results) {
     });
     //EmployeeInfo.pass = sessionStorage.getItem("empInfo");
     //getEmployeeById(EmployeeInfo, renderEmployeeByID);
+    getOccu(renderOccu);
 }
 
 function renderCities(results) {
@@ -269,6 +271,7 @@ function renderOccu(results) {
         dynamicLi = '<option value="' + row.Occupation_code + '">' + row.Occupation_desc + '</option>';
         $('#OccuSE').append(dynamicLi);
     });
+    $('.selectize-select').selectize();
 }
 
 function insertEmp(array) {
@@ -276,47 +279,8 @@ function insertEmp(array) {
     array.Bus_name = $('#businessSE option:selected').text();
     array.Occupation_desc = $('#OccuSE option:selected').text();
     array.Day_off_name = $('#day_off option:selected').text();
+    array.Picture = EmpPic;
 
-
-    if (isUpdate) {
-        if (EmpPic == null) {
-            array.Picture = resultsSave.Picture;
-
-        }
-        else {
-            array.Picture = EmpPic;
-        }
-        if (array.Business == resultsSave.Business) {
-            array.updateBus = false;
-            updateBus = false;
-        }
-        else {
-            array.updateBus = true;
-            updateBus = true;
-        }
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן פרטי עובד.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
-
-            function (isConfirm) {
-                if (isConfirm) {
-
-                    updateEmployee({ EmployeeInfo: JSON.stringify(array) }, InsertAllDocs)
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
-
-    }
-    else {
         swal({
             title: "האם אתה בטוח?",
             text: "אתה עומד להוסיף עובד חדש.",
@@ -340,35 +304,18 @@ function insertEmp(array) {
 
     }
 
-}
 
 function InsertAllDocs(results) {
-    if (!isUpdate) {
+   
         EmpVisa.Ex_date = $('#date4_2').val();
         InsertDocs({ FileInfo: JSON.stringify(EmpVisa) });
         InsertDocs({ FileInfo: JSON.stringify(EmpID) });
         InsertDocs({ FileInfo: JSON.stringify(EmpAuth) });
 
-    }
-    if (!updateBus) {
-        swal({
-            title: "בוצע!",
-            text: "כל הנתונים נשמרו בהצלחה",
-            type: "success",
-            confirmButtonText: "חזור למסך הבית",
-        },
-
-            function (isConfirm) {
-
-                window.location = "Dash.html"
-
-            })
-    }
-    else {
-        sessionStorage.setItem('contract', results.d);
+    sessionStorage.setItem('contract', results.d);
+    sessionStorage.setItem("empInfo", $('#passportid').val());
         window.location = "ContractDisplay.html";
 
-    }
 }
 
 
