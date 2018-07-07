@@ -938,28 +938,29 @@ public class Employee
         }
     }
 
-<<<<<<< HEAD
+
     public int Bus_id
     {
         get
         {
             return bus_id;
-=======
+
+           
+        }
+        set
+        { bus_id = value; }
+    }
     public string Commence_date
     {
         get
         {
             return commence_date;
->>>>>>> 4a1c11aca84f961810af48e242713e4348b732b5
         }
 
         set
         {
-<<<<<<< HEAD
-            bus_id = value;
-=======
+
             commence_date = value;
->>>>>>> 4a1c11aca84f961810af48e242713e4348b732b5
         }
     }
 
