@@ -11,10 +11,13 @@ $(document).ready(function () {
 $('.table').on('click', 'tr td button', function () {
     //Take the Employee ID from the table row
     sessionStorage.removeItem("empInfo")
-    tr = $(this).closest('tr');//.find('td:first').text();
-    tableId = $(this).closest('.table').attr('id');
+ current_row = $(this).parents('tr');//Get the current row;
+    if (current_row.hasClass('child')) {//Check if the current row is a child row
+        current_row = current_row.prev();//If it is, then point to the row before it (its 'parent')
+    }  
+  tableId = $(this).closest('.table').attr('id');
     whichid = $(this).closest('button').attr('name');
-    var data = $("#" + tableId).DataTable().row(tr).data();
+    var data = $("#" + tableId).DataTable().row(current_row).data();
     EmployeeInfo.pass = data['Employee_pass_id'];
     if (whichid == "edit") {
         //Go To Employee Page
@@ -40,7 +43,7 @@ $('.table').on('click', 'tr td button', function () {
             function (isConfirm) {
                 if (isConfirm) {
 
-                    MakeEmpActive(EmployeeInfo);
+                    MakeEmpActive(EmployeeInfo,current_row);
                 }
                 else {
                     // swal("Cancelled", "Your imaginary file is safe :)", "error");
