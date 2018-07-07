@@ -127,9 +127,15 @@ public class PDF
         }
         catch (Exception ex)
         {
-            return null;
-            // write to log
-            throw (ex);
+
+
+                // write to log
+                using (StreamWriter w = System.IO.File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+                {
+                    DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+                }
+                throw (ex);
         }
         finally
         {
