@@ -998,15 +998,15 @@ public class AJAXWebService : System.Web.Services.WebService
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string getUserByUserName(string username)
+    public string getUserByUserName(string username, string userPass)
     {
-
+        bool match;
         User u = new User();
-        u = u.getUserByUserName(username);
+        match = u.getUserByUserName(username , userPass);
 
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(u);
+        string jsonStringCategory = js.Serialize(match);
         return jsonStringCategory;
     }
 

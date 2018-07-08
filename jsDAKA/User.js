@@ -7,9 +7,7 @@ $(document).ready(function () {
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     getUsers(renderUsers);
-    $('#password').click(function () {
-        $('#resetPassModal').modal('toggle');
-    });
+
 
 });
 
@@ -19,7 +17,7 @@ $('#resetPass').click(function () {
 
 
     if (newpass == $('#newPassCon').val()) {
-        username = $("#user-name").val();
+        
         updatePass(newpass, username )
     }
     else {
@@ -169,6 +167,10 @@ function renderUsers(results) {
 
     });
 
+    $('[name="resetPassBTN"]').click(function () {
+        username = $(this).closest('form').find("[name='U_name']").val();
+        //  $('#resetPassModal').modal('toggle');
+    });
     $('.selectize-select').selectize();
 
     $("[name='UserSave']").on('click', function () {

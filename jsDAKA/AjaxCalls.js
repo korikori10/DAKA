@@ -1058,11 +1058,15 @@ function getUserByUserName(username, renderUser) {
     });
 }
 
+<<<<<<< HEAD
+function getUserById(username, userPass ,ValidateUser) {
+=======
 
 function getUserById(username, ValidateUser) {
+>>>>>>> c0eabca7d0e400ff1fadc957fbf7af5ce19baa04
 
     // serialize the object to JSON string
-    var dataString = '{"username":' + JSON.stringify(username) + '}';
+    var dataString = '{"username":' + JSON.stringify(username) + ', "userPass":' + JSON.stringify(userPass) + '}';
 
     $.ajax({
         url: WSUrl + '/getUserByUserName',
