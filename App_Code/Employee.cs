@@ -58,6 +58,7 @@ public class Employee
     string months;
     string employeeCountMonth;
     string january, february, march, april, may, june, july, august, september, october, november, december;
+    string month, moving_AVG;
     public Employee()
     {
         //
@@ -961,6 +962,19 @@ public class Employee
         {
 
             commence_date = value;
+        }
+    }
+
+    public string Month
+    {
+        get
+        {
+            return month;
+        }
+
+        set
+        {
+            month = value;
         }
     }
 

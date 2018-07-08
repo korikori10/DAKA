@@ -1626,6 +1626,62 @@ public class DBServices
         }
     }
 
+    public List<Employee> ReadSMARTELEMENTStatistic()
+    {
+        SqlConnection con = null;
+
+        try
+        {
+
+            List<Employee> employees = new List<Employee>();
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM SmartElement";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            while (dr.Read())
+            {
+                Employee e = new Employee();
+
+                e.Start_year_for_month = (dr["Year"]).ToString();
+                e.January = (dr["January"]).ToString();
+                e.February = (dr["February"]).ToString();
+                e.March = (dr["March"]).ToString();
+                e.April = (dr["April"]).ToString();
+                e.May = (dr["May"]).ToString();
+                e.June = (dr["June"]).ToString();
+                e.July = (dr["July"]).ToString();
+                e.August = (dr["August"]).ToString();
+                e.September = (dr["September"]).ToString();
+                e.October = (dr["October"]).ToString();
+                e.November = (dr["November"]).ToString();
+                e.December = (dr["December"]).ToString();
+                employees.Add(e);
+            }
+
+            return employees;
+
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                Log(ex.Message, ex.InnerException.ToString(), w);
+
+            }
+            throw (ex);
+
+        }
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+    }
+
     #endregion
 
 
