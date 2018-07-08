@@ -1715,7 +1715,16 @@ public class DBServices
         String cStr = BuildInsertCommand(emp);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
-
+        cmd.Parameters.AddWithValue("@Lname", emp.Lname);
+        cmd.Parameters.AddWithValue("@Sys_id", emp.Sys_id);
+        cmd.Parameters.AddWithValue("@Fname", emp.Fname);
+        cmd.Parameters.AddWithValue("@Birthday", emp.Birthday.ToString("yyyy-MM-dd"));
+        cmd.Parameters.AddWithValue("@Gender", emp.Gender);
+        cmd.Parameters.AddWithValue("@Origin_country", emp.Origin_country);
+        cmd.Parameters.AddWithValue("@Add", emp.Add);
+        cmd.Parameters.AddWithValue("@Emp_id", emp.Employee_pass_id);
+        cmd.Parameters.AddWithValue("@Picture", emp.Picture);
+        cmd.Parameters.AddWithValue("@Phone", emp.Phone);
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
@@ -1753,7 +1762,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}', '{14}', '{15}', '{16}', '{17}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}','{25}','{26}','{27}')", emp.Employee_pass_id, emp.Lname, emp.Fname, emp.Birthday.ToString("yyyy-MM-dd"), emp.Gender, emp.Picture, emp.Origin_country, emp.Il_citizen, emp.Add_city, emp.Add, emp.Add_num, emp.Phone, emp.Com_app, emp.Sys_id, emp.Insurance, emp.Com_insurance, emp.Fam_stat_code, emp.Salary_hour, emp.Salary_overtime, emp.Salary_trans, emp.Day_off, emp.Sabatical, emp.Occupation_code, emp.Active,emp.Food_incloud,emp.Food_pay,emp.Monthly_rent,"false");//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        sb.AppendFormat("Values({0}, {1} ,{2}, {3}, {4}, {5}, {6}, '{7}', '{8}', {9}, '{10}', {11}, '{12}', {13}, '{14}', '{15}', '{16}', '{17}', '{18}', '{19}', '{20}', '{21}', '{22}', '{23}', '{24}','{25}','{26}','{27}')", "@Emp_id", "@Lname", "@Fname", "@Birthday", "@Gender", "@Picture", "@Origin_country", emp.Il_citizen, emp.Add_city, "@Add", emp.Add_num, "@Phone", emp.Com_app, "@Sys_id", emp.Insurance, emp.Com_insurance, emp.Fam_stat_code, emp.Salary_hour, emp.Salary_overtime, emp.Salary_trans, emp.Day_off, emp.Sabatical, emp.Occupation_code, emp.Active,emp.Food_incloud,emp.Food_pay,emp.Monthly_rent,"false");//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
         String prefix = "INSERT INTO EMPLOYEE " + "(employee_pass_id,lname,fname,birthday,gender,Picture,origin_country,il_citizen,add_city,[add],add_num,phone,com_app,michpal_id,insurance,com_insurance,fam_stat_code,salary_hour,salary_overtime,salary_trans,day_off_id,sabatical,occupation_code,active,food_incloud,food_pay,monthly_rent,final_bill) ";
         command = prefix + sb.ToString();
 
@@ -1825,7 +1834,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values({0}, '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", busi.Bus_id, busi.Bus_name, busi.Add_city, busi.Add, busi.Add_num, busi.Phone, busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));
+        sb.AppendFormat("Values({0}, '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", "@Bus_id", "@Bus_name" , busi.Add_city, "@Add", busi.Add_num, busi.Phone, busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));
         String prefix = "INSERT INTO BUSINESSES " + "(bus_id,bus_name,add_city,add,add_num,phone,bus_type_code,contract_code, department_code, commence_date)";
         command = prefix + sb.ToString();
 
@@ -2294,7 +2303,7 @@ public class DBServices
         String cStr = BuildupdateDisablEmp(dis);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
-
+        cmd.Parameters.AddWithValue("@Desc", dis.Description);
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
@@ -2335,7 +2344,7 @@ public class DBServices
         if (dis.Bus_id==0)
         {
 
-        sb.AppendFormat("Values('{0}','{1}' ,'{2}')", dis.Did, dis.Emp_id, dis.Description);
+        sb.AppendFormat("Values('{0}','{1}' ,{2})", dis.Did, dis.Emp_id, "@Desc");
         String prefix = "UPDATE EMPLOYEE SET active = 'false' where employee_pass_id = '" + dis.Emp_id + "';INSERT INTO EMP_DIS_REASON (did, emp_id, description)";
         command = prefix + sb.ToString();
         }
@@ -2529,6 +2538,15 @@ public class DBServices
         String cStr = BuildUpdateCommand(emp);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
+        cmd.Parameters.AddWithValue("@Lname", emp.Lname);
+        cmd.Parameters.AddWithValue("@Sys_id", emp.Sys_id);
+        cmd.Parameters.AddWithValue("@Fname", emp.Fname);
+        cmd.Parameters.AddWithValue("@Birthday", emp.Birthday.ToString("yyyy-MM-dd"));
+        cmd.Parameters.AddWithValue("@Gender", emp.Gender);
+        cmd.Parameters.AddWithValue("@Origin_country", emp.Origin_country);
+        cmd.Parameters.AddWithValue("@Add", emp.Add);
+        cmd.Parameters.AddWithValue("@Emp_id", emp.Employee_pass_id);
+        cmd.Parameters.AddWithValue("@Phone", emp.Phone);
 
         try
         {
@@ -2568,7 +2586,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET lname = '" + emp.Lname + "', fname = '" + emp.Fname + "', birthday = '" + emp.Birthday.ToString("yyyy-MM-dd") + "', gender = '" + emp.Gender  + "', origin_country = '" + emp.Origin_country + "', il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = '" + emp.Add + "', add_num = '" + emp.Add_num + "', phone = '" + emp.Phone + "', com_app = '" + emp.Com_app + "', monthly_rent = '"+ emp.Monthly_rent + "', michpal_id = '" + emp.Sys_id + "', insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code +  "', active = '" + emp.Active + "' Where employee_pass_id = '" + emp.Employee_pass_id + "'"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
+        String prefix = "UPDATE EMPLOYEE SET lname = @Lname, fname = @Fname, birthday = @Birthday , gender = @Gender, origin_country = @Origin_country, il_citizen = '" + emp.Il_citizen + "', add_city = '" + emp.Add_city + "', [add] = @Add, add_num = '" + emp.Add_num + "', phone = @Phone, com_app = '" + emp.Com_app + "', monthly_rent = '"+ emp.Monthly_rent + "', michpal_id = @Sys_id, insurance = '" + emp.Insurance + "', com_insurance = '" + emp.Com_insurance + "', fam_stat_code = '" + emp.Fam_stat_code +  "', active = '" + emp.Active + "' Where employee_pass_id = @Emp_id"; //"', salary_hour = '" + emp.Salary_hour + "', salary_overtime = '" + emp.Salary_overtime + "', salary_trans = '" + emp.Salary_trans + "', day_off_id = '" + emp.Day_off + "', sabatical = '" + emp.Sabatical + "', occupation_code = '" + emp.Occupation_code + "', Picture = '" + emp.Picture
         command = prefix;// prefix;
 
         return command;
