@@ -120,155 +120,35 @@
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
             <div class="content-body" style="height: 3128px;">
-                    <div class="col-md-12">
-
-                        <div class="row">
-                            <div id="basic-line" class="height-400">
-
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title">גידול בעובדים בשנים</h4>
-                                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                                <div class="heading-elements">
-                                                    <ul class="list-inline mb-0">
-                                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="card-body collapse in">
-                                                <div class="card-block">
-                                                    <div id="basic-area" class="height-400 echart-container"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                <section id="chartjs-line-charts">
+                    <!-- Line Chart -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Simple Line Chart</h4>
+                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                    <div class="heading-elements">
+                                        <ul class="list-inline mb-0">
+                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-
-                        <!--<div class="row">
-                <div class="col-xs-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">גידול בעובדים בחודשים</h4>
-                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body collapse in">
-                            <div class="card-block">
-                                <div id="basic-month" class="height-400 echart-container"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-                        <!-- Column Chart -->
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Column Chart</h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body collapse in" id="graph">
-                                        <div class="card-block" id="graph-container">
-                                            <canvas id="column-chart" height="400"></canvas>
-                                        </div>
-
+                                <div class="card-body collapse in">
+                                    <div class="card-block chartjs">
+                                        <canvas id="line-chart" height="500"></canvas>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="col-md-12">
-
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">גידול בבתי עסק בשנים</h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block">
-                                            <div id="Yearly-data" class="height-400 echart-container"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">גידול בבתי עסק ברבעונים</h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block">
-                                            <div id="stacked-area" class="height-400 echart-container"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                </section>
             </div>
+        </div>
     </div>
-
-    <!--</div>-->
-
-
     <footer class="footer footer-fixed footer-dark navbar-border">
         <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">DAKA </a>, Tom And Kori Rule </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
     </footer>
@@ -298,16 +178,9 @@
     <!-- END PAGE LEVEL JS-->
     <!-- BEGIN PAGE VENDOR JS-->
     <script src="app-assets/vendors/js/ui/headroom.min.js" type="text/javascript"></script>
-    <script src="app-assets/js/scripts/tables/datatables/datatable-basic.js"></script>
-    <script src="app-assets/vendors/js/tables/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-    <script src="app-assets/vendors/js/extensions/sweetalert.min.js"></script>
-    <script src="app-assets/vendors/js/forms/select/selectize.min.js"></script>
+
     <script src="app-assets/vendors/js/charts/chart.min.js"></script>
-    <script src="app-assets/vendors/js/charts/echarts/echarts.js"></script>
-    <script src="app-assets/js/scripts/charts/echarts/line-area/basic-area.js"></script>
-    <script src="app-assets/js/scripts/charts/echarts/line-area/stacked-area.js"></script>
-    <script src="app-assets/js/scripts/charts/chartjs/bar/column.js"></script>
+    <script src="app-assets/js/scripts/charts/chartjs/line/line.js" type="text/javascript"></script>
     <script src="jsDAKA/AjaxCalls.js"></script>
 
     <!-- END PAGE VENDOR JS-->
