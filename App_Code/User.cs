@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 
 /// <summary>
@@ -139,13 +140,14 @@ public class User
         this.phone = phone;
         this.user_img = user_img;
     }
-    public User getUserByUserName(string username)
+    public bool getUserByUserName(string username, string userPass)
     {
         DBServices dbs = new DBServices();
-
         User u = dbs.ReadUsers(username);
+        bool match = decryptPass(u.U_pwd, userPass);
 
-        return u;
+
+        return match;
 
     }
     public List<User> getUsers()
@@ -176,16 +178,56 @@ public class User
     {
         DBServices dbs = new DBServices();
 
+        u.U_pwd = encryptPass(u.U_pwd);
+
         int u1 = dbs.insert(u);
-
-
         return u1;
 
     }
     public void updatePass(string userName, string pass)
     {
         DBServices dbs = new DBServices();
-
+        pass = encryptPass(pass);
         dbs.updateUserPass(userName, pass);
+    }
+
+    private string encryptPass(string pass)
+    {
+        byte[] salt;
+        new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+        var pbkdf2 = new Rfc2898DeriveBytes(pass, salt, 10000);
+        byte[] hash = pbkdf2.GetBytes(20);
+
+
+        byte[] hashBytes = new byte[36];
+        Array.Copy(salt, 0, hashBytes, 0, 16);
+        Array.Copy(hash, 0, hashBytes, 16, 20);
+
+
+        string savedPasswordHash = Convert.ToBase64String(hashBytes);
+        return savedPasswordHash;
+    }
+    private bool decryptPass(string pass, string password)
+    {
+        /* Fetch the stored value */
+        string savedPasswordHash = pass;
+        /* Extract the bytes */
+        byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+        /* Get the salt */
+        byte[] salt = new byte[16];
+        Array.Copy(hashBytes, 0, salt, 0, 16);
+        /* Compute the hash on the password the user entered */
+        var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+        byte[] hash = pbkdf2.GetBytes(20);
+        /* Compare the results */
+        for (int i = 0; i < 20; i++)
+        {
+            if (hashBytes[i + 16] != hash[i])
+            {
+                return false;
+            }
+        }
+                return true;
     }
 }

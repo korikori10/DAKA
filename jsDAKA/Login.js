@@ -25,16 +25,16 @@ $(document).ready(function () {
 //localStorage to save user name (no expiration)
 function movetopage() {
     username = $("#user-name").val();
-    
-    getUserById(username, ValidateUser);
+    userPass = $("#user-password").val();
+    getUserById(username, userPass, ValidateUser);
 
 }
 
 function ValidateUser(results) {
-    userPass = $("#user-password").val();
+    
     rememberMe = $("#remember-me");
     results = $.parseJSON(results.d);
-    if (username == results.U_name && userPass == results.U_pwd) {
+    if (results) {
         if (rememberMe.prop("checked")) {
             localStorage.setItem("userName", username)
             localStorage.setItem("userPass", userPass)
