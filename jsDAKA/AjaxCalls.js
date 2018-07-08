@@ -36,6 +36,26 @@ function getEmployeess() {
         success: function (data) {
             datatableVariable.DataTable({
                 dom: 'Bfrtip',
+                language: {
+
+                    "processing": "מעבד...",
+                    "lengthMenu": "הצג _MENU_ פריטים",
+                    "zeroRecords": "לא נמצאו רשומות מתאימות",
+                    "emptyTable": "לא נמצאו רשומות מתאימות",
+                    "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                    "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                    "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                    "infoPostFix": "",
+                    "search": "חפש:",
+                    "url": "",
+                    "paginate": {
+                        "first": "ראשון",
+                        "previous": "קודם",
+                        "next": "הבא",
+                        "last": "אחרון"
+                    }
+
+                },
                 buttons: [
                     {
                         extend: 'print',
@@ -52,6 +72,7 @@ function getEmployeess() {
                         }
                     }
                 ],
+              
                 data: data,
                 columns: [
                     { 'data': 'Employee_pass_id' },
@@ -149,6 +170,26 @@ function getArchive() {
         success: function (data) {
             datatableVariableArchive.DataTable({
                 dom: 'Bfrtip',
+                language: {
+
+                    "processing": "מעבד...",
+                    "lengthMenu": "הצג _MENU_ פריטים",
+                    "zeroRecords": "לא נמצאו רשומות מתאימות",
+                    "emptyTable": "לא נמצאו רשומות מתאימות",
+                    "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                    "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                    "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                    "infoPostFix": "",
+                    "search": "חפש:",
+                    "url": "",
+                    "paginate": {
+                        "first": "ראשון",
+                        "previous": "קודם",
+                        "next": "הבא",
+                        "last": "אחרון"
+                    }
+
+                },
                 buttons: [
                     {
                         extend: 'print',
@@ -202,6 +243,26 @@ function getBusinessesTable() {
         success: function (data) {
                 datatableVariable.DataTable({
                     dom: 'Bfrtip',
+                    language: {
+
+                        "processing": "מעבד...",
+                        "lengthMenu": "הצג _MENU_ פריטים",
+                        "zeroRecords": "לא נמצאו רשומות מתאימות",
+                        "emptyTable": "לא נמצאו רשומות מתאימות",
+                        "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                        "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                        "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                        "infoPostFix": "",
+                        "search": "חפש:",
+                        "url": "",
+                        "paginate": {
+                            "first": "ראשון",
+                            "previous": "קודם",
+                            "next": "הבא",
+                            "last": "אחרון"
+                        }
+
+                    },
                     buttons: [
                         {
                             extend: 'print',
@@ -308,6 +369,26 @@ function getHistory(EmployeeInfo) {
         dataType: "json",
         success: function (data) {
             $datatableVariable = $('#HistoryTable').DataTable({
+                language: {
+
+                    "processing": "מעבד...",
+                    "lengthMenu": "הצג _MENU_ פריטים",
+                    "zeroRecords": "לא נמצאו רשומות מתאימות",
+                    "emptyTable": "לא נמצאו רשומות מתאימות",
+                    "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                    "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                    "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                    "infoPostFix": "",
+                    "search": "חפש:",
+                    "url": "",
+                    "paginate": {
+                        "first": "ראשון",
+                        "previous": "קודם",
+                        "next": "הבא",
+                        "last": "אחרון"
+                    }
+
+                },
                 data: data,
                 columns: [
                     { 'data': 'Employee_pass_id' },
@@ -475,6 +556,26 @@ $.ajax({
     url: "ajaxWebService.asmx/ReadEmployeesNeedNewVisa",
     success: function (data) {
         t2 = $('#newvisaalert').DataTable({
+            language: {
+
+                "processing": "מעבד...",
+                "lengthMenu": "הצג _MENU_ פריטים",
+                "zeroRecords": "לא נמצאו רשומות מתאימות",
+                "emptyTable": "לא נמצאו רשומות מתאימות",
+                "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                "infoPostFix": "",
+                "search": "חפש:",
+                "url": "",
+                "paginate": {
+                    "first": "ראשון",
+                    "previous": "קודם",
+                    "next": "הבא",
+                    "last": "אחרון"
+                }
+
+            },
             data: data,
             "bLengthChange": false,
             responsive: true,
@@ -526,7 +627,27 @@ function getEmployeesnobusiness() {
         dataType: "json",
         url: "ajaxWebService.asmx/getEmployeesnobusiness",
         success: function (data) {
-             t3 = $('#empNoBusi').DataTable({
+            t3 = $('#empNoBusi').DataTable({
+                language: {
+
+                    "processing": "מעבד...",
+                    "lengthMenu": "הצג _MENU_ פריטים",
+                    "zeroRecords": "לא נמצאו רשומות מתאימות",
+                    "emptyTable": "לא נמצאו רשומות מתאימות",
+                    "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                    "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                    "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                    "infoPostFix": "",
+                    "search": "חפש:",
+                    "url": "",
+                    "paginate": {
+                        "first": "ראשון",
+                        "previous": "קודם",
+                        "next": "הבא",
+                        "last": "אחרון"
+                    }
+
+                },
                  data: data,
                  "bLengthChange": false,
                  responsive: true,
@@ -574,7 +695,27 @@ $.ajax({
     dataType: "json",
     url: "ajaxWebService.asmx/getNewEmployees",
     success: function (data) {        
-          t1 = $('#newemp').DataTable({
+        t1 = $('#newemp').DataTable({
+            language: {
+
+                "processing": "מעבד...",
+                "lengthMenu": "הצג _MENU_ פריטים",
+                "zeroRecords": "לא נמצאו רשומות מתאימות",
+                "emptyTable": "לא נמצאו רשומות מתאימות",
+                "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                "infoPostFix": "",
+                "search": "חפש:",
+                "url": "",
+                "paginate": {
+                    "first": "ראשון",
+                    "previous": "קודם",
+                    "next": "הבא",
+                    "last": "אחרון"
+                }
+
+            },
               data: data,
               "bLengthChange": false,
              responsive: true,
@@ -626,7 +767,27 @@ function ReadEmployeesNotActive() {
         dataType: "json",
         url: "ajaxWebService.asmx/ReadEmployeesNotActive",
         success: function (data) {
-             NotActiveEmpDatatableVariable = $('#empnotactive').DataTable({
+            NotActiveEmpDatatableVariable = $('#empnotactive').DataTable({
+                language: {
+
+                    "processing": "מעבד...",
+                    "lengthMenu": "הצג _MENU_ פריטים",
+                    "zeroRecords": "לא נמצאו רשומות מתאימות",
+                    "emptyTable": "לא נמצאו רשומות מתאימות",
+                    "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות",
+                    "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+                    "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+                    "infoPostFix": "",
+                    "search": "חפש:",
+                    "url": "",
+                    "paginate": {
+                        "first": "ראשון",
+                        "previous": "קודם",
+                        "next": "הבא",
+                        "last": "אחרון"
+                    }
+
+                },
                  data: data,
                  "bLengthChange": false,
                  responsive: true,
@@ -1058,12 +1219,8 @@ function getUserByUserName(username, renderUser) {
     });
 }
 
-<<<<<<< HEAD
-function getUserById(username, userPass ,ValidateUser) {
-=======
 
-function getUserById(username, ValidateUser) {
->>>>>>> c0eabca7d0e400ff1fadc957fbf7af5ce19baa04
+function getUserById(username, userPass ,ValidateUser) {
 
     // serialize the object to JSON string
     var dataString = '{"username":' + JSON.stringify(username) + ', "userPass":' + JSON.stringify(userPass) + '}';
