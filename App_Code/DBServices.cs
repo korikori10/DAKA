@@ -1642,19 +1642,10 @@ public class DBServices
             {
                 Employee e = new Employee();
 
-                e.Start_year_for_month = (dr["Year"]).ToString();
-                e.January = (dr["January"]).ToString();
-                e.February = (dr["February"]).ToString();
-                e.March = (dr["March"]).ToString();
-                e.April = (dr["April"]).ToString();
-                e.May = (dr["May"]).ToString();
-                e.June = (dr["June"]).ToString();
-                e.July = (dr["July"]).ToString();
-                e.August = (dr["August"]).ToString();
-                e.September = (dr["September"]).ToString();
-                e.October = (dr["October"]).ToString();
-                e.November = (dr["November"]).ToString();
-                e.December = (dr["December"]).ToString();
+                e.Month = (dr["Month"]).ToString();
+                e.EmployeeCountMonth = (dr["[employeeCountMonth]"]).ToString();
+                e.Moving_AVG = (dr["Moving_AVG"]).ToString();
+               
                 employees.Add(e);
             }
 

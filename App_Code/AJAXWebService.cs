@@ -996,6 +996,33 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+    
+     [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string ReadSMARTELEMENT()
+    {
+        DBServices db = new DBServices();
+        List<Employee> arr = db.ReadSMARTELEMENTStatistic();
+        List<string> Month = new List<string>();
+        List<string> EmployeeCountMonth = new List<string>();
+        List<string> Moving_AVG = new List<string>();
+      
+
+        foreach (var item in arr)
+        {
+            Month.Add(item.Month);
+            EmployeeCountMonth.Add(item.EmployeeCountMonth.ToString());
+            Moving_AVG.Add(item.Moving_AVG.ToString());
+          
+        }
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        // serialize to string
+        string jsonStringCategory = js.Serialize(new List<string>[] { Month, EmployeeCountMonth, Moving_AVGs });
+        return jsonStringCategory;
+
+
+    }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getUserByUserName(string username, string userPass)

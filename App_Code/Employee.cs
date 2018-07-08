@@ -978,6 +978,19 @@ public class Employee
         }
     }
 
+    public string Moving_AVG
+    {
+        get
+        {
+            return moving_AVG;
+        }
+
+        set
+        {
+            moving_AVG = value;
+        }
+    }
+
     public List<Employee> getEmployees()
     {
         DBServices dbs = new DBServices();

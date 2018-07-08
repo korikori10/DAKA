@@ -548,6 +548,23 @@ function StatisticsBusiByYear(RenderBusiByYear) {
 
 }
 
+//SMARTELEMENT
+function SMARTELEMENTStatistics(Renderemp) {
+    $.ajax({
+        url: 'AJAXWebService.asmx/ReadSMARTELEMENT',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            Renderemp(results);
+        },
+        error: function (request, error) {
+            window.location = "error404.html";
+        }
+
+    });
+
+}
 //חידושי ויזות
 function ReadEmployeesNeedNewVisa() { 
 $.ajax({
