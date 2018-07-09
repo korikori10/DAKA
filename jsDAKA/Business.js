@@ -17,7 +17,7 @@ $(document).ready(function () {
     getDepartments(renderDepartments);
     getRoles(renderRoles);
     getTypes(renderTypes);
-    getContactsByBus(renderContacts);
+    
 
     $("#AddContact").on('click', function () { createContactForm() });
   
@@ -88,6 +88,8 @@ function renderBusinesses(results) {
     results = $.parseJSON(results.d);
     var busID = sessionStorage.getItem("busiInfo");
     $('#businessSE').empty();
+    $('#bus_id').removeAttr('disabled');
+    newBus = true;
     $.each(results, function (i, row) {
 
         if (row.Bus_id == busID) {
@@ -96,12 +98,9 @@ function renderBusinesses(results) {
             resultsSave = row;
             newBus = false;
             populate(frm, data);
+            $('#bus_id').attr('disabled', 'disabled');
         }
-        else {
-            $('#bus_id').removeAttr('disabled');
-            newBus = true;
 
-        }
 
     });
  
@@ -116,7 +115,7 @@ function renderCountries(results) {
         $('#DynamiCountryList').append(dynamicLi);
     });
     getBusinesses(renderBusinesses);
-     
+    getContactsByBus(renderContacts);
 }
 
 function renderCities(results) {
@@ -213,43 +212,89 @@ function renderContacts(results) {
     });
 
     $('.selectize-select').selectize();
+    //setTimeout(function () {
+    //    $('input[type="tel"]').rules('add', { maxlength: 9 });
+    //    $('input[type="number"]').rules('add', { maxlength: 9 });
+    //}, 1000);
     $("[name='contactSave']").on('click', function () {
         var contactFRM = $(this).closest('form')
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן את פרטי איש הקשר.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
+        contactFRM.validate({
+            ignore: 'input[type=hidden]', // ignore hidden fields
+            errorClass: 'danger',
+            successClass: 'success',
+            highlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            rules: {
+                email: {
+                    email: true
+                }
+            }
+        });
 
-            function (isConfirm) {
-                if (isConfirm) {
+        $.extend($.validator.messages, {
+            required: "השדה הזה הינו שדה חובה",
+            remote: "נא לתקן שדה זה",
+            email: "נא למלא כתובת דוא\"ל חוקית",
+            url: "נא למלא כתובת אינטרנט חוקית",
+            date: "נא למלא תאריך חוקי",
+            dateISO: "נא למלא תאריך חוקי (ISO)",
+            number: "נא למלא מספר",
+            digits: "נא למלא רק מספרים",
+            creditcard: "נא למלא מספר כרטיס אשראי חוקי",
+            equalTo: "נא למלא את אותו ערך שוב",
+            extension: "נא למלא ערך עם סיומת חוקית",
+            maxlength: $.validator.format(".נא לא למלא יותר מ- {0} תווים"),
+            minlength: $.validator.format("נא למלא לפחות {0} תווים"),
+            rangelength: $.validator.format("נא למלא ערך בין {0} ל- {1} תווים"),
+            range: $.validator.format("נא למלא ערך בין {0} ל- {1}"),
+            max: $.validator.format("נא למלא ערך קטן או שווה ל- {0}"),
+            min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
+        });
+        if (contactFRM.valid()) {
 
-                    h = true;
-                    contactInfo = contactFRM.serializeObject();
-                    contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
-                    if (contactInfo.Contact_id == false) {
-                        InsertContact({ contactInfo: JSON.stringify(contactInfo) } );
+
+            swal({
+                title: "האם אתה בטוח?",
+                text: "אתה עומד לעדכן את פרטי איש הקשר.",
+                type: "info",
+                confirmButtonText: "כן",
+                showCancelButton: "true",
+                cancelButtonText: "בטל",
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+            },
+
+                function (isConfirm) {
+                    if (isConfirm) {
+
+                        h = true;
+                        contactInfo = contactFRM.serializeObject();
+                        contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
+                        if (contactInfo.Contact_id == false) {
+                            InsertContact({ contactInfo: JSON.stringify(contactInfo) });
+                        }
+                        else {
+
+                            UpdateContact({ contactInfo: JSON.stringify(contactInfo) });
+                        }
+
+
                     }
                     else {
-
-                        UpdateContact({ contactInfo: JSON.stringify(contactInfo) });
+                        // swal("Cancelled", "Your imaginary file is safe :)", "error");
                     }
-
-
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
+                });
 
 
 
-
+        }
 
     });
 
@@ -282,8 +327,48 @@ function renderContacts(results) {
     };
 
 //Check save or delete
-$("[name='updateB'").on('click', function () {
+$("[name='updateB']").on('click', function () {
+    BusFRM = $('#BusinessUpdate')
+    BusFRM.validate({
+        ignore: 'input[type=hidden]', // ignore hidden fields
+        errorClass: 'danger',
+        successClass: 'success',
+        highlight: function (element, errorClass) {
+            $(element).removeClass(errorClass);
+        },
+        unhighlight: function (element, errorClass) {
+            $(element).removeClass(errorClass);
+        },
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        },
+        rules: {
+            email: {
+                email: true
+            }
+        }
+    });
 
+    $.extend($.validator.messages, {
+        required: "השדה הזה הינו שדה חובה",
+        remote: "נא לתקן שדה זה",
+        email: "נא למלא כתובת דוא\"ל חוקית",
+        url: "נא למלא כתובת אינטרנט חוקית",
+        date: "נא למלא תאריך חוקי",
+        dateISO: "נא למלא תאריך חוקי (ISO)",
+        number: "נא למלא מספר",
+        digits: "נא למלא רק מספרים",
+        creditcard: "נא למלא מספר כרטיס אשראי חוקי",
+        equalTo: "נא למלא את אותו ערך שוב",
+        extension: "נא למלא ערך עם סיומת חוקית",
+        maxlength: $.validator.format(".נא לא למלא יותר מ- {0} תווים"),
+        minlength: $.validator.format("נא למלא לפחות {0} תווים"),
+        rangelength: $.validator.format("נא למלא ערך בין {0} ל- {1} תווים"),
+        range: $.validator.format("נא למלא ערך בין {0} ל- {1}"),
+        max: $.validator.format("נא למלא ערך קטן או שווה ל- {0}"),
+        min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
+    });
+    if (BusFRM.valid()) {
         swal({
             title: "האם אתה בטוח?",
             text: "אתה עומד לעדכן את פרטי העסק.",
@@ -293,8 +378,8 @@ $("[name='updateB'").on('click', function () {
             cancelButtonText: "בטל",
             closeOnConfirm: false,
             showLoaderOnConfirm: true,
-        }, 
-              
+        },
+
             function (isConfirm) {
                 if (isConfirm) {
 
@@ -305,7 +390,7 @@ $("[name='updateB'").on('click', function () {
                     }
                     else {
 
-                    UpdateBus(BusinessInfo);
+                        UpdateBus(BusinessInfo);
                     }
 
 
@@ -316,7 +401,7 @@ $("[name='updateB'").on('click', function () {
             });
 
 
-
+    }
 
 
 });
