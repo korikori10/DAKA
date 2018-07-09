@@ -19,29 +19,8 @@ var lineChart;
 $(window).on("load", function () {
 
         StatisticsEmpByMonth(RenderempByMonth);
+   
 
-        //Get the context of the Chart canvas element we want to select
-
-        lineChart = new Chart(ctx, config);
-
-
-    });
-    $(function () {
-
-        // Resize chart on menu width change and window resize
-        $(window).on('resize', resize);
-        $(".menu-toggle").on('click', resize);
-
-        // Resize function
-        function resize() {
-            setTimeout(function () {
-
-                // Resize chart
-                lineChart.resize();
-    
-            }, 3000);
-        }
-    });
 var ctx = $("#column-chart");
 
 // Chart Options
@@ -117,6 +96,14 @@ var config = {
 
     data: chartData
 };
+
+//Get the context of the Chart canvas element we want to select
+setTimeout(function () {
+    lineChart = new Chart(ctx, config);
+}, 200);
+    });
+
+
 
 function RenderempByMonth(results) {
     var resultData = $.parseJSON(results.d);

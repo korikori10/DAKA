@@ -131,7 +131,7 @@
     <!-- / main menu-->    <!-- / main menu-->
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
-            <div class="content-body" style="height: 3128px;">
+            <div class="content-body" >
                 <!--horizonal nav-->
                 <div class="col-md-12">
                     <div class="nav-tabs-custom">
@@ -439,7 +439,7 @@
                                             <div class="card-body collapse in">
                                                 <div class="card-block card-dashboard">
                                                     <!--<p class="card-text">
-                                                    </p>-->
+                                </p>-->
                                                     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4">
                                                         <div class="row">
                                                         </div>
@@ -472,8 +472,65 @@
                                 </div>
                             </section>
                         </div>
+                        <div class="fade tab-pane" id="EmpHistory" aria-expanded="false">
+                            <!--break-->
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <br />
+                                </div>
+                            </div>
+                            <section id="ajax">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="card-title">היסטוריית תעסוקה</h4>
+                                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                                <div class="heading-elements">
+                                                    <ul class="list-inline mb-0">
+                                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-body collapse in">
+                                                <div class="card-block card-dashboard">
+                                                    <!--<p class="card-text">
+                            </p>-->
+                                                    <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4">
+                                                        <div class="row">
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <table class="table table-striped table-bordered ajax-sourced dataTable" id="HistoryTable" role="grid" aria-describedby="DataTables_Table_1_info" style="width: 930px;">
+                                                                    <thead>
+                                                                        <tr role="row">
+                                                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">מספר דרכון</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 182px;" aria-label="Position: activate to sort column ascending">שם פרטי</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">שם משפחה</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">בית עסק</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">תאריך התחלה</th>
+                                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">תאריך סיום</th>
+                                                                        </tr>
+                                                                    </thead>
+
+
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
