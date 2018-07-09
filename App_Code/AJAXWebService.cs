@@ -1018,7 +1018,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
-        string jsonStringCategory = js.Serialize(new List<string>[] { Month, EmployeeCountMonth, Moving_AVGs });
+        string jsonStringCategory = js.Serialize(new List<string>[] { Month, EmployeeCountMonth, Moving_AVG });
         return jsonStringCategory;
 
 

@@ -1643,7 +1643,7 @@ public class DBServices
                 Employee e = new Employee();
 
                 e.Month = (dr["Month"]).ToString();
-                e.EmployeeCountMonth = (dr["[employeeCountMonth]"]).ToString();
+                e.EmployeeCountMonth = (dr["employeeCountMonth"]).ToString();
                 e.Moving_AVG = (dr["Moving_AVG"]).ToString();
                
                 employees.Add(e);
