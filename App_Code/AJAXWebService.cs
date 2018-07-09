@@ -31,13 +31,25 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getCities()
     {
+        try { 
         City c = new City();
         List<City> LC = c.getCities();
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         string jsonStringCategory = js.Serialize(LC);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
 
     [WebMethod]
@@ -305,6 +317,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string UpdateInsurance(string EmployeeInfo )
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
@@ -365,12 +378,25 @@ public class AJAXWebService : System.Web.Services.WebService
         //}
         return jsonStringCategory;
     }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
+    }
 
     //employee update insurance
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string cancelInsurance(string EmployeeInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
@@ -382,12 +408,25 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
     }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
+    }
 
     //employee update gmah
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateGmahWS(string EmployeeInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
@@ -396,6 +435,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
+    }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
 
     }
 
@@ -403,6 +454,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateDiur(string EmployeeInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
@@ -413,6 +465,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
+    }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
     }
 
     //[WebMethod]
@@ -442,6 +506,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateVisa(string EmployeeInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
@@ -452,6 +517,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
     }
 
     //[WebMethod]
@@ -475,6 +552,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateEmpBusiness(string EmployeeInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
 
@@ -485,6 +563,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(e);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
     }
    
     //selectize disable reason
@@ -492,6 +582,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string Updatedisablereason(string EmployeeInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Disable_Reason d = js.Deserialize<Disable_Reason>(EmployeeInfo);
 
@@ -502,6 +593,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(d);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
     }
 
     [WebMethod]
@@ -519,6 +622,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string InsertDoc(string FileInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Doc file = js.Deserialize<Doc>(FileInfo);
 
@@ -526,6 +630,19 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(file);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
+
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -573,7 +690,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadDocs(string DocsInfo)
     {
-     
+        try { 
 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Doc d = js.Deserialize<Doc>(DocsInfo);
@@ -584,14 +701,25 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(LD);
         return jsonStringCategory;
 
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadDocsBusi(string DocsInfo)
     {
 
-
+        try {
         JavaScriptSerializer js = new JavaScriptSerializer();
         Doc d = js.Deserialize<Doc>(DocsInfo);
 
@@ -601,7 +729,18 @@ public class AJAXWebService : System.Web.Services.WebService
         string jsonStringCategory = js.Serialize(LD);
         return jsonStringCategory;
 
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
 
     [WebMethod]
@@ -637,15 +776,28 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string GetUpdateEmployee(string EmployeeInfo)
     {
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        Employee e = js.Deserialize<Employee>(EmployeeInfo);
+        try
+        {
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Employee e = js.Deserialize<Employee>(EmployeeInfo);
+            e = e.GetUpdateEmployee(e);
+            // serialize to string
+            string jsonStringCategory = js.Serialize(e);
+            return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+               DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
- 
+            }
+            throw (ex);
 
-        e = e.GetUpdateEmployee(e);
-        // serialize to string
-        string jsonStringCategory = js.Serialize(e);
-        return jsonStringCategory;
+        }
+
+
 
     }
 
@@ -654,6 +806,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertBusiness(string BusinessInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Business b = js.Deserialize<Business>(BusinessInfo);
 
@@ -663,7 +816,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
 
 
@@ -671,6 +835,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertBusinessAndContact(string BusiInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Business b = js.Deserialize<Business>(BusiInfo);
 
@@ -680,7 +845,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
 
     [WebMethod]
@@ -688,7 +864,7 @@ public class AJAXWebService : System.Web.Services.WebService
     public string insertEmployee(string EmployeeInfo)
     {
 
-
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
         e.Commence_date = DateTime.Now.ToString("dd/MM/yyy");
@@ -747,13 +923,25 @@ public class AJAXWebService : System.Web.Services.WebService
 
         string jsonStringCategory = js.Serialize(contractPath);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
 
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertContact(string contactInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Contact c = js.Deserialize<Contact>(contactInfo);
 
@@ -763,12 +951,24 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(c1);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertContract(string DocsInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Doc c = js.Deserialize<Doc>(DocsInfo);
 
@@ -778,12 +978,24 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(c1);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertUser(string UserInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         User u = js.Deserialize<User>(UserInfo);
 
@@ -793,6 +1005,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(c1);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
+        }
 
     }
     [WebMethod]
@@ -808,18 +1032,31 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void DeleteUser(string UserInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         User u = js.Deserialize<User>(UserInfo);
 
         DBServices db = new DBServices();
         db.delete(u);
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
 
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string UpdateContact(string contactInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Contact c = js.Deserialize<Contact>(contactInfo);
 
@@ -829,13 +1066,25 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(c1);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
 
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string UpdateUser(string UserInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
       User u = js.Deserialize<User>(UserInfo);
 
@@ -845,7 +1094,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(u1);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
 
 
@@ -853,6 +1113,7 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateBusiness(string BusinessInfo)
     {
+        try { 
         JavaScriptSerializer js = new JavaScriptSerializer();
         Business b = js.Deserialize<Business>(BusinessInfo);
 
@@ -862,7 +1123,18 @@ public class AJAXWebService : System.Web.Services.WebService
         // serialize to string
         string jsonStringCategory = js.Serialize(b);
         return jsonStringCategory;
+        }
+        catch (Exception ex)
+        {
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
 
+            }
+            throw (ex);
+
+        }
     }
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -1213,9 +1485,17 @@ public class AJAXWebService : System.Web.Services.WebService
             client.Send(mail);
             
         }
+         
         catch (Exception ex)
         {
-            Console.WriteLine(ex.ToString());
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
         }
         //Console.ReadLine();
         //Response.Write("SEND MAIL");
@@ -1227,10 +1507,10 @@ public class AJAXWebService : System.Web.Services.WebService
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void CancelInsuranceSendEmail (string EmployeeInfo)
     {
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        Employee e = js.Deserialize<Employee>(EmployeeInfo);
         try
         {
+        JavaScriptSerializer js = new JavaScriptSerializer();
+        Employee e = js.Deserialize<Employee>(EmployeeInfo);
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
                 Credentials = new NetworkCredential("kori.hash@gmail.com", "liroy1010"),
@@ -1276,7 +1556,14 @@ public class AJAXWebService : System.Web.Services.WebService
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.ToString());
+            // write to log
+            using (StreamWriter w = File.AppendText(System.Web.HttpContext.Current.Server.MapPath("~/Log/DELog.txt")))
+            {
+                DBServices.Log(ex.GetType() + " - " + ex.Message, ex.StackTrace, w);
+
+            }
+            throw (ex);
+
         }
         //Console.ReadLine();
         //Response.Write("SEND MAIL");

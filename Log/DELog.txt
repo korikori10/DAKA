@@ -22,3 +22,12 @@ Log Entry : 5:54:27 PM Saturday, July 7, 2018
  Text :System.IndexOutOfRangeException-employe_pass_id
 UserName: Tom
 -------------------------------
+
+Log Entry : 3:19:47 PM Monday, July 9, 2018
+ Error :   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DBServices.ReadEmployeesNeedNewVisa() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 815
+ Text :System.IndexOutOfRangeException - employee_pass_i
+UserName: Tom
+-------------------------------
