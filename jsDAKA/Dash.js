@@ -12,6 +12,8 @@ window.onload = function () {
     ReadEmployeesNotActive();
     getBusinesses(renderBusinesses,renderBusinessesSearch);  
     getDreason(renderDreasons);  
+    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
+    $("#full_name").html(sessionStorage.getItem("FullName"))
   //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
     $('input').iCheck({
@@ -96,6 +98,8 @@ function changeGmah() {
 //}
     
 }
+
+
 
 //ביטול דיור
 function changeDiur() {

@@ -150,6 +150,14 @@ public class User
         return match;
 
     }
+    public User getUserByUserNameRender(string username)
+    {
+        DBServices dbs = new DBServices();
+        User u = dbs.ReadUsers(username);
+
+        return u;
+
+    }
     public List<User> getUsers()
     {
         DBServices dbs = new DBServices();

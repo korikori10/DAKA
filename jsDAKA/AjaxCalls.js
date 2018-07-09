@@ -1222,7 +1222,7 @@ function updateInsurance(EmployeeInfo, current_row) {
 function getUserByUserName(username, renderUser) {
     var dataString = '{"username":' + JSON.stringify(username) + '}';
     $.ajax({
-        url: WSUrl + '/getUserByUserName',
+        url: WSUrl + '/getUserByUserNameRender',
         data: dataString,
         type: 'POST',
         dataType: "json",
@@ -1231,7 +1231,7 @@ function getUserByUserName(username, renderUser) {
             renderUser(results);
         },
         error: function (request, error) {
-            window.location = "error404.html";
+          //  window.location = "error404.html";
         }
     });
 }
@@ -1493,7 +1493,7 @@ function getUserTypes(renderUserTypes) {
             renderUserTypes(results);
         },
         error: function (request, error) {
-            window.location = "error404.html";
+           // window.location = "error404.html";
         }
     });
 }

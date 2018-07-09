@@ -6,7 +6,15 @@ $(document).ready(function () {
 
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
+    var singleUser = sessionStorage.getItem("singleUser")
+    if (singleUser == "true") {
+        var username = sessionStorage.getItem("userName");
+        getUserByUserName(username, renderUser);
+    }
+    else {
+
     getUsers(renderUsers);
+    }
 
 
 });
@@ -82,10 +90,14 @@ $.fn.serializeObject = function () {
 };
 function renderUser(results) {
     results = $.parseJSON(results.d);
-    frm = $("#userUpdate");
+    $("#user1").find('form').attr('id', 'updateuser1')
+    frm = $('#updateuser1');
     data = results;
-    resultsSave = results;
+    UserSave = data;
     populate(frm, data);
+    $("#user1").find('h4').html(results.Full_name);
+    $("#user1").find('h6').html($("[name='U_type_code']:last option:selected").text());
+    $("#user1").find('img').attr('src', results.User_img);
 }
 
 

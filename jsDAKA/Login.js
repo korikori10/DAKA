@@ -39,8 +39,16 @@ function ValidateUser(results) {
             localStorage.setItem("userName", username)
             localStorage.setItem("userPass", userPass)
         }
-        sessionStorage.setItem("userName", username)
-        window.location = "DashBoardPage.html"
+        getUserByUserName(username, renderUser);
+        function renderUser(results) {
+            results = $.parseJSON(results.d);
+        sessionStorage.setItem("u_img", results.User_img);
+            sessionStorage.setItem("FullName", results.Full_name);
+            sessionStorage.setItem("userName", username)
+            window.location = "DashBoardPage.html"
+    }
+
+        
     }
     else {
         $("#wrongPH").html('*שם משתמש או סיסמה שגויים').css('color','red')
