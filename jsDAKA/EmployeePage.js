@@ -9,7 +9,9 @@ $(document).ready(function () {
     getCities(renderCities);
     getCountries(renderCountries);
     //getBusinesses(renderBusinesses, renderBusinessesSearch);  
-    getBusinessesE(renderBusinesses)
+    getBusinessesE(renderBusinesses);
+    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
+    $("#full_name").html(sessionStorage.getItem("FullName"))
 });
 
 

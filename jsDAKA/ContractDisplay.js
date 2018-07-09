@@ -2,6 +2,8 @@
 var contAmount = new Object();
 
 $(document).ready(function () {
+    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
+    $("#full_name").html(sessionStorage.getItem("FullName"))
     var results = JSON.parse(sessionStorage.getItem('contract'));
     $("#signtaure").jSignature();
     //$("#signtaure").jSignature("reset");

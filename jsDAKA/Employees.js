@@ -3,6 +3,8 @@
 
 window.onload = function () {
     getEmployeess();
+    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
+    $("#full_name").html(sessionStorage.getItem("FullName"))
 }
 
 // Button Clicks In Tables

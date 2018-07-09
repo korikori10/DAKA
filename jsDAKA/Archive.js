@@ -3,6 +3,8 @@ var EmployeeInfo = new Object();
 
 $(document).ready(function () {
     getArchive();
+    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
+    $("#full_name").html(sessionStorage.getItem("FullName"))
 });
 
 
