@@ -2084,7 +2084,7 @@ public class DBServices
         String cStr = BuildInsertCommandEmpBus(emp);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
-
+        cmd.Parameters.AddWithValue("@Emp_id", emp.Employee_pass_id);
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
@@ -2122,7 +2122,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', {1} ,'{2}')", emp.Employee_pass_id, emp.Business, DateTime.Now.ToString("yyyy-MM-dd"));
+        sb.AppendFormat("Values({0}, {1} ,'{2}')", "@Emp_id", emp.Business, DateTime.Now.ToString("yyyy-MM-dd"));
         String prefix = "INSERT INTO [employee in business] " + "(employee_pass_id, bus_id, start_date)";
         command = prefix + sb.ToString();
 
