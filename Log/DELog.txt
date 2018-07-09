@@ -31,3 +31,16 @@ Log Entry : 3:19:47 PM Monday, July 9, 2018
  Text :System.IndexOutOfRangeException - employee_pass_i
 UserName: Tom
 -------------------------------
+
+Log Entry : 16:00:26 יום שני 09 יולי 2018
+ Error :   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at AJAXWebService.ReadDocsBusi(String DocsInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 724
+ Text :System.InvalidOperationException - Cannot convert null to a value type.
+UserName: Kori
+-------------------------------

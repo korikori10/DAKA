@@ -121,44 +121,62 @@
     <!-- / main menu-->
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
+            <div class="content-header row">
+                <div class="content-header-left col-md-6 col-xs-12">
+
+                </div>
+                <div class="content-header-right breadcrumbs-right col-md-6 col-xs-12">
+                    <div class="breadcrumb-wrapper col-xs-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="DashBoardPage.html">דף הבית</a>
+                            </li>
+                          
+                            <li class="breadcrumb-item active">
+                                עסקים
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
             <div class="content-body">
                 <section id="ajax">
-                        <div class="col-xs-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">טבלת בתי עסק</h4>
-                                    <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                            <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                            <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                        </ul>
-                                    </div>
+                    <div class="col-xs-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">טבלת בתי עסק</h4>
+                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                    </ul>
                                 </div>
-                                <div class="card-body collapse in">
-                                    <div class="card-block card-dashboard">
-                                        <div style="position: relative; overflow: auto; width: 100%;">
+                            </div>
+                            <div class="card-body collapse in">
+                                <div class="card-block card-dashboard">
+                                    <div style="position: relative; overflow: auto; width: 100%;">
 
-                                            <table class="table table-striped table-bordered ajax-sourced dataTable" id="BusinessTable" role="grid" aria-describedby="DataTables_Table_1_info" style="width: 930px;">
-                                                <thead>
-                                                    <tr role="row">
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">מספר בית עסק</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 182px;" aria-label="Position: activate to sort column ascending">שם בית עסק</th>
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">חטיבה</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">טלפון</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">פעולות</th>
-                                                    </tr>
-                                                </thead>
+                                        <table class="table table-striped table-bordered ajax-sourced dataTable" id="BusinessTable" role="grid" aria-describedby="DataTables_Table_1_info" style="width: 930px;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">מספר בית עסק</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 182px;" aria-label="Position: activate to sort column ascending">שם בית עסק</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Name: activate to sort column descending" aria-sort="ascending">חטיבה</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">טלפון</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">פעולות</th>
+                                                </tr>
+                                            </thead>
 
 
-                                            </table>
-                                        </div>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </section>
             </div>
         </div>

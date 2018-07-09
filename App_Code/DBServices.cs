@@ -2800,7 +2800,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        String prefix = "UPDATE EMPLOYEE SET com_app='0',final_bill='1' Where employee_pass_id = '" + emp + "'";// UPDATE [employee in business] set end_date =null ,bus_id='0' WHERE employee_pass_id = '" + emp + "'";
+        String prefix = "UPDATE EMPLOYEE SET com_app='0',final_bill='1',active='0' Where employee_pass_id = '" + emp + "'";
         command = prefix;// prefix;
 
         return command;

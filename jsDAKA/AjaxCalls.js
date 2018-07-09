@@ -73,7 +73,7 @@ function getEmployeess() {
                     }
                 ],
               
-                data: data,
+                data: data, 
                 columns: [
                     { 'data': 'Employee_pass_id' },
                     { 'data': 'Fname' },
@@ -89,7 +89,7 @@ function getEmployeess() {
 
                     {
                         'data': "",
-                        'defaultContent': '<button name="dlt" class="btn btn-danger delete" data-toggle="tooltip" data- original - title="העבר לארכיון""><i class="icon-ios-trash"></i></button><button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': /*<button name="dlt" id="dlt" class="btn btn-danger delete" data-toggle="tooltip" data-original title="העבר לארכיון" call-to-action-btn><i class="icon-ios-trash"></i></button>*/'<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip"  title="צפה בעובד" call-to-action-btn><i class="icon-eye3"></i></button>',
 
                     }]
             });
@@ -144,7 +144,7 @@ function MakeEmpNotActive(EmployeeInfo, current_row) {
         success: function () {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
-                NotActiveEmpDatatableVariable.row(current_row).remove().draw();
+               // NotActiveEmpDatatableVariable.row(current_row).remove().draw();
             }, 1500);
             //$("#insurance").modal('hide');
 
