@@ -1,4 +1,4 @@
-/*=========================================================================================
+﻿/*=========================================================================================
     File Name: wizard-steps.js
     Description: wizard steps page specific js
     ----------------------------------------------------------------------------------------
@@ -58,6 +58,7 @@ $(".vertical-tab-steps").steps({
         return form.valid();
     },
     onFinishing: function (event, currentIndex) {
+        $('input[type="tel"]').rules('add', { maxlength: 9 });
         form.validate().settings.ignore = ":disabled";
         return form.valid();
     },
@@ -165,6 +166,26 @@ form1.validate({
             email: true
         }
     }
+});
+
+$.extend($.validator.messages, {
+    required: "השדה הזה הינו שדה חובה",
+    remote: "נא לתקן שדה זה",
+    email: "נא למלא כתובת דוא\"ל חוקית",
+    url: "נא למלא כתובת אינטרנט חוקית",
+    date: "נא למלא תאריך חוקי",
+    dateISO: "נא למלא תאריך חוקי (ISO)",
+    number: "נא למלא מספר",
+    digits: "נא למלא רק מספרים",
+    creditcard: "נא למלא מספר כרטיס אשראי חוקי",
+    equalTo: "נא למלא את אותו ערך שוב",
+    extension: "נא למלא ערך עם סיומת חוקית",
+    maxlength: $.validator.format(".נא לא למלא יותר מ- {0} תווים"),
+    minlength: $.validator.format("נא למלא לפחות {0} תווים"),
+    rangelength: $.validator.format("נא למלא ערך בין {0} ל- {1} תווים"),
+    range: $.validator.format("נא למלא ערך בין {0} ל- {1}"),
+    max: $.validator.format("נא למלא ערך קטן או שווה ל- {0}"),
+    min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
 });
 
 
