@@ -112,17 +112,35 @@
     <!-- / main menu-->
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
-            <div class="content-body" >
+            <div class="content-header row">
+                <div class="content-header-left col-md-6 col-xs-12">
+
+                </div>
+                <div class="content-header-right breadcrumbs-right col-md-6 col-xs-12">
+                    <div class="breadcrumb-wrapper col-xs-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="DashBoardPage.html">דף הבית</a>
+                            </li>
+
+                            <li class="breadcrumb-item active">
+                                עמוד משתמשים
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body">
                 <!--horizonal nav-->
                 <!--<div class="col-md-12">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
-                            <li class="nav-item"><a class="nav-link" href="#busDetails" data-toggle="tab" dir="rtl">פרטי העסק</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#" data-toggle="tab" dir="rtl">מסמכים</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contactsTab" data-toggle="tab" dir="rtl">אנשי קשר</a></li>
-                        </ul>
-                    </div>
-                </div>-->
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
+                    <li class="nav-item"><a class="nav-link" href="#busDetails" data-toggle="tab" dir="rtl">פרטי העסק</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="tab" dir="rtl">מסמכים</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contactsTab" data-toggle="tab" dir="rtl">אנשי קשר</a></li>
+                </ul>
+            </div>
+        </div>-->
                 <!--break-->
                 <div class="row">
                     <div class="col-xs-6 col-md-3">
@@ -132,48 +150,48 @@
                 <!--personal deatails-->
                 <div class="col-md-12">
                     <!---modal--->
-                        <div class="modal fade text-xs-left" id="AddUser1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h3 class="modal-title" id="myModalLabel35"> הוספת משתמש חדש</h3>
-                                    </div>
-                                    <form>
-
-                                        <div class="modal-body">
-                                            <div class="text-xs-center">
-                                                <div class="card-block">
-                                                    <input type="image" src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
-                                                    <br /> <input type="file" name="user_img" />
-                                                </div>
-                                                <div class="card-block">
-                                                    <h4 class="card-title"></h4>
-                                                    <h6 class="card-subtitle text-muted"></h6>
-                                                </div>
-
-                                            </div>
-                                            <div class="list-group list-group-flush">
-                                                <!--<div class="list-group-item">--><!--<i class="icon-briefcase4"></i> מספר משתמש-->
-                                                <!--<input type="text" name="Uid" hidden=hidden />-->
-                                                <!--</div>-->
-                                                <div class="list-group-item"><i class="icon-mail6"></i>שם פרטי ומשפחה   <input class="form-control" type="text" name="Full_name" /></div>
-                                                <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
-                                                <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
-                                                <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control" id="modal_u_type" name="U_type_code"></select></div>
-                                                <div class="list-group-item"> <i class="icon-clipboard2"></i> סיסמא   <input class="form-control" type="password" name="U_pwd" /></div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <input name="UserSave" type="button" class="btn btn-outline-primary btn-lg" value="שמור" id="SearchEmployee" />
-                                            <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
-                                        </div>
-                                    </form>
+                    <div class="modal fade text-xs-left" id="AddUser1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h3 class="modal-title" id="myModalLabel35"> הוספת משתמש חדש</h3>
                                 </div>
+                                <form>
+
+                                    <div class="modal-body">
+                                        <div class="text-xs-center">
+                                            <div class="card-block">
+                                                <input type="image" src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
+                                                <br /> <input type="file" name="user_img" />
+                                            </div>
+                                            <div class="card-block">
+                                                <h4 class="card-title"></h4>
+                                                <h6 class="card-subtitle text-muted"></h6>
+                                            </div>
+
+                                        </div>
+                                        <div class="list-group list-group-flush">
+                                            <!--<div class="list-group-item">--><!--<i class="icon-briefcase4"></i> מספר משתמש-->
+                                            <!--<input type="text" name="Uid" hidden=hidden />-->
+                                            <!--</div>-->
+                                            <div class="list-group-item"><i class="icon-mail6"></i>שם פרטי ומשפחה   <input class="form-control" type="text" name="Full_name" /></div>
+                                            <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
+                                            <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
+                                            <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control" id="modal_u_type" name="U_type_code"></select></div>
+                                            <div class="list-group-item"> <i class="icon-clipboard2"></i> סיסמא   <input class="form-control" type="password" name="U_pwd" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input name="UserSave" type="button" class="btn btn-outline-primary btn-lg" value="שמור" id="SearchEmployee" />
+                                        <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                    </div>
                     <!---modal--->
                     <div class="row">
 
@@ -199,7 +217,7 @@
                                             </div>
                                         </div>
                                         <div class="list-group list-group-flush">
-                                            <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input class="form-control" type="text" name="Uid" disabled=disabled /></div>
+                                            <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input class="form-control" type="text" name="Uid" disabled=disabled disabled=disabled /></div>
                                             <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
                                             <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
                                             <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control" name="U_type_code"></select></div>
@@ -210,8 +228,8 @@
                             <div class="row" id="addUser">
                             </div>
                             <!--<button onclick="adduser()" type="button" class="btn btn-outline-primary" id="AddUser">
-                <i class="icon-plus"></i> Add User
-            </button>-->
+                        <i class="icon-plus"></i> Add User
+                    </button>-->
                             <button data-toggle="modal" data-target="#AddUser1" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-success btn-min-width btn-square icon-android-person-add">הוספת משתמש</button>
                             <!--</a>-->
                             <div class="modal fade text-xs-left" id="resetPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
@@ -246,10 +264,10 @@
                         </div>
                     </div>
                 </div>
-                        
 
-                    </div>
-                </div>
+
+            </div>
+        </div>
             </div>
         <!--</div>-->
 

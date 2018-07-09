@@ -113,6 +113,26 @@
     <!-- / main menu-->
     <div class="app-content content container-fluid">
         <div class="content-wrapper">
+            <div class="content-header row">
+                <div class="content-header-left col-md-6 col-xs-12">
+
+                </div>
+                <div class="content-header-right breadcrumbs-right col-md-6 col-xs-12">
+                    <div class="breadcrumb-wrapper col-xs-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="DashBoardPage.html">דף הבית</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="Businesses.html">עמוד עסקים</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                בית עסק
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
             <div class="content-body">
                 <!--horizonal nav-->
                 <div class="col-md-12">
@@ -162,14 +182,14 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="bus_name">שם העסק : <span class="danger">*</span></label>
-                                                                    <input type="text" class="form-control" id="bus_name" name="Bus_name" required />
+                                                                    <input type="text" class="form-control" id="bus_name" name="Bus_name" required=required />
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="bus_id">:מספר עסק</label>
-                                                                    <input type="text" class="form-control" id="bus_id" name="Bus_id" disabled required/>
+                                                                    <input type="text" class="form-control" id="bus_id" name="Bus_id" disabled=disabled required=required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -177,13 +197,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="phoneNumber4"> טלפון  Phone Number :</label>
-                                                                    <input type="tel" class="form-control" id="phoneNumber4" name="Phone" required/>
+                                                                    <input type="tel" class="form-control" id="phoneNumber4" name="Phone" required=required />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="departmentSE">סוג עסק</label>
-                                                                    <select name="Bus_type_code" class="selectize-select" id="typeSE" required></select>
+                                                                    <select name="Bus_type_code" class="selectize-select" id="typeSE" required=required></select>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -191,13 +211,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="tbadd4">כתובת פרטית</label>
-                                                                    <input type="text" class="form-control" id="textadd4" name="Add" required/>
+                                                                    <input type="text" class="form-control" id="textadd4" name="Add" required=required />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="tbcity4">עיר/ישוב</label>
-                                                                    <select name="Add_city" class="selectize-select" id="DynamicCitiesList" required></select>
+                                                                    <select name="Add_city" class="selectize-select" id="DynamicCitiesList" required=required></select>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -205,7 +225,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="tbnum4">מספר בית</label>
-                                                                    <input type="number" class="form-control" id="textaddnum4" name="Add_num" required/>
+                                                                    <input type="number" class="form-control" id="textaddnum4" name="Add_num" required=required />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -256,15 +276,15 @@
 
                                                     <div class="modal-body">
 
-                                                            <fieldset class="form-group floating-label-form-group">
-                                                                <span class="btn btn-success fileinput-button mr-1">
-                                                                    <input type="file" id="contract" name="Picture" accept="image/*;capture=camera"  />
-                                                                </span>
-                                                                <div id="progressBar" style="position:relative; display:none">
-                                                                    <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
-                                                                    <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
-                                                                </div>
-                                                            </fieldset>
+                                                        <fieldset class="form-group floating-label-form-group">
+                                                            <span class="btn btn-success fileinput-button mr-1">
+                                                                <input type="file" id="contract" name="Picture" accept="image/*;capture=camera" />
+                                                            </span>
+                                                            <div id="progressBar" style="position:relative; display:none">
+                                                                <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
+                                                                <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                                            </div>
+                                                        </fieldset>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <input name="InsertContract" id="InsertContract" type="button" class="btn btn-outline-primary btn-lg" value="אישור" />
@@ -363,13 +383,13 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="contact_name">שם מלא:</label>
-                                                                    <input type="text" class="form-control" id="contact_name" name="Contact_name" required/>
+                                                                    <input type="text" class="form-control" id="contact_name" name="Contact_name" required=required />
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="bus_id">:מספר איש קשר</label>
-                                                                    <input type="text" class="form-control" id="contact_id" name="Contact_id" disabled required/>
+                                                                    <input type="text" class="form-control" id="contact_id" name="Contact_id" disabled=disabled required=required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -377,7 +397,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="role_id">תפקיד</label>
-                                                                    <select class="selectize-select" id="role_id" name="Role_id" required></select>
+                                                                    <select class="selectize-select" id="role_id" name="Role_id" required=required></select>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -385,7 +405,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="phoneNumber4"> טלפון  Phone Number :</label>
-                                                                    <input type="tel" class="form-control" id="phoneNumber4" name="Phone" required/>
+                                                                    <input type="tel" class="form-control" id="phoneNumber4" name="Phone" required=required />
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
