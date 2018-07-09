@@ -6,6 +6,10 @@ if (!local) {
     WSUrl = 'https://proj.ruppin.ac.il/bgroup59/test2/tar2/ajaxWebService.asmx';
     UHUrl = 'https://proj.ruppin.ac.il/bgroup59/test2/tar2/UploadHandler.ashx'
 }
+$(document).ready(function () {
+    $("#user_img").attr('src', sessionStorage.getItem("u_img"));
+    $("#full_name").html(sessionStorage.getItem("FullName"));
+});
 
 //Get All Employees
 function getEmployees(renderEmployees) {

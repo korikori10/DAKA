@@ -17,8 +17,7 @@ $(document).ready(function () {
     getDepartments(renderDepartments);
     getRoles(renderRoles);
     getTypes(renderTypes);
-    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
-    $("#full_name").html(sessionStorage.getItem("FullName"))
+
 
     $("#AddContact").on('click', function () { createContactForm() });
   

@@ -3,8 +3,7 @@ var roles = new Object();
 var UserInfo = new Object();
 var username="";
 $(document).ready(function () {
-    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
-    $("#full_name").html(sessionStorage.getItem("FullName"))
+
     //  getUserByUserName(username, renderUser);
     getUserTypes(renderUserTypes)
     var singleUser = sessionStorage.getItem("singleUser")

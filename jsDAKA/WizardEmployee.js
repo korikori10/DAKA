@@ -9,8 +9,6 @@ EmpID = new Object();
 EmpAuth = new Object();
 
 $(document).ready(function () {
-    $("#user_img").attr('src', sessionStorage.getItem("u_img"))
-    $("#full_name").html(sessionStorage.getItem("FullName"))
     getCities(renderCities);
     getCountries(renderCountries);
     getBusinessesW(renderBusinesses);
