@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     //Picture or file upload
     $("#contract").on("change", function () {
-         pbLBL = $("#pbLBL")
+        pbLBL = $("#pbLBL")
         pbDiv = $("#progressBar")
          pbLBL.text('Uploading...');
       pbDiv.fadeIn(500)
@@ -32,15 +32,11 @@ function setDocFile(results) {
     docpic = results;
 }
 $('#InsertContract').click(function () {
-//    $('#visaRenew').validate();
 
-   // if ($('#visaRenew').valid()) {
     DocsInfo.Bus_id = sessionStorage.getItem("busiInfo");
     DocsInfo.Contract_pic = docpic;
     DocsInfo.Contype_id = '1';
-       // $('#Update_Expiration').modal('toggle');
     InsertheContract({ DocsInfo: JSON.stringify(DocsInfo) });
-  //  }
 });
 function renderDocs(results) {
 

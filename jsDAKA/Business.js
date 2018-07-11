@@ -167,7 +167,7 @@ function createContactForm() {
 
     // Finally insert $klon wherever you want
     //$(contact).appendTo('#contactsTab');
-    $(contact).insertBefore('#addContact');
+    $(contact).insertAfter('#addContact');
     rolesSelect();
     return id;
 }
