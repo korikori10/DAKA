@@ -749,11 +749,11 @@ $.ajax({
               data: data,
               "bLengthChange": false,
              responsive: true,
-             autoWidth: false,
              "scrollY": "200px",
              "scrollCollapse": true,
-             "paging": true,
-             "scrollX": false,
+            "paging": false,
+            
+
       
                 columns: [
                  {
@@ -770,9 +770,10 @@ $.ajax({
                     }
                 },
                 { 'data': 'Bus_name' },
-                {
+                    {
+                    'className': 'fix-overflow',
                     'data': "",
-                    'defaultContent': '<button  name="edit" type="button" class="btn btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד ועדכון מספר מכפל"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-icon btn-success call-to-action-btn" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
+                    'defaultContent': '<button  name="edit" type="button" class="btn btn-sm btn-info view call-to-action-btn" data-toggle="tooltip" data- original - title="צפה בעובד ועדכון מספר מכפל"><i class="icon-eye3"></i></button><button  name="insurance" data-toggle="modal" data-target="#insurance" class="btn btn-sm btn-icon btn-success call-to-action-btn" data- original - title="חברת הביטוח""><i class="icon-paper"></i></button>',
                     'responsivePriority': 5000
                 }
                 ]
@@ -850,6 +851,7 @@ function ReadEmployeesNotActive() {
                         }
                     },
                     {
+                        "className": 'fix-overflow cube',
                         'data': "",
                         'defaultContent': '<button name="gmahB"  data-toggle="modal" data-target="#gmah" class="btn btn-icon btn-success call-to-action-btn"  title="רישום לצורך גמר חשבון""><i data-toggle="tooltip" class="icon-file-subtract "></i></button><button name="Diur" data-toggle="modal" data-target="#Diur" class="btn btn-danger delete call-to-action-btn" data-toggle="tooltip" data- original - title="הוצאה מדיור""><i class="icon-arrow61"></i></button><button name="Cancelinsurance" data-toggle="modal" data-target="#Cancelinsurance" class="btn btn-icon btn-warning call-to-action-btn" data-toggle="tooltip" data- original - title="הפסקת ביטוח""><i class="icon-paper"></i></button><button name="edit" type="button" class="btn btn-info view call-to-action-btn" title="צפה בעובד"><i class="icon-eye3"></i></button>',
                         'responsivePriority': 5000

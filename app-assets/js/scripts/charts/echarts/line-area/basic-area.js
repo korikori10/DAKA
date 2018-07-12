@@ -28,7 +28,7 @@ var detailsmonthEmployee;
 
 $(window).on("load", function () {
     StatisticsEmpByYear(RenderempByYear);
-    StatisticsEmpByMonth(RenderempByMonth);
+    //StatisticsEmpByMonth(RenderempByMonth);
     StatisticsBusiByYear(RenderBusiByYear);
 
     // Set paths
@@ -68,10 +68,11 @@ $(window).on("load", function () {
 
                 // Setup grid
                 grid: {
-                    x: 40,
-                    x2: 20,
-                    y: 35,
-                    y2: 25
+                    x: 50,
+                    x2: 30,
+                    y: 55,
+                    y2: 55,
+                    width: 1024
                 },
 
                 // Add tooltip
@@ -101,7 +102,9 @@ $(window).on("load", function () {
                 yAxis: [{
                     name: 'New Employee',
                     position: 'Left',
-                    type: 'value'
+                    type: 'value',
+                    scale: true,
+                    boundaryGap: [0.8, 0.8]
                 },
                 {
                     name: 'growth (%)',
@@ -112,7 +115,10 @@ $(window).on("load", function () {
                         formatter: "{value} %"
                     },
                     max: 100,
-                    inverse: true
+                    scale: true,
+                    boundaryGap: [0.8, 0.8]
+                    
+                   
                 }],
 
                 // Add series
@@ -251,13 +257,13 @@ function RenderempByYear(results) {
     growthEmployee = resultData[2];
 
 }
-function RenderempByMonth(results) {
-    var resultData = $.parseJSON(results.d);
-    monthsinYearEmployee = resultData[0];
-    detailsmonthEmployee = resultData[1];
-    month = resultData[2];
+//function RenderempByMonth(results) {
+//    var resultData = $.parseJSON(results.d);
+//    monthsinYearEmployee = resultData[0];
+//    detailsmonthEmployee = resultData[1];
+//    month = resultData[2];
 
-}
+//}
 
 function RenderBusiByYear(results) {
     var resultData = $.parseJSON(results.d);

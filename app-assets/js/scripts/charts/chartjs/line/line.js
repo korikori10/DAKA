@@ -121,42 +121,42 @@ $(window).on("load", function(){
 
 });
 
-function Renderemp(results)
-{
-    var resultData = $.parseJSON(results.d);
-    Month = resultData[0];
-    len = Month.length;
-    for (var i = 0; i < len; i++) {
-        switch (Month[i]) {
-            case "1":
-                Month[i] = "January";
-                continue;
-            case "2": Month[i] = "February";
-                continue;
-            case "3": Month[i] = "March";
-                continue;
-            case "4": Month[i] = "April";
-                continue;
-            case "5": Month[i] = "May";
-                continue;
-            case "6": Month[i] = "June";
-                continue;
-            case "7": Month[i] = "July";
-                continue;
-            case "8": Month[i] = "August";
-                continue;
-            case "9": Month[i] = "September";
-                continue;
-            case "10": Month[i] = "October";
-                continue;
-            case "11": Month[i] = "November";
-                continue;
-            case "12": Month[i] = "December";
-                continue;
-            default:
+    function Renderemp(results) {
+        var resultData = $.parseJSON(results.d);
+        Month = resultData[0];
+        len = Month.length;
+        for (var i = 0; i < len; i++) {
+            switch (Month[i]) {
+                case "1":
+                    Month[i] = "January";
+                    continue;
+                case "2": Month[i] = "February";
+                    continue;
+                case "3": Month[i] = "March";
+                    continue;
+                case "4": Month[i] = "April";
+                    continue;
+                case "5": Month[i] = "May";
+                    continue;
+                case "6": Month[i] = "June";
+                    continue;
+                case "7": Month[i] = "July";
+                    continue;
+                case "8": Month[i] = "August";
+                    continue;
+                case "9": Month[i] = "September";
+                    continue;
+                case "10": Month[i] = "October";
+                    continue;
+                case "11": Month[i] = "November";
+                    continue;
+                case "12": Month[i] = "December";
+                    continue;
+                default:
+            }
         }
+        EmployeeCountMonth = resultData[1];
+        Moving_AVG = resultData[2];
+
     }
-    EmployeeCountMonth = resultData[1];
-    Moving_AVG = resultData[2];
- 
-}
+
