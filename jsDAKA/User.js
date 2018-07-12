@@ -97,7 +97,10 @@ function renderUser(results) {
     populate(frm, data);
     $("#user1").find('h4').html(results.Full_name);
     $("#user1").find('h6').html($("[name='U_type_code']:last option:selected").text());
+    if (results.User_img != null) {
     $("#user1").find('img').attr('src', results.User_img);
+
+    }
 }
 
 
@@ -162,7 +165,9 @@ function renderUsers(results) {
             populate(frm, data);
             $("#user1").find('h4').html(row.Full_name);
             $("#user1").find('h6').html($("[name='U_type_code']:last option:selected").text());
-            $("#user1").find('img').attr('src', row.User_img);
+            if (row.User_img != null) {
+                $("#user1").find('img').attr('src', row.User_img);
+            }
         }
         else {
             id = createUserForm();
@@ -172,7 +177,9 @@ function renderUsers(results) {
             populate(frm, data);
             $("#" + id).find('h4').html(row.Full_name);
             $("#" + id).find('h6').html($("[name='U_type_code']:last option:selected").text());
-            $("#" + id).find('img').attr('src', row.User_img);
+            if (row.User_img != null) {
+                $("#" + id).find('img').attr('src', row.User_img);
+            }
         }
 
 
