@@ -986,7 +986,7 @@ function InsertBusinessContact(BusiInfo) {
         success: function (results) {
             alert(results);
             setTimeout(function () {
-                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                swal("בוצע!", "איש קשר נוסף בהצלחה", "success");
             }, 1000);
         },
         error: function (xhr, status, error) {
@@ -1175,7 +1175,7 @@ function UpdateContact(contactInfo) {
         success: function (results) {
 
             setTimeout(function () {
-                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+                swal("בוצע!", "פרטי איש קשר עודכנו בהצלחה", "success");
             }, 1000);
 
         },
@@ -1580,9 +1580,9 @@ function sendEmailCancelInsurance(EmployeeInfo) {
 }
 
 //Upload Files
-function uploadFiles(formData, setEmpFile) {
-    pbLBL = $("#pbLBL")
-    pbDiv = $("#progressBar")
+function uploadFiles(formData, pbLBL, pbDiv, setEmpFile) {
+    //pbLBL = $("#pbLBL")
+    //pbDiv = $("#progressBar")
     $.ajax({
         url: 'UploadHandler.ashx',
         method: "POST",
@@ -1608,32 +1608,32 @@ function uploadFiles(formData, setEmpFile) {
 }
 
 //Upload contracts
-function uploadFiles(formData, setDocFile) {
-    pbLBL = $("#pbLBL")
-    pbDiv = $("#progressBar")
-    $.ajax({
-        url: 'UploadHandler.ashx',
-        method: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function (results) {
-            setDocFile(results);
-          pbLBL.text('Complete');
-          pbDiv.fadeOut(2000);
-        },
-        error: function (xhr, status, error) {
-            setTimeout(function () {
-                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-            }, 1000);
-            var err = eval("(" + xhr.responseText + ")");
-            //alert(err.Message);
-        }
+//function uploadFiles(formData, setDocFile) {
+//    pbLBL = $("#pbLBL")
+//    pbDiv = $("#progressBar")
+//    $.ajax({
+//        url: 'UploadHandler.ashx',
+//        method: "POST",
+//        data: formData,
+//        contentType: false,
+//        processData: false,
+//        dataType: 'json',
+//        success: function (results) {
+//            setDocFile(results);
+//          pbLBL.text('Complete');
+//          pbDiv.fadeOut(2000);
+//        },
+//        error: function (xhr, status, error) {
+//            setTimeout(function () {
+//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+//            }, 1000);
+//            var err = eval("(" + xhr.responseText + ")");
+//            //alert(err.Message);
+//        }
 
-    });
+//    });
 
-}
+//}
 
 //select only the employees that today are not assigned to business from DB throw AJAX and WB
 function getEmployeesnobusinesss(renderEmployeesnobusiness) {
@@ -1851,87 +1851,87 @@ function updatePass(newpass, username) {
 }
 
 //Upload files from wizard
-function uploadFiles(formData, setEmpVisa) {
-    pbLBL = $("#pVlBl")
-    pbDiv = $("#progressBar4")
-    $.ajax({
-        url: UHUrl,
-        method: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function (results) {
-            setEmpVisa(results);
-            pbLBL.text('Complete');
-            pbDiv.fadeOut(2000);
-        },
-        error: function (xhr, status, error) {
-            setTimeout(function () {
-                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-            }, 1000);
-            var err = eval("(" + xhr.responseText + ")");
-            //alert(err.Message);
-        }
+//function uploadFiles(formData, setEmpVisa) {
+//    pbLBL = $("#pVlBl")
+//    pbDiv = $("#progressBar4")
+//    $.ajax({
+//        url: UHUrl,
+//        method: "POST",
+//        data: formData,
+//        contentType: false,
+//        processData: false,
+//        dataType: 'json',
+//        success: function (results) {
+//            setEmpVisa(results);
+//            pbLBL.text('Complete');
+//            pbDiv.fadeOut(2000);
+//        },
+//        error: function (xhr, status, error) {
+//            setTimeout(function () {
+//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+//            }, 1000);
+//            var err = eval("(" + xhr.responseText + ")");
+//            //alert(err.Message);
+//        }
 
-    });
+//    });
 
-}
-//Upload files from wizard
-function uploadFiles(formData, setEmpID) {
-    pbLBL = $("#pbLBL")
-    pbDiv = $("#progressBar1")
-    $.ajax({
-        url: UHUrl,
-        method: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function (results) {
-            setEmpID(results);
-            pbLBL.text('Complete');
-            pbDiv.fadeOut(2000);
-        },
-        error: function (xhr, status, error) {
-            setTimeout(function () {
-                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-            }, 1000);
-            var err = eval("(" + xhr.responseText + ")");
-            //alert(err.Message);
-        }
+//}
+////Upload files from wizard
+//function uploadFiles(formData, setEmpID) {
+//    pbLBL = $("#pbLBL")
+//    pbDiv = $("#progressBar1")
+//    $.ajax({
+//        url: UHUrl,
+//        method: "POST",
+//        data: formData,
+//        contentType: false,
+//        processData: false,
+//        dataType: 'json',
+//        success: function (results) {
+//            setEmpID(results);
+//            pbLBL.text('Complete');
+//            pbDiv.fadeOut(2000);
+//        },
+//        error: function (xhr, status, error) {
+//            setTimeout(function () {
+//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+//            }, 1000);
+//            var err = eval("(" + xhr.responseText + ")");
+//            //alert(err.Message);
+//        }
 
-    });
+//    });
 
-}
+//}
 
-//Upload files from wizard
-function uploadFiles(formData, setEmpAuth) {
-    pbLBL = $("#pLB2")
-    pbDiv = $("#progressBar2")
-    $.ajax({
-        url: UHUrl,
-        method: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function (results) {
-            setEmpAuth(results);
-            pbLBL.text('Complete');
-            pbDiv.fadeOut(2000);
-        },
-        error: function (xhr, status, error) {
-            setTimeout(function () {
-                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-            }, 1000);
-            var err = eval("(" + xhr.responseText + ")");
-            //alert(err.Message);
-        }
+////Upload files from wizard
+//function uploadFiles(formData, setEmpAuth) {
+//    pbLBL = $("#pLB2")
+//    pbDiv = $("#progressBar2")
+//    $.ajax({
+//        url: UHUrl,
+//        method: "POST",
+//        data: formData,
+//        contentType: false,
+//        processData: false,
+//        dataType: 'json',
+//        success: function (results) {
+//            setEmpAuth(results);
+//            pbLBL.text('Complete');
+//            pbDiv.fadeOut(2000);
+//        },
+//        error: function (xhr, status, error) {
+//            setTimeout(function () {
+//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+//            }, 1000);
+//            var err = eval("(" + xhr.responseText + ")");
+//            //alert(err.Message);
+//        }
 
-    });
+//    });
 
-}
+//}
 
 //Insert docs
 function InsertConts(FileInfo, i, finished) {

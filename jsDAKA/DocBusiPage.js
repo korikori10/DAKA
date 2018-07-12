@@ -21,7 +21,7 @@ $(document).ready(function () {
             for (var i = 0; i < files.length; i++) {
                 formData.append(files[i].name, files[i])
             }
-            uploadFiles(formData, setDocFile);
+            uploadFiles(formData, pbLBL, pbDiv, setDocFile);
 
         }
     });

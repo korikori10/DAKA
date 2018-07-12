@@ -58,7 +58,7 @@ $(document).ready(function () {
                 formData.append(files[i].name, files[i])
             }
 
-            uploadFiles(formData, setEmpPic);
+            uploadFiles(formData,  pbLBL, pbDiv, setEmpPic);
         }
     })
     $("#PicID").on("change", function () {
