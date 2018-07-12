@@ -1503,7 +1503,7 @@ public class AJAXWebService : System.Web.Services.WebService
             string outEmail = "kori.hash@gmail.com"; 
             string reEmail = "tolas22@gmail.com";
             string Subject = "ביטוח לעובד מספר  " + e.Sys_id;
-            string message = "היי,\nמבקשת לבצע ביטוח לעובד מספר מכפל " + e.Sys_id + "\nנתין: " + country + "\nמספר דרכון: " + e.Employee_pass_id + "\n שם מלא: " + e.Fname + " " + e.Lname + "\n מתאריך: " + DateTime.Now.ToString("yyyy-MM-dd");
+            string message = "היי,<br/>מבקשת לבצע ביטוח לעובד מספר מכפל " + e.Sys_id + "<br/>נתין: " + country + "<br/>מספר דרכון: " + e.Employee_pass_id + "<br/> שם מלא: " + e.Fname + " " + e.Lname + "<br/> מתאריך: " + DateTime.Now.ToString("yyyy-MM-dd");
             mail.To.Add(outEmail);
             mail.From = new MailAddress(reEmail);
             mail.Subject = Subject;
