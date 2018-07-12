@@ -376,6 +376,80 @@ public class DBServices
 
         }
     }
+
+    /// <summary>
+    /// reads employees without business from sql
+    /// </summary>
+    /// <returns>list of employees</returns>
+    public List<Employee> readEmployeesNoBusiness()
+    {
+
+        SqlConnection con = null;
+
+        try
+        {
+
+            con = connect("DAKADBConnectionString"); // create a connection to the database using the connection String defined in the web config file
+            string selectSTR = "SELECT*FROM v_nobusiness";
+            SqlCommand cmd = new SqlCommand(selectSTR, con);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // CommandBehavior.CloseConnection: the connection will be closed after reading has reached the end
+            List<Employee> Employees = new List<Employee>();
+            while (dr.Read())
+            {   // Read till the end of the data into a row
+                Employee e = new Employee();
+                e.Employee_pass_id = dr["employee_pass_id"].ToString();
+                e.Lname = dr["lname"].ToString();
+                e.Fname = dr["fname"].ToString();
+                e.Birthday = Convert.ToDateTime(dr["birthday"]);
+                e.Gender = Convert.ToBoolean(dr["gender"]);
+                e.Picture = dr["Picture"].ToString();
+                e.Origin_country = Convert.ToInt32(dr["origin_country"]);
+                e.Il_citizen = Convert.ToBoolean(dr["il_citizen"]);
+                e.Add_city = Convert.ToInt32(dr["add_city"]);
+                e.Add = dr["add"].ToString();
+                e.Add_num = Convert.ToInt32(dr["add_num"]);
+                e.Phone = Convert.ToInt32(dr["phone"]);
+                e.Com_app = Convert.ToBoolean(dr["com_app"]);
+                e.Sys_id = Convert.ToInt32(GetString(dr["michpal_id"]));
+                e.Insurance = Convert.ToBoolean(dr["insurance"]);
+                e.Com_insurance = Convert.ToBoolean(dr["com_insurance"]);
+                e.Fam_stat_code = Convert.ToInt32(dr["fam_stat_code"]);
+                e.Salary_hour = Convert.ToInt32(dr["salary_hour"]);
+                e.Salary_overtime = Convert.ToInt32(dr["salary_overtime"]);
+                e.Salary_trans = Convert.ToInt32(dr["salary_trans"]);
+                e.Day_off = Convert.ToInt32(dr["day_off_id"]);
+                e.Sabatical = Convert.ToInt32(dr["sabatical"]);
+                e.Occupation_code = Convert.ToInt32(dr["occupation_code"]);
+                e.Active = Convert.ToBoolean(dr["active"]);
+                //  e.Disable_reason = dr["disable_reason"].ToString();
+
+                Employees.Add(e);
+            }
+
+            return Employees;
+        }
+
+        catch (Exception ex)
+        {
+            // write to log
+            throw (ex);
+
+        }
+
+
+        finally
+        {
+            if (con != null)
+            {
+                con.Close();
+            }
+
+        }
+
+
+    }
+
+
     public List<Country> readCountries()
     {
         SqlConnection con = null;
@@ -688,7 +762,7 @@ public class DBServices
     /// reads employees without business from sql
     /// </summary>
     /// <returns>list of employees</returns>
-    public List<Employee> readEmployeesNoBusiness()
+    public List<Employee> readEmployeesNoBusinessStat()
     {
 
         SqlConnection con = null;

@@ -1635,6 +1635,25 @@ function uploadFiles(formData, setDocFile) {
 
 }
 
+//select only the employees that today are not assigned to business from DB throw AJAX and WB
+function getEmployeesnobusinesss(renderEmployeesnobusiness) {
+    $.ajax({
+        url: 'ajaxWebService.asmx/getEmployeesNoBusinessAmount',
+        type: 'POST',
+        dataType: "json",
+        contentType: 'application/json; charset = utf-8',
+        success: function (results) {
+            renderEmployeesnobusiness(results);
+        },
+        error: function (request, error) {
+            alert('Network error has occurred please try again!');
+        }
+
+    });
+
+}
+
+
 //Update visa ex date
 function updateVisa (EmployeeInfo) {
 

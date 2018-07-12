@@ -1036,6 +1036,15 @@ public class Employee
         return LE;
         //
     }
+    public List<Employee> getEmployeesnobisiness()
+    {
+        DBServices dbs = new DBServices();
+
+        List<Employee> LE = dbs.readEmployeesNoBusiness();
+
+        return LE;
+
+    }
     public Employee getEmployeeById(string pass)
 {
     DBServices dbs = new DBServices();
@@ -1071,11 +1080,11 @@ public class Employee
 
     }
     
-    public List<Employee> getEmployeesnobisiness()
+    public List<Employee> getEmployeesnobisinessStat()
     {
         DBServices dbs = new DBServices();
 
-        List<Employee> LE = dbs.readEmployeesNoBusiness();
+        List<Employee> LE = dbs.readEmployeesNoBusinessStat();
 
         return LE;
 
