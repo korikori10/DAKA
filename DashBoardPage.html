@@ -38,6 +38,15 @@
 
             border:none !important;
         }
+        .brand-logo {
+            width:100px;
+            height:auto;
+            margin-top:-10px;
+            margin-right:-10px;
+        }
+        .is-active {
+            margin-right:-80px;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap.css" />
     <!-- BEGIN VENDOR CSS-->
@@ -92,7 +101,7 @@
                     </li>
                     <li class="nav-item">
                     <a href="DashBoardPage.html" class="navbar-brand nav-link">
-                        <!--<img alt="branding logo" src="images/logo_daka.png" data-expand="images/logo_daka.png" data-collapse="images/logo_daka.png" class="brand-logo" />-->
+                        <img alt="branding logo" src="images/logo_daka.png" data-expand="images/logo_daka.png" data-collapse="images/logo_daka.png" class="brand-logo" />
                     </a>
                     </li>
                     <!--<li class="nav-item"><a href="DashBoardPage.html" class="navbar-brand nav-link"><img alt="branding logo" src="imges/logo_daka.png" data-expand="imges/logo_daka.png" data-collapse="imges/logo_daka.png" class="brand-logo" style="width:220px;height:50px;margin-top:-10px" /></a></li>-->
@@ -241,6 +250,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <!--/ statistics-->
                             <!--/ searchbox-->
                             <div class="row match-height">
@@ -267,6 +277,22 @@
                                 </div>
                             </div>
                             <!--break-->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="media bg-danger white">
+                                        <div class="media-left p-2 media-middle">
+                                            <h1>$76,456.00</h1>
+                                        </div>
+                                        <div class="media-body p-2">
+                                            <h4>Total Sales</h4>
+                                            <span>Monthly sales amount</span>
+                                        </div>
+                                        <div class="media-right bg-danger bg-darken-2 p-2 media-middle">
+                                            <i class="icon-heart-o font-large-2 white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
                             <section id="chartjs-line-charts">
@@ -296,8 +322,9 @@
                                 </div>
                             </section>
 
+
                             <!-- עובדים לא פעילים-->
-                            <div class="card">
+                            <div class="card" style="top:10px;">
                                 <div class="card-header">
                                     <h4 class="card-title">עובדים לא פעילים</h4>
                                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -311,7 +338,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body collapse in">
-                                    <div class="card-block card-dashboard"  style="padding:10px !important">
+                                    <div class="card-block card-dashboard" style="padding:10px !important">
                                         <p class="card-text"></p>
                                         <div class="dataTables_scroll">
                                             <div style="position: relative; width: 100%;">
