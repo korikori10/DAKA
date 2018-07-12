@@ -70,7 +70,7 @@ $(window).on("load", function(){
                 },
 
                 // Add custom colors
-                color: ['#FF847C', '#FECEA8', '#99B898', '#E84A5F', '#2A363B'],
+                color: ['#673AB7', '#E91E63', '#E91E97', '#E84A5F', '#2A363B'],
 
                 // Enable drag recalculate
                 calculable: true,

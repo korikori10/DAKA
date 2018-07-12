@@ -85,7 +85,7 @@ $(window).on("load", function () {
                 },
 
                 // Add custom colors
-                color: ['#FF847C', '#FECEA8', '#99B898'],
+                color: ['#673AB7', '#E91E63', '#E91E67'],
 
                 // Enable drag recalculate
                 calculable: true,
@@ -136,108 +136,7 @@ $(window).on("load", function () {
                     }
                 ]
             };
-            //chartOptions2 = {
-
-            //    // Setup grid
-            //    grid: {
-            //        x: 40,
-            //        x2: 20,
-            //        y: 35,
-            //        y2: 25
-            //    },
-
-            //    // Add tooltip
-            //    tooltip: {
-            //        trigger: 'axis'
-            //    },
-
-            //    // Add legend
-            //    legend: {
-            //        data: monthsinYearEmployee 
-            //    },
-
-            //    // Add custom colors
-            //    color: ['#FF847C', '#FECEA8', '#99B898'],
-
-            //    // Enable drag recalculate
-            //    calculable: true,
-
-            //    // Horizontal axis
-            //    xAxis: [{
-            //        type: 'category',
-            //        boundaryGap: false,
-            //        data: [
-            //            'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-
-            //        ]
-            //    }],
-
-            //    // Vertical axis
-            //    yAxis: [{
-            //        name: 'New Employee',
-            //        position: 'Left',
-            //        type: 'value'
-            //    },
-            //    {
-            //        name: 'growth (%)',
-            //        position: 'Right',
-            //        type: 'value',
-            //        name: "%",
-            //        axisLabel: {
-            //            formatter: "{value} %"
-            //        },
-            //        max: 100,
-            //        inverse: true
-            //    }],
-
-            //    // Add series
-                
-            //    series: [
-            //        {
-            //            name: monthsinYearEmployee[0],
-            //            type: 'line',
-            //            smooth: true,
-            //            itemStyle: { normal: { areaStyle: { type: 'default' } } },
-            //            data: detailsmonthEmployee[0]
-            //        },
-            //        {
-            //            name: monthsinYearEmployee[1],
-            //            type: 'line',
-            //            yAxisIndex: 1,
-            //            smooth: true,
-
-            //            itemStyle: { normal: { areaStyle: { type: 'default' } } },
-            //            data: detailsmonthEmployee[1]
-            //        },
-            //        {
-            //            name: monthsinYearEmployee[2],
-            //            type: 'line',
-            //            yAxisIndex: 1,
-            //            smooth: true,
-
-            //            itemStyle: { normal: { areaStyle: { type: 'default' } } },
-            //            data: detailsmonthEmployee[2]
-            //        },
-            //        {
-            //            name: monthsinYearEmployee[3],
-            //            type: 'line',
-            //            yAxisIndex: 1,
-            //            smooth: true,
-
-            //            itemStyle: { normal: { areaStyle: { type: 'default' } } },
-            //            data: detailsmonthEmployee[3]
-            //        },
-            //        {
-            //            name: monthsinYearEmployee[4],
-            //            type: 'line',
-            //            yAxisIndex: 1,
-            //            smooth: true,
-
-            //            itemStyle: { normal: { areaStyle: { type: 'default' } } },
-            //            data: detailsmonthEmployee[4]
-            //        }
-            //    ]
-            //};
+            
             chartOptions3forbusi = {
 
                 // Setup grid
@@ -259,7 +158,7 @@ $(window).on("load", function () {
                 },
 
                 // Add custom colors
-                color: ['#FF847C', '#FECEA8', '#99B898'],
+                color: ['#673AB7', '#E91E63', '#E91E67'],
 
                 // Enable drag recalculate
                 calculable: true,

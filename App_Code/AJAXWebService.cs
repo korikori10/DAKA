@@ -65,7 +65,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-    [WebMethod]
+     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getEmployeesNoBusinessAmount()
     {
@@ -79,8 +79,8 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-
-    [WebMethod]
+    
+            [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getDepartments()
     {

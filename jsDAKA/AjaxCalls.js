@@ -601,6 +601,10 @@ $.ajax({
             "bLengthChange": false,
             responsive: true,
             autoWidth: false,
+            "scrollY": "200px",
+            "scrollCollapse": true,
+            "paging": true,
+            "scrollX": false,
 
             columns: [
                 {
@@ -672,6 +676,11 @@ function getEmployeesnobusiness() {
                  data: data,
                  "bLengthChange": false,
                  responsive: true,
+                 autoWidth: false,
+                 "scrollY": "200px",
+                 "scrollCollapse": true,
+                 "paging": true,
+                 "scrollX": false,
                 columns: [
                     {
                         'data': 'Employee_pass_id',
