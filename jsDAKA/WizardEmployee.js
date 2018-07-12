@@ -76,7 +76,7 @@ $(document).ready(function () {
             }
             EmployeeInfo.Doc_id = EmployeeInfo.pass + makeid();
             EmployeeInfo.Doctype_id = '2';
-            uploadFiles(formData, setEmpID);
+            uploadFiles(formData,  pbLBL, pbDiv,setEmpID);
 
         }
     })
@@ -95,7 +95,7 @@ $(document).ready(function () {
             EmployeeInfo.Doc_id = EmployeeInfo.pass + makeid();
             EmployeeInfo.Doctype_id = '3';
             EmployeeInfo.Employee_pass_id = EmployeeInfo.pass
-            uploadFiles(formData, setEmpAuth);
+            uploadFiles(formData, pbLBL, pbDiv, setEmpAuth);
 
         }
     })
@@ -113,7 +113,7 @@ $(document).ready(function () {
                 formData.append(files[i].name, files[i])
             }
 
-            uploadFiles(formData, setEmpVisa);
+            uploadFiles(formData, pbLBL, pbDiv, setEmpVisa);
         }
     })
 });
