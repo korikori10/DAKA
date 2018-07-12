@@ -117,7 +117,7 @@ $(window).on("load", function(){
 
     // Create the chart
     var lineChart = new Chart(ctx, config);
-    }, 1000);
+    }, 100);
 
 });
 
