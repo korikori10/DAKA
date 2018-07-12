@@ -32,7 +32,7 @@ window.onload = function () {
             for (var i = 0; i < files.length; i++) {
                 formData.append(files[i].name, files[i])
             }
-            uploadFiles(formData, setEmpFile);
+            uploadFiles(formData, pbLBL, pbDiv, setEmpFile);
 
         }
     });
