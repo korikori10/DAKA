@@ -208,7 +208,9 @@
 
 
                         <div class="tab-content">
-
+                            <div class="offset-md-10" style="align-content:center; margin-bottom:10px">
+                                <button data-toggle="modal" data-target="#AddUser1" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-success btn-min-width btn-square icon-android-person-add">הוספת משתמש</button>
+                            </div>
                             <!--<div class="fade tab-pane" id="contactsTab" aria-expanded="false">-->
                             <div class="col-xl-4 col-md-6 col-xs-12" id="user1">
                                 <div class="card box-shadow-2">
@@ -222,9 +224,11 @@
                                                 <h6 class="card-subtitle text-muted"></h6>
                                             </div>
                                             <div class="card-block">
-                                                <button type="button" class="btn btn-danger mr-1" name="UserSave"><i class="icon-plus4"></i> עדכן משתמש</button>
-                                                <button type="button" class="btn btn-danger mr-1" name="UserDelete"><i class="icon-plus4"></i> מחק משתמש</button>
-                                                <button type="button" data-toggle="modal" data-target="#resetPassModal" class="btn btn-primary mr-1" name="resetPassBTN"><i class="icon-head"></i> איפוס סיסמה</button>
+                                                <button type="button" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-info btn-min-width btn-square icon-plus4" name="UserSave" style="margin-bottom:3px"> עדכן משתמש </button>
+
+                                                <button type="button" data-toggle="modal" data-target="#resetPassModal" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-primary btn-min-width btn-square icon-refresh2" name="resetPassBTN" style="margin-bottom:3px"> איפוס סיסמה </button>
+                                                <button type="button" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-danger btn-min-width btn-square icon-delete" name="UserDelete"> מחק משתמש </button>
+
                                             </div>
                                         </div>
                                         <div class="list-group list-group-flush">
@@ -239,9 +243,8 @@
                             <div class="row" id="addUser">
                             </div>
                             <!--<button onclick="adduser()" type="button" class="btn btn-outline-primary" id="AddUser">
-                        <i class="icon-plus"></i> Add User
-                    </button>-->
-                            <button data-toggle="modal" data-target="#AddUser1" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-success btn-min-width btn-square icon-android-person-add">הוספת משתמש</button>
+        <i class="icon-plus"></i> Add User
+    </button>-->
                             <!--</a>-->
                             <div class="modal fade text-xs-left" id="resetPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
