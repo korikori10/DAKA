@@ -10,6 +10,7 @@ $(document).ready(function () {
     if (singleUser == "true") {
         var username = sessionStorage.getItem("userName");
         getUserByUserName(username, renderUser);
+        $('#user1').removeClass('col-xl-4 col-md-6 col-xs-12').addClass('col-md-8 offset-md-2')
     }
     else {
 

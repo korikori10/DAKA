@@ -19,7 +19,7 @@ $(document).ready(function () {
     getTypes(renderTypes);
 
 
-    $("#AddContact").on('click', function () { createContactForm() });
+   // $("#AddContact").on('click', function () { createContactForm() });
   
 
 });
@@ -150,8 +150,14 @@ function renderTypes(results) {
 
 function renderRoles(results) {
     //this is the callBackFunc 
-    roles = $.parseJSON(results.d);  
-}
+    roles = $.parseJSON(results.d);
+
+    $("#role_id_modal").empty();
+    $.each(roles, function (i, row) {
+        dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
+        $("#role_id_modal").append(dynamicLi);
+    });
+        }
 
 function createContactForm() {
     // get the last DIV which ID starts with ^= "contact"
