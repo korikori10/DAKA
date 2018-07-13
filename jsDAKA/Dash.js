@@ -49,7 +49,7 @@ window.onload = function () {
     $('#Cancelinsurance').on('shown.bs.modal', function (e) {
         if (EmployeeInfo.Insurance == false) {
 
-            $('#cancellationDate').attr('disabled', 'disabled');
+            $('#cancellationDate').attr('disabled');
             document.getElementById("Forfalse").innerHTML += "<span style='color: red;'> * ביטול הביטוח ושליחת המייל כבר נעשו </span>";
             //$('#updateCancellation').attr('disabled', 'disabled');
         }

@@ -116,7 +116,7 @@ function renderEmployeeByID(results) {
 
     }
     if ($('#sysIdTB').val() != 0) {
-        $('#sysIdTB').attr('disabled', 'disabled')
+        $('#sysIdTB').attr('disabled')
     }
         $(".selectize-select").selectize();
 }
@@ -142,7 +142,7 @@ function renderEmployeeByID(results) {
                 o[this.name] = this.value || '';
             }
         });
-        disabled.attr('disabled', 'disabled');
+        disabled.attr('disabled');
         return o;
     };
 $(".icon-expand2").on('click', function () {

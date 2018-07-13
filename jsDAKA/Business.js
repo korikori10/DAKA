@@ -98,7 +98,7 @@ function renderBusinesses(results) {
             resultsSave = row;
             newBus = false;
             populate(frm, data);
-            $('#bus_id').attr('disabled', 'disabled');
+            $('#bus_id').attr('disabled');
         }
 
 
@@ -322,7 +322,7 @@ function renderContacts(results) {
                 o[this.name] = this.value || '';
             }
         });
-        disabled.attr('disabled', 'disabled');
+        disabled.attr('disabled');
         return o;
     };
 
