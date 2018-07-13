@@ -80,6 +80,10 @@ function getEmployeess() {
                 data: data, 
                 columns: [
                     { 'data': 'Employee_pass_id' },
+                    {
+                        'data': 'Sys_id',
+                        'visible': false
+                    },
                     { 'data': 'Fname' },
                     { 'data': 'Lname' },
                     {
