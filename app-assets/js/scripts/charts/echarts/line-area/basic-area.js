@@ -72,7 +72,6 @@ $(window).on("load", function () {
                     x2: 30,
                     y: 55,
                     y2: 55,
-                    width: 1024
                 },
 
                 // Add tooltip
@@ -104,7 +103,6 @@ $(window).on("load", function () {
                     position: 'Left',
                     type: 'value',
                     scale: true,
-                    boundaryGap: [0.8, 0.8]
                 },
                 {
                     name: 'growth (%)',
@@ -116,7 +114,6 @@ $(window).on("load", function () {
                     },
                     max: 100,
                     scale: true,
-                    boundaryGap: [0.8, 0.8]
                     
                    
                 }],
