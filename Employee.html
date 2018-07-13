@@ -386,52 +386,97 @@
                         <div class="fade tab-pane" id="EmpDocs" aria-expanded="false">
 
                             <div class="row">
-                                <div id="docTypeOp">
+                                <div id="docTypeOp" class="col-md-8">
                                     <select id="docTypeFilter" class="selectize-select">
                                         <option value="0">הצג הכל</option>
                                     </select>
-
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-md-3">
-                                    <br />
-                                </div>
-                            </div>
-                            <div class="docCards col-xl-4 col-md-6 col-xs-12" id="doc1">
-                                <div class="card" >
-                                    <div class="card-header">
-                                        <h4 class="card-title">
-                                            <i class="icon-eye6"></i> חוזה עבודה
-                                        </h4>
-                                        <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                                        <div class="heading-elements">
-                                            <ul class="list-inline mb-0">
-                                                <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                                <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                                <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                                <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                            </ul>
-                                        </div>
+                                <div id="docTypeOp" class="col-md-4">
+                                    <button name="Insert_contract" data-toggle="modal" data-target="#uploadDocs" class="btn mr-1 mb-1 btn-outline-primary btn-lg" style="float:left; display:block;">
+                                        <i class="icon-plus"></i> הוסף מסמך
+                                    </button>
                                     </div>
-                                    <div class="card-body collapse in">
-                                        <div class="card-block">
-                                            <div class="form-body">
-                                                <div class="row">
-                                                    <div class="form-group">
-                                                        <iframe src="" style="width:100%; height:375px;" frameborder="0"></iframe>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-3">
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="docCards col-xl-4 col-md-6 col-xs-12" id="doc1">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">
+                                                <i class="icon-eye6"></i> חוזה עבודה
+                                            </h4>
+                                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                            <div class="heading-elements">
+                                                <ul class="list-inline mb-0">
+                                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse in">
+                                            <div class="card-block">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <iframe src="" style="width:100%; height:375px;" frameborder="0"></iframe>
 
+                                                        </div>
                                                     </div>
+
                                                 </div>
 
                                             </div>
 
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade text-xs-left" id="uploadDocs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h3 class="modal-title" id="myModalLabel35">תאריך תוקף ויזה חדש</h3>
+                                            </div>
+                                            <form id="insertDocFrm">
 
+                                                <div class="modal-body">
+                                                    <fieldset>
+                                                        <select id="docTypeSelect" class="selectize-select" required>
+                                                            <option value="">בחר סוג מסמך</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    <fieldset class="form-group floating-label-form-group">
+                                                        <label for="date4">תוקף המסמך</label>
+                                                        <input type="date" class="form-control" id="visaDate" name="Ex_date" required=required />
+                                                    </fieldset>
+                                                    <fieldset class="form-group floating-label-form-group">
+                                                        <input type="file" id="Pic" name="Picture" accept="image/*;capture=camera" required=required />
+                                                        <div id="progressBar" style="position:relative; display:none">
+                                                            <progress id="fpb" class="progress-striped progress-green" value="100" max="100"></progress>
+                                                            <span id="pbLBL" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                                        </div>
+                                                    </fieldset>
+
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input name="confirmVisa" id="insertDoc" type="button" class="btn btn-outline-primary btn-lg" value="אישור" />
+                                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="סגור" />
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="fade tab-pane" id="EmpHistory" aria-expanded="false">
                             <div class="row">
                                 <div class="col-xs-6 col-md-3">
