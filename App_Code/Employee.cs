@@ -36,6 +36,7 @@ public class Employee
     private string bus_name;
     DateTime ex_date;
     DateTime start_date;
+    DateTime start_date1;
     DateTime end_date;
     int dayspass;
     private bool updateBus;
@@ -988,6 +989,19 @@ public class Employee
         set
         {
             moving_AVG = value;
+        }
+    }
+
+    public DateTime Start_date1
+    {
+        get
+        {
+            return start_date1;
+        }
+
+        set
+        {
+            start_date1 = value;
         }
     }
 
