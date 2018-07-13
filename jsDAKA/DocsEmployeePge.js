@@ -24,9 +24,14 @@ function renderDocTypes(results) {
     $('#docTypeFilter').empty();
     dynamicLi = '<option value="0">הצג הכל</option>';
     $('#docTypeFilter').append(dynamicLi);
+    $('#docTypeSelect').empty();
+    dynamicLi = '<option value="">בחר סוג מסמך</option>';
+    $('#docTypeSelect').append(dynamicLi);
+    
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Doctype_id + '">' + row.Doc_name + '</option>';
         $('#docTypeFilter').append(dynamicLi);
+        $('#docTypeSelect').append(dynamicLi);
     });
     getTheDocs({ DocsInfo: JSON.stringify(DocsInfo) }, renderDocs);
 }
@@ -90,4 +95,52 @@ function createContractForm() {
   //  $(contact).insertBefore('#addContact');
    // rolesSelect();
     return id;
+}
+
+//טבלת חידושי ויזה
+$('#insertDoc').click(function () {
+    $('#insertDocFrm').validate();
+
+    if ($('#insertDocFrm').valid()) {
+        EmployeeInfo.Ex_date = $('#visaDate').val();
+        EmployeeInfo.Doc_id = EmployeeInfo.pass + makeid();
+        EmployeeInfo.Picture = empPic;
+        EmployeeInfo.Doctype_id = $('#docTypeSelect').val();
+        EmployeeInfo.Employee_pass_id = DocsInfo.Employee_pass_id
+        $('#uploadDocs').modal('toggle');
+        updateDocs({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
+    }
+});
+
+//Picture or file upload
+$("#Pic").on("change", function () {
+    pbLBL = $("#pbLBL")
+    pbDiv = $("#progressBar")
+    pbLBL.text('Uploading...');
+    pbDiv.fadeIn(500)
+    var files = $(this).get(0).files;
+    if (files.length > 0) {
+
+
+        var formData = new FormData();
+        for (var i = 0; i < files.length; i++) {
+            formData.append(files[i].name, files[i])
+        }
+        uploadFiles(formData, pbLBL, pbDiv, setEmpFile);
+
+    }
+});
+
+function setEmpFile(results) {
+    empPic = results;
+}
+
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
 }

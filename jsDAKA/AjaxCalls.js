@@ -1696,6 +1696,34 @@ function updateVisa (EmployeeInfo) {
     });
 }
 
+//Update visa ex date
+function updateDocs(EmployeeInfo) {
+
+    // serialize the object to JSON string
+    var emp = JSON.stringify(EmployeeInfo);
+
+    $.ajax({
+        url: 'ajaxWebService.asmx/updateVisa',
+        type: 'POST',
+        contentType: 'application/json; charset = utf-8',
+        data: emp,
+        success: function (results) {
+
+            setTimeout(function () {
+                swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
+            }, 1000);
+            $("#Update_Expiration").modal('hide');
+        },
+        error: function (xhr, status, error) {
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
+            var err = eval("(" + xhr.responseText + ")");
+            //alert(err.Message);
+        }
+    });
+}
+
 function updateEmpBusiness(EmployeeInfo, current_row ) {
 
     // serialize the object to JSON string
