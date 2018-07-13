@@ -66,7 +66,7 @@ function getEmployeess() {
                         messageTop: 'Printing'
                     },
                     'copyHtml5',
-                    'csv',
+                    'excel',
                     'pdf',
                     {
                         text: 'Archive',

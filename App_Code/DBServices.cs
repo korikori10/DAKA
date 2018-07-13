@@ -1510,12 +1510,12 @@ public class DBServices
                 }
                 else
                 {
-                    employees[i].Growth = (((Convert.ToDouble(employees[i].EmployeeCount) - Convert.ToDouble(employees[i - 1].EmployeeCount)) / Convert.ToDouble(employees[i - 1].EmployeeCount)) * 100).ToString();
+                    employees[i].Growth = Math.Pow(Convert.ToDouble(employees[i].EmployeeCount)  / Convert.ToDouble(employees[i - 1].EmployeeCount),1/i).ToString();
                 }
 
             }
 
-            employees[0].Growth = "0";
+            //employees[0].Growth = "0";
             return employees;
         }
         catch (Exception ex)
