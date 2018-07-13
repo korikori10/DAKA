@@ -12,6 +12,8 @@ window.onload = function () {
     ReadEmployeesNotActive();
     getBusinesses(renderBusinesses,renderBusinessesSearch);  
     getDreason(renderDreasons);  
+    getEmployeesnobusinesss(renderEmployeesnobusiness);
+
 
   //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
@@ -388,5 +390,12 @@ function RenderTotalAllemp(results)
     document.getElementById("numofleave").innerHTML = statistics[3];
 }
 
-
+function renderEmployeesnobusiness(NoEmpresults) {
+    //this is the callBackFunc
+    NoEmpresults = $.parseJSON(NoEmpresults.d);
+    len = Object.keys(NoEmpresults).length;
+    document.getElementById("Num").innerHTML = len;
+    document.getElementById("Num").value = len;
+   
+}
 
