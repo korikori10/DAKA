@@ -44,14 +44,14 @@ function ValidateUser(results) {
             results = $.parseJSON(results.d);
         sessionStorage.setItem("u_img", results.User_img);
             sessionStorage.setItem("FullName", results.Full_name);
-            sessionStorage.setItem("userName", username)
-            window.location = "DashBoardPage.html"
+            sessionStorage.setItem("userName", username);
+            window.location = "DashBoardPage.html";
     }
 
         
     }
     else {
-        $("#wrongPH").html('*שם משתמש או סיסמה שגויים').css('color','red')
+        $("#wrongPH").html('*שם משתמש או סיסמה שגויים').css('color', 'red');
 
     }
 
