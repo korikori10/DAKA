@@ -1506,11 +1506,11 @@ public class DBServices
             {
                 if (i == 0)
                 {
-                    employees[i].Growth = "1";
+                    employees[i].Growth = "0";
                 }
                 else
                 {
-                    employees[i].Growth = Math.Pow(Convert.ToDouble(employees[i].EmployeeCount)  / Convert.ToDouble(employees[i - 1].EmployeeCount),1/i).ToString();
+                    employees[i].Growth = ((Convert.ToDouble(employees[i].EmployeeCount) / Convert.ToDouble(employees[i - 1].EmployeeCount)) * 100).ToString();
                 }
 
             }
@@ -1623,7 +1623,7 @@ public class DBServices
                 }
                 else
                 {
-                    Business[i].Growth = (((Convert.ToDouble(Business[i].Count) - Convert.ToDouble(Business[i - 1].Count)) / Convert.ToDouble(Business[i - 1].Count)) * 100).ToString();
+                    Business[i].Growth = ((Convert.ToDouble(Business[i].Count) / Convert.ToDouble(Business[i - 1].Count)) * 100).ToString();
                 }
                 
             }

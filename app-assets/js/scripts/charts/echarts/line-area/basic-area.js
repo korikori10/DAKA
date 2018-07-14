@@ -135,7 +135,7 @@ $(window).on("load", function () {
                         smooth: true,
 
                         itemStyle: { normal: { areaStyle: { type: 'default' } } },
-                        data: growths
+                        data: growthEmployee
                     }
                 ]
             };
