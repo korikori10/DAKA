@@ -140,6 +140,8 @@ public class User
         this.phone = phone;
         this.user_img = user_img;
     }
+
+
     public bool getUserByUserName(string username, string userPass)
     {
         DBServices dbs = new DBServices();
@@ -150,6 +152,7 @@ public class User
         return match;
 
     }
+
     public User getUserByUserNameRender(string username)
     {
         DBServices dbs = new DBServices();
@@ -158,6 +161,7 @@ public class User
         return u;
 
     }
+
     public List<User> getUsers()
     {
         DBServices dbs = new DBServices();
@@ -166,6 +170,7 @@ public class User
 
         return BC;
     }
+
     public List<User> getTypes()
     {
         DBServices dbs = new DBServices();
@@ -174,6 +179,7 @@ public class User
 
         return BC;
     }
+
     public int UpdateUser(User u)
     {
         DBServices dbs = new DBServices();
@@ -182,6 +188,7 @@ public class User
         return dbs.updateUser(u);
 
     }
+
     public int InsertUser(User u)
     {
         DBServices dbs = new DBServices();
@@ -192,6 +199,7 @@ public class User
         return u1;
 
     }
+
     public void updatePass(string userName, string pass)
     {
         DBServices dbs = new DBServices();
@@ -216,6 +224,7 @@ public class User
         string savedPasswordHash = Convert.ToBase64String(hashBytes);
         return savedPasswordHash;
     }
+
     private bool decryptPass(string pass, string password)
     {
         /* Fetch the stored value */

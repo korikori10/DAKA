@@ -68,7 +68,6 @@ function getEmployeess() {
                     },
                     'copyHtml5',
                     'excel',
-                    'csv',
                     'pdf',
                     {
                         text: 'Archive',
@@ -206,7 +205,6 @@ function getArchive() {
                         messageTop: 'Printing'
                     },
                     'copyHtml5',
-                    'csv',
                     'excel',
                     'pdf'
                 ],
@@ -227,7 +225,7 @@ function getArchive() {
                     {
 
                         'data': "",
-                        'defaultContent': '<button name="activate" id="activate" class="btn btn-icon btn-success view" data-toggle="tooltip" data- original - title="החזר לפעילות""><i class="icon-arrow61"></i></button><button name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="activate" style="margin:3px;" id="activate" class="btn btn-icon btn-success view" data-toggle="tooltip" data- original - title="החזר לפעילות""><i class="icon-arrow61"></i></button><button style="margin:3px;" name="edit" id="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
 
                     }]
             });
@@ -280,7 +278,6 @@ function getBusinessesTable() {
                             messageTop: 'Printing'
                         },
                         'copyHtml5',
-                        'csv',
                         'excel',
                         'pdf'
                         ],
@@ -1045,6 +1042,7 @@ function insertEmployee(EmployeeInfo, InsertAllDocs) {
         }
     });
 }
+
 function InsertSignature(svg, file, insertContract) {
     var data = JSON.stringify({ svgString: svg, fileString: file })
 
@@ -1152,8 +1150,6 @@ function InsertContact(contactInfo) {
     });
 }
 
-
-
 //insert spesific contract
 function InsertheContract(DocsInfo) {
 
@@ -1182,7 +1178,7 @@ function InsertheContract(DocsInfo) {
     });
 }
 
-//insert spesific contact
+//update spesific contact
 function UpdateContact(contactInfo) {
 
     // serialize the object to JSON string

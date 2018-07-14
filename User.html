@@ -20,8 +20,6 @@
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/icomoon.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/flag-icon-css/css/flag-icon.min.css" />
     <!-- END Font icons-->
-    <!-- BEGIN Vendor CSS-->
-    <!-- END Vendor CSS-->
     <!-- BEGIN ROBUST CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/bootstrap-extended.css" />
     <link rel="stylesheet" type="text/css" href="app-assets/css-rtl/app.css" />
@@ -42,7 +40,6 @@
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 </head>
 <body id="EmployeePage" data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
-    <!-- - var navbarCustom = "navbar-fixed-top navbar-semi-dark navbar-shadow"-->
     <!-- navbar-fixed-top-->
     <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-dark navbar-shadow">
         <div class="navbar-wrapper">
@@ -93,9 +90,7 @@
         <!-- main menu content-->
         <div class="main-menu-content">
             <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-                <!--<li class=" nav-item">
-        <a href="html/rtl/vertical-menu-template/index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
-    </li>-->
+
                 <li class="nav-item">
                     <a href="DashBoardPage.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">מסך הבית</span></a>
                 </li>
@@ -141,16 +136,6 @@
                 </div>
             </div>
             <div class="content-body">
-                <!--horizonal nav-->
-                <!--<div class="col-md-12">
-            <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
-                    <li class="nav-item"><a class="nav-link" href="#busDetails" data-toggle="tab" dir="rtl">פרטי העסק</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="tab" dir="rtl">מסמכים</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contactsTab" data-toggle="tab" dir="rtl">אנשי קשר</a></li>
-                </ul>
-            </div>
-        </div>-->
                 <!--break-->
                 <div class="row">
                     <div class="col-xs-6 col-md-3">
@@ -184,9 +169,7 @@
 
                                         </div>
                                         <div class="list-group list-group-flush">
-                                            <!--<div class="list-group-item">--><!--<i class="icon-briefcase4"></i> מספר משתמש-->
-                                            <!--<input type="text" name="Uid" hidden=hidden />-->
-                                            <!--</div>-->
+                                     
                                             <div class="list-group-item"><i class="icon-mail6"></i>שם פרטי ומשפחה   <input class="form-control" type="text" name="Full_name" /></div>
                                             <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
                                             <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
@@ -210,7 +193,6 @@
                             <div class="offset-md-10" style="align-content:center; margin-bottom:10px">
                                 <button data-toggle="modal" data-target="#AddUser1" class="ui-btn ui-btn-inline mr-1 mb-1 btn btn-outline-success btn-min-width btn-square icon-android-person-add">הוספת משתמש</button>
                             </div>
-                            <!--<div class="fade tab-pane" id="contactsTab" aria-expanded="false">-->
                             <div class="col-xl-4 col-md-6 col-xs-12" id="user1">
                                 <div class="card box-shadow-2">
                                     <form class="form" id="userUpdate">
@@ -231,7 +213,7 @@
                                             </div>
                                         </div>
                                         <div class="list-group list-group-flush">
-                                            <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input class="form-control" type="text" name="Uid"  /></div>
+                                            <div class="list-group-item"><i class="icon-briefcase4"></i> מספר משתמש   <input class="form-control" type="text" name="Uid" /></div>
                                             <div class="list-group-item"><i class="icon-mail6"></i> אימייל   <input class="form-control" type="text" name="U_name" /></div>
                                             <div class="list-group-item"><i class="icon-phone2"></i> מספר טלפון   <input class="form-control" type="tel" name="Phone" /></div>
                                             <div class="list-group-item"> <i class="icon-clipboard2"></i> תפקיד   <select class="form-control" name="U_type_code"></select></div>
@@ -241,10 +223,7 @@
                             </div>
                             <div class="row" id="addUser">
                             </div>
-                            <!--<button onclick="adduser()" type="button" class="btn btn-outline-primary" id="AddUser">
-        <i class="icon-plus"></i> Add User
-    </button>-->
-                            <!--</a>-->
+                       
                             <div class="modal fade text-xs-left" id="resetPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

@@ -116,9 +116,10 @@
   position : absolute;
   right : -99999px;
 }
-.app-content .wizard > .content > .body {
-  padding : 0 20px;
-}
+    .app-content .wizard > .content > .body {
+        padding: 0 20px;
+        padding-bottom: 30px;
+    }
 .app-content .wizard > .content > iframe {
   border : 0 none;
   width : 100%;

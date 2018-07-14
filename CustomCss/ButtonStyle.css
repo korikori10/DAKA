@@ -1,0 +1,30 @@
+﻿body {
+}
+select option p {
+    visibility: hidden;
+}
+
+.call-to-action-btn {
+    margin: 3px;
+}
+
+.dataTables_filter {
+    position: inherit;
+    right: -120px;
+}
+
+td.fix-overflow {
+    display: inline-table;
+    border: none !important;
+}
+
+.brand-logo {
+    width: 100px;
+    height: auto;
+    margin-top: -10px;
+    margin-right: -10px;
+}
+
+.is-active {
+    margin-right: -80px;
+}
