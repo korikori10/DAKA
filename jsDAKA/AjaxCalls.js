@@ -63,9 +63,11 @@ function getEmployeess() {
                 buttons: [
                     {
                         extend: 'print',
-                        messageTop: 'Printing'
+                        messageTop: 'Printing',
+                        
                     },
                     'copyHtml5',
+                    'excel',
                     'csv',
                     'pdf',
                     {
@@ -205,6 +207,7 @@ function getArchive() {
                     },
                     'copyHtml5',
                     'csv',
+                    'excel',
                     'pdf'
                 ],
                 data: data,
@@ -278,6 +281,7 @@ function getBusinessesTable() {
                         },
                         'copyHtml5',
                         'csv',
+                        'excel',
                         'pdf'
                         ],
                 data: data,
