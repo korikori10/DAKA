@@ -224,11 +224,12 @@ $(window).on("load", function () {
             // Resize chart
             // ------------------------------
 
-            $(function () {
+            
 
                 // Resize chart on menu width change and window resize
                 $(window).on('resize', resize);
-                $(".menu-toggle").on('click', resize);
+            $(".menu-toggle").on('click', resize);
+            $('[data-action="expand"]').on('click', resize);
 
                 // Resize function
                 function resize() {
@@ -240,7 +241,7 @@ $(window).on("load", function () {
                         myChart3.resize();
                     }, 200);
                 }
-            });
+            
         }
        
 
