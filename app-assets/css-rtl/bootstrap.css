@@ -4101,7 +4101,7 @@ tbody.collapse.in {
   padding : 0.75rem 0rem;
   margin-bottom : 1rem;
   list-style : none;
-  background-color : #ECEEEF;
+  background-color : none !important;
   border-radius : 0.18rem;
 }
 .breadcrumb::after {
