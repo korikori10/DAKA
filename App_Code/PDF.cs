@@ -143,6 +143,7 @@ public class PDF
         }
         return filesPaths;
     }
+
     public List<string> AddSignature(string svgString, string[] fileString)
     {
         List<string> savePaths = new List<string>();

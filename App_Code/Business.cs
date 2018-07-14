@@ -427,6 +427,7 @@ public class Business
         return BC;
 
     }
+
     public List<Business> getTypes()
     {
         DBServices dbs = new DBServices();
@@ -447,6 +448,7 @@ public class Business
         return b;
 
     }
+
     public int InsertBusiness(Business bus)
     {
         DBServices dbs = new DBServices();
@@ -457,6 +459,7 @@ public class Business
         return b;
 
     }
+
     public int insertBusinessAndContactServer(Business bus)
     {
         DBServices dbs = new DBServices();

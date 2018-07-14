@@ -27,6 +27,7 @@ public class AJAXWebService : System.Web.Services.WebService
         //InitializeComponent(); 
     }
 
+    //Get all cities
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getCities()
@@ -52,6 +53,7 @@ public class AJAXWebService : System.Web.Services.WebService
         }
     }
 
+    //Get all Countries
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getCountries()
@@ -65,7 +67,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-     [WebMethod]
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getEmployeesNoBusinessAmount()
     {
@@ -79,8 +81,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-    
-            [WebMethod]
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getDepartments()
     {
@@ -105,9 +106,8 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
-
     
-            [WebMethod]
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getUserTypes()
     {
@@ -119,6 +119,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getRoles()
@@ -158,8 +159,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
-    
-            [WebMethod]
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getUsers()
     {
@@ -171,6 +171,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getContacts()
@@ -493,29 +494,8 @@ public class AJAXWebService : System.Web.Services.WebService
         }
     }
 
-    //[WebMethod]
-    //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    //public string UpdateToActive(string pass)
-    //{
-    //    Employee e = new Employee();
-
-    //    int updated = e.UpdateToActive(pass);
-    //    // serialize to string
-    //    JavaScriptSerializer js = new JavaScriptSerializer();
-    //    string jsonStringCategory = js.Serialize(updated);
-    //    return jsonStringCategory;
-    //    //Employee e = new Employee();
-    //    //List<Employee> LE = e.UpdateToActive(pass);
-
-    //    //// serialize to string
-    //    //string jsonStringCategory = js.Serialize(LE);
-    //    //return jsonStringCategory;
-    //    //  Context.Response.Write(js.Serialize(LE));
-
-    //}
-
+   
     //employee update insurance
-
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateVisa(string EmployeeInfo)
@@ -545,23 +525,8 @@ public class AJAXWebService : System.Web.Services.WebService
         }
     }
 
-    //[WebMethod]
-    //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    //public string updateDisablEmp(string EmployeeInfo)
-    //{
-    //    JavaScriptSerializer js = new JavaScriptSerializer();
-    //    Employee e = js.Deserialize<Employee>(EmployeeInfo);
-
-
-
-    //    int updated = e.updateDisablEmp(e);
-
-    //    // serialize to string
-    //    string jsonStringCategory = js.Serialize(e);
-    //    return jsonStringCategory;
-    //}
-
-//selectize busi
+    
+    //selectize busi
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string updateEmpBusiness(string EmployeeInfo)
@@ -632,6 +597,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string InsertDoc(string FileInfo)
@@ -658,6 +624,7 @@ public class AJAXWebService : System.Web.Services.WebService
         }
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getOccupation()
@@ -816,7 +783,7 @@ public class AJAXWebService : System.Web.Services.WebService
     }
 
     
-            [WebMethod]
+    [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertBusiness(string BusinessInfo)
     {
@@ -951,6 +918,7 @@ public class AJAXWebService : System.Web.Services.WebService
         }
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertContact(string contactInfo)
@@ -978,6 +946,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
         }
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertContract(string DocsInfo)
@@ -1005,6 +974,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
         }
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string insertUser(string UserInfo)
@@ -1033,6 +1003,7 @@ public class AJAXWebService : System.Web.Services.WebService
         }
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void updateUserPass(string userName, string pass)
@@ -1042,6 +1013,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void DeleteUser(string UserInfo)
@@ -1066,6 +1038,7 @@ public class AJAXWebService : System.Web.Services.WebService
         }
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string UpdateContact(string contactInfo)
@@ -1150,6 +1123,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
         }
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void getEmployeesnobusiness()
@@ -1177,6 +1151,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+    //statistics
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadTotalAllemp()
@@ -1190,6 +1165,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+    //Emplyees Statistics By years
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadEmpByYearStatistics()
@@ -1213,6 +1189,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
 
+    //Emplyees Statistics By month
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadEmpByMonthStatistics()
@@ -1257,6 +1234,8 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
     }
+
+    //Business Statistics By years
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadBusiByYearStatistics()
@@ -1283,6 +1262,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
     }
     
+    //Smart Element
      [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadSMARTELEMENT()
@@ -1309,6 +1289,7 @@ public class AJAXWebService : System.Web.Services.WebService
 
 
     }
+
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string getUserByUserName(string username, string userPass)
@@ -1338,6 +1319,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
     }
 
+    //Quarters statistic
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string ReadBusiByQuarterStatistics()
@@ -1370,6 +1352,7 @@ public class AJAXWebService : System.Web.Services.WebService
         return jsonStringCategory;
 
     }
+
     //send SMS
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -1463,6 +1446,7 @@ public class AJAXWebService : System.Web.Services.WebService
             }
         }
 
+    //Send Email To Insurance
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void SendEmail(string EmployeeInfo)
@@ -1531,7 +1515,7 @@ public class AJAXWebService : System.Web.Services.WebService
     }
 
 
-
+    //Cancel Insurence MAIL
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public void CancelInsuranceSendEmail (string EmployeeInfo)
@@ -1594,8 +1578,7 @@ public class AJAXWebService : System.Web.Services.WebService
             throw (ex);
 
         }
-        //Console.ReadLine();
-        //Response.Write("SEND MAIL");
+     
     }
 }
 

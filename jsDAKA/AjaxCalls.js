@@ -574,6 +574,7 @@ function SMARTELEMENTStatistics(Renderemp) {
     });
 
 }
+
 //חידושי ויזות
 function ReadEmployeesNeedNewVisa() { 
 $.ajax({
@@ -1043,6 +1044,7 @@ function insertEmployee(EmployeeInfo, InsertAllDocs) {
     });
 }
 
+//Insert Signature into doc
 function InsertSignature(svg, file, insertContract) {
     var data = JSON.stringify({ svgString: svg, fileString: file })
 
@@ -1096,7 +1098,6 @@ function InsertUserCall(UserInfo) {
 }
 
 //Delete user
-
 function DeleteUserCall(UserInfo) {
 
     // serialize the object to JSON string
@@ -1259,7 +1260,7 @@ function getUserByUserName(username, renderUser) {
     });
 }
 
-
+//Get Spesific user
 function getUserById(username, userPass ,ValidateUser) {
 
     // serialize the object to JSON string
@@ -1279,8 +1280,6 @@ function getUserById(username, userPass ,ValidateUser) {
         }
     });
 }
-
-
 
 //cancel employee insurance
 function ajaxcancelInsurance(EmployeeInfo) {
@@ -1313,9 +1312,7 @@ function ajaxcancelInsurance(EmployeeInfo) {
 
 }
 
-
 //update employee gmah
-
 function updateGmah(EmployeeInfo) {
 
     // serialize the object to JSON string
@@ -1345,6 +1342,7 @@ function updateGmah(EmployeeInfo) {
 
 }
 
+//update employee Diur
 function updateDiur(EmployeeInfo) {
 
     // serialize the object to JSON string
@@ -1373,6 +1371,8 @@ function updateDiur(EmployeeInfo) {
 
 
 }
+
+////// Get Lists for selectizes///////
 
 function getCities(renderCities) {
     $.ajax({
@@ -1490,7 +1490,6 @@ function getDepartments(renderDepartments)
     });
 }
 
-
 function getTypes(renderTypes) {
     $.ajax({
         url: 'ajaxWebService.asmx/getTypes',
@@ -1552,6 +1551,7 @@ function getDreason(renderDreasons) {
 
 }
 
+//Send email to insurance
 function sendEmail(EmployeeInfo) {
     var dataString = JSON.stringify(EmployeeInfo);
     $.ajax({
@@ -1575,6 +1575,7 @@ function sendEmail(EmployeeInfo) {
     });
 }
 
+//Send email to cancel insurance
 function sendEmailCancelInsurance(EmployeeInfo) {
     var dataString = JSON.stringify(EmployeeInfo);
     $.ajax({
@@ -1626,34 +1627,6 @@ function uploadFiles(formData, pbLBL, pbDiv, setEmpFile) {
 
 }
 
-//Upload contracts
-//function uploadFiles(formData, setDocFile) {
-//    pbLBL = $("#pbLBL")
-//    pbDiv = $("#progressBar")
-//    $.ajax({
-//        url: 'UploadHandler.ashx',
-//        method: "POST",
-//        data: formData,
-//        contentType: false,
-//        processData: false,
-//        dataType: 'json',
-//        success: function (results) {
-//            setDocFile(results);
-//          pbLBL.text('Complete');
-//          pbDiv.fadeOut(2000);
-//        },
-//        error: function (xhr, status, error) {
-//            setTimeout(function () {
-//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-//            }, 1000);
-//            var err = eval("(" + xhr.responseText + ")");
-//            //alert(err.Message);
-//        }
-
-//    });
-
-//}
-
 //select only the employees that today are not assigned to business from DB throw AJAX and WB
 function getEmployeesnobusinesss(renderEmployeesnobusiness) {
     $.ajax({
@@ -1671,7 +1644,6 @@ function getEmployeesnobusinesss(renderEmployeesnobusiness) {
     });
 
 }
-
 
 //Update visa ex date
 function updateVisa (EmployeeInfo) {
@@ -1730,6 +1702,7 @@ function updateDocs(EmployeeInfo) {
     });
 }
 
+//update business at emloyee
 function updateEmpBusiness(EmployeeInfo, current_row ) {
 
     // serialize the object to JSON string
@@ -1789,6 +1762,7 @@ function updateDisableReason(EmployeeInfo, current_row) {
     });
 }
 
+//update Disable Reason for employee Without Business
 function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
 
     // serialize the object to JSON string
@@ -1817,6 +1791,7 @@ function updateDisableReasonWithoutBusiness(EmployeeInfo, current_row) {
         }
     });
 }
+
 //emp docs
 function getTheDocs(DocsInfo, renderDocs) {
 
@@ -1875,6 +1850,7 @@ function getDocTypes(renderDocTypes) {
 
 }
 
+//update password
 function updatePass(newpass, username) {
     userPass = JSON.stringify({ userName: username, pass: newpass })
     $.ajax({
@@ -1896,89 +1872,6 @@ function updatePass(newpass, username) {
         }
     });
 }
-
-//Upload files from wizard
-//function uploadFiles(formData, setEmpVisa) {
-//    pbLBL = $("#pVlBl")
-//    pbDiv = $("#progressBar4")
-//    $.ajax({
-//        url: UHUrl,
-//        method: "POST",
-//        data: formData,
-//        contentType: false,
-//        processData: false,
-//        dataType: 'json',
-//        success: function (results) {
-//            setEmpVisa(results);
-//            pbLBL.text('Complete');
-//            pbDiv.fadeOut(2000);
-//        },
-//        error: function (xhr, status, error) {
-//            setTimeout(function () {
-//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-//            }, 1000);
-//            var err = eval("(" + xhr.responseText + ")");
-//            //alert(err.Message);
-//        }
-
-//    });
-
-//}
-////Upload files from wizard
-//function uploadFiles(formData, setEmpID) {
-//    pbLBL = $("#pbLBL")
-//    pbDiv = $("#progressBar1")
-//    $.ajax({
-//        url: UHUrl,
-//        method: "POST",
-//        data: formData,
-//        contentType: false,
-//        processData: false,
-//        dataType: 'json',
-//        success: function (results) {
-//            setEmpID(results);
-//            pbLBL.text('Complete');
-//            pbDiv.fadeOut(2000);
-//        },
-//        error: function (xhr, status, error) {
-//            setTimeout(function () {
-//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-//            }, 1000);
-//            var err = eval("(" + xhr.responseText + ")");
-//            //alert(err.Message);
-//        }
-
-//    });
-
-//}
-
-////Upload files from wizard
-//function uploadFiles(formData, setEmpAuth) {
-//    pbLBL = $("#pLB2")
-//    pbDiv = $("#progressBar2")
-//    $.ajax({
-//        url: UHUrl,
-//        method: "POST",
-//        data: formData,
-//        contentType: false,
-//        processData: false,
-//        dataType: 'json',
-//        success: function (results) {
-//            setEmpAuth(results);
-//            pbLBL.text('Complete');
-//            pbDiv.fadeOut(2000);
-//        },
-//        error: function (xhr, status, error) {
-//            setTimeout(function () {
-//                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
-//            }, 1000);
-//            var err = eval("(" + xhr.responseText + ")");
-//            //alert(err.Message);
-//        }
-
-//    });
-
-//}
 
 //Insert docs
 function InsertConts(FileInfo, i, finished) {
@@ -2002,6 +1895,7 @@ function InsertConts(FileInfo, i, finished) {
         }
     });
 }
+
 //Get all Occupations for wizard
 function getOccu(renderOccu) {
     $.ajax({
@@ -2020,6 +1914,7 @@ function getOccu(renderOccu) {
 
 }
 
+//Insert document
 function InsertDocs(FileInfo) {
 
     // serialize the object to JSON string

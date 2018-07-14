@@ -138,6 +138,7 @@ public class Contact
         return LC;
 
     }
+
     public List<Contact> getContacts()
     {
         DBServices dbs = new DBServices();
@@ -147,6 +148,7 @@ public class Contact
         return LC;
 
     }
+
     public int InsertContact(Contact con)
     {
         DBServices dbs = new DBServices();
@@ -157,7 +159,6 @@ public class Contact
         return b;
 
     }
-
 
     public int UpdateContact(Contact con)
     {

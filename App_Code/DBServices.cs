@@ -335,6 +335,7 @@ public class DBServices
 
         }
     }
+
     /// <summary>
     /// reads history of employee from sql
     /// </summary>
@@ -449,7 +450,10 @@ public class DBServices
 
     }
 
-
+    /// <summary>
+    /// reads Countries from sql
+    /// </summary>
+    /// <returns>list of Countries</returns>
     public List<Country> readCountries()
     {
         SqlConnection con = null;
@@ -604,9 +608,6 @@ public class DBServices
     /// reads cities from sql
     /// </summary>
     /// <returns>list of cities</returns>
-
-
-
     public List<City> readCities()
     {
         SqlConnection con = null;
@@ -651,6 +652,7 @@ public class DBServices
 
         }
     }
+
     /// <summary>
     /// reads businesses from sql
     /// </summary>
@@ -1051,6 +1053,7 @@ public class DBServices
 
         }
     }
+
     public List<Doc> ReadDocTypes()
     {
         SqlConnection con = null;
@@ -1145,6 +1148,7 @@ public class DBServices
 
         }
     }
+
     /// <summary>
     /// reads business from sql
     /// </summary>
@@ -1249,8 +1253,9 @@ public class DBServices
 
 
     }
+
     /// <summary>
-    /// reads Users from sql
+    /// reads Users type from sql
     /// </summary>
     /// <returns>list of Users</returns>
     public List<User> readUserTypes()
@@ -1394,6 +1399,8 @@ public class DBServices
             }
         }
     }
+
+    #region Statistics
     //statistics
     public int[] ReadTotalnewemp() {
         SqlConnection con = null;
@@ -1483,7 +1490,6 @@ public class DBServices
 
         }
     }
-
     public List<Employee> ReadEmpByYearStatistics()
     {
         SqlConnection con = null;
@@ -1538,7 +1544,6 @@ public class DBServices
 
         }
     }
-
     public List<Employee> ReadEmpByMonthStatistics()
     {
         SqlConnection con = null;
@@ -1594,7 +1599,6 @@ public class DBServices
 
         }
     }
-
     public List<Business> ReadBusiByYearStatistics()
     {
         SqlConnection con = null;
@@ -1652,7 +1656,6 @@ public class DBServices
 
         }
     }
-
     public List<Business> ReadBusiByQuarterStatistics()
     {
         SqlConnection con = null;
@@ -1699,7 +1702,6 @@ public class DBServices
 
         }
     }
-
     public List<Employee> ReadSMARTELEMENTStatistic()
     {
         SqlConnection con = null;
@@ -1746,7 +1748,7 @@ public class DBServices
 
         }
     }
-
+    #endregion
     #endregion
 
 
@@ -2659,6 +2661,7 @@ public class DBServices
 
         return command;
     }
+
     public int updateUserPass(string userName, string Pass)
     {
 
@@ -2729,10 +2732,6 @@ public class DBServices
     }
 
 
-
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="emp"></param>
     /// <returns> employee active</returns>
 
@@ -2804,11 +2803,6 @@ public class DBServices
         return command;
     }
 
-
-
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="emp"></param>
     /// <returns> employee active</returns>
 
@@ -3528,6 +3522,9 @@ public class DBServices
         return command;
     }
     #endregion
+
+
+
     #region Delete
     public int delete(User u)
     {
