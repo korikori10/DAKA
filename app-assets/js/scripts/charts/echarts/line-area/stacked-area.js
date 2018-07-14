@@ -160,6 +160,7 @@ $(window).on("load", function(){
                 // Resize chart on menu width change and window resize
                 $(window).on('resize', resize);
                 $(".menu-toggle").on('click', resize);
+                $('[data-action="expand"]').on('click', resize);
 
                 // Resize function
                 function resize() {
