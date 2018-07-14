@@ -339,3 +339,54 @@ Log Entry : 16:27:13 שבת 14 יולי 2018
  Text :System.Data.SqlClient.SqlException - Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=87; handshake=14976; 
 UserName: Kori
 -------------------------------
+
+Log Entry : 19:40:41 שבת 14 יולי 2018
+ Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at AJAXWebService.insertContact(String contactInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 960
+ Text :System.Exception - 05466774536 is not a valid value for Int32.
+UserName: Kori
+-------------------------------
+
+Log Entry : 19:41:11 שבת 14 יולי 2018
+ Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at AJAXWebService.UpdateContact(String contactInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 1075
+ Text :System.Exception - 05466774536 is not a valid value for Int32.
+UserName: Kori
+-------------------------------
+
+Log Entry : 19:58:47 שבת 14 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2305
+ Text :Conversion failed when converting date and/or time from character string.
+UserName: Kori
+-------------------------------
+
+Log Entry : 19:58:47 שבת 14 יולי 2018
+ Error :   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2317
+   at Employee.updateVisa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\Employee.cs:line 1188
+   at AJAXWebService.updateVisa(String EmployeeInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 529
+ Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
+UserName: Kori
+-------------------------------

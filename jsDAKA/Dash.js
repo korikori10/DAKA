@@ -3,7 +3,6 @@ EmployeeInfo = new Object();
 BusinessInfo = new Object();
 empPic = new Object();
 
-//$(document).ready(function () {
 window.onload = function () {
     getEmployees(renderEmployees);
     ReadEmployeesNeedNewVisa();
@@ -15,11 +14,11 @@ window.onload = function () {
     getEmployeesnobusinesss(renderEmployeesnobusiness);
 
 
-  //  Statistics(RenderTotalnewemp);
     StatisticsAllEmp(RenderTotalAllemp);
     $('input').iCheck({
         radioClass: 'iradio_flat-green',
     });
+
     //Picture or file upload
     $("#Pic").on("change", function () {
         pbLBL = $("#pbLBL")
@@ -38,12 +37,13 @@ window.onload = function () {
 
         }
     });
+
     $('#AddNewBus').click(function () {
         sessionStorage.removeItem("busiInfo")
     });
 
 }
-//});
+
 //button vallidations
 //if email and cancelation already done make it disable
     $('#Cancelinsurance').on('shown.bs.modal', function (e) {
@@ -51,7 +51,6 @@ window.onload = function () {
 
             $('#cancellationDate').attr('disabled');
             document.getElementById("Forfalse").innerHTML += "<span style='color: red;'> * ביטול הביטוח ושליחת המייל כבר נעשו </span>";
-            //$('#updateCancellation').attr('disabled', 'disabled');
         }
 
 });
@@ -93,10 +92,7 @@ function changeGmah() {
             EmployeeInfo.Final_bill = 'False';
         updateGmah({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
-//if (EmployeeInfo.Com_insurance == 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
-//        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
 
-//}
     
 }
 
@@ -113,10 +109,7 @@ function changeDiur() {
         EmployeeInfo.Com_app = 'True';//לא להוציא מדיור
         updateDiur({ EmployeeInfo: JSON.stringify(EmployeeInfo) });
     }
-//if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
-//        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
 
-//}
 
 }
 
@@ -132,10 +125,7 @@ function cancelInsurance() {
         ajaxcancelInsurance({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
     }
 
-//if (EmployeeInfo.Com_insurance== 'False' &&  EmployeeInfo.Insurance == 'False' &&  EmployeeInfo.Final_bill == 'True' && EmployeeInfo.Com_app == 'False') {
-//        MakeEmpNotActive({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
 
-//}
 
 }
 
@@ -196,7 +186,6 @@ $('#updateBusBTN').click(function () {
 
     EmployeeInfo.Business = $('#businessSE').val();        
     EmployeeInfo.Start_date = $('#SchedulingDate').val();        
-  //  EmployeeInfo.End_date = $('#SchedulingDate').val();        
     EmployeeInfo.Employee_pass_id = EmployeeInfo.pass;
     $('#empwithbusi').modal('toggle');
     updateEmpBusiness({ EmployeeInfo: JSON.stringify(EmployeeInfo) }, current_row);
@@ -268,7 +257,6 @@ $('#insurance').on('shown.bs.modal', function (e) {
 $('.table').on('click', 'tr td button', function () {
  //Take the Employee ID from the table row
     sessionStorage.removeItem("empInfo")
-        //tr = $(this).closest('tr');//.find('td:first').text()
     current_row = $(this).parents('tr');//Get the current row;
     if (current_row.hasClass('child')) {//Check if the current row is a child row
         current_row = current_row.prev();//If it is, then point to the row before it (its 'parent')
@@ -282,12 +270,10 @@ $('.table').on('click', 'tr td button', function () {
     EmployeeInfo.Com_app = data['Com_app'];
     EmployeeInfo.Insurance = data['Insurance'];
     EmployeeInfo.Com_insurance = data['Com_insurance'];
-    //EmployeeInfo.Origin_country = data['Origin_country'];
     EmployeeInfo.Fname = data['Fname'];
     EmployeeInfo.Lname = data['Lname'];
     EmployeeInfo.Sys_id = data['Sys_id'];
     EmployeeInfo.Bus_id = data['Bus_id'];
-   // EmployeeInfo.Ex_date = data['Ex_date'];
     if (whichid === "edit") {
         //Go To Employee Page
         sessionStorage.setItem("empInfo", EmployeeInfo.pass);
@@ -302,9 +288,7 @@ $('.table').on('click', 'tr td button', function () {
         //Send SMS To Employees
         SendSMS();
     }
-    //else if (whichid === "email") {
-    ////    sendEmail(EmployeeInfo);
-    //}
+   
 
     
 

@@ -18,10 +18,6 @@ $(document).ready(function () {
     getRoles(renderRoles);
     getTypes(renderTypes);
 
-
-   // $("#AddContact").on('click', function () { createContactForm() });
-  
-
 });
 
 
@@ -177,6 +173,7 @@ function createContactForm() {
     rolesSelect();
     return id;
 }
+
 function rolesSelect() {
     $("[name='Role_id']:last").empty();
     $.each(roles, function (i, row) {
@@ -185,6 +182,7 @@ function rolesSelect() {
 
     });
 }
+
 //Put all data in place
 function renderContacts(results) {
 
@@ -414,7 +412,7 @@ $("[name='updateB']").on('click', function () {
 
 
 
-//
+//update business
     function UpdateBus(array) {
 
 
@@ -422,6 +420,7 @@ $("[name='updateB']").on('click', function () {
  
 }
 
+//insert new business
 function InsertBus(array) {
 
 

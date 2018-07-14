@@ -23543,7 +23543,7 @@ input:focus ~ .bg-blue-grey {
 }
 
 .border-right-blue-grey.border-right-lighten-5 {
-  border-left : 1px solid #ECEFF1 !important;
+  /*border-left : 1px solid #ECEFF1 !important;*/
 }
 
 .overlay-blue-grey.overlay-lighten-5 {
@@ -23954,7 +23954,7 @@ input:focus ~ .bg-blue-grey {
 }
 
 .border-right-blue-grey {
-  border-left : 1px solid #607D8B;
+  /*border-left : 1px solid #607D8B;*/
 }
 
 .blue-grey.darken-1 {

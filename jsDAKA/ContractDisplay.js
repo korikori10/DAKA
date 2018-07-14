@@ -22,47 +22,23 @@ $(document).ready(function () {
 });
 
 function renderDocs(results) {
-
-
-   
-    //var busID = sessionStorage.getItem("busiInfo");
     $('#EmpDocs').attr('id');
     var doctype = "5";
     $.each(results, function (i, row) {
 
-        //if (row.Doctype_id == doctype) {
         if (i == 0) {
-          //  $("#doc1").attr('name', row.Doctype_id);
             $("#doc1").find('iframe').attr('id', 'docimg1');
             var img = $('#docimg1').attr('src', row);
-            //$.each(DocTypes, function (j, rows) {
-            //    if (row.Doctype_id == rows.Doctype_id) {
-            //        $("#doc1").find('h4').html('<i class="icon-eye6"></i> ' + rows.Doc_name);
-            //        return
-            //    }
-            //});
-            //data = row;
-            //contactSave[i] = row;
-            //populate(frm, data);
-
-        }
+            }
         else {
             id = createContractForm();
-           // $("#" + id).attr('name', row.Doctype_id);
             var img = $("#" + id).find('iframe').attr('id', 'img' + id);
              $('#img' + id).attr('src', row);
-            //$.each(DocTypes, function (j, rows) {
-            //    if (row.Doctype_id == rows.Doctype_id) {
-            //        $("#" + id).find('h4').html('<i class="icon-eye6"></i> ' + rows.Doc_name);
-            //        return
-            //    }
-            //});
+ 
         }
-
-        // }
-
     });
 }
+
 function createContractForm() {
     // get the last DIV which ID starts with ^= "contact"
     var $div = $('div[id^="doc"]:last');
@@ -77,8 +53,7 @@ function createContractForm() {
 
     // Finally insert $klon wherever you want
     $(docs).insertBefore('#sign');
-    //  $(contact).insertBefore('#addContact');
-    // rolesSelect();
+
     return id;
 }
 
@@ -116,6 +91,7 @@ function finished(i) {
             })
     }
 };
+
 $('#sigModal').on('shown.bs.modal', function (e) {
     $("#signature").jSignature();
     $("#signature").resize();

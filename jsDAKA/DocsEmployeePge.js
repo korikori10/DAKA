@@ -40,12 +40,10 @@ function renderDocs(results) {
 
 
     results = $.parseJSON(results.d);
-    //var busID = sessionStorage.getItem("busiInfo");
     $('#EmpDocs').attr('id');
     var doctype = "5";
     $.each(results, function (i, row) {
 
-        //if (row.Doctype_id == doctype) {
         if (i == 0) {
             $("#doc1").attr('name', row.Doctype_id);
             $("#doc1").find('iframe').attr('id', 'docimg1');
@@ -56,9 +54,7 @@ function renderDocs(results) {
                     return
                 }
             });
-                //data = row;
-                //contactSave[i] = row;
-                //populate(frm, data);
+  
 
             }
             else {
@@ -78,6 +74,7 @@ function renderDocs(results) {
 
     });
 }
+
 function createContractForm() {
     // get the last DIV which ID starts with ^= "contact"
     var $div = $('div[id^="doc"]:last');
@@ -92,8 +89,7 @@ function createContractForm() {
 
     // Finally insert $klon wherever you want
     $(docs).appendTo('#EmpDocs');
-  //  $(contact).insertBefore('#addContact');
-   // rolesSelect();
+
     return id;
 }
 

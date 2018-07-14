@@ -31,6 +31,7 @@ $(document).ready(function () {
 function setDocFile(results) {
     docpic = results;
 }
+
 $('#InsertContract').click(function () {
 
     DocsInfo.Bus_id = sessionStorage.getItem("busiInfo");
@@ -38,13 +39,13 @@ $('#InsertContract').click(function () {
     DocsInfo.Contype_id = '1';
     InsertheContract({ DocsInfo: JSON.stringify(DocsInfo) });
 });
+
 function renderDocs(results) {
 
 
     results = $.parseJSON(results.d);
-    //var busID = sessionStorage.getItem("busiInfo");
     $('#BusiDocs').attr('id');
- //   var doctype = "5";
+
     $.each(results, function (i, row) {
         if (i == 0) {
 
@@ -66,6 +67,7 @@ function renderDocs(results) {
 
     });
 }
+
 function createContractForm() {
     // get the last DIV which ID starts with ^= "contact"
     var $div = $('div[id^="doc"]:last');
@@ -80,7 +82,6 @@ function createContractForm() {
 
     // Finally insert $klon wherever you want
     $(docs).appendTo('#BusiDocsInsert');
-    //  $(contact).insertBefore('#addContact');
-    // rolesSelect();
+
     return id;
 }

@@ -144,7 +144,8 @@ function renderEmployeeByID(results) {
         });
         disabled.attr('disabled');
         return o;
-    };
+};
+
 $(".icon-expand2").on('click', function () {
     $("iframe").height("700px");
 });
@@ -177,6 +178,7 @@ form1.validate({
         this.defaultShowErrors(); // <- ENABLE default MESSAGES
     }
 });
+
 $.extend($.validator.messages, {
     required: "השדה הזה הינו שדה חובה",
     remote: "נא לתקן שדה זה",

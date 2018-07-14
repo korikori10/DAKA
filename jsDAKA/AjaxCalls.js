@@ -1081,6 +1081,8 @@ function InsertUserCall(UserInfo) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
+            $("#AddUser1").modal('hide');
+            
 
         },
         error: function (xhr, status, error) {
@@ -1225,7 +1227,7 @@ function updateInsurance(EmployeeInfo, current_row) {
                 t1.row(current_row).remove().draw();
             }, 1000);
             $("#insurance").modal('hide');
-
+            
         },
         error: function (xhr, status, error) {
             setTimeout(function () {

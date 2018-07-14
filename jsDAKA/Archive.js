@@ -7,7 +7,6 @@ $(document).ready(function () {
 });
 
 
-
 // Button Clicks In Tables
 $('.table').on('click', 'tr td button', function () {
     //Take the Employee ID from the table row

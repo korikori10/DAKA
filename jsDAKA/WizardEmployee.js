@@ -135,12 +135,14 @@ function setEmpVisa(results) {
     EmpVisa.Employee_pass_id = $('#passportid').val();
 
 }
+
 function setEmpAuth(results) {
     EmpAuth.Img_url = results;
     EmpAuth.Doc_id = $('#passportid').val() + makeid();
     EmpAuth.Doctype_id = '3';
     EmpAuth.Employee_pass_id = $('#passportid').val();
 }
+
 function setEmpID(results) {
     EmpID.Img_url = results;
     EmpID.Doc_id = $('#passportid').val() + makeid();
@@ -163,60 +165,6 @@ function fixDate(date) {
 
 }
 
-//function populate(frm, data) {
-//    $.each(data, function (key, value) {
-//        var ctrl = $('[name=' + key + ']', frm);
-//        //  console.log(ctrl.prop("type"))
-//        switch (ctrl.prop("type")) {
-//            case "radio": case "checkbox":
-//                ctrl.each(function () {
-//                    if ($(this).attr('value') == value) $(this).attr("checked", value);
-//                });
-//                break;
-//            case "file":
-//                break;
-//            case "select-one":
-//                if (value === true) {
-//                    value = 'T';
-//                }
-//                else if (value === false) {
-//                    value = 'F';
-//                }
-//                ctrl.val(value);
-//                break;
-//            default:
-//                ctrl.val(value);
-
-//        }
-//    }
-
-//    );
-//}
-
-//function renderEmployeeByID(results) {
-
-//    results = $.parseJSON(results.d);
-//    resultsSave = results;
-//    if (results.Employee_pass_id == null) {
-//        isUpdate = false;
-//        $("#passportid").val(EmployeeInfo.pass);
-//        results = null;
-//        document.getElementById("kindoform").innerHTML = "ברוכים הבאים! זוהי קליטה חדשה,אנא הזן את כל הפרטים";
-//    }
-//    else {
-//        var frm = $("#insertEmpForm");
-//        var data = results;
-//        isUpdate = true;
-//        data.Birthday = fixDate(data.Birthday);
-//        populate(frm, data);
-
-//        document.getElementById("kindoform").innerHTML = "עובד זה כבר פעיל במערכת, יש לבצע ציוות מחדש בלבד";
-//        $('.actions li a[href^="#next"]').trigger('click');
-
-//    }
-  
-
-//}
 
 function renderBusinesses(results) {
     //this is the callBackFunc 

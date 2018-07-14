@@ -1,7 +1,8 @@
 ﻿var UserSave = new Object();
 var roles = new Object();
 var UserInfo = new Object();
-var username="";
+var username = "";
+
 $(document).ready(function () {
 
     //  getUserByUserName(username, renderUser);
@@ -89,6 +90,7 @@ $.fn.serializeObject = function () {
     disabled.attr('disabled');
     return o;
 };
+
 function renderUser(results) {
     results = $.parseJSON(results.d);
     $("#user1").find('form').attr('id', 'updateuser1')
@@ -124,13 +126,9 @@ function createUserForm() {
     // Clone it and assign the new ID (i.e: from num 4 to ID "contact4")
     var user = '<div class="col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
     // Finally insert $klon wherever you want
-    //$(contact).appendTo('#contactsTab');
     $(user).insertBefore('#addUser');
     rolesSelect();
-    //if (flag) {
-    //    var $h4 = user.find('h4').html("");//<input type='text' name='Full_name' />
-    //    var $h6 = user.find('h6').html("");
-    //}
+
     return id;
 }
 
@@ -197,7 +195,7 @@ function renderUsers(results) {
         var userFRM = $(this).closest('form')
         swal({
             title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן את פרטי המשתמש.",
+            text: "אתה עומד לעדכן/להוסיף את פרטי המשתמש.",
             type: "info",
             confirmButtonText: "כן",
             showCancelButton: "true",
