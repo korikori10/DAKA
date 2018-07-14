@@ -43,7 +43,13 @@
     <link href="app-assets/vendors/css/forms/selects/selectize.default.css" rel="stylesheet" />
     <link href="app-assets/vendors/css/extensions/sweetalert.css" rel="stylesheet" />
     <!-- END Custom CSS-->
+    <script type="text/javascript">
+        //Login Check
+        if (sessionStorage.getItem("userName") === null) {
+          window.location = "index.html"
 
+        }
+    </script>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
         var OneSignal = window.OneSignal || [];
