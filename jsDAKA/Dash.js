@@ -360,7 +360,6 @@ function renderBusinessesSearch(results) {
 function RenderTotalAllemp(results)
 {
     statistics = $.parseJSON(results.d);
-    console.log(statistics[3]);
     document.getElementById("activeEmp").value = statistics[2];
     document.getElementById("activeEmp").max = statistics[0];
     document.getElementById("numnewemp").innerHTML = statistics[2];

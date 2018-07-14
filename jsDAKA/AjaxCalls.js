@@ -1450,7 +1450,7 @@ function getBusinesses(renderBusinesses, renderBusinessesSearch) {//, renderBusi
         dataType: 'json',
         success: function (results) {
             renderBusinesses(results);
-            renderBusinessesSearch(results);
+            //renderBusinessesSearch(results);
         },
         error: function (request, error) {
             window.location = "error404.html";
