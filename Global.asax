@@ -7,7 +7,7 @@
 
     void Application_Start(object sender, EventArgs e)
     {
-        timer.Interval = 300000;
+        timer.Interval = 60000;
         timer.Elapsed += tm_Tick;
         TextFromAsax = "Started";
         
