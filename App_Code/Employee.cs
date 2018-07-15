@@ -17,6 +17,7 @@ public class Employee
     private int origin_country;
     private bool il_citizen;
     private int add_city;
+    string add_city_name;
     private string add;
     private int add_num;
     private int phone;
@@ -60,6 +61,7 @@ public class Employee
     string employeeCountMonth;
     string january, february, march, april, may, june, july, august, september, october, november, december;
     string month, moving_AVG;
+ 
     public Employee()
     {
         //
@@ -1002,6 +1004,19 @@ public class Employee
         set
         {
             start_date1 = value;
+        }
+    }
+
+    public string Add_city_name
+    {
+        get
+        {
+            return add_city_name;
+        }
+
+        set
+        {
+            add_city_name = value;
         }
     }
 
