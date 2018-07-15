@@ -151,12 +151,12 @@
     <!-- / main menu-->
     <script>
         totalEmp = 0;
-        $(document).ready(function () {
+        window.onload = function () {
 
             StatisticsAllEmp(RenderTotalAllemp);
             getEmployeesnobusinesss(renderEmployeesnobusiness);
 
-        });
+        }
         //statistics
         function RenderTotalAllemp(results) {
             statistics = $.parseJSON(results.d);

@@ -110,7 +110,7 @@ function renderCountries(results) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamiCountryList').append(dynamicLi);
     });
-    getBusinesses(renderBusinesses);
+    getBusinessesW(renderBusinesses)
     getContactsByBus(renderContacts);
 }
 
