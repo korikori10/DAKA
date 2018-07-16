@@ -390,3 +390,38 @@ Log Entry : 19:58:47 שבת 14 יולי 2018
  Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
 UserName: Kori
 -------------------------------
+
+Log Entry : 12:33:41 PM Monday, July 16, 2018
+ Error :   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at PDF.fillForm(Employee e) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\PDF.cs:line 70
+   at AJAXWebService.insertEmployee(String EmployeeInfo) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 854
+ Text :System.ArgumentException - An item with the same key has already been added.
+UserName: Tom
+-------------------------------
+
+Log Entry : 12:35:18 PM Monday, July 16, 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.insert(Employee emp) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1797
+ Text :Violation of PRIMARY KEY constraint 'PK__EMPLOYEE__4446603375A278F5'. Cannot insert duplicate key in object 'dbo.EMPLOYEE'.
+The statement has been terminated.
+UserName: Tom
+-------------------------------
+
+Log Entry : 12:35:18 PM Monday, July 16, 2018
+ Error :   at DBServices.insert(Employee emp) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1809
+   at Employee.insertEmployee(Employee e) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\Employee.cs:line 1244
+   at AJAXWebService.insertEmployee(String EmployeeInfo) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 852
+ Text :System.Data.SqlClient.SqlException - Violation of PRIMARY KEY constraint 'PK__EMPLOYEE__4446603375A278F5'. Cannot insert duplicate key in object 'dbo.EMPLOYEE'.
+The statement has been terminated.
+UserName: Tom
+-------------------------------

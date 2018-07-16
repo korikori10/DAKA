@@ -61,8 +61,17 @@ public class PDF
         {
             if (pi.GetValue(e, null) != null)
             {
+                if (pi.PropertyType == typeof(DateTime))
+                {
+                    string bday = pi.GetValue(e, null).ToString().Split(' ')[0];
+                    props.Add(pi.Name, bday);
 
-            props.Add(pi.Name, pi.GetValue(e, null).ToString());
+                }
+                else
+                {
+                props.Add(pi.Name, pi.GetValue(e, null).ToString());
+
+                }
             }
 
         }
@@ -103,6 +112,7 @@ public class PDF
                     {
                         if (name.Key == field.Key)
                         {
+                   
                             formFields.SetFieldProperty(field.Key, "textfont", bf, null);
                             formFields.SetField(field.Key, name.Value);
 
@@ -180,7 +190,7 @@ public class PDF
                             {
                                 AcroFields.FieldPosition f = formFields.GetFieldPositions(field.Key)[i];
                                 int page = formFields.GetFieldPositions(field.Key)[i].page;//get(i).page;
-                                formFields.SetField("Start_date", DateTime.Now.ToString("yyyy/MM/dd"));
+                                formFields.SetField("Start_date", DateTime.Now.ToString("dd/MM/yyyy"));
                                 iTextSharp.text.Rectangle rect = f.position;
                                 itextImage.ScaleToFit(rect.Width, rect.Height);
                                 int p = reader.NumberOfPages;

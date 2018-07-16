@@ -35,6 +35,7 @@ public class Employee
     private bool active;
     private string disable_reason;
     private string bus_name;
+    string day_off_name;
     DateTime ex_date;
     DateTime start_date;
     DateTime start_date1;
@@ -45,6 +46,7 @@ public class Employee
     private int rent;
     int doctype_id;
     string img_url;
+    string occupation_desc;
     DateTime last_update;
     string doc_id;
     bool food_incloud;
@@ -61,6 +63,7 @@ public class Employee
     string employeeCountMonth;
     string january, february, march, april, may, june, july, august, september, october, november, december;
     string month, moving_AVG;
+    
  
     public Employee()
     {
@@ -1017,6 +1020,32 @@ public class Employee
         set
         {
             add_city_name = value;
+        }
+    }
+
+    public string Occupation_desc
+    {
+        get
+        {
+            return occupation_desc;
+        }
+
+        set
+        {
+            occupation_desc = value;
+        }
+    }
+
+    public string Day_off_name
+    {
+        get
+        {
+            return day_off_name;
+        }
+
+        set
+        {
+            day_off_name = value;
         }
     }
 

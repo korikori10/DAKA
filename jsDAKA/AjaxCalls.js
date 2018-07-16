@@ -23,7 +23,7 @@ function getEmployees(renderEmployees) {
             renderEmployees(results);
         },
         error: function (request, error) {
-            window.location = "error404.html";
+           // window.location = "error404.html";
         }
 
     });
