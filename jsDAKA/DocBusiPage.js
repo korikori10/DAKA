@@ -37,6 +37,7 @@ $('#InsertContract').click(function () {
     DocsInfo.Bus_id = sessionStorage.getItem("busiInfo");
     DocsInfo.Contract_pic = docpic;
     DocsInfo.Contype_id = '1';
+    $('#Insert_contract').modal('toggle');
     InsertheContract({ DocsInfo: JSON.stringify(DocsInfo) });
 });
 

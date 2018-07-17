@@ -45,7 +45,12 @@ $(".vertical-tab-steps").steps({
     stepsOrientation: "vertical",
     titleTemplate: '<span class="step">#index#</span> #title#',
     labels: {
-        finish: 'Submit'
+        finish: 'סיים',
+                current: "השלב הנוכחי:",
+        pagination: "עמודים",
+        next: "הבא",
+        previous: "הקודם",
+        loading: "טוען ..."
     },
     onStepChanging: function (event, currentIndex, newIndex) {
         // Allways allow previous action even if the current form is not valid!

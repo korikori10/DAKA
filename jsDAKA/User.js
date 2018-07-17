@@ -87,7 +87,7 @@ $.fn.serializeObject = function () {
             o[this.name] = this.value || '';
         }
     });
-    disabled.attr('disabled');
+    disabled.attr('disabled', 'disabled');
     return o;
 };
 

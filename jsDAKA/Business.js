@@ -218,7 +218,9 @@ function renderContacts(results) {
         
     });
 
+    setTimeout(function () {
     $(".selectize-select").selectize();
+  }, 500);
     //setTimeout(function () {
     //    $('input[type="tel"]').rules('add', { maxlength: 9 });
     //    $('input[type="number"]').rules('add', { maxlength: 9 });
@@ -285,11 +287,13 @@ function renderContacts(results) {
                         contactInfo = contactFRM.serializeObject();
                         contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
                         if (contactInfo.Contact_id == false) {
+                          
                             InsertContact({ contactInfo: JSON.stringify(contactInfo) });
                         }
                         else {
 
                             UpdateContact({ contactInfo: JSON.stringify(contactInfo) });
+                          
                         }
 
 
@@ -329,7 +333,7 @@ function renderContacts(results) {
                 o[this.name] = this.value || '';
             }
         });
-        disabled.attr('disabled');
+        disabled.attr('disabled' , 'disabled');
         return o;
     };
 
