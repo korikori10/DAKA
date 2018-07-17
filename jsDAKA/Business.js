@@ -97,7 +97,7 @@ function renderBusinesses(results) {
             $('#bus_id').attr('disabled');
         }
 
-
+        
     });
  
 }
@@ -212,10 +212,13 @@ function renderContacts(results) {
             }
 
         }
-
+    
+       
+  
+        
     });
 
-    $('.selectize-select').selectize();
+    $(".selectize-select").selectize();
     //setTimeout(function () {
     //    $('input[type="tel"]').rules('add', { maxlength: 9 });
     //    $('input[type="number"]').rules('add', { maxlength: 9 });

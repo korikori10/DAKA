@@ -78,7 +78,7 @@ function renderCountries(results) {
     $("#Employee_pass_id").val(EmployeeInfo.pass);
     
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
-        $('.selectize-select').selectize;
+        //$('.selectize-select').selectize;
 }
 
 function renderCities(results) {
