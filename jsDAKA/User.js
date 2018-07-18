@@ -96,6 +96,8 @@ $.fn.serializeObject = function () {
 
 function renderUser(results) {
     results = $.parseJSON(results.d);
+    var flag = true;
+    rolesSelect(flag);
     $("#user1").find('form').attr('id', 'updateuser1')
     frm = $('#updateuser1');
     data = results;
@@ -130,7 +132,7 @@ function createUserForm() {
     var user = '<div class="col-xl-4 col-md-6 col-xs-12" id="' + id + '">' + $div.html() + '</div>'; //$div.clone().prop('id', id);
     // Finally insert $klon wherever you want
     $(user).insertBefore('#addUser');
-    rolesSelect();
+    rolesSelect(flag);
 
     return id;
 }
