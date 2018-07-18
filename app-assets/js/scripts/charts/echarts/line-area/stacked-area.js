@@ -25,7 +25,7 @@ $(window).on("load", function(){
 
     require.config({
         paths: {
-            echarts: '../../../app-assets/vendors/js/charts/echarts'
+            echarts: '/bgroup59/prod/app-assets/vendors/js/charts/echarts'
         }
     });
 
@@ -33,11 +33,18 @@ $(window).on("load", function(){
     // Configuration
     // ------------------------------
 
+    //require(
+    //    [
+    //        'app-assets/vendors/js/charts/echarts/chart/bar',
+    //        'app-assets/vendors/js/charts/echarts/echarts',   
+    //        'app-assets/vendors/js/charts/echarts/chart/line'
+    //    ],
     require(
         [
             'echarts',
             'echarts/chart/bar',
             'echarts/chart/line'
+
         ],
 
 

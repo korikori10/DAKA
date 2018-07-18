@@ -436,3 +436,26 @@ function InsertBus(array) {
 }
 
 
+$("#delete").on('click', function () {
+    swal({
+        title: "האם אתה בטוח?",
+        text: "השינויים שעשית לא ישמרו",
+        type: "info",
+        confirmButtonText: "כן",
+        showCancelButton: "true",
+        cancelButtonText: "בטל",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+    },
+
+        function (isConfirm) {
+            if (isConfirm) {
+
+                location.reload();
+
+            }
+       
+        });
+
+
+});

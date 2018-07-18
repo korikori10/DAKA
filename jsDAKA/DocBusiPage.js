@@ -86,3 +86,12 @@ function createContractForm() {
 
     return id;
 }
+
+$('[data-action="expand"]').on('click', resize);
+
+function resize()
+{
+    iFrame = document.getElementsByTagName(iframe);
+    iFrame = iFrame.width = 100+'%';//iFrame.contentWindow.document.body.scrollWidth;
+    iFrame = iFrame.height = 1000 + 'px';// iFrame.contentWindow.document.body.scrollHeight;
+}

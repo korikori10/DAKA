@@ -1862,6 +1862,7 @@ function updatePass(newpass, username) {
             setTimeout(function () {
                 swal("בוצע!", "כל הנתונים נשמרו בהצלחה", "success");
             }, 1000);
+            $("#resetPassModal").modal('hide');
         },
         error: function (xhr, status, error) {
             setTimeout(function () {

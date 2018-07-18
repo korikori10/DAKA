@@ -1,3 +1,5 @@
+/// <reference path="../../../../../vendors/js/charts/echarts/chart/bar.js" />
+/// <reference path="../../../../../vendors/js/charts/echarts/chart/bar.js" />
 /*=========================================================================================
     File Name: basic-area.js
     Description: echarts basic area chart
@@ -28,7 +30,6 @@ var detailsmonthEmployee;
 
 $(window).on("load", function () {
     StatisticsEmpByYear(RenderempByYear);
-    //StatisticsEmpByMonth(RenderempByMonth);
     StatisticsBusiByYear(RenderBusiByYear);
 
     // Set paths
@@ -36,11 +37,15 @@ $(window).on("load", function () {
 
     require.config({
         paths: {
-            echarts: '../../../app-assets/vendors/js/charts/echarts'
+            echarts: '/bgroup59/prod/app-assets/vendors/js/charts/echarts'
         }
     });
 
-
+    //require.config({
+    //    paths: {
+    //        echarts: '../../../app-assets/vendors/js/charts/echarts'
+    //    }
+    //});
     // Configuration
     // ------------------------------
 
@@ -51,6 +56,13 @@ $(window).on("load", function () {
             'echarts/chart/line'
            
         ],
+            //require(
+    //    [
+    //        'app-assets/vendors/js/charts/echarts/echarts',
+    //        'app-assets/vendors/js/charts/echarts/chart/bar',
+    //        'app-assets/vendors/js/charts/echarts/chart/line'
+
+    //    ],
 
 
         // Charts setup
@@ -58,7 +70,6 @@ $(window).on("load", function () {
             // Initialize chart
             // ------------------------------
             var myChart = ec.init(document.getElementById('basic-area'));
-          //  var myChart2 = ec.init(document.getElementById('basic-month'));
             var myChart3 = ec.init(document.getElementById('Yearly-data'));
 
 
@@ -81,7 +92,7 @@ $(window).on("load", function () {
 
                 // Add legend
                 legend: {
-                    data: ['New Employees', 'New Employees Growth']//, 'In progress ', 'Closed deals']
+                    data: ['New Employees', 'New Employees Growth']
                 },
 
                 // Add custom colors
@@ -219,7 +230,6 @@ $(window).on("load", function () {
             // ------------------------------
 
             myChart.setOption(chartOptions);
-           // myChart2.setOption(chartOptions2);
             myChart3.setOption(chartOptions3forbusi);
             // Resize chart
             // ------------------------------
@@ -255,13 +265,7 @@ function RenderempByYear(results) {
     growthEmployee = resultData[2];
 
 }
-//function RenderempByMonth(results) {
-//    var resultData = $.parseJSON(results.d);
-//    monthsinYearEmployee = resultData[0];
-//    detailsmonthEmployee = resultData[1];
-//    month = resultData[2];
 
-//}
 
 function RenderBusiByYear(results) {
     var resultData = $.parseJSON(results.d);
