@@ -158,7 +158,7 @@ public class Employee
         this.sabatical = sabatical;
         this.occupation_code = occupation_code;
         this.active = active;
-        this.rent = rent;
+        this.monthly_rent = rent;
         this.business = business;
     }
 
