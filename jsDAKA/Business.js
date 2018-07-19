@@ -287,7 +287,7 @@ function renderContacts(results) {
                         contactInfo = contactFRM.serializeObject();
                         contactInfo.Bus_id = sessionStorage.getItem("busiInfo");
                         if (contactInfo.Contact_id == false) {
-                          
+                            $('#AddContactModal').modal('toggle');
                             InsertContact({ contactInfo: JSON.stringify(contactInfo) });
                         }
                         else {
