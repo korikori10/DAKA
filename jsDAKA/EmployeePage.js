@@ -78,7 +78,9 @@ function renderCountries(results) {
     $("#Employee_pass_id").val(EmployeeInfo.pass);
     
         getEmployeeById(EmployeeInfo, renderEmployeeByID);
-        //$('.selectize-select').selectize;
+    setTimeout(function () {
+        $(".selectize-select").selectize();
+    }, 200);
 }
 
 function renderCities(results) {
@@ -116,9 +118,9 @@ function renderEmployeeByID(results) {
 
     }
     if ($('#sysIdTB').val() != 0) {
-        $('#sysIdTB').attr('disabled')
+        $('#sysIdTB').attr('disabled' , 'disabled')
     }
-        $(".selectize-select").selectize();
+      
 }
 
 //create 1 array for json from the form
