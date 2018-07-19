@@ -1129,7 +1129,7 @@ public class AJAXWebService : System.Web.Services.WebService
     public void getEmployeesnobusiness()
     {
         Employee e = new Employee();
-        List<Employee> LE = e.getEmployeesnobisiness();
+        List<Employee> LE = e.getEmployeesnobisinessStat();//שונה מgetEmployeesnobisiness
         JavaScriptSerializer js = new JavaScriptSerializer();
         // serialize to string
         var jsonStringCategory = js.Serialize(LE);
