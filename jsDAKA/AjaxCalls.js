@@ -1003,7 +1003,7 @@ function InsertBusinessContact(BusiInfo) {
         contentType: 'application/json; charset = utf-8',
         data: bus,
         success: function (results) {
-            alert(results);
+            //alert(results);
             setTimeout(function () {
                 swal("בוצע!", "איש קשר נוסף בהצלחה", "success");
             }, 1000);

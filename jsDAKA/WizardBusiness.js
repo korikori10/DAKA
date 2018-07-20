@@ -78,6 +78,8 @@ function renderBusinesses(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
     $('#businessSE').empty();
+    dynamicLi = '<option value=""> בחר Select</option>';
+    $('#businessSE').append(dynamicLi);
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_id + '">' + row.Bus_name + '</option>';
         $('#businessSE').append(dynamicLi);
@@ -90,6 +92,8 @@ function renderRoles(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
     $('#role_id').empty();
+    dynamicLi = '<option value=""> בחר Select</option>';
+    $('#role_id').append(dynamicLi);
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Role_id + '">' + row.Role_name + '</option>';
         $('#role_id').append(dynamicLi);
@@ -102,6 +106,8 @@ function renderCities(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
     $('#DynamicCitiesList').empty();
+    dynamicLi = '<option value=""> בחר Select</option>';
+    $('#DynamicCitiesList').append(dynamicLi);
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamicCitiesList').append(dynamicLi);
@@ -113,6 +119,8 @@ function renderDepartments(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
     $('#departmentSE').empty();
+    dynamicLi = '<option value=""> בחר Select</option>';
+    $('#departmentSE').append(dynamicLi);
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#departmentSE').append(dynamicLi);
@@ -123,6 +131,8 @@ function renderTypes(results) {
     //this is the callBackFunc 
     results = $.parseJSON(results.d);
     $('#typeSE').empty();
+    dynamicLi = '<option value=""> בחר Select</option>';
+    $('#typeSE').append(dynamicLi);
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_type_code + '">' + row.Bus_type_name + '</option>';
         $('#typeSE').append(dynamicLi);

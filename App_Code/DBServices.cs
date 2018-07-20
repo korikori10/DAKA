@@ -1938,7 +1938,13 @@ public class DBServices
         String cStr = BuildInsertCommanda(busi);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
-
+        cmd.Parameters.AddWithValue("@Bus_id", busi.Bus_id);
+        cmd.Parameters.AddWithValue("@Bus_name", busi.Bus_name);
+        cmd.Parameters.AddWithValue("@Add", busi.Add);
+        cmd.Parameters.AddWithValue("@Phone", busi.Phone);
+        cmd.Parameters.AddWithValue("@ContactName", busi.Contact_name);
+        cmd.Parameters.AddWithValue("@Email", busi.Email);
+        cmd.Parameters.AddWithValue("@ContactPhone", busi.PhoneContact);
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
@@ -1976,9 +1982,9 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values({0}, '{1}' ,'{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')", busi.Bus_id, busi.Bus_name, busi.Add_city, busi.Add, busi.Add_num, busi.Phone, busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));
+        sb.AppendFormat("Values({0}, {1} ,'{2}', {3}, '{4}', {5}, '{6}', '{7}', '{8}', '{9}')", "@Bus_id", "@Bus_name", busi.Add_city, "@Add", busi.Add_num, "@Phone", busi.Bus_type_code, busi.Contract_code, busi.Department_code, DateTime.Now.ToString("yyyy-MM-dd"));
         String prefix = "INSERT INTO BUSINESSES " + "(bus_id,bus_name,add_city,[add],add_num,phone,bus_type_code,contract_code, department_code, commence_date)";
-        String secondCommand = "; INSERT INTO [contacts to business] (contact_name, email, phone, role_id) Values('" + busi.Contact_name + "','" + busi.Email + "','" + busi.PhoneContact + "','" + busi.Role_id + "')";// ,(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
+        String secondCommand = "; INSERT INTO [contacts to business] (contact_name, email, phone, role_id) Values(@ContactName, @Email, @ContactPhone,'" + busi.Role_id + "')";// ,(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
         String thirdCommand = "; INSERT INTO [contacts in business] ([bus_id],[contact_id]) Values('" + busi.Bus_id + "',(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
 
         command = prefix + sb.ToString() + secondCommand+ thirdCommand;
@@ -2014,7 +2020,9 @@ public class DBServices
         String cStr = BuildInsertCommand(cont);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
-
+        cmd.Parameters.AddWithValue("@ContactName", cont.Contact_name);
+        cmd.Parameters.AddWithValue("@Email", cont.Email);
+        cmd.Parameters.AddWithValue("@ContactPhone", cont.Phone);
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
@@ -2052,7 +2060,7 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}')", cont.Contact_name, cont.Email, cont.Phone, cont.Role_id);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        sb.AppendFormat("Values({0}, {1} ,{2}, '{3}')", "@ContactName", "@Email", "@ContactPhone", cont.Role_id);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
         String prefix = "INSERT INTO [contacts to business] " + "(contact_name, email, phone, role_id) ";
         //how do i get the contact id?
        String secondCommand = "; INSERT INTO [contacts in business] (bus_id, contact_id) Values('"+ cont.Bus_id + "' ,(Select top(1) contact_id from [contacts to business] order by contact_id desc))";
@@ -2088,7 +2096,11 @@ public class DBServices
         String cStr = BuildInsertCommand(user);      // helper method to build the insert string
 
         cmd = CreateCommand(cStr, con);             // create the command
-
+        cmd.Parameters.AddWithValue("@UserName", user.Full_name);
+        cmd.Parameters.AddWithValue("@Email", user.U_name);
+        cmd.Parameters.AddWithValue("@UserPhone", user.Phone);
+        cmd.Parameters.AddWithValue("@UserImg", user.User_img);
+     
         try
         {
             int numEffected = cmd.ExecuteNonQuery(); // execute the command
@@ -2126,8 +2138,8 @@ public class DBServices
 
         StringBuilder sb = new StringBuilder();
         // use a string builder to create the dynamic string
-        sb.AppendFormat("Values('{0}', '{1}' ,'{2}', '{3}', {4})", user.U_name, user.U_pwd, user.Full_name, user.U_type_code, user.Phone);//,user.User_img);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
-        String prefix = "INSERT INTO USERS " + "(u_name,u_pwd,full_name,U_type_code,phone)";//,user_img)";
+        sb.AppendFormat("Values({0}, '{1}' ,{2}, '{3}', {4}, {5})", "@Email", user.U_pwd, "@UserName", user.U_type_code, "@UserPhone", "@UserImg");//,user.User_img);//לבדוק מה סטרינג כי הוא מצריך גרשיים אחדיים ולאינט לא!לבדוק מי צריך מה לגבי בול והשאר
+        String prefix = "INSERT INTO USERS " + "(u_name,u_pwd,full_name,U_type_code,phone, user_img)";//,user_img)";
         command = prefix + sb.ToString();
 
         return command;

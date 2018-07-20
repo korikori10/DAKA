@@ -194,8 +194,14 @@
                                     <div class="modal-body">
                                         <div class="text-xs-center">
                                             <div class="card-block">
-                                                <input type="image" src="/app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image" />
-                                                <br /> <input type="file" name="user_img" />
+                                                <div class="row">
+                                                    <label for="tbad4">תמונת העובד</label>
+                                                    <input class="form-control" type="file" id="Pic" name="Picture" accept="image/*;capture=camera" />
+                                                </div>
+                                                <div id="progressBar" style="position:relative; display:none">
+                                                    <progress id="pb2" class="progress-striped progress-green" value="100" max="100"></progress>
+                                                    <span id="pLBL2" style="position:absolute; left:35%; top:20%">Uploading...</span>
+                                                </div>
                                             </div>
                                             <div class="card-block">
                                                 <h4 class="card-title"></h4>

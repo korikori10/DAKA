@@ -2,6 +2,8 @@
 var roles = new Object();
 var UserInfo = new Object();
 var username = "";
+var flag = new Object();
+var EmpPic = null;
 
 $(document).ready(function () {
 
@@ -156,13 +158,13 @@ function renderUsers(results) {
 
     results = $.parseJSON(results.d);
     var USERID = sessionStorage.getItem("userInfo");
-    var flag = true;
-    rolesSelect(flag);
     $.each(results, function (i, row) {
 
 
         if (i == 0) {
-            $("#user1").find('form').attr('id', 'updateuser1')
+            flag = true;
+            rolesSelect(flag);
+            $("#user1").find('form').attr('id', 'updateuser1');
             frm = $('#updateuser1');
             data = row;
             UserSave[i] = row;
@@ -189,6 +191,28 @@ function renderUsers(results) {
 
 
     });
+
+    $("#Pic").on("change", function () {
+        pbLBL = $("#pbLBL")
+        pbDiv = $("#progressBar")
+        pbLBL.text('Uploading...');
+        pbDiv.fadeIn(500)
+        var files = $(this).get(0).files;
+        if (files.length > 0) {
+
+
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append(files[i].name, files[i])
+            }
+            uploadFiles(formData, pbLBL, pbDiv, setEmpFile);
+
+        }
+    });
+
+    function setEmpFile(results) {
+        empPic = results;
+    }
 
     $('[name="resetPassBTN"]').click(function () {
         username = $(this).closest('form').find("[name='U_name']").val();
@@ -217,6 +241,7 @@ function renderUsers(results) {
                     
                     //  UserInfo.Uid = sessionStorage.getItem("userInfo");
                     if (UserInfo.Uid === undefined) {
+                        UserInfo.User_img = empPic;
                         InsertUserCall({ UserInfo: JSON.stringify(UserInfo) });
                     }
                     else {
