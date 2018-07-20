@@ -106,7 +106,7 @@ function renderCities(results) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamicCitiesList').append(dynamicLi);
     });
-    $('.selectize-select').selectize();
+  
 }
 
 function renderDepartments(results) {
@@ -126,7 +126,9 @@ function renderTypes(results) {
     $.each(results, function (i, row) {
         dynamicLi = '<option value="' + row.Bus_type_code + '">' + row.Bus_type_name + '</option>';
         $('#typeSE').append(dynamicLi);
+       
     });
+    $('.selectize-select').selectize();
 }
 
 $.fn.serializeObject = function () {
