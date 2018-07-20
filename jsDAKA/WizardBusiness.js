@@ -106,6 +106,7 @@ function renderCities(results) {
         dynamicLi = '<option value="' + row.Id + '">' + row.Name + '</option>';
         $('#DynamicCitiesList').append(dynamicLi);
     });
+    $('.selectize-select').selectize();
 }
 
 function renderDepartments(results) {
