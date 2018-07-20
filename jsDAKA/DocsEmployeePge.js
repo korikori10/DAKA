@@ -15,6 +15,9 @@ $(document).ready(function () {
             $(".docCards").not("[name='" + this.value + "']").children().hide()
         }
     });
+
+
+
 });
 
 function renderDocTypes(results) {
@@ -72,8 +75,31 @@ function renderDocs(results) {
 
        // }
 
+    $('[data-action="expand"]').on('click', function(){    setTimeout(function () {
+   resize();
+    }, 200);} );
+
     });
+$("iframe").contents().find("img").addClass("ifr");
 }
+
+    function resize() {
+        var windowWidth = $('[name="iframe-holder"]').width();
+        var windowHeight = $('[name="iframe-holder"]').height();
+
+        if ($('[name="iframe-holder"]').hasClass("card-fullscreen")) {
+              $("iframe").css({
+            "height": 700 + "px",
+            "width": 100 + "%"
+                });
+            }
+        else {
+          $("iframe").css({
+            "height": 375 + "px",
+            "width": 100 + "%"     
+                });
+            }
+    }
 
 function createContractForm() {
     // get the last DIV which ID starts with ^= "contact"

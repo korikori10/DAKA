@@ -229,6 +229,9 @@ function renderDreasons(results) {
         maxOptions: 30 //Max options to render at once in the dropdown
     }
     );
+    setTimeout(function () {
+    $("#DynamicEmployeesList").removeClass("selectize-control");
+    }, 200);
 }
 
 

@@ -28,3 +28,7 @@ td.fix-overflow {
 .is-active {
     margin-right: -80px;
 }
+.ifr {
+    height:375px;
+    width:100%;
+}

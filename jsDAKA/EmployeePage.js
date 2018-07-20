@@ -148,9 +148,10 @@ function renderEmployeeByID(results) {
         return o;
 };
 
-$(".icon-expand2").on('click', function () {
-    $("iframe").height("700px");
-});
+//$(".icon-expand2").on('click', function () {
+//    $("iframe").height("700px");
+//});
+
 
 var form1 = $('#EmployeeUpdate')
 
