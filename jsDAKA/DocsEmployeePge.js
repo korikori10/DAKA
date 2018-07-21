@@ -19,6 +19,38 @@ $(document).ready(function () {
 
 
 });
+//fit the pdf to iframe
+    $(function(){
+    
+        var iFrames = $('iframe');
+
+    	function iResize() {
+    	
+    		for (var i = 0, j = iFrames.length; i < j; i++) {
+        iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
+    	    }
+
+        	if ($.browser.safari || $.browser.opera) {
+
+        iFrames.load(function () {
+            setTimeout(iResize, 0);
+        });
+            
+    for (var i = 0, j = iFrames.length; i < j; i++) {
+        			var iSource = iFrames[i].src;
+        			iFrames[i].src = '';
+        			iFrames[i].src = iSource;
+               }
+
+        	} else {
+        iFrames.load(function () {
+            this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+        });
+    }
+
+        });
+
+
 
 function renderDocTypes(results) {
     //this is the callBackFunc 
@@ -80,9 +112,13 @@ function renderDocs(results) {
     }, 200);} );
 
     });
-$("iframe").contents().find("img").addClass("ifr");
 }
 
+$("#docstab").on('click',function(){
+$('iframe').contents().find('img').css('width', '100%')
+$('iframe').contents().find('img').css('height', '375px')
+
+});
     function resize() {
         var windowWidth = $('[name="iframe-holder"]').width();
         var windowHeight = $('[name="iframe-holder"]').height();

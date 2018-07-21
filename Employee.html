@@ -171,7 +171,7 @@
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs nav-underline no-hover-bg nav-justified">
                             <li class="nav-item"><a class="nav-link" href="#empDetails" data-toggle="tab" dir="rtl">מידע אישי</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#EmpDocs" data-toggle="tab" dir="rtl">מסמכים</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#EmpDocs" id="docstab" data-toggle="tab" dir="rtl">מסמכים</a></li>
                             <li class="nav-item"><a class="nav-link" href="#EmpHistory" data-toggle="tab" dir="rtl">היסטוריה</a></li>
                         </ul>
                     </div>
@@ -200,12 +200,11 @@
                                                 <div class="card-block">
                                                     <img id="empImg" name="Picture" src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image" />
                                                 </div>
-                                                <div id="namePassC" class="card-block">
+                                                <div id="namePassC" class="card-block" >
 
-                                                    <input type="text" readonly=readonly id="Fname" name="Fname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" style="text-align:left;padding-left:25px;" />
-                                                    <input type="text" readonly=readonly id="Lname" name="Lname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" />
-
-                                                    <input id="Employee_pass_id" class="card-subtitle text-muted form-control-static font-weight-bold font-size-large" style="text-align:center;width:180px;" />
+                                                    <input type="text" readonly=readonly id="Fname" name="Fname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" style="min-width:90%;text-align:center" />
+                                                    <input type="text" readonly=readonly id="Lname" name="Lname" class="card-title form-control-static font-weight-bold font-size-large col-md-6" style="min-width:90%; text-align:center"/>
+                                                    <input id="Employee_pass_id"  readonly=readonly class="card-subtitle text-muted form-control-static font-weight-bold font-size-large" style="text-align:center;width:180px;margin-right: -25px;" />
                                                 </div>
 
                                             </div>

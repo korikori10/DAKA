@@ -41,10 +41,33 @@ $('#InsertContract').click(function () {
     InsertheContract({ DocsInfo: JSON.stringify(DocsInfo) });
 });
 
+
+$("#busiTab").on('click',function(){
+$('iframe').contents().find('img').css('width', '100%')
+$('iframe').contents().find('img').css('height', '375px')
+
+});
+    function resize() {
+        var windowWidth = $('[name="iframe-holder"]').width();
+        var windowHeight = $('[name="iframe-holder"]').height();
+
+        if ($('[name="iframe-holder"]').hasClass("card-fullscreen")) {
+              $("iframe").css({
+            "height": 700 + "px",
+            "width": 100 + "%"
+                });
+            }
+        else {
+          $("iframe").css({
+            "height": 375 + "px",
+            "width": 100 + "%"     
+                });
+            }
+    }
+
 function renderDocs(results) {
 
-
-    results = $.parseJSON(results.d);
+results = $.parseJSON(results.d);
     $('#BusiDocs').attr('id');
 
     $.each(results, function (i, row) {
@@ -67,7 +90,30 @@ function renderDocs(results) {
         // }
 
     });
+
+    $('[data-action="expand"]').on('click', function(){    setTimeout(function () {
+   resize();
+    }, 200);} );
+   
+
 }
+    function resize() {
+        var windowWidth = $('[name="iframe-holder"]').width();
+        var windowHeight = $('[name="iframe-holder"]').height();
+
+        if ($('[name="iframe-holder"]').hasClass("card-fullscreen")) {
+              $("iframe").css({
+            "height": 700 + "px",
+            "width": 100 + "%"
+                });
+            }
+        else {
+          $("iframe").css({
+            "height": 375 + "px",
+            "width": 100 + "%"     
+                });
+            }
+    }
 
 function createContractForm() {
     // get the last DIV which ID starts with ^= "contact"
@@ -87,11 +133,11 @@ function createContractForm() {
     return id;
 }
 
-$('[data-action="expand"]').on('click', resize);
+//$('[data-action="expand"]').on('click', resize);
 
-function resize()
-{
-    iFrame = document.getElementsByTagName(iframe);
-    iFrame = iFrame.width = 100+'%';//iFrame.contentWindow.document.body.scrollWidth;
-    iFrame = iFrame.height = 1000 + 'px';// iFrame.contentWindow.document.body.scrollHeight;
-}
+//function resize()
+//{
+//    iFrame = document.getElementsByTagName(iframe);
+//    iFrame = iFrame.width = 100+'%';//iFrame.contentWindow.document.body.scrollWidth;
+//    iFrame = iFrame.height = 1000 + 'px';// iFrame.contentWindow.document.body.scrollHeight;
+//}

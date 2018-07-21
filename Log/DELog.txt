@@ -627,3 +627,24 @@ Log Entry : 7:24:30 PM Friday, July 20, 2018
  Text :System.Data.SqlClient.SqlException - A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
 UserName: Tom
 -------------------------------
+
+Log Entry : 18:00:47 שבת 21 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2548
+ Text :Conversion failed when converting date and/or time from character string.
+UserName: Kori
+-------------------------------
+
+Log Entry : 18:00:47 שבת 21 יולי 2018
+ Error :   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2560
+   at Doc.updateDoc(Doc d) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\Doc.cs:line 293
+   at AJAXWebService.InsertDoc(String FileInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 609
+ Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
+UserName: Kori
+-------------------------------
