@@ -4,6 +4,8 @@ var UserInfo = new Object();
 var username = "";
 var flag = new Object();
 var EmpPic = null;
+var DeleteBTN = new Object();
+var UnameT = new Object();
 
 $(document).ready(function () {
 
@@ -111,6 +113,9 @@ function renderUser(results) {
     $("#user1").find('img').attr('src', results.User_img);
 
     }
+    updateDelete()
+    $("[name='UserDelete']").attr('disabled', 'disabled');
+    $("[name='U_name']").attr('disabled', 'disabled');
 }
 
 
@@ -187,102 +192,111 @@ function renderUsers(results) {
                 $("#" + id).find('img').attr('src', row.User_img);
             }
         }
-
-
-
-    });
-
-    $("#Pic").on("change", function () {
-        pbLBL = $("#pbLBL")
-        pbDiv = $("#progressBar")
-        pbLBL.text('Uploading...');
-        pbDiv.fadeIn(500)
-        var files = $(this).get(0).files;
-        if (files.length > 0) {
-
-
-            var formData = new FormData();
-            for (var i = 0; i < files.length; i++) {
-                formData.append(files[i].name, files[i])
-            }
-            uploadFiles(formData, pbLBL, pbDiv, setEmpFile);
-
+        var username = sessionStorage.getItem("userName");
+        if (row.U_name == username) {
+           DeleteBTN = $("[name='UserDelete']:last");
+            UnameT = $("[name='U_name']:last");
         }
-    });
 
-    function setEmpFile(results) {
-        empPic = results;
-    }
-
-    $('[name="resetPassBTN"]').click(function () {
-        username = $(this).closest('form').find("[name='U_name']").val();
-        //  $('#resetPassModal').modal('toggle');
     });
+    DeleteBTN.attr('disabled', 'disabled');
+    UnameT.attr('disabled', 'disabled');
+        updateDelete();
     $('.selectize-select').selectize();
-
-    $("[name='UserSave']").on('click', function () {
-        var userFRM = $(this).closest('form')
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד לעדכן/להוסיף את פרטי המשתמש.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
-
-            function (isConfirm) {
-                if (isConfirm) {
-
-                    h = true;
-                    UserInfo = userFRM.serializeObject();
-                    
-                    //  UserInfo.Uid = sessionStorage.getItem("userInfo");
-                    if (UserInfo.Uid === undefined) {
-                        UserInfo.User_img = empPic;
-                        InsertUserCall({ UserInfo: JSON.stringify(UserInfo) });
-                    }
-                    else {
-                        UserInfo.Full_name = userFRM.find('h4').html();
-                        UserInfo.User_img = userFRM.find('img').attr('src');
-                        UpdateUsercall({ UserInfo: JSON.stringify(UserInfo) });
-                    }
-
-
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
-    });
-
-    $("[name='UserDelete']").on('click', function () {
-        var userFRM = $(this).closest('form')
-        swal({
-            title: "האם אתה בטוח?",
-            text: "אתה עומד למחוק את המשתמש מהמערכת.",
-            type: "info",
-            confirmButtonText: "כן",
-            showCancelButton: "true",
-            cancelButtonText: "בטל",
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-        },
-
-            function (isConfirm) {
-                if (isConfirm) {
-
-                    h = true;
-                    UserInfo = userFRM.serializeObject();
-
-                    DeleteUserCall({ UserInfo: JSON.stringify(UserInfo) });
-                }
-                else {
-                    // swal("Cancelled", "Your imaginary file is safe :)", "error");
-                }
-            });
-    });
 }
+
+$("#Pic").on("change", function () {
+    pbLBL = $("#pbLBL")
+    pbDiv = $("#progressBar")
+    pbLBL.text('Uploading...');
+    pbDiv.fadeIn(500)
+    var files = $(this).get(0).files;
+    if (files.length > 0) {
+
+
+        var formData = new FormData();
+        for (var i = 0; i < files.length; i++) {
+            formData.append(files[i].name, files[i])
+        }
+        uploadFiles(formData, pbLBL, pbDiv, setEmpFile);
+
+    }
+});
+
+function setEmpFile(results) {
+    empPic = results;
+}
+
+$('[name="resetPassBTN"]').click(function () {
+    username = $(this).closest('form').find("[name='U_name']").val();
+    //  $('#resetPassModal').modal('toggle');
+});
+
+
+function updateDelete() {
+$("[name='UserSave']").on('click', function () {
+    var userFRM = $(this).closest('form')
+    swal({
+        title: "האם אתה בטוח?",
+        text: "אתה עומד לעדכן/להוסיף את פרטי המשתמש.",
+        type: "info",
+        confirmButtonText: "כן",
+        showCancelButton: "true",
+        cancelButtonText: "בטל",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+    },
+
+        function (isConfirm) {
+            if (isConfirm) {
+
+                h = true;
+                UserInfo = userFRM.serializeObject();
+
+                //  UserInfo.Uid = sessionStorage.getItem("userInfo");
+                if (UserInfo.Uid === undefined) {
+                    UserInfo.User_img = empPic;
+                    InsertUserCall({ UserInfo: JSON.stringify(UserInfo) });
+                }
+                else {
+                    UserInfo.Full_name = userFRM.find('h4').html();
+                    UserInfo.User_img = userFRM.find('img').attr('src');
+                    UpdateUsercall({ UserInfo: JSON.stringify(UserInfo) });
+                }
+
+
+            }
+            else {
+                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+});
+
+$("[name='UserDelete']").on('click', function () {
+    var userFRM = $(this).closest('form')
+    swal({
+        title: "האם אתה בטוח?",
+        text: "אתה עומד למחוק את המשתמש מהמערכת.",
+        type: "info",
+        confirmButtonText: "כן",
+        showCancelButton: "true",
+        cancelButtonText: "בטל",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+    },
+
+        function (isConfirm) {
+            if (isConfirm) {
+
+                h = true;
+                UserInfo = userFRM.serializeObject();
+
+                DeleteUserCall({ UserInfo: JSON.stringify(UserInfo) });
+            }
+            else {
+                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+    });
+};
 
