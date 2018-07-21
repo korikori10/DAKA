@@ -122,7 +122,7 @@ $(document).ready(function () {
     $('[name=Il_citizen]').on('change', function () {
         if (this.value == 'T') {
 
-            $('[name=Insurance]').val('T').attr('disabled');
+            $('[name=Insurance]').val('T').attr('disabled', 'disabled');
         }
         else {
             $('[name=Insurance]').removeAttr('disabled').val("");
@@ -131,7 +131,7 @@ $(document).ready(function () {
     $('[name=Food_incloud]').on('change', function () {
         if (this.value == 'F') {
 
-            $('[name=Food_pay]').val(0).attr('disabled');
+            $('[name=Food_pay]').val(0).attr('disabled', 'disabled');
         }
         else {
             $('[name=Food_pay]').removeAttr('disabled');
@@ -141,7 +141,7 @@ $(document).ready(function () {
     $('[name=Com_app]').on('change', function () {
         if (this.value == 'F') {
 
-            $('[name=Monthly_rent]').val(0).attr('disabled');
+            $('[name=Monthly_rent]').val(0).attr('disabled', 'disabled');
         }
         else {
             $('[name=Monthly_rent]').removeAttr('disabled');
