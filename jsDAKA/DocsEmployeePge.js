@@ -1,6 +1,5 @@
 ﻿var DocsInfo = new Object();
 var DocTypes = new Object();
-//var docs = new Object();
 
 $(document).ready(function () {
     DocsInfo.Employee_pass_id = sessionStorage.getItem("empInfo");
@@ -19,6 +18,7 @@ $(document).ready(function () {
 
 
 });
+
 //fit the pdf to iframe
     $(function(){
     
@@ -106,7 +106,7 @@ function renderDocs(results) {
             }
 
        // }
-
+        //fit iframe to expand size
     $('[data-action="expand"]').on('click', function(){    setTimeout(function () {
    resize();
     }, 200);} );
@@ -114,12 +114,15 @@ function renderDocs(results) {
     });
 }
 
+//fit the img to iframe
 $("#docstab").on('click',function(){
 $('iframe').contents().find('img').css('width', '100%')
 $('iframe').contents().find('img').css('height', '375px')
 
 });
-    function resize() {
+
+
+function resize() {
         var windowWidth = $('[name="iframe-holder"]').width();
         var windowHeight = $('[name="iframe-holder"]').height();
 
@@ -155,7 +158,6 @@ function createContractForm() {
     return id;
 }
 
-//טבלת חידושי ויזה
 $('#insertDoc').click(function () {
     $('#insertDocFrm').validate();
 
