@@ -193,7 +193,7 @@ function renderUsers(results) {
             }
         }
         var username = sessionStorage.getItem("userName");
-        if (row.U_name == username) {
+        if (row.U_name.toLowerCase() == username.toLowerCase()) {
            DeleteBTN = $("[name='UserDelete']:last");
             UnameT = $("[name='U_name']:last");
         }
