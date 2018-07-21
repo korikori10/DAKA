@@ -47,10 +47,14 @@ window.onload = function () {
 //button vallidations
 //if email and cancelation already done make it disable
     $('#Cancelinsurance').on('shown.bs.modal', function (e) {
-        if (EmployeeInfo.Insurance == false) {
+        if (EmployeeInfo.Com_insurance == false) {
 
-            $('#cancellationDate').attr('disabled');
-            document.getElementById("Forfalse").innerHTML += "<span style='color: red;'> * ביטול הביטוח ושליחת המייל כבר נעשו </span>";
+            $('#cancellationDate').attr('disabled', 'disabled');
+            document.getElementById("Forfalse").innerHTML = "<span style='color: red;'> * ביטול הביטוח ושליחת המייל כבר נעשו </span>";
+        }
+        else {
+            $('#cancellationDate').removeAttr('disabled');
+            document.getElementById("Forfalse").innerHTML = "";
         }
 
 });
