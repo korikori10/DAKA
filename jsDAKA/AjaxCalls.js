@@ -293,7 +293,7 @@ function getBusinessesTable() {
 
                     {
                         'data': "",
-                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעובד"><i class="icon-eye3"></i></button>',
+                        'defaultContent': '<button name="edit" type="button" class="btn btn-info view" data-toggle="tooltip" data- original - title="צפה בעסק"><i class="icon-eye3"></i></button>',
 
                     }
                 ]
