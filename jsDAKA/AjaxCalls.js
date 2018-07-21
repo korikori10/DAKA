@@ -1276,7 +1276,9 @@ function getUserById(username, userPass ,ValidateUser) {
             ValidateUser(results);
         },
         error: function (request, error) {
-            window.location = "error404.html";
+            setTimeout(function () {
+                swal("התרחשה שגיאה במערכת, עלייך לפנות  לקורי או תום.", "לשים לב! הפעולה שכרגע נעשתה לא עודכנה במערכת", "error");
+            }, 1000);
         }
     });
 }
