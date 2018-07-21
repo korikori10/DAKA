@@ -94,7 +94,7 @@ function renderBusinesses(results) {
             resultsSave = row;
             newBus = false;
             populate(frm, data);
-            $('#bus_id').attr('disabled');
+            $('#bus_id').attr('disabled', 'disabled');
         }
 
         
@@ -221,12 +221,11 @@ function renderContacts(results) {
     setTimeout(function () {
     $(".selectize-select").selectize();
   }, 500);
-    //setTimeout(function () {
-    //    $('input[type="tel"]').rules('add', { maxlength: 9 });
-    //    $('input[type="number"]').rules('add', { maxlength: 9 });
-    //}, 1000);
+
     $("[name='contactSave']").on('click', function () {
-        var contactFRM = $(this).closest('form')
+     
+        contactFRM = $(this).closest('form');
+
         contactFRM.validate({
             ignore: 'input[type=hidden]', // ignore hidden fields
             errorClass: 'danger',
@@ -243,6 +242,9 @@ function renderContacts(results) {
             rules: {
                 email: {
                     email: true
+                },
+                Phone: {
+                    maxlength: 9
                 }
             }
         });
@@ -266,8 +268,10 @@ function renderContacts(results) {
             max: $.validator.format("נא למלא ערך קטן או שווה ל- {0}"),
             min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
         });
-        if (contactFRM.valid()) {
 
+        //$('input[type="number"]').rules('add', { maxlength: 9 });
+
+        if (contactFRM.valid()) {
 
             swal({
                 title: "האם אתה בטוח?",
@@ -308,8 +312,9 @@ function renderContacts(results) {
         }
 
     });
+}
 
-    }
+    
 
 
 //create 1 array for json from the form
@@ -339,7 +344,8 @@ function renderContacts(results) {
 
 //Check save or delete
 $("[name='updateB']").on('click', function () {
-    BusFRM = $('#BusinessUpdate')
+    BusFRM = $('#BusinessUpdate');
+
     BusFRM.validate({
         ignore: 'input[type=hidden]', // ignore hidden fields
         errorClass: 'danger',
@@ -379,6 +385,7 @@ $("[name='updateB']").on('click', function () {
         max: $.validator.format("נא למלא ערך קטן או שווה ל- {0}"),
         min: $.validator.format("נא למלא ערך גדול או שווה ל- {0}")
     });
+    $('input[type="number"]').rules('add', { maxlength: 9 });
     if (BusFRM.valid()) {
         swal({
             title: "האם אתה בטוח?",
