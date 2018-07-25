@@ -75,13 +75,13 @@ results = $.parseJSON(results.d);
 
             $("#doc1").attr('name', row.Contype_id);
             $("#doc1").find('iframe').attr('id', 'docimg1');
-            var img = $('#docimg1').attr('src', row.Contract_pic);
+            var img = $('#docimg1').attr('src', row.Contract_pic + "#view=FitH");
 
          
         }
         else {
             id = createContractForm();
-            $("#" + id).attr('name', row.Contype_id);
+            $("#" + id).attr('name', row.Contype_id + "#view=FitH");
             var img = $("#" + id).find('iframe').attr('id', 'img' + id);
             $('#img' + id).attr('src', row.Contract_pic);
            
