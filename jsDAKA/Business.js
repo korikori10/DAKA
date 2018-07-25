@@ -244,7 +244,8 @@ function renderContacts(results) {
                     email: true
                 },
                 Phone: {
-                    maxlength: 9
+                    maxlength: 9,
+                    digits: true
                 }
             }
         });

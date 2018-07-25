@@ -19,36 +19,36 @@ $(document).ready(function () {
 
 });
 
-//fit the pdf to iframe
-    $(function(){
+////fit the pdf to iframe
+//    $(function(){
     
-        var iFrames = $('iframe');
+//        var iFrames = $('iframe');
 
-    	function iResize() {
+//    	function iResize() {
     	
-    		for (var i = 0, j = iFrames.length; i < j; i++) {
-        iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
-    	    }
+//    		for (var i = 0, j = iFrames.length; i < j; i++) {
+//        iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
+//    	    }
 
-        	if ($.browser.safari || $.browser.opera) {
+//    //    	if ($.browser.safari || $.browser.opera) {
 
-        iFrames.load(function () {
-            setTimeout(iResize, 0);
-        });
+//    //    iFrames.load(function () {
+//    //        setTimeout(iResize, 0);
+//    //    });
             
-    for (var i = 0, j = iFrames.length; i < j; i++) {
-        			var iSource = iFrames[i].src;
-        			iFrames[i].src = '';
-        			iFrames[i].src = iSource;
-               }
+//    //for (var i = 0, j = iFrames.length; i < j; i++) {
+//    //    			var iSource = iFrames[i].src;
+//    //    			iFrames[i].src = '';
+//    //    			iFrames[i].src = iSource;
+//    //           }
 
-        	} else {
-        iFrames.load(function () {
-            this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
-        });
-    }
+//    //    	} else {
+//        iFrames.load(function () {
+//            this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+//        });
+//    //}
 
-        });
+//        });
 
 
 
