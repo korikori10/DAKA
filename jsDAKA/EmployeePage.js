@@ -232,7 +232,7 @@ $("#delete").on('click', function () {
 $("#save").on('click', function () {
     var form = $('#EmployeeUpdate');
     $('input[type="tel"]').rules('add', { maxlength: 9 });
-    $('input[type="number"]').rules('add', { maxlength: 9 });
+    $('input[type="number"]').rules('add', { maxlength: 9, digits: true });
     form.validate().settings.ignore = ":disabled,:hidden";
     if (form.valid()) {
 

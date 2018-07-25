@@ -1,248 +1,156 @@
 
-Log Entry : 5:15:46 PM Saturday, July 7, 2018
-  :
-  :employe_pass_id
-UserName: Tom
--------------------------------
-
-Log Entry : 5:50:43 PM Saturday, July 7, 2018
- Error :   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
-   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at DBServices.ReadEmployeesNoInsu() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 765
- Text :employe_pass_id
-UserName: Tom
--------------------------------
-
-Log Entry : 5:54:27 PM Saturday, July 7, 2018
- Error :   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
-   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at DBServices.ReadEmployeesNoInsu() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 765
- Text :System.IndexOutOfRangeException-employe_pass_id
-UserName: Tom
--------------------------------
-
-Log Entry : 3:19:47 PM Monday, July 9, 2018
- Error :   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
-   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
-   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
-   at DBServices.ReadEmployeesNeedNewVisa() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 815
- Text :System.IndexOutOfRangeException - employee_pass_i
-UserName: Tom
--------------------------------
-
-Log Entry : 16:00:26 יום שני 09 יולי 2018
- Error :   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.ReadDocsBusi(String DocsInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 724
- Text :System.InvalidOperationException - Cannot convert null to a value type.
+Log Entry : 22:26:59 יום שישי 13 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DBServices.ReadUser(String username) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 451
+ Text :The parameterized query '(@UserName nvarchar(4000))SELECT*FROM USER_V1 where u_name = @Us' expects the parameter '@UserName', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 21:07:45 יום רביעי 11 יולי 2018
- Error :   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.ReadDocsBusi(String DocsInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 724
- Text :System.InvalidOperationException - Cannot convert null to a value type.
+Log Entry : 22:27:04 יום שישי 13 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DBServices.ReadUser(String username) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 451
+ Text :The parameterized query '(@UserName nvarchar(4000))SELECT*FROM USER_V1 where u_name = @Us' expects the parameter '@UserName', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 21:08:28 יום רביעי 11 יולי 2018
- Error :   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.ReadDocsBusi(String DocsInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 724
- Text :System.InvalidOperationException - Cannot convert null to a value type.
+Log Entry : 22:28:14 יום שישי 13 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DBServices.ReadUser(String username) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 451
+ Text :The parameterized query '(@UserName nvarchar(4000))SELECT*FROM USER_V1 where u_name = @Us' expects the parameter '@UserName', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 21:26:56 יום רביעי 11 יולי 2018
- Error :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.readTypes() in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 489
- Text :System.Data.SqlClient.SqlException - Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3630; handshake=11403; 
+<<<<<<< HEAD
+Log Entry : 12:37:53 שבת 14 יולי 2018
+=======
+Log Entry : 12:42:10 PM Saturday, July 14, 2018
+>>>>>>> 0f840672b4c8ba72be4c4af19a77b36eee76c3ba
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+<<<<<<< HEAD
+   at DBServices.ReadUser(String username) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 451
+ Text :The parameterized query '(@UserName nvarchar(4000))SELECT*FROM USER_V1 where u_name = @Us' expects the parameter '@UserName', which was not supplied.
+UserName: Kori
+=======
+   at DBServices.ReadUser(String username) in c:\Users\Tom\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 451
+ Text :The parameterized query '(@UserName nvarchar(4000))SELECT*FROM USER_V1 where u_name = @Us' expects the parameter '@UserName', which was not supplied.
+UserName: Tom
+>>>>>>> 0f840672b4c8ba72be4c4af19a77b36eee76c3ba
+-------------------------------
+
+Log Entry : 13:28:43 שבת 14 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1204
+ Text :The parameterized query '(@U_name nvarchar(14),@FullName nvarchar(10),@Phone int,@U_img n' expects the parameter '@U_img', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 22:42:51 יום רביעי 11 יולי 2018
- Error :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadDocTypes() in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 987
- Text :System.Data.SqlClient.SqlException - Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3343; handshake=11420; 
+Log Entry : 13:28:43 שבת 14 יולי 2018
+ Error :   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1216
+   at User.UpdateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\User.cs:line 162
+   at ajaxWebService.UpdateUser(String UserInfo) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\ajaxWebService.cs:line 261
+ Text :System.Data.SqlClient.SqlException - The parameterized query '(@U_name nvarchar(14),@FullName nvarchar(10),@Phone int,@U_img n' expects the parameter '@U_img', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 22:42:56 יום רביעי 11 יולי 2018
- Error :   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.readBusinesses() in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 590
- Text :System.Data.SqlClient.SqlException - Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3343; handshake=11420; 
+Log Entry : 13:29:45 שבת 14 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1204
+ Text :The parameterized query '(@U_name nvarchar(14),@FullName nvarchar(10),@Phone int,@U_img n' expects the parameter '@U_img', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 11:13:16 AM Thursday, July 12, 2018
- Error :   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadEmployeesNotActive() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 927
- Text :System.InvalidOperationException - Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
-UserName: Tom
--------------------------------
-
-Log Entry : 11:13:31 AM Thursday, July 12, 2018
- Error :   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadEmployeesNoInsu() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 831
- Text :System.InvalidOperationException - Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
-UserName: Tom
--------------------------------
-
-Log Entry : 11:13:38 AM Thursday, July 12, 2018
- Error :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadSMARTELEMENTStatistic() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1711
- Text :A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
-UserName: Tom
--------------------------------
-
-Log Entry : 11:13:41 AM Thursday, July 12, 2018
- Error :   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.getDisable() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1361
- Text :System.Data.SqlClient.SqlException - A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
-UserName: Tom
--------------------------------
-
-Log Entry : 11:13:44 AM Thursday, July 12, 2018
- Error :   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadTotalAllemp() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1449
- Text :System.Data.SqlClient.SqlException - A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
-UserName: Tom
--------------------------------
-
-Log Entry : 9:37:38 PM Thursday, July 12, 2018
- Error :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadEmployeesNoInsu() in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 831
- Text :System.Data.SqlClient.SqlException - A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
-UserName: Tom
--------------------------------
-
-Log Entry : 21:17:43 יום שישי 13 יולי 2018
- Error :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
-   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadSMARTELEMENTStatistic() in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1711
- Text :Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=11532; handshake=2; 
+Log Entry : 13:29:45 שבת 14 יולי 2018
+ Error :   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1216
+   at User.UpdateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\User.cs:line 162
+   at ajaxWebService.UpdateUser(String UserInfo) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\ajaxWebService.cs:line 261
+ Text :System.Data.SqlClient.SqlException - The parameterized query '(@U_name nvarchar(14),@FullName nvarchar(10),@Phone int,@U_img n' expects the parameter '@U_img', which was not supplied.
 UserName: Kori
 -------------------------------
 
-Log Entry : 00:01:51 שבת 14 יולי 2018
+Log Entry : 13:36:46 שבת 14 יולי 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1204
+ Text :The parameterized query '(@U_name nvarchar(14),@FullName nvarchar(10),@Phone int,@U_img n' expects the parameter '@U_img', which was not supplied.
+UserName: Kori
+-------------------------------
+
+Log Entry : 13:36:46 שבת 14 יולי 2018
+ Error :   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1216
+   at User.UpdateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\User.cs:line 162
+   at ajaxWebService.UpdateUser(String UserInfo) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\ajaxWebService.cs:line 261
+ Text :System.Data.SqlClient.SqlException - The parameterized query '(@U_name nvarchar(14),@FullName nvarchar(10),@Phone int,@U_img n' expects the parameter '@U_img', which was not supplied.
+UserName: Kori
+-------------------------------
+
+Log Entry : 13:45:35 שבת 14 יולי 2018
  Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
@@ -250,20 +158,22 @@ Log Entry : 00:01:51 שבת 14 יולי 2018
    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2305
- Text :Conversion failed when converting date and/or time from character string.
+   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1276
+ Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_u_type". The conflict occurred in database "bgroup59_test2", table "dbo.USERS TYPES", column 'U_type_code'.
+The statement has been terminated.
 UserName: Kori
 -------------------------------
 
-Log Entry : 00:01:51 שבת 14 יולי 2018
- Error :   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2317
-   at Employee.updateVisa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\Employee.cs:line 1188
-   at AJAXWebService.updateVisa(String EmployeeInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 529
- Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
+Log Entry : 13:45:35 שבת 14 יולי 2018
+ Error :   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1288
+   at User.UpdateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\User.cs:line 162
+   at ajaxWebService.UpdateUser(String UserInfo) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\ajaxWebService.cs:line 261
+ Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_u_type". The conflict occurred in database "bgroup59_test2", table "dbo.USERS TYPES", column 'U_type_code'.
+The statement has been terminated.
 UserName: Kori
 -------------------------------
 
-Log Entry : 00:06:03 שבת 14 יולי 2018
+Log Entry : 13:47:21 שבת 14 יולי 2018
  Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
@@ -271,20 +181,22 @@ Log Entry : 00:06:03 שבת 14 יולי 2018
    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2534
- Text :Conversion failed when converting date and/or time from character string.
+   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1276
+ Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_u_type". The conflict occurred in database "bgroup59_test2", table "dbo.USERS TYPES", column 'U_type_code'.
+The statement has been terminated.
 UserName: Kori
 -------------------------------
 
-Log Entry : 00:06:03 שבת 14 יולי 2018
- Error :   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2546
-   at Doc.updateDoc(Doc d) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\Doc.cs:line 293
-   at AJAXWebService.InsertDoc(String FileInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 643
- Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
+Log Entry : 13:47:21 שבת 14 יולי 2018
+ Error :   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1288
+   at User.UpdateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\User.cs:line 162
+   at ajaxWebService.UpdateUser(String UserInfo) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\ajaxWebService.cs:line 261
+ Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_u_type". The conflict occurred in database "bgroup59_test2", table "dbo.USERS TYPES", column 'U_type_code'.
+The statement has been terminated.
 UserName: Kori
 -------------------------------
 
-Log Entry : 12:16:27 שבת 14 יולי 2018
+Log Entry : 13:50:24 שבת 14 יולי 2018
  Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
@@ -292,20 +204,65 @@ Log Entry : 12:16:27 שבת 14 יולי 2018
    at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
    at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
    at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2305
- Text :Conversion failed when converting date and/or time from character string.
+   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1276
+ Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_u_type". The conflict occurred in database "bgroup59_test2", table "dbo.USERS TYPES", column 'U_type_code'.
+The statement has been terminated.
 UserName: Kori
 -------------------------------
 
-Log Entry : 12:16:27 שבת 14 יולי 2018
- Error :   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2317
-   at Employee.updateVisa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\Employee.cs:line 1188
-   at AJAXWebService.updateVisa(String EmployeeInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 529
- Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
+Log Entry : 13:50:24 שבת 14 יולי 2018
+ Error :   at DBServices.updateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 1288
+   at User.UpdateUser(User u) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\User.cs:line 162
+   at ajaxWebService.UpdateUser(String UserInfo) in c:\Users\Kori\Documents\GitHub\DAKAmobile\App_Code\ajaxWebService.cs:line 261
+ Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_u_type". The conflict occurred in database "bgroup59_test2", table "dbo.USERS TYPES", column 'U_type_code'.
+The statement has been terminated.
 UserName: Kori
 -------------------------------
 
-Log Entry : 16:27:09 שבת 14 יולי 2018
+Log Entry : 9:15:34 PM Monday, July 16, 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.insert(Employee emp) in c:\Users\Tom\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 676
+ Text :The parameterized query '(@Lname nvarchar(5),@Sys_id int,@Fname nvarchar(4),@Birthday nva' expects the parameter '@Picture', which was not supplied.
+UserName: Tom
+-------------------------------
+
+Log Entry : 9:26:20 PM Monday, July 16, 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Tom\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 969
+ Text :System.Data.SqlClient.SqlException - Violation of PRIMARY KEY constraint 'pk_doc_id'. Cannot insert duplicate key in object 'dbo.DOCS'.
+The statement has been terminated.
+UserName: Tom
+-------------------------------
+
+Log Entry : 9:39:51 PM Monday, July 16, 2018
+ Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Tom\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 969
+ Text :System.Data.SqlClient.SqlException - Violation of PRIMARY KEY constraint 'pk_doc_id'. Cannot insert duplicate key in object 'dbo.DOCS'.
+The statement has been terminated.
+UserName: Tom
+-------------------------------
+
+Log Entry : 9:51:15 PM Monday, July 16, 2018
  Error :   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
    at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
    at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
@@ -319,268 +276,8 @@ Log Entry : 16:27:09 שבת 14 יולי 2018
    at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
    at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
    at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.readTypes() in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 563
- Text :System.Data.SqlClient.SqlException - Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=87; handshake=14976; 
-UserName: Kori
--------------------------------
-
-Log Entry : 16:27:13 שבת 14 יולי 2018
- Error :   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at DBServices.connect(String conString) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 38
-   at DBServices.ReadHistory(String pass) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 349
- Text :System.Data.SqlClient.SqlException - Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=87; handshake=14976; 
-UserName: Kori
--------------------------------
-
-Log Entry : 19:40:41 שבת 14 יולי 2018
- Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.insertContact(String contactInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 960
- Text :System.Exception - 05466774536 is not a valid value for Int32.
-UserName: Kori
--------------------------------
-
-Log Entry : 19:41:11 שבת 14 יולי 2018
- Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeMain(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.UpdateContact(String contactInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 1075
- Text :System.Exception - 05466774536 is not a valid value for Int32.
-UserName: Kori
--------------------------------
-
-Log Entry : 19:58:47 שבת 14 יולי 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2305
- Text :Conversion failed when converting date and/or time from character string.
-UserName: Kori
--------------------------------
-
-Log Entry : 19:58:47 שבת 14 יולי 2018
- Error :   at DBServices.inserNewtVIsa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 2317
-   at Employee.updateVisa(Employee emp) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\Employee.cs:line 1188
-   at AJAXWebService.updateVisa(String EmployeeInfo) in c:\Users\Kori\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 529
- Text :System.Data.SqlClient.SqlException - Conversion failed when converting date and/or time from character string.
-UserName: Kori
--------------------------------
-
-Log Entry : 12:33:41 PM Monday, July 16, 2018
- Error :   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
-   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
-   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
-   at PDF.fillForm(Employee e) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\PDF.cs:line 70
-   at AJAXWebService.insertEmployee(String EmployeeInfo) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 854
- Text :System.ArgumentException - An item with the same key has already been added.
+   at DBServices.connect(String conString) in c:\Users\Tom\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 51
+   at DBServices.inserNewtDoc(Doc emp) in c:\Users\Tom\Documents\GitHub\DAKAmobile\App_Code\DBServices.cs:line 950
+ Text :Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2755; handshake=4; 
 UserName: Tom
--------------------------------
-
-Log Entry : 12:35:18 PM Monday, July 16, 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.insert(Employee emp) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1797
- Text :Violation of PRIMARY KEY constraint 'PK__EMPLOYEE__4446603375A278F5'. Cannot insert duplicate key in object 'dbo.EMPLOYEE'.
-The statement has been terminated.
-UserName: Tom
--------------------------------
-
-Log Entry : 12:35:18 PM Monday, July 16, 2018
- Error :   at DBServices.insert(Employee emp) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\DBServices.cs:line 1809
-   at Employee.insertEmployee(Employee e) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\Employee.cs:line 1244
-   at AJAXWebService.insertEmployee(String EmployeeInfo) in c:\Users\Tom\Documents\GitHub\DAKA\App_Code\AJAXWebService.cs:line 852
- Text :System.Data.SqlClient.SqlException - Violation of PRIMARY KEY constraint 'PK__EMPLOYEE__4446603375A278F5'. Cannot insert duplicate key in object 'dbo.EMPLOYEE'.
-The statement has been terminated.
-UserName: Tom
--------------------------------
-
-Log Entry : 11:23:27 AM Tuesday, July 17, 2018
- Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.UpdateContact(String contactInfo) in c:\inetpub\wwwroot\bgroup59\test2\tar4\App_Code\AJAXWebService.cs:line 1048
- Text :System.Exception - 3453455554444 is not a valid value for Int32.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 11:28:24 AM Tuesday, July 17, 2018
- Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.UpdateUser(String UserInfo) in c:\inetpub\wwwroot\bgroup59\test2\tar4\App_Code\AJAXWebService.cs:line 1076
- Text :System.Exception - 4563547777 is not a valid value for Int32.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 1:44:36 PM Tuesday, July 17, 2018
- Error :   at System.ComponentModel.BaseNumberConverter.ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, Object value)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.AssignToPropertyOrField(Object propertyValue, Object o, String memberName, JavaScriptSerializer serializer, Boolean throwOnError)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertDictionaryToObject(IDictionary`2 dictionary, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.ObjectConverter.ConvertObjectToTypeInternal(Object o, Type type, JavaScriptSerializer serializer, Boolean throwOnError, Object& convertedObject)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
-   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
-   at AJAXWebService.insertBusinessAndContact(String BusiInfo) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\AJAXWebService.cs:line 821
- Text :System.Exception - 1223FG is not a valid value for Int32.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:03:45 PM Tuesday, July 17, 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3423
- Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:03:45 PM Tuesday, July 17, 2018
- Error :   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3435
-   at Business.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\Business.cs:line 445
-   at AJAXWebService.updateBusiness(String BusinessInfo) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\AJAXWebService.cs:line 1109
- Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:04:08 PM Tuesday, July 17, 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3423
- Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:04:08 PM Tuesday, July 17, 2018
- Error :   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3435
-   at Business.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\Business.cs:line 445
-   at AJAXWebService.updateBusiness(String BusinessInfo) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\AJAXWebService.cs:line 1109
- Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:04:52 PM Tuesday, July 17, 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3423
- Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:04:52 PM Tuesday, July 17, 2018
- Error :   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3435
-   at Business.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\Business.cs:line 445
-   at AJAXWebService.updateBusiness(String BusinessInfo) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\AJAXWebService.cs:line 1109
- Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:07:04 PM Tuesday, July 17, 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3423
- Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:07:04 PM Tuesday, July 17, 2018
- Error :   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3435
-   at Business.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\Business.cs:line 445
-   at AJAXWebService.updateBusiness(String BusinessInfo) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\AJAXWebService.cs:line 1109
- Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:08:50 PM Tuesday, July 17, 2018
- Error :   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
-   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3423
- Text :The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
--------------------------------
-
-Log Entry : 2:08:50 PM Tuesday, July 17, 2018
- Error :   at DBServices.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\DBServices.cs:line 3435
-   at Business.updateBusiness(Business bus) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\Business.cs:line 445
-   at AJAXWebService.updateBusiness(String BusinessInfo) in c:\inetpub\wwwroot\bgroup59\prod\App_Code\AJAXWebService.cs:line 1109
- Text :System.Data.SqlClient.SqlException - The UPDATE statement conflicted with the FOREIGN KEY constraint "fk_dep". The conflict occurred in database "bgroup59_test2", table "dbo.DEPARTMENT_TYPE", column 'department_code'.
-The statement has been terminated.
-UserName: bgroup59AppPool
 -------------------------------
