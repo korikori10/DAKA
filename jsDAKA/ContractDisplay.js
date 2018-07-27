@@ -28,12 +28,12 @@ function renderDocs(results) {
 
         if (i == 0) {
             $("#doc1").find('iframe').attr('id', 'docimg1');
-            var img = $('#docimg1').attr('src', row);
+            var img = $('#docimg1').attr('src', row + "#view=FitH");
             }
         else {
             id = createContractForm();
             var img = $("#" + id).find('iframe').attr('id', 'img' + id);
-             $('#img' + id).attr('src', row);
+            $('#img' + id).attr('src', row + "#view=FitH");
  
         }
     });
