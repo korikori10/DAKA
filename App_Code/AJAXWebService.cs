@@ -1457,7 +1457,8 @@ public class AJAXWebService : System.Web.Services.WebService
         {
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("kori.hash@gmail.com", "liroy1010"),
+                Credentials = new NetworkCredentia
+               "),
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false
@@ -1526,7 +1527,7 @@ public class AJAXWebService : System.Web.Services.WebService
         Employee e = js.Deserialize<Employee>(EmployeeInfo);
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("kori.hash@gmail.com", "liroy1010"),
+                Credentials = new NetworkCredential(),
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false
